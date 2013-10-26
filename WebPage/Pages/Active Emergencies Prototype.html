@@ -1,0 +1,121 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<!--
+Design by Free CSS Templates
+http://www.freecsstemplates.org
+Released for free under a Creative Commons Attribution 2.5 License
+
+Name       : Breakeven 
+Description: A two-column, fixed-width design with dark color scheme.
+Version    : 1.0
+Released   : 20130509
+
+-->
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="keywords" content="" />
+<meta name="description" content="" />
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<title>Emergency Center</title>
+<link href="http://fonts.googleapis.com/css?family=Open+Sans:400,300,600" rel="stylesheet" type="text/css" />
+<link href='http://fonts.googleapis.com/css?family=Abel|Satisfy' rel='stylesheet' type='text/css'>
+<link href="style.css" rel="stylesheet" type="text/css" media="screen" />
+</head>
+<body>
+<div id="wrapper">
+	<div id="header-wrapper">
+		<div id="header" class="container">
+			<div id="logo">
+				<h1><a href="#">Emergency Center</a></h1>
+			</div>
+			<div id="menu">
+				<ul>
+					<li class="current_page_item"><a href="#">Homepage</a></li>
+					<li><a href="#">Services</a></li>
+					<li><a href="#">Portfolio</a></li>
+					<li><a href="#">About</a></li>
+					<li><a href="#">Contact</a></li>
+				</ul>
+			</div>
+		</div>
+	</div>
+	<!-- end #header -->
+	<div id="page">
+		<div id="content">
+			<div class="post">
+				
+				<div class="entry">
+					<!--Aqui va lo de Active y Relayed Emergencies-->
+					<form action="" id="main">
+
+
+					
+
+					<h1>Relayed Emergencies</h1>
+
+					<div class="container2">
+					<input type="radio" name="relayEmergencyList" />  <br />
+
+					</div>
+
+					<h1>Active Emergencies</h1>
+
+					<div class="container2">
+					<input type="radio" name="activeEmergencyList" />  <br />
+
+					</div>
+					
+					
+					<p>
+					<button type="button" class="more" onclick="" form="main">Add Emergency</button>
+					<button type="button" class="more" onclick="" form="Emergencies">Show Emergency Information</button>
+					</p>
+
+					<p>
+					<button type="button" class="more" onclick="" form="Emergencies">Edit Emergency</button>
+					<button type="button" class="more" onclick="" form="Emergencies">Relay Emergency</button>
+					</p>
+
+					
+					</form>
+					
+					
+					
+					
+				</div>
+			</div>
+		</div>
+		<!-- end #content -->
+		<div id="sidebar">
+			<ul>
+				<li>
+					<h2>Emergency Information</h2>
+					<ul>
+						<li>Clients Phone Number: <input id="clientPhoneNumber"type="text" name="clientPhoneNumber" maxlength="10" size="10" required/></li>
+						<li>Name:<input type="text" name="clientName" maxlength="40" size="30"required></li>
+						<li>Address:<input type="text" name="clientAddress" maxlength="100" size="30" required></li>
+						<li>Type of Emergency:<select name="typeOfEmergency" size="1" placeholder="Select Type" required>
+							<option value="Type1">Type 1</option>
+							<option value="Type2">Type 2</option>
+							<option value="Type3">Type 3</option></select></li>
+						<li>Emergency at Home?:<input type="radio" name="outsideHome" value="Yes" >Yes</input><input type="radio" name="outsideHome" value="No" >No</input></li>
+						<li>Assigned Agent: <input type="text" name="attendedBy" maxlength="40" ></li>
+						<li>Emergency Description:<br><textarea rows="4" cols="30" name="emergencyDetails" maxlegth="500" placeholder="Short description of the emergency" required></textarea></li>
+						<li>Relay Description(If any):<br><textarea rows="4" cols="30" name="reason" maxlegth="500" placeholder="Short description for the Relay" required></textarea></li>
+						<li>Client Location:<input type=hidden name="latitude" ><input type=hidden name="longitude" ></li>
+						
+					</ul>
+				</li>
+			</ul>
+		</div>
+		<!-- end #sidebar -->
+		<div style="clear: both;">&nbsp;</div>
+	</div>
+	<!-- end #page --> 
+	
+</div>
+<div id="footer">
+	<p>Copyright (c) 2013 Sitename.com. All rights reserved. Images by <a href="http://fotogrph.com/">Fotogrph</a>. Design by <a href="http://www.freecsstemplates.org/" rel="nofollow">FreeCSSTemplates.org</a>.</p>
+</div>
+<!-- end #footer -->
+</body>
+</html>
