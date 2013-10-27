@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html>
 <head>
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
 
-<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.3.2/jquery.min.js"></script>
-<script type="text/javascript" src="http://www.json.org/json2.js"></script>
+<script type="text/javascript" src="C:\Users\Ricardo\Documents\GitHub\EmergencyAssistantAppWebpage\WebPage\JavaScript Stuff\json2.js"></script>
 <script src="http://maps.google.com/maps/api/js?sensor=false"></script>
 
 <script>
@@ -29,7 +29,10 @@ $(function() {
     $('#prueba').submit(function() {
         <!--$('#result').text(JSON.stringify($('#prueba').serializeObject()));
 		var key = $('#clientP').val();
-		localStorage.setItem( key , JSON.stringify($('#prueba').serializeObject()));
+		var JSONobject = JSON.stringify($('#prueba').serializeObject());
+		
+		localStorage.setItem( key , JSONobject);
+		
 		<!--('#result').text("The key is " + key + " and the value is " + localStorage.getItem(key));
 		
         return false;
@@ -37,10 +40,12 @@ $(function() {
 });
 
 $(function(){
-	$('#formData').submit(function(){
+	$('#getData').click(function(){
 		var dataKey = $('#keyFetcher').val();
 		var actualStorageSize = JSON.stringify(localStorage).length;
+		var cosa = JSON.parse(localStorage.getItem(dataKey));
 		$('#result').text("KEY = "+ dataKey + " DATA = " + localStorage.getItem(dataKey) + " SIZE = " + actualStorageSize + " Bytes");
+		alert();
 		return false;
     })
 })
@@ -52,6 +57,9 @@ localStorage.clear();
 }
 
 <!-----------------MAPA---------------------->
+
+
+
 
 function getLocation()
   {
@@ -115,6 +123,7 @@ function showError(error)
 <!------------------------------------------------------------------------------------------------------------------------>
 
 <h2>Form</h2>
+
 <form id="prueba" action="" method="post">
 First Name:<input type="text" name="Fname" maxlength="12" size="12"/> <br/>
 Last Name:<input type="text" name="Lname" maxlength="36" size="12"/> <br/>
@@ -142,13 +151,14 @@ Select your favorite time of day:<br/>
 
 
 Telefono <input id="clientP"type="text" name="clientPhoneNumber" maxlength="12" size="12"/>
-<p><button type="submit"onclick="getLocation()">Try It</button></p>
+<p><button type="submit">Try It</button></p>
 </form>
 
-<form id="formData">
+
+<!--<form id="formData">-->
 Write key to see data<input type="text" id="keyFetcher"/>
-<br><p><input type="submit" id="getData"/></p><br>
-</form>
+<br><p><button id="getData">Get Data</button></p><br>
+<!--</form>-->
 <h2>JSON</h2>
 <pre id="result">
 </pre>

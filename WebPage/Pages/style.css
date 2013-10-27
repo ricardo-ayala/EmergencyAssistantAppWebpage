@@ -310,39 +310,40 @@ a:hover {
 
 /* Sidebar */
 
-#sidebar {
+#sidebar1 {
 	float: right;
 	width: 360px;
 	margin: 0px;
 	padding: 10px;
 	background: #F0F0F0;
 	border-radius: 7px;
+	display:inline;
 }
 
-#sidebar ul {
+#sidebar1 ul {
 	margin: 0;
 	padding: 0;
 	list-style: none;
 }
 
-#sidebar li {
+#sidebar1 li {
 	margin: 0;
 	padding: 0;
 }
 
-#sidebar li ul {
+#sidebar1 li ul {
 	margin: 0px 0px;
 	padding-bottom: 30px;
 }
 
-#sidebar li li {
+#sidebar1 li li {
 	line-height: 40px;
 	border-bottom: 1px solid #E7EBED;
 	margin: 0px 0px;
 	border-left: none;
 }
 
-#sidebar li li span {
+#sidebar1 li li span {
 	display: block;
 	margin-top: -20px;
 	padding: 0;
@@ -350,12 +351,12 @@ a:hover {
 	font-style: italic;
 }
 
-#sidebar li li a {
+#sidebar1 li li a {
 	padding: 0px 0px 0px 10px;
 	background: url(images/img04.jpg) no-repeat left 50%;
 }
 
-#sidebar h2 {
+#sidebar1 h2 {
 	height: 38px;
 	padding: 0px 0px 20px 0px;
 	letter-spacing: -.5px;
@@ -363,17 +364,85 @@ a:hover {
 	color: #222222;
 }
 
-#sidebar p {
+#sidebar1 p {
 	margin: 0 0px;
 	padding: 0px 30px 20px 30px;
 	text-align: justify;
 }
 
-#sidebar a {
+#sidebar1 a {
 	border: none;
 }
 
-#sidebar a:hover {
+#sidebar1 a:hover {
+	text-decoration: underline;
+}
+
+#sidebar2 {
+	float: right;
+	width: 360px;
+	margin: 0px;
+	padding: 10px;
+	background: #F0F0F0;
+	border-radius: 7px;
+	display:none;
+}
+
+#sidebar2 ul {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+
+#sidebar2 li {
+	margin: 0;
+	padding: 0;
+}
+
+#sidebar2 li ul {
+	margin: 0px 0px;
+	padding-bottom: 30px;
+}
+
+#sidebar2 li li {
+	line-height: 40px;
+	border-bottom: 1px solid #E7EBED;
+	margin: 0px 0px;
+	border-left: none;
+}
+
+#sidebar2 li li span {
+	display: block;
+	margin-top: -20px;
+	padding: 0;
+	font-size: 11px;
+	font-style: italic;
+}
+
+#sidebar2 li li a {
+	padding: 0px 0px 0px 10px;
+	background: url(images/img04.jpg) no-repeat left 50%;
+}
+
+#sidebar2 h2 {
+	height: 38px;
+	padding: 0px 0px 20px 0px;
+	letter-spacing: -.5px;
+	font-size: 1.8em;
+	color: #222222;
+}
+
+#sidebar2 p {
+	margin: 0 0px;
+	padding: 0px 30px 20px 30px;
+	text-align: justify;
+}
+
+#sidebar2 a {
+	border: none;
+}
+
+#sidebar2 a:hover {
 	text-decoration: underline;
 }
 

@@ -19,6 +19,97 @@ Released   : 20130509
 <link href="http://fonts.googleapis.com/css?family=Open+Sans:400,300,600" rel="stylesheet" type="text/css" />
 <link href='http://fonts.googleapis.com/css?family=Abel|Satisfy' rel='stylesheet' type='text/css'>
 <link href="style.css" rel="stylesheet" type="text/css" media="screen" />
+
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+<script type="text/javascript" src="http://www.json.org/json2.js"></script>
+
+<script>
+<!--Transforms a String Object to a JSON Object-->
+$.fn.serializeObject = function()
+{
+    var o = {};
+    var a = this.serializeArray();
+    $.each(a, function() {
+        if (o[this.name] !== undefined) {
+            if (!o[this.name].push) {
+                o[this.name] = [o[this.name]];
+            }
+            o[this.name].push(this.value || '');
+        } else {
+            o[this.name] = this.value || '';
+        }
+    });
+    return o;
+};
+
+<!-----------Changes page from show to add Emergency-------->
+
+$(function(){
+  $("#change").click(function(){
+    $("#sidebar1").css("display","none");
+    $("#sidebar2").css("display","inline");
+  });
+});
+
+
+
+
+<!--Adds a Client with an Emergency to Local Storage-->
+$(function() {
+    $('#add').submit(function() {
+        
+		var key = $('#clientPhoneNumber').val();
+		var timestamp = new Date();
+		var JSONObject = JSON.stringify($('#add').serializeObject());
+		$('#timeStamp').val(timestamp);
+		localStorage.setItem( key , JSONObject );
+		<!--$('#active').html(JSONObject.clientName);
+		$("#sidebar1").css("display","inline");
+		$("#sidebar2").css("display","none");
+		alert(:D);
+		$('#add').trigger("reset");
+		
+        return false;
+    });
+});
+
+<!--Edits information of an Emergency-->
+function editInfo()
+{
+
+}
+
+<!--Displays the information of the emergency on screen along with the clients location(map)-->
+function showInfo()
+{
+
+}
+
+<!--Shares the clients information with another agency-->
+function relayInfo()
+{
+
+}
+
+<!--Prueba------------------------------------------------------------------------------------------------------------------------------->
+$(function(){
+	$('#formData').submit(function(){
+		
+		var dataKey = $('#keyFetcher').val();
+		
+		var actualStorageSize = JSON.stringify(localStorage).length;
+		$('#result').text("KEY = "+ dataKey + " DATA = " + localStorage.getItem(dataKey) + " SIZE = " + actualStorageSize + " Bytes");
+		return false;
+    })
+})
+
+function counterReset()
+{
+localStorage.clear();
+}
+
+</script>
+
 </head>
 <body>
 <div id="wrapper">
@@ -30,10 +121,10 @@ Released   : 20130509
 			<div id="menu">
 				<ul>
 					<li class="current_page_item"><a href="#">Homepage</a></li>
-					<li><a href="#">Services</a></li>
-					<li><a href="#">Portfolio</a></li>
-					<li><a href="#">About</a></li>
-					<li><a href="#">Contact</a></li>
+					<li><a href="#">History</a></li>
+					<li><a href="#">Account Information</a></li>
+					<li><a href="#">Log out</a></li>
+					
 				</ul>
 			</div>
 		</div>
@@ -52,21 +143,19 @@ Released   : 20130509
 
 					<h1>Relayed Emergencies</h1>
 
-					<div class="container2">
+					<div id="relayed"class="container2">
 					<input type="radio" name="relayEmergencyList" />  <br />
 
 					</div>
 
 					<h1>Active Emergencies</h1>
 
-					<div class="container2">
-					<input type="radio" name="activeEmergencyList" />  <br />
-
+					<div id="active" class="container2">
 					</div>
-					
+					</form>
 					
 					<p>
-					<button type="button" class="more" onclick="" form="main">Add Emergency</button>
+					<button id="change"type="button" class="more">Add Emergency</button>
 					<button type="button" class="more" onclick="" form="Emergencies">Show Emergency Information</button>
 					</p>
 
@@ -76,7 +165,7 @@ Released   : 20130509
 					</p>
 
 					
-					</form>
+					
 					
 					
 					
@@ -85,12 +174,33 @@ Released   : 20130509
 			</div>
 		</div>
 		<!-- end #content -->
-		<div id="sidebar">
+		<div id="sidebar1">
 			<ul>
 				<li>
 					<h2>Emergency Information</h2>
 					<ul>
-						<li>Clients Phone Number: <input id="clientPhoneNumber"type="text" name="clientPhoneNumber" maxlength="10" size="10" required/></li>
+						<li>Client Phone Number: </li>
+						<li>Name:</li>
+						<li>Address:</li>
+						<li>Type of Emergency:</li>
+						<li>Emergency at Home?:</li>
+						<li>Assigned Agent: </li>
+						<li>Emergency Description:<br></li>
+						<li>Relay Description(If any):<br></li>
+						<li>Client Location:</li>
+						
+					</ul>
+				</li>
+			</ul>
+		</div>
+		<form id="add" action="" method="post">
+		<div id="sidebar2">
+			<ul>
+				<li>
+					<h2>Emergency Information</h2>
+					<ul>
+						<form id="add" action="" method="post">
+						<li>Client Phone Number: <input id="clientPhoneNumber"type="text" name="clientPhoneNumber" maxlength="10" size="10" required/></li>
 						<li>Name:<input type="text" name="clientName" maxlength="40" size="30"required></li>
 						<li>Address:<input type="text" name="clientAddress" maxlength="100" size="30" required></li>
 						<li>Type of Emergency:<select name="typeOfEmergency" size="1" placeholder="Select Type" required>
@@ -102,11 +212,13 @@ Released   : 20130509
 						<li>Emergency Description:<br><textarea rows="4" cols="30" name="emergencyDetails" maxlegth="500" placeholder="Short description of the emergency" required></textarea></li>
 						<li>Relay Description(If any):<br><textarea rows="4" cols="30" name="reason" maxlegth="500" placeholder="Short description for the Relay" required></textarea></li>
 						<li>Client Location:<input type=hidden name="latitude" ><input type=hidden name="longitude" ></li>
-						
+						<button type="submit" class="more">Submit</button>
+						</form>
 					</ul>
 				</li>
 			</ul>
 		</div>
+		</form>
 		<!-- end #sidebar -->
 		<div style="clear: both;">&nbsp;</div>
 	</div>
