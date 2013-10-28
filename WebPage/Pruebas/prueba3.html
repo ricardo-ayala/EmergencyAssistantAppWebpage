@@ -45,7 +45,7 @@ $(function(){
 		var actualStorageSize = JSON.stringify(localStorage).length;
 		var cosa = JSON.parse(localStorage.getItem(dataKey));
 		$('#result').text("KEY = "+ dataKey + " DATA = " + localStorage.getItem(dataKey) + " SIZE = " + actualStorageSize + " Bytes");
-		alert();
+		
 		return false;
     })
 })

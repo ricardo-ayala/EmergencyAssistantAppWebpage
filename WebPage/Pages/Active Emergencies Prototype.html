@@ -24,7 +24,7 @@ Released   : 20130509
 <script type="text/javascript" src="http://www.json.org/json2.js"></script>
 
 <script>
-<!--Transforms a String Object to a JSON Object-->
+<!-----------Transforms a String Object to a JSON Object--------->
 $.fn.serializeObject = function()
 {
     var o = {};
@@ -42,7 +42,7 @@ $.fn.serializeObject = function()
     return o;
 };
 
-<!-----------Changes page from show to add Emergency-------->
+<!-----------Changes Sidebar from show to add Emergency-------->
 
 $(function(){
   $("#change").click(function(){
@@ -51,10 +51,7 @@ $(function(){
   });
 });
 
-
-
-
-<!--Adds a Client with an Emergency to Local Storage-->
+<!------------------Adds a Client with an Emergency to Local Storage--------------->
 $(function() {
     $('#add').submit(function() {
         
@@ -63,10 +60,30 @@ $(function() {
 		var JSONObject = JSON.stringify($('#add').serializeObject());
 		$('#timeStamp').val(timestamp);
 		localStorage.setItem( key , JSONObject );
-		<!--$('#active').html(JSONObject.clientName);
+		
+		
+<!---------------Adds the Emergency Information to the Active Emergencies container------>    		
+		var texto = JSON.parse(JSONObject).clientName + ", " +JSON.parse(JSONObject).clientPhoneNumber + ", " +JSON.parse(JSONObject).attendedBy;
+		
+		var valor = JSON.parse(JSONObject).clientPhoneNumber + "," 
+		          + JSON.parse(JSONObject).clientNombre + "," 
+				  + JSON.parse(JSONObject).clientAddress + "," 
+                  + JSON.parse(JSONObject).typeOfEmergency + "," 
+				  + JSON.parse(JSONObject).outsideHome + "," 
+				  + JSON.parse(JSONObject).attendedBy + "," 
+				  + JSON.parse(JSONObject).clientNombre + "," 
+				  + JSON.parse(JSONObject).emergencyDetails + "," 
+				  + JSON.parse(JSONObject).latitude + "," 
+				  + JSON.parse(JSONObject).longitude;
+		
+		var radioBtn = $('<input id=' +key+ ' type="radio" name="active" value='+valor+'>'+texto+'------------------------Active</input><br>');
+		$('#active').append(radioBtn);
+		
+<!--------------Changes HTML Doc to initial state----------------------------------->		
+		<!--$('#active').html(JSON.parse(JSONObject).clientName);
 		$("#sidebar1").css("display","inline");
 		$("#sidebar2").css("display","none");
-		alert(:D);
+		
 		$('#add').trigger("reset");
 		
         return false;
@@ -91,7 +108,7 @@ function relayInfo()
 
 }
 
-<!--Prueba------------------------------------------------------------------------------------------------------------------------------->
+<!--------------------------------------------TEST FUNCTIONS ONLY------------------------------------------------------------------------>
 $(function(){
 	$('#formData').submit(function(){
 		
@@ -136,7 +153,7 @@ localStorage.clear();
 				
 				<div class="entry">
 					<!--Aqui va lo de Active y Relayed Emergencies-->
-					<form action="" id="main">
+					
 
 
 					
@@ -147,12 +164,19 @@ localStorage.clear();
 					<input type="radio" name="relayEmergencyList" />  <br />
 
 					</div>
-
+					
+					
 					<h1>Active Emergencies</h1>
-
+					
+					
+					<form action="" id="main">
 					<div id="active" class="container2">
+					
+					
 					</div>
 					</form>
+					
+					
 					
 					<p>
 					<button id="change"type="button" class="more">Add Emergency</button>
@@ -161,7 +185,7 @@ localStorage.clear();
 
 					<p>
 					<button type="button" class="more" onclick="" form="Emergencies">Edit Emergency</button>
-					<button type="button" class="more" onclick="" form="Emergencies">Relay Emergency</button>
+					<button type="button" class="more" onclick="" form="Emergencies">Mark as Resolved</button>
 					</p>
 
 					
@@ -186,7 +210,7 @@ localStorage.clear();
 						<li>Emergency at Home?:</li>
 						<li>Assigned Agent: </li>
 						<li>Emergency Description:<br></li>
-						<li>Relay Description(If any):<br></li>
+						<!--<li>Relay Description(If any):<br></li>-->
 						<li>Client Location:</li>
 						
 					</ul>
@@ -207,10 +231,10 @@ localStorage.clear();
 							<option value="Type1">Type 1</option>
 							<option value="Type2">Type 2</option>
 							<option value="Type3">Type 3</option></select></li>
-						<li>Emergency at Home?:<input type="radio" name="outsideHome" value="Yes" >Yes</input><input type="radio" name="outsideHome" value="No" >No</input></li>
+						<li>Emergency at Home?:<input type="radio" name="outsideHome" value="Yes" checked >Yes</input><input type="radio" name="outsideHome" value="No" >No</input></li>
 						<li>Assigned Agent: <input type="text" name="attendedBy" maxlength="40" ></li>
 						<li>Emergency Description:<br><textarea rows="4" cols="30" name="emergencyDetails" maxlegth="500" placeholder="Short description of the emergency" required></textarea></li>
-						<li>Relay Description(If any):<br><textarea rows="4" cols="30" name="reason" maxlegth="500" placeholder="Short description for the Relay" required></textarea></li>
+						<!--<li>Relay Description(If any):<br><textarea rows="4" cols="30" name="reason" maxlegth="500" placeholder="Short description for the Relay" required></textarea></li>-->
 						<li>Client Location:<input type=hidden name="latitude" ><input type=hidden name="longitude" ></li>
 						<button type="submit" class="more">Submit</button>
 						</form>
