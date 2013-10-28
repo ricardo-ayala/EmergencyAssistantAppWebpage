@@ -76,11 +76,10 @@ $(function() {
 				  + JSON.parse(JSONObject).latitude + "," 
 				  + JSON.parse(JSONObject).longitude;
 		
-		var radioBtn = $('<input id=' +key+ ' type="radio" name="active" value='+valor+'>'+texto+'------------------------Active</input><br>');
+		var radioBtn = $('<input type="radio" name="active" value='+ '"'+key+'"'+'>'+texto+'------------------------Active</input><br>');
 		$('#active').append(radioBtn);
 		
 <!--------------Changes HTML Doc to initial state----------------------------------->		
-		<!--$('#active').html(JSON.parse(JSONObject).clientName);
 		$("#sidebar1").css("display","inline");
 		$("#sidebar2").css("display","none");
 		
@@ -107,17 +106,16 @@ $(window).load(function () {
 					var texto = JSON.parse(JSONObject).clientName + ", " +JSON.parse(JSONObject).clientPhoneNumber + ", " +JSON.parse(JSONObject).attendedBy;
 		
 					var valor = JSON.parse(JSONObject).clientPhoneNumber + "," 
-							  + JSON.parse(JSONObject).clientNombre + "," 
+							  + JSON.parse(JSONObject).clientName + "," 
 							  + JSON.parse(JSONObject).clientAddress + "," 
 							  + JSON.parse(JSONObject).typeOfEmergency + "," 
 							  + JSON.parse(JSONObject).outsideHome + "," 
 							  + JSON.parse(JSONObject).attendedBy + "," 
-							  + JSON.parse(JSONObject).clientNombre + "," 
 							  + JSON.parse(JSONObject).emergencyDetails + "," 
 							  + JSON.parse(JSONObject).latitude + "," 
 							  + JSON.parse(JSONObject).longitude;
 		
-								var radioBtn = $('<input id=' +key+ ' type="radio" name="active" value='+valor+'>'+texto+'------------------------Active</input><br>');
+								var radioBtn = $('<input type="radio" name="active" value=' + '"'+ key + '"' +'>'+texto+'------------------------Active</input><br>');
 								$('#active').append(radioBtn);
 					
 					
@@ -134,10 +132,30 @@ function editInfo()
 }
 
 <!--Displays the information of the emergency on screen along with the clients location(map)-->
-function showInfo()
-{
 
-}
+$(function() {
+    $('#main').submit(function() {
+        
+		var JSONkey, JSONObject, key, position;
+			
+			JSONkey = JSON.stringify($('#main').serializeObject());
+			key = JSON.parse(JSONkey).active;
+			JSONObject = localStorage.getItem(key);
+			$("#cpn").html(JSON.parse(JSONObject).clientPhoneNumber);
+			$("#n").html(JSON.parse(JSONObject).clientName);
+			$("#a").html(JSON.parse(JSONObject).clientAddress);
+			$("#toe").html(JSON.parse(JSONObject).typeOfEmergency);
+			$("#eah").html(JSON.parse(JSONObject).outsideHome);
+			$("#aa").html(JSON.parse(JSONObject).attendedBy);
+			$("#ed").html(JSON.parse(JSONObject).emergencyDetails);
+			position = JSON.parse(JSONObject).latitude + ', ' + JSON.parse(JSONObject).longitude; 
+			$("#cl").html(position);
+			
+			
+		return false;
+	});
+});
+
 
 <!--Shares the clients information with another agency-->
 function relayInfo()
@@ -216,8 +234,8 @@ localStorage.clear();
 					
 					
 					<p>
-					<button id="change"type="button" class="more">Add Emergency</button>
-					<button type="button" class="more" onclick="" form="Emergencies">Show Emergency Information</button>
+					<button id="change" type="button" class="more">Add Emergency</button>
+					<button id="show" type="submit" class="more" onclick="" form="main">Show Emergency Information</button>
 					</p>
 
 					<p>
@@ -240,15 +258,15 @@ localStorage.clear();
 				<li>
 					<h2>Emergency Information</h2>
 					<ul>
-						<li>Client Phone Number: </li>
-						<li>Name:</li>
-						<li>Address:</li>
-						<li>Type of Emergency:</li>
-						<li>Emergency at Home?:</li>
-						<li>Assigned Agent: </li>
-						<li>Emergency Description:<br></li>
+						<li>Client Phone Number:<h1 id="cpn"></h1> </li>
+						<li>Name:<h1 id="n"></h1></li>
+						<li>Address:<h1 id="a"></h1></li>
+						<li>Type of Emergency:<h1 id="toe"></h1></li>
+						<li>Emergency at Home?:<h1 id="eah"></h1></li>
+						<li>Assigned Agent: <h1 id="aa"></h1></li>
+						<li>Emergency Description:<br><div id="container3"><p id="ed"></p></div></li>
 						<!--<li>Relay Description(If any):<br></li>-->
-						<li>Client Location:</li>
+						<li>Client Location:<h1 id="cl"></h1></li>
 						
 					</ul>
 				</li>
@@ -270,7 +288,7 @@ localStorage.clear();
 							<option value="Type3">Type 3</option></select></li>
 						<li>Emergency at Home?:<input type="radio" name="outsideHome" value="Yes" checked >Yes</input><input type="radio" name="outsideHome" value="No" >No</input></li>
 						<li>Assigned Agent: <input type="text" name="attendedBy" maxlength="40" ></li>
-						<li>Emergency Description:<br><textarea rows="4" cols="30" name="emergencyDetails" maxlegth="500" placeholder="Short description of the emergency" required></textarea></li>
+						<li>Emergency Description:<br><textarea rows="7" cols="40" name="emergencyDetails" maxlegth="500" placeholder="Short description of the emergency" required></textarea></li>
 						<!--<li>Relay Description(If any):<br><textarea rows="4" cols="30" name="reason" maxlegth="500" placeholder="Short description for the Relay" required></textarea></li>-->
 						<li>Client Location:<input type=hidden name="latitude" ><input type=hidden name="longitude" ></li>
 						<button type="submit" class="more">Submit</button>

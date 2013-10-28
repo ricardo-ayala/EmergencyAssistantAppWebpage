@@ -305,10 +305,21 @@ a:hover {
 	width:500px; 
 	height: 100px; 
 	overflow-y: scroll;
-	margin-bottom:1cm; 
+	margin-bottom:1cm;	
 }
 
+
+
 /* Sidebar */
+#container3 { 
+	border:2px solid #A9A9A9; 
+	width:350px; 
+	height: 100px; 
+	overflow-y: scroll;
+	margin-bottom:1cm;
+}
+
+
 
 #sidebar1 {
 	float: right;
