@@ -66,9 +66,10 @@ $(function(){
 	$('#formData').submit(function(){
 		
 		var dataKey = $('#keyFetcher').val();
-		
+		var size = localStorage.length;
 		var actualStorageSize = JSON.stringify(localStorage).length;
 		$('#result').text("KEY = "+ dataKey + " DATA = " + localStorage.getItem(dataKey) + " SIZE = " + actualStorageSize + " Bytes");
+		alert(actualStorageSize);
 		return false;
     })
 })

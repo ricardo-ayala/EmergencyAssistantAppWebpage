@@ -15,7 +15,7 @@ Released   : 20130509
 <meta name="keywords" content="" />
 <meta name="description" content="" />
 <meta http-equiv="content-type" content="text/html; charset=utf-8" />
-<title>Emergency Center</title>
+<title>History</title>
 <link href="http://fonts.googleapis.com/css?family=Open+Sans:400,300,600" rel="stylesheet" type="text/css" />
 <link href='http://fonts.googleapis.com/css?family=Abel|Satisfy' rel='stylesheet' type='text/css'>
 <link href="style.css" rel="stylesheet" type="text/css" media="screen" />
@@ -174,8 +174,8 @@ localStorage.clear();
 			</div>
 			<div id="menu">
 				<ul>
-					<li class="current_page_item"><a href="#">Homepage</a></li>
-					<li><a href="C:\Users\Ricardo\Documents\GitHub\EmergencyAssistantAppWebpage\WebPage\Pages\History Prototype.html">History</a></li>
+					<li><a href="C:\Users\Ricardo\Documents\GitHub\EmergencyAssistantAppWebpage\WebPage\Pages\Active Emergencies Prototype.html">Homepage</a></li>
+					<li class="current_page_item"><a href="#">History</a></li>
 					<li><a href="#">Account Information</a></li>
 					<li><a href="#">Log out</a></li>
 					
@@ -189,43 +189,8 @@ localStorage.clear();
 			<div class="post">
 				
 				<div class="entry">
-					<!--Aqui va lo de Active y Relayed Emergencies-->
-					
-
-
-					
-
-					<h1>Relayed Emergencies</h1>
-
-					<div id="relayed"class="container2">
-					
-
-					</div>
-					
-					
-					<h1>Active Emergencies</h1>
-					
-					
-					<form action="" id="main">
-					<div id="active" class="container2">
-					
-					
-					</div>
-					</form>
-					
-					
-					
-					<p>
-					<button id="change"type="button" class="more">Add Emergency</button>
-					<button type="button" class="more" onclick="" form="Emergencies">Show Emergency Information</button>
-					</p>
-
-					<p>
-					<button type="button" class="more" onclick="" form="Emergencies">Edit Emergency</button>
-					<button type="button" class="more" onclick="" form="Emergencies">Mark as Resolved</button>
-					</p>
-
-					
+				
+					<h2>History</h2>
 					
 					
 					
@@ -238,48 +203,22 @@ localStorage.clear();
 		<div id="sidebar1">
 			<ul>
 				<li>
-					<h2>Emergency Information</h2>
+					<h2>Filters</h2>
 					<ul>
-						<li>Client Phone Number: </li>
-						<li>Name:</li>
-						<li>Address:</li>
-						<li>Type of Emergency:</li>
-						<li>Emergency at Home?:</li>
-						<li>Assigned Agent: </li>
-						<li>Emergency Description:<br></li>
-						<!--<li>Relay Description(If any):<br></li>-->
-						<li>Client Location:</li>
+						<li></li>
+						<li></li>
+						<li></li>
+						<li></li>
+						<li></li>
+						<li></li>
+						<li></li>
+						<li></li>
+						<li></li>
 						
 					</ul>
 				</li>
 			</ul>
 		</div>
-		<form id="add" action="" method="post">
-		<div id="sidebar2">
-			<ul>
-				<li>
-					<h2>Emergency Information</h2>
-					<ul>
-						<form id="add" action="" method="post">
-						<li>Client Phone Number: <input id="clientPhoneNumber"type="text" name="clientPhoneNumber" maxlength="10" size="10" required/></li>
-						<li>Name:<input type="text" name="clientName" maxlength="40" size="30"required></li>
-						<li>Address:<input type="text" name="clientAddress" maxlength="100" size="30" required></li>
-						<li>Type of Emergency:<select name="typeOfEmergency" size="1" placeholder="Select Type" required>
-							<option value="Type1">Type 1</option>
-							<option value="Type2">Type 2</option>
-							<option value="Type3">Type 3</option></select></li>
-						<li>Emergency at Home?:<input type="radio" name="outsideHome" value="Yes" checked >Yes</input><input type="radio" name="outsideHome" value="No" >No</input></li>
-						<li>Assigned Agent: <input type="text" name="attendedBy" maxlength="40" ></li>
-						<li>Emergency Description:<br><textarea rows="4" cols="30" name="emergencyDetails" maxlegth="500" placeholder="Short description of the emergency" required></textarea></li>
-						<!--<li>Relay Description(If any):<br><textarea rows="4" cols="30" name="reason" maxlegth="500" placeholder="Short description for the Relay" required></textarea></li>-->
-						<li>Client Location:<input type=hidden name="latitude" ><input type=hidden name="longitude" ></li>
-						<button type="submit" class="more">Submit</button>
-						</form>
-					</ul>
-				</li>
-			</ul>
-		</div>
-		</form>
 		<!-- end #sidebar -->
 		<div style="clear: both;">&nbsp;</div>
 	</div>
