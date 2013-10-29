@@ -53,31 +53,21 @@ $(function(){
 
 <!------------------Adds a Client with an Emergency to Local Storage--------------->
 $(function() {
-    $('#add').submit(function() {
+    $("#add").submit(function() {
         
-		var key = $('#clientPhoneNumber').val();
+		var key = $("#clientPhoneNumber").val();
 		var timestamp = new Date();
-		var JSONObject = JSON.stringify($('#add').serializeObject());
-		$('#timeStamp').val(timestamp);
+		var JSONObject = JSON.stringify($("#add").serializeObject());
+		$("#timeStamp").val(timestamp);
 		localStorage.setItem( key , JSONObject );
 		
 		
 <!---------------Adds the Emergency Information to the Active Emergencies container------>    		
 		var texto = JSON.parse(JSONObject).clientName + ", " +JSON.parse(JSONObject).clientPhoneNumber + ", " +JSON.parse(JSONObject).attendedBy;
 		
-		var valor = JSON.parse(JSONObject).clientPhoneNumber + "," 
-		          + JSON.parse(JSONObject).clientNombre + "," 
-				  + JSON.parse(JSONObject).clientAddress + "," 
-                  + JSON.parse(JSONObject).typeOfEmergency + "," 
-				  + JSON.parse(JSONObject).outsideHome + "," 
-				  + JSON.parse(JSONObject).attendedBy + "," 
-				  + JSON.parse(JSONObject).clientNombre + "," 
-				  + JSON.parse(JSONObject).emergencyDetails + "," 
-				  + JSON.parse(JSONObject).latitude + "," 
-				  + JSON.parse(JSONObject).longitude;
+		var radioBtn = $('<input id="'+ key +'" type="radio" name="active" value=' + '"'+ key + '"' +'>'+texto+'------------------------Active</input><br>');
+		$("#active").append(radioBtn);
 		
-		var radioBtn = $('<input type="radio" name="active" value='+ '"'+key+'"'+'>'+texto+'------------------------Active</input><br>');
-		$('#active').append(radioBtn);
 		
 <!--------------Changes HTML Doc to initial state----------------------------------->		
 		$("#sidebar1").css("display","inline");
@@ -99,25 +89,19 @@ $(window).load(function () {
 					var i,key,JSONObject;
 					var localStorageKeys = Object.keys(localStorage);
 					for ( i = 0; i < storageElements; i++){
-					key = localStorageKeys[i];
+					key =  localStorageKeys[i];
+				
 					JSONObject = localStorage.getItem(key);
 					
 					
 					var texto = JSON.parse(JSONObject).clientName + ", " +JSON.parse(JSONObject).clientPhoneNumber + ", " +JSON.parse(JSONObject).attendedBy;
 		
-					var valor = JSON.parse(JSONObject).clientPhoneNumber + "," 
-							  + JSON.parse(JSONObject).clientName + "," 
-							  + JSON.parse(JSONObject).clientAddress + "," 
-							  + JSON.parse(JSONObject).typeOfEmergency + "," 
-							  + JSON.parse(JSONObject).outsideHome + "," 
-							  + JSON.parse(JSONObject).attendedBy + "," 
-							  + JSON.parse(JSONObject).emergencyDetails + "," 
-							  + JSON.parse(JSONObject).latitude + "," 
-							  + JSON.parse(JSONObject).longitude;
-		
-								var radioBtn = $('<input type="radio" name="active" value=' + '"'+ key + '"' +'>'+texto+'------------------------Active</input><br>');
-								$('#active').append(radioBtn);
 					
+					
+					var radioBtn = $('<input id="'+ key +'" type="radio" name="active" value=' + '"'+ key + '"' +'>'+texto+'------------------------Active</input><br>');
+					$('#active').append(radioBtn);
+					
+									
 					
 					}
 				
@@ -125,20 +109,40 @@ $(window).load(function () {
 		return false;
 		});
 
-<!--Edits information of an Emergency-->
+<!----------------------------Edits information of an Emergency------------------->
 function editInfo()
 {
 
 }
 
+<!------------------------Removes an Emergency from the Active window and localStorage and sends the information to the DB---------------->
+$(function(){
+	$("#delete").click(function(){
+		var JSONkey, key, selected;
+		JSONkey = JSON.stringify($('#main').serializeObject());
+		key = JSON.parse(JSONkey).active;
+		localStorage.removeItem(key);
+		alert("The information for emergency with Telephone number "+key+" has been saved to the Data Base");
+		location.reload();
+		
+	
+		return false;
+			
+	});
+});
+
+
+
 <!--Displays the information of the emergency on screen along with the clients location(map)-->
 
 $(function() {
-    $('#main').submit(function() {
+    $("#show").click(function() {
         
 		var JSONkey, JSONObject, key, position;
 			
+			
 			JSONkey = JSON.stringify($('#main').serializeObject());
+			
 			key = JSON.parse(JSONkey).active;
 			JSONObject = localStorage.getItem(key);
 			$("#cpn").html(JSON.parse(JSONObject).clientPhoneNumber);
@@ -149,7 +153,8 @@ $(function() {
 			$("#aa").html(JSON.parse(JSONObject).attendedBy);
 			$("#ed").html(JSON.parse(JSONObject).emergencyDetails);
 			position = JSON.parse(JSONObject).latitude + ', ' + JSON.parse(JSONObject).longitude; 
-			$("#cl").html(position);
+			$("#cl").html("0,0");
+			
 			
 			
 		return false;
@@ -175,7 +180,7 @@ $(function(){
     })
 })
 
-function counterReset()
+function storageReset()
 {
 localStorage.clear();
 }
@@ -224,7 +229,7 @@ localStorage.clear();
 					<h1>Active Emergencies</h1>
 					
 					
-					<form action="" id="main">
+					<form id="main">
 					<div id="active" class="container2">
 					
 					
@@ -235,12 +240,12 @@ localStorage.clear();
 					
 					<p>
 					<button id="change" type="button" class="more">Add Emergency</button>
-					<button id="show" type="submit" class="more" onclick="" form="main">Show Emergency Information</button>
+					<button id="show" type="button" class="more" onclick="" form="main">Show Emergency Information</button>
 					</p>
 
 					<p>
 					<button type="button" class="more" onclick="" form="Emergencies">Edit Emergency</button>
-					<button type="button" class="more" onclick="counterReset()" form="Emergencies">Mark as Resolved</button>
+					<button id="delete" type="button" class="more" onclick="" form="main">Mark as Resolved</button>
 					</p>
 
 					
