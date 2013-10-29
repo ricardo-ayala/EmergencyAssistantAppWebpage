@@ -21,10 +21,10 @@ Released   : 20130509
 <link href="style.css" rel="stylesheet" type="text/css" media="screen" />
 
 <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
-<script type="text/javascript" src="http://www.json.org/json2.js"></script>
+<!--<script type="text/javascript" src="http://www.json.org/json2.js"></script>-->
 
 <script>
-<!-----------Transforms a String Object to a JSON Object--------->
+<!-----------TRANSFORMS a String Object to a JSON Object--------->
 $.fn.serializeObject = function()
 {
     var o = {};
@@ -42,19 +42,22 @@ $.fn.serializeObject = function()
     return o;
 };
 
-<!-----------Changes Sidebar from show to add Emergency-------->
+<!-----------CHANGES Sidebar from show to add Emergency-------->
 
 $(function(){
   $("#change").click(function(){
     $("#sidebar1").css("display","none");
     $("#sidebar2").css("display","inline");
+	$("#show").attr("disabled", true);
+	$("#edit").attr("disabled", true);
+	$("#delete").attr("disabled", true);
   });
 });
 
-<!------------------Adds a Client with an Emergency to Local Storage--------------->
+<!------------------ADDS a Client with an Emergency to Local Storage--------------->
 $(function() {
     $("#add").submit(function() {
-        
+       
 		var key = $("#clientPhoneNumber").val();
 		var timestamp = new Date();
 		var JSONObject = JSON.stringify($("#add").serializeObject());
@@ -62,23 +65,26 @@ $(function() {
 		localStorage.setItem( key , JSONObject );
 		
 		
-<!---------------Adds the Emergency Information to the Active Emergencies container------>    		
+<!---------------ADDS the Emergency Information to the Active Emergencies container------>    		
 		var texto = JSON.parse(JSONObject).clientName + ", " +JSON.parse(JSONObject).clientPhoneNumber + ", " +JSON.parse(JSONObject).attendedBy;
 		
 		var radioBtn = $('<input id="'+ key +'" type="radio" name="active" value=' + '"'+ key + '"' +'>'+texto+'------------------------Active</input><br>');
 		$("#active").append(radioBtn);
 		
 		
-<!--------------Changes HTML Doc to initial state----------------------------------->		
+<!--------------CHANGES HTML Doc to initial state----------------------------------->		
 		$("#sidebar1").css("display","inline");
 		$("#sidebar2").css("display","none");
-		
+		$("#show").attr("disabled", false);
+		$("#edit").attr("disabled", false);
+		$("#delete").attr("disabled", false);
 		$('#add').trigger("reset");
+		location.reload();
 		
         return false;
     });
 });
-<!------------Re-populates de Active Emergencies container if the window is closed or refreshed-------------->
+<!---------------------RE-POPULATES de Active Emergencies container if the window is closed or refreshed-------------->
 $(window).load(function () {
 				var storageElements = localStorage.length;
 				
@@ -109,22 +115,59 @@ $(window).load(function () {
 		return false;
 		});
 
-<!----------------------------Edits information of an Emergency------------------->
-function editInfo()
-{
+<!--------------------------------------EDITS information of an Emergency---------------------------------------------------->
+$(function(){
+  $("#edit").click(function(){
+    var JSONkey, JSONObject, key;
+	JSONkey = JSON.stringify($('#main').serializeObject());
+	key = JSON.parse(JSONkey).active;
+	
+	if(typeof key != "undefined"){
+	
+	$("#sidebar1").css("display","none");
+    $("#sidebar2").css("display","inline");
+	$("#show").attr("disabled", true);
+	$("#change").attr("disabled", true);
+	$("#delete").attr("disabled", true);
+	
+	
+	JSONObject = localStorage.getItem(key);
 
-}
+	$("#clientPhoneNumber").val(JSON.parse(JSONObject).clientPhoneNumber);
+	$("#clientName").val(JSON.parse(JSONObject).clientName);
+	$("#clientAddress").val(JSON.parse(JSONObject).clientAddress);
+	<!--$("#typeOfEmergency").val(JSON.parse(JSONObject).typeOfEmergency);-->
+	if ( JSON.parse(JSONObject).outsideHome == "No"){
+	$("#no").prop("checked", true);
+	$("#yes").prop("checked", false);
+	}
+	$("#attendedBy").val(JSON.parse(JSONObject).attendedBy);
+	$("#emergencyDetails").val(JSON.parse(JSONObject).emergencyDetails);
+	<!--$("#clientPhoneNumber").val(JSON.parse(JSONObject).clientPhoneNumber);-->
+	
+	
+	}
+  });
+});
 
-<!------------------------Removes an Emergency from the Active window and localStorage and sends the information to the DB---------------->
+
+
+
+
+
+<!------------------------REMOVES an Emergency from the Active window and localStorage and sends the information to the DB---------------->
 $(function(){
 	$("#delete").click(function(){
-		var JSONkey, key, selected;
+		var JSONkey, key;
 		JSONkey = JSON.stringify($('#main').serializeObject());
 		key = JSON.parse(JSONkey).active;
+		
+		if(typeof key != "undefined"){
+		
 		localStorage.removeItem(key);
 		alert("The information for emergency with Telephone number "+key+" has been saved to the Data Base");
 		location.reload();
-		
+		}
 	
 		return false;
 			
@@ -133,17 +176,17 @@ $(function(){
 
 
 
-<!--Displays the information of the emergency on screen along with the clients location(map)-->
+<!----------------------DISPLAYS the information of the emergency on screen along with the clients location(map)-------------->
 
 $(function() {
     $("#show").click(function() {
         
-		var JSONkey, JSONObject, key, position;
-			
-			
+			var JSONkey, JSONObject, key, position;
 			JSONkey = JSON.stringify($('#main').serializeObject());
-			
 			key = JSON.parse(JSONkey).active;
+			
+			if ( typeof key != "undefined"){
+			
 			JSONObject = localStorage.getItem(key);
 			$("#cpn").html(JSON.parse(JSONObject).clientPhoneNumber);
 			$("#n").html(JSON.parse(JSONObject).clientName);
@@ -154,11 +197,17 @@ $(function() {
 			$("#ed").html(JSON.parse(JSONObject).emergencyDetails);
 			position = JSON.parse(JSONObject).latitude + ', ' + JSON.parse(JSONObject).longitude; 
 			$("#cl").html("0,0");
-			
+			}
 			
 			
 		return false;
 	});
+});
+<!---------------Alerts User if leaving the page while editing----------->
+
+
+$( window ).unload(function() {
+  alert( "Handler for .unload() called." );
 });
 
 
@@ -244,7 +293,7 @@ localStorage.clear();
 					</p>
 
 					<p>
-					<button type="button" class="more" onclick="" form="Emergencies">Edit Emergency</button>
+					<button id="edit" type="button" class="more" onclick="" form="main">Edit Emergency</button>
 					<button id="delete" type="button" class="more" onclick="" form="main">Mark as Resolved</button>
 					</p>
 
@@ -285,18 +334,19 @@ localStorage.clear();
 					<ul>
 						<form id="add" action="" method="post">
 						<li>Client Phone Number: <input id="clientPhoneNumber"type="text" name="clientPhoneNumber" maxlength="10" size="10" required/></li>
-						<li>Name:<input type="text" name="clientName" maxlength="40" size="30"required></li>
-						<li>Address:<input type="text" name="clientAddress" maxlength="100" size="30" required></li>
-						<li>Type of Emergency:<select name="typeOfEmergency" size="1" placeholder="Select Type" required>
+						<li>Name:<input id="clientName" type="text" name="clientName" maxlength="40" size="30"required></li>
+						<li>Address:<input id="clientAddress" type="text" name="clientAddress" maxlength="100" size="30" required></li>
+						<li>Type of Emergency:<select id="typeOfEmergency" name="typeOfEmergency" size="1" placeholder="Select Type" required>
 							<option value="Type1">Type 1</option>
 							<option value="Type2">Type 2</option>
 							<option value="Type3">Type 3</option></select></li>
-						<li>Emergency at Home?:<input type="radio" name="outsideHome" value="Yes" checked >Yes</input><input type="radio" name="outsideHome" value="No" >No</input></li>
-						<li>Assigned Agent: <input type="text" name="attendedBy" maxlength="40" ></li>
-						<li>Emergency Description:<br><textarea rows="7" cols="40" name="emergencyDetails" maxlegth="500" placeholder="Short description of the emergency" required></textarea></li>
+						<li>Emergency at Home?:<input id="yes" type="radio" name="outsideHome" value="Yes" checked >Yes</input><input id="no" type="radio" name="outsideHome" value="No" >No</input></li>
+						<li>Assigned Agent: <input id="attendedBy" type="text" name="attendedBy" maxlength="40" ></li>
+						<li>Emergency Description:<br><textarea id="emergencyDetails" rows="7" cols="40" name="emergencyDetails" maxlegth="500" placeholder="Short description of the emergency" required></textarea></li>
 						<!--<li>Relay Description(If any):<br><textarea rows="4" cols="30" name="reason" maxlegth="500" placeholder="Short description for the Relay" required></textarea></li>-->
 						<li>Client Location:<input type=hidden name="latitude" ><input type=hidden name="longitude" ></li>
-						<button type="submit" class="more">Submit</button>
+						<button id="save" type="submit" class="more">Submit</button>
+						
 						</form>
 					</ul>
 				</li>
