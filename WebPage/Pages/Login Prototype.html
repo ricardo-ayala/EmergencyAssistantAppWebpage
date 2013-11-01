@@ -15,13 +15,16 @@ Released   : 20130509
 <meta name="keywords" content="" />
 <meta name="description" content="" />
 <meta http-equiv="content-type" content="text/html; charset=utf-8" />
-<title>History</title>
+<title>Login</title>
 <link href="http://fonts.googleapis.com/css?family=Open+Sans:400,300,600" rel="stylesheet" type="text/css" />
 <link href='http://fonts.googleapis.com/css?family=Abel|Satisfy' rel='stylesheet' type='text/css'>
 <link href="style.css" rel="stylesheet" type="text/css" media="screen" />
 
 <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+<script>
 
+	
+</script>
 
 
 
@@ -31,38 +34,20 @@ Released   : 20130509
 	<div id="header-wrapper">
 		<div id="header" class="container">
 			<div id="logo">
-				<h1><a href="#">Emergency Center</a></h1>
+			
 			</div>
-			<div id="menu">
-				<ul>
-					<li><a href="C:\Users\Ricardo\Documents\GitHub\EmergencyAssistantAppWebpage\WebPage\Pages\Active Emergencies Prototype.html">Homepage</a></li>
-					<li class="current_page_item"><a href="#">History</a></li>
-					<li><a href="C:\Users\Ricardo\Documents\GitHub\EmergencyAssistantAppWebpage\WebPage\Pages\Account Settings Prototype.html">Account Settings</a></li>
-					<li><a href="C:\Users\Ricardo\Documents\GitHub\EmergencyAssistantAppWebpage\WebPage\Pages\Login Prototype.html">Log out</a></li>
-					
-				</ul>
-			</div>
+			
 		</div>
 	</div>
 	<!-- end #header -->
 	<div id="page">
 		<div id="content">
 			<div class="post">
-				
+				<h2 class="title">Welcome to Emergency Center </h2>
 				<div class="entry">
-				
-					<h2>History</h2>
-					<form id="main">
-					<div id="active" class="containerHistory">
-
- 					
-					</div>
-					</form>
-
 					
-					
-					
-					
+					<h3>Official Website of the Emergency Assistant App!</h3>
+										
 				</div>
 			</div>
 		</div>
@@ -70,10 +55,16 @@ Released   : 20130509
 		<div id="sidebar1">
 			<ul>
 				<li>
-					<h2>Filters</h2>
-					<ul>
-						<li> Select a day to view past emergency reports: <input type="date" name="date"/> </li>
-						<input type="submit" class="more">
+					<h2>Login</h2>
+					<ul><form id="login" method="">
+						<li> Username<br><input type="text" id="username" name="username" maxlength="30" size="20" required/> </li>
+						<li> Password<br><input type="password" id="password" name="password" maxlength="16" required/>
+						<li><div><p id="confirmation"></p></div>
+						<button id="go" type="button" class="more" >Submit</button>
+						
+						</form>
+						
+						
 					</ul>
 				</li>
 			</ul>

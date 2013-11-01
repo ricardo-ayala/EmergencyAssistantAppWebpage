@@ -229,6 +229,14 @@ a:hover {
 	border-radius: 7px;
 }
 
+#content1 {
+	float: left;
+	width: 550px;
+	padding: 20px;
+	background: #F0F0F0;
+	border-radius: 7px;
+	text-align:left
+}
 .post {
 	overflow: hidden;
 	margin-bottom: 40px;
@@ -237,6 +245,13 @@ a:hover {
 .post .title {
 	padding: 7px 0px 40px 0px;
 	letter-spacing: -1px;
+	text-decoration: none;
+}
+
+.post .title1 {
+	padding: 7px 0px 40px 0px;
+	letter-spacing: -1px;
+	text-decoration: none;
 }
 
 .post .title a {
@@ -268,6 +283,12 @@ a:hover {
 .post .entry {
 	padding: 0px 0px 40px 0px;
 	text-align: justify;
+}
+
+.post .entry1 {
+	padding: 0px 0px 40px 0px;
+	text-align: left;
+	
 }
 
 .links {

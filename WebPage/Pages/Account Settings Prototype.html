@@ -15,7 +15,7 @@ Released   : 20130509
 <meta name="keywords" content="" />
 <meta name="description" content="" />
 <meta http-equiv="content-type" content="text/html; charset=utf-8" />
-<title>Emergency Center</title>
+<title>Account Settings</title>
 <link href="http://fonts.googleapis.com/css?family=Open+Sans:400,300,600" rel="stylesheet" type="text/css" />
 <link href='http://fonts.googleapis.com/css?family=Abel|Satisfy' rel='stylesheet' type='text/css'>
 <link href="style.css" rel="stylesheet" type="text/css" media="screen" />
@@ -111,34 +111,34 @@ $(window).load(function () {
 				
 				
 				
-		var storageElements = localStorage.length;
-
-		if (storageElements == 0){
-			return false;
+				var storageElements = localStorage.length;
 				
-		}else{
-			var i,key,JSONObject;
-			var localStorageKeys = Object.keys(localStorage);
-			for ( i = 0; i < storageElements; i++){
-			key =  localStorageKeys[i];
+				if (storageElements == 0){
+				return false;
 				
-			JSONObject = localStorage.getItem(key);
+				}else{
+					var i,key,JSONObject;
+					var localStorageKeys = Object.keys(localStorage);
+					for ( i = 0; i < storageElements; i++){
+					key =  localStorageKeys[i];
+				
+					JSONObject = localStorage.getItem(key);
 					
 					
-			var texto = JSON.parse(JSONObject).clientName + ", " +JSON.parse(JSONObject).clientPhoneNumber + ", " +JSON.parse(JSONObject).attendedBy;
+					var texto = JSON.parse(JSONObject).clientName + ", " +JSON.parse(JSONObject).clientPhoneNumber + ", " +JSON.parse(JSONObject).attendedBy;
 		
 					
 					
-			var radioBtn = $('<input id="'+ key +'" type="radio" name="active" value=' + '"'+ key + '"' +'>'+texto+'------------------------Active</input><br>');
-			$('#active').append(radioBtn);
+					var radioBtn = $('<input id="'+ key +'" type="radio" name="active" value=' + '"'+ key + '"' +'>'+texto+'------------------------Active</input><br>');
+					$('#active').append(radioBtn);
 					
 									
 					
-			}
+					}
 				
-		}
-	return false;
-});
+				}
+		return false;
+		});
 
 	
 
@@ -344,10 +344,10 @@ localStorage.clear();
 			</div>
 			<div id="menu">
 				<ul>
-					<li class="current_page_item"><a href="#">Homepage</a></li>
+					<li><a href="C:\Users\Ricardo\Documents\GitHub\EmergencyAssistantAppWebpage\WebPage\Pages\Active Emergencies Prototype.html">Homepage</a></li>
 					<li><a href="C:\Users\Ricardo\Documents\GitHub\EmergencyAssistantAppWebpage\WebPage\Pages\History Prototype.html">History</a></li>
-					<li><a href="C:\Users\Ricardo\Documents\GitHub\EmergencyAssistantAppWebpage\WebPage\Pages\Account Settings Prototype.html">Account Settings</a></li>
-					<li><a href="#">Log out</a></li>
+					<li class="current_page_item"><a>Account Settings</a></li>
+					<li><a href="C:\Users\Ricardo\Documents\GitHub\EmergencyAssistantAppWebpage\WebPage\Pages\Login Prototype.html">Log out</a></li>
 					
 				</ul>
 			</div>
@@ -357,41 +357,27 @@ localStorage.clear();
 	<div id="page">
 	
 	<!-----Active and Relayed Emergency Containers---->
-		<div id="content">
+		<div id="content1">
 			<div class="post">
+				<h2 id="greeting" class="title">Hi [personName]!</h2>
+				<div class="entry1">
+					
+				<h3>Name:<input type="text" id="" name="" maxlength="40" size="30"required/></h3>
+				<h3>Username:<input type="text" id="" name="" maxlength="40" size="30"required/></h3>
+				<h3>Password:<input type="password" id="" name="" maxlength="16" size="30"required/></h3>
+				<h3>E-mail:<input type="email" id="" name="" pattern="[^ @]*@[^ @]*" ></h3>
+				<h3>User Type:</h3>
+				<h3>Company Name:</h3>
+					
+					
+					
 				
-				<div class="entry">
-					
-					<h1>Relayed Emergencies</h1>
+				<p>
+				<button id="change" type="button" class="more">Update</button>
+				<button id="show" type="button" class="more" onclick="" form="main">Cancel</button>
+				</p>
 
-					<div id="relayed"class="container2">
-					
-
-					</div>
-					
-					
-					<h1>Active Emergencies</h1>
-					
-					
-					<form id="main">
-					<div id="active" class="container2">
-					
-					
-					</div>
-					</form>
-					
-					
-					
-					<p>
-					<button id="change" type="button" class="more">Add Emergency</button>
-					<button id="show" type="button" class="more" onclick="" form="main">Show Emergency Information</button>
-					<button id="changeRelay" type="button" class="more" onclick="">Relay Emergency</button>
-					</p>
-
-					<p>
-					<button id="edit" type="button" class="more" onclick="" form="main">Edit Emergency</button>
-					<button id="delete" type="button" class="more" onclick="" form="main">Mark as Resolved</button>
-					</p>
+				
 
 					
 					
@@ -403,91 +389,12 @@ localStorage.clear();
 			</div>
 		</div>
 		
-		<!--end of Active and Relayed Emergencies containers--->
+		
 		
 		
 		<!-- end #content -->
-		<div id="sidebar1">
-			<ul>
-				<li>
-					<h2>Emergency Information</h2>
-					<ul>
-						<li>Client Phone Number:<h3 id="cpn"></h3> </li>
-						<li>Name:<h3 id="n"></h3></li>
-						<li>Address:<h3 id="a"></h3></li>
-						<li>Type of Emergency:<h3 id="toe"></h3></li>
-						<li>Emergency at Home?:<h3 id="eah"></h3></li>
-						<li>Assigned Agent: <h3 id="aa"></h3></li>
-						<li>Emergency Description:<br><div id="container3"><p id="ed"></p></div></li>
-						<li>Relay Description(If any):<br><div id="container3"><p id="rd"></p></div></li>
-						<li>Date and Time Received(YYYY/MM/DD):<h3 id="ts"></h3>
-						<li>Client Location:<h3 id="cl"></h3></li>
-						
-					</ul>
-				</li>
-			</ul>
-		</div>
-		
-		<div id="sidebar2">
-			<ul>
-				<li>
-					<h2>Emergency Information</h2>
-					<ul>
-						<form id="add" action="" method="post">
-						<li>Client Phone Number: <input id="clientPhoneNumber"type="text" name="clientPhoneNumber" maxlength="10" size="10" required/></li>
-						<li>Name:<input id="clientName" type="text" name="clientName" maxlength="40" size="30"required></li>
-						<li>Address:<input id="clientAddress" type="text" name="clientAddress" maxlength="100" size="30" required></li>
-						<li>Type of Emergency:<select id="typeOfEmergency" name="typeOfEmergency" size="1" placeholder="Select Type" required>
-							<option value="Type1">Type 1</option>
-							<option value="Type2">Type 2</option>
-							<option value="Type3">Type 3</option></select></li>
-						<li>Emergency at Home?:<input id="yes" type="radio" name="outsideHome" value="Yes" checked >Yes</input><input id="no" type="radio" name="outsideHome" value="No" >No</input></li>
-						<li>Assigned Agent: <input id="attendedBy" type="text" name="attendedBy" maxlength="40" ></li>
-						<li>Emergency Description:<br><textarea id="emergencyDetails" rows="7" cols="40" name="emergencyDetails" maxlegth="500" placeholder="Short description of the emergency" required></textarea></li>
-						<li>Client Location:</li>
-						<input type=hidden id="latitude" name="latitude" >
-						<input type=hidden id="longitude" name="longitude" >
-						<input type=hidden id="timeStamp" name="timeStamp"/>
-						<input type=hidden id="oldAgencyPhoneNumber" name="oldAgencyPhoneNumber" maxlength="10" size="10"/>
-						<input type=hidden id="newAgencyPhoneNumber" name="newAgencyPhoneNumber" maxlength="10" size="10"/>
-						<input type=hidden id="reason" name="reason" maxlength="500"/>
-						
-						<button id="save" type="submit" class="more" disabled>Submit</button>
-						
-						</form>
-					</ul>
-				</li>
-			</ul>
-		</div>
 		
 		
-		<div id="sidebar3">
-			<ul>
-				<li>
-					<h2>Relay Emergency Information</h2>
-					<ul>
-						<form id="relay" action="" method="post">
-						<input id="clientPhoneNumberR" type=hidden name="clientPhoneNumber" maxlength="10" size="10" required/>
-						<input id="clientNameR" type=hidden name="clientName" maxlength="40" size="30"required/>
-						<input id="clientAddressR" type=hidden name="clientAddress" maxlength="100" size="30" required/>
-						<input id="typeOfEmergencyR" type=hidden name="typeOfEmergency" required/>	
-						<input id="outsideHomeR" type=hidden name="outsideHome"/>
-						<input id="attendedByR" type="hidden" name="attendedBy" maxlength="40" />
-						<input id="emergencyDetailsR" type=hidden name="emergencyDetails" maxlength="500" required/>
-						<input type=hidden id="latitudeR" name="latitude"/>
-						<input type=hidden id="longitudeR" name="longitude"/>
-						<input type=hidden id="timeStampR" name="timeStamp"/>
-						<input type=hidden id="oldAgencyPhoneNumberR" name="oldAgencyPhoneNumber" maxlength="10" size="10"/>
-						<li>Destination Phone Number: <input id="newAgencyPhoneNumberR" type="text" name="newAgencyPhoneNumber" maxlength="10" size="10" required/></li>
-						<li>Relay Description:<br><textarea id="reasonR" rows="4" cols="30" name="reason" maxlength="500" placeholder="Short description for the Relay" required></textarea></li>
-						
-						<button id="rel" type="submit" class="more" disabled>Submit</button>
-						
-						</form>
-					</ul>
-				</li>
-			</ul>
-		</div>
 		
 		
 		<!-- end #sidebar -->
