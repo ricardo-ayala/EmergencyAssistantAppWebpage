@@ -23,146 +23,7 @@ Released   : 20130509
 <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
 <script type="text/javascript" src="http://www.json.org/json2.js"></script>
 
-<script>
-<!-----------Transforms a String Object to a JSON Object--------->
-$.fn.serializeObject = function()
-{
-    var o = {};
-    var a = this.serializeArray();
-    $.each(a, function() {
-        if (o[this.name] !== undefined) {
-            if (!o[this.name].push) {
-                o[this.name] = [o[this.name]];
-            }
-            o[this.name].push(this.value || '');
-        } else {
-            o[this.name] = this.value || '';
-        }
-    });
-    return o;
-};
 
-<!-----------Changes Sidebar from show to add Emergency-------->
-
-$(function(){
-  $("#change").click(function(){
-    $("#sidebar1").css("display","none");
-    $("#sidebar2").css("display","inline");
-  });
-});
-
-<!------------------Adds a Client with an Emergency to Local Storage--------------->
-$(function() {
-    $('#add').submit(function() {
-        
-		var key = $('#clientPhoneNumber').val();
-		var timestamp = new Date();
-		var JSONObject = JSON.stringify($('#add').serializeObject());
-		$('#timeStamp').val(timestamp);
-		localStorage.setItem( key , JSONObject );
-		
-		
-<!---------------Adds the Emergency Information to the Active Emergencies container------>    		
-		var texto = JSON.parse(JSONObject).clientName + ", " +JSON.parse(JSONObject).clientPhoneNumber + ", " +JSON.parse(JSONObject).attendedBy;
-		
-		var valor = JSON.parse(JSONObject).clientPhoneNumber + "," 
-		          + JSON.parse(JSONObject).clientNombre + "," 
-				  + JSON.parse(JSONObject).clientAddress + "," 
-                  + JSON.parse(JSONObject).typeOfEmergency + "," 
-				  + JSON.parse(JSONObject).outsideHome + "," 
-				  + JSON.parse(JSONObject).attendedBy + "," 
-				  + JSON.parse(JSONObject).clientNombre + "," 
-				  + JSON.parse(JSONObject).emergencyDetails + "," 
-				  + JSON.parse(JSONObject).latitude + "," 
-				  + JSON.parse(JSONObject).longitude;
-		
-		var radioBtn = $('<input id=' +key+ ' type="radio" name="active" value='+valor+'>'+texto+'------------------------Active</input><br>');
-		$('#active').append(radioBtn);
-		
-<!--------------Changes HTML Doc to initial state----------------------------------->		
-		<!--$('#active').html(JSON.parse(JSONObject).clientName);
-		$("#sidebar1").css("display","inline");
-		$("#sidebar2").css("display","none");
-		
-		$('#add').trigger("reset");
-		
-        return false;
-    });
-});
-<!------------Re-populates de Active Emergencies container if the window is closed or refreshed-------------->
-$(window).load(function () {
-				var storageElements = localStorage.length;
-				
-				if (storageElements == 0){
-				return false;
-				
-				}else{
-					var i,key,JSONObject;
-					var localStorageKeys = Object.keys(localStorage);
-					for ( i = 0; i < storageElements; i++){
-					key = localStorageKeys[i];
-					JSONObject = localStorage.getItem(key);
-					
-					
-					var texto = JSON.parse(JSONObject).clientName + ", " +JSON.parse(JSONObject).clientPhoneNumber + ", " +JSON.parse(JSONObject).attendedBy;
-		
-					var valor = JSON.parse(JSONObject).clientPhoneNumber + "," 
-							  + JSON.parse(JSONObject).clientNombre + "," 
-							  + JSON.parse(JSONObject).clientAddress + "," 
-							  + JSON.parse(JSONObject).typeOfEmergency + "," 
-							  + JSON.parse(JSONObject).outsideHome + "," 
-							  + JSON.parse(JSONObject).attendedBy + "," 
-							  + JSON.parse(JSONObject).clientNombre + "," 
-							  + JSON.parse(JSONObject).emergencyDetails + "," 
-							  + JSON.parse(JSONObject).latitude + "," 
-							  + JSON.parse(JSONObject).longitude;
-		
-								var radioBtn = $('<input id=' +key+ ' type="radio" name="active" value='+valor+'>'+texto+'------------------------Active</input><br>');
-								$('#active').append(radioBtn);
-					
-					
-					}
-				
-				}
-		return false;
-		});
-
-<!--Edits information of an Emergency-->
-function editInfo()
-{
-
-}
-
-<!--Displays the information of the emergency on screen along with the clients location(map)-->
-function showInfo()
-{
-
-}
-
-<!--Shares the clients information with another agency-->
-function relayInfo()
-{
-
-}
-
-<!--------------------------------------------TEST FUNCTIONS ONLY------------------------------------------------------------------------>
-$(function(){
-	$('#formData').submit(function(){
-		
-		var dataKey = $('#keyFetcher').val();
-		
-		var actualStorageSize = JSON.stringify(localStorage).length;
-		$('#result').text("KEY = "+ dataKey + " DATA = " + localStorage.getItem(dataKey) + " SIZE = " + actualStorageSize + " Bytes");
-		return false;
-    })
-})
-
-function counterReset()
-{
-localStorage.clear();
-}
-
-</script>
 
 </head>
 <body>
@@ -192,7 +53,12 @@ localStorage.clear();
 				
 					<h2>History</h2>
 					
+					<form id="main">
+					<div id="active" class="containerHistory">
 					
+					
+					</div>
+					</form>
 					
 					
 					
@@ -205,15 +71,7 @@ localStorage.clear();
 				<li>
 					<h2>Filters</h2>
 					<ul>
-						<li></li>
-						<li></li>
-						<li></li>
-						<li></li>
-						<li></li>
-						<li></li>
-						<li></li>
-						<li></li>
-						<li></li>
+						<li> Select a day to view past emergency reports: <input type="date" name="date"></li>
 						
 					</ul>
 				</li>

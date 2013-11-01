@@ -305,9 +305,17 @@ a:hover {
 	width:500px; 
 	height: 100px; 
 	overflow-y: scroll;
-	margin-bottom:1cm;	
+	margin-bottom:1cm;
+	
 }
 
+.containerHistory { 
+	border:2px solid #A9A9A9; 
+	width:500px; 
+	height: 300px; 
+	overflow-y: scroll;
+	
+}
 
 
 /* Sidebar */
@@ -454,6 +462,74 @@ a:hover {
 }
 
 #sidebar2 a:hover {
+	text-decoration: underline;
+}
+
+#sidebar3 {
+	float: right;
+	width: 360px;
+	margin: 0px;
+	padding: 10px;
+	background: #F0F0F0;
+	border-radius: 7px;
+	display:none;
+}
+
+#sidebar3 ul {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+
+#sidebar3 li {
+	margin: 0;
+	padding: 0;
+}
+
+#sidebar3 li ul {
+	margin: 0px 0px;
+	padding-bottom: 30px;
+}
+
+#sidebar3 li li {
+	line-height: 40px;
+	border-bottom: 1px solid #E7EBED;
+	margin: 0px 0px;
+	border-left: none;
+}
+
+#sidebar3 li li span {
+	display: block;
+	margin-top: -20px;
+	padding: 0;
+	font-size: 11px;
+	font-style: italic;
+}
+
+#sidebar3 li li a {
+	padding: 0px 0px 0px 10px;
+	background: url(images/img04.jpg) no-repeat left 50%;
+}
+
+#sidebar3 h2 {
+	height: 38px;
+	padding: 0px 0px 20px 0px;
+	letter-spacing: -.5px;
+	font-size: 1.8em;
+	color: #222222;
+}
+
+#sidebar3 p {
+	margin: 0 0px;
+	padding: 0px 30px 20px 30px;
+	text-align: justify;
+}
+
+#sidebar3 a {
+	border: none;
+}
+
+#sidebar3 a:hover {
 	text-decoration: underline;
 }
 

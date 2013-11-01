@@ -51,17 +51,34 @@ $(function(){
 	$("#show").attr("disabled", true);
 	$("#edit").attr("disabled", true);
 	$("#delete").attr("disabled", true);
+	$("change").attr("disabled", true);
+	$("#changeRelay").attr("disabled", true);
+	$("#save").attr("disabled", false);
   });
 });
 
 <!------------------ADDS a Client with an Emergency to Local Storage--------------->
 $(function() {
     $("#add").submit(function() {
-       
+		
 		var key = $("#clientPhoneNumber").val();
+		localStorage.removeItem(key);
+		if ( $("#timeStamp").val() == "" )
+		{
 		var timestamp = new Date();
+		var month = timestamp.getMonth()+1;
+		var day = timestamp.getDate();
+
+		var time = timestamp.getFullYear() + '/' +
+			((''+month).length<2 ? '0' : '') + month + '/' +
+			((''+day).length<2 ? '0' : '') + day +" "+ timestamp.getHours()+":"+timestamp.getMinutes()+":"+timestamp.getSeconds();
+		
+		$("#timeStamp").val(time);
+		}
+		
+		
+		
 		var JSONObject = JSON.stringify($("#add").serializeObject());
-		$("#timeStamp").val(timestamp);
 		localStorage.setItem( key , JSONObject );
 		
 		
@@ -72,13 +89,18 @@ $(function() {
 		$("#active").append(radioBtn);
 		
 		
+		
+		
 <!--------------CHANGES HTML Doc to initial state----------------------------------->		
 		$("#sidebar1").css("display","inline");
 		$("#sidebar2").css("display","none");
 		$("#show").attr("disabled", false);
 		$("#edit").attr("disabled", false);
 		$("#delete").attr("disabled", false);
-		$('#add').trigger("reset");
+		$("change").attr("disabled", false);
+		$("#changeRelay").attr("disabled", false);
+		$("#add").trigger("reset");
+		$("#save").attr("disabled", true);
 		location.reload();
 		
         return false;
@@ -86,6 +108,9 @@ $(function() {
 });
 <!---------------------RE-POPULATES de Active Emergencies container if the window is closed or refreshed-------------->
 $(window).load(function () {
+				
+				
+				
 				var storageElements = localStorage.length;
 				
 				if (storageElements == 0){
@@ -115,6 +140,10 @@ $(window).load(function () {
 		return false;
 		});
 
+	
+
+	
+		
 <!--------------------------------------EDITS information of an Emergency---------------------------------------------------->
 $(function(){
   $("#edit").click(function(){
@@ -129,6 +158,9 @@ $(function(){
 	$("#show").attr("disabled", true);
 	$("#change").attr("disabled", true);
 	$("#delete").attr("disabled", true);
+	$("change").attr("disabled", true);
+	$("#changeRelay").attr("disabled", true);
+	$("#save").attr("disabled", false);
 	
 	
 	JSONObject = localStorage.getItem(key);
@@ -136,21 +168,33 @@ $(function(){
 	$("#clientPhoneNumber").val(JSON.parse(JSONObject).clientPhoneNumber);
 	$("#clientName").val(JSON.parse(JSONObject).clientName);
 	$("#clientAddress").val(JSON.parse(JSONObject).clientAddress);
-	<!--$("#typeOfEmergency").val(JSON.parse(JSONObject).typeOfEmergency);-->
+	
 	if ( JSON.parse(JSONObject).outsideHome == "No"){
 	$("#no").prop("checked", true);
 	$("#yes").prop("checked", false);
 	}
 	$("#attendedBy").val(JSON.parse(JSONObject).attendedBy);
 	$("#emergencyDetails").val(JSON.parse(JSONObject).emergencyDetails);
-	<!--$("#clientPhoneNumber").val(JSON.parse(JSONObject).clientPhoneNumber);-->
+	$("#timeStamp").val(JSON.parse(JSONObject).timeStamp);
+	$("#oldAgencyPhoneNumber").val(JSON.parse(JSONObject).oldAgencyPhoneNumber);
+	$("#newAgencyPhoneNumber").val(JSON.parse(JSONObject).newAgencyPhoneNumber);
+	$("#reason").val(JSON.parse(JSONObject).reason);
 	
 	
-	}
-  });
+	
+
+	<!--$(window).on('beforeunload ',function() {
+
+	<!--return "If you leave now the information on screen will be lost";
+	
+	<!--});
+	
+	
+	
+		}
+	});
+
 });
-
-
 
 
 
@@ -195,27 +239,81 @@ $(function() {
 			$("#eah").html(JSON.parse(JSONObject).outsideHome);
 			$("#aa").html(JSON.parse(JSONObject).attendedBy);
 			$("#ed").html(JSON.parse(JSONObject).emergencyDetails);
+			$("#rd").html(JSON.parse(JSONObject).reason);
+			$("#ts").html(JSON.parse(JSONObject).timeStamp);
 			position = JSON.parse(JSONObject).latitude + ', ' + JSON.parse(JSONObject).longitude; 
-			$("#cl").html("0,0");
+			$("#cl").html("");
 			}
 			
 			
 		return false;
 	});
 });
-<!---------------Alerts User if leaving the page while editing----------->
 
 
-$( window ).unload(function() {
-  alert( "Handler for .unload() called." );
+
+<!-----------------Relays clients information with another agency----------------->
+
+$(function(){
+  $("#changeRelay").click(function(){
+    var JSONkey, JSONObject, key, object;
+	JSONkey = JSON.stringify($('#main').serializeObject());
+	key = JSON.parse(JSONkey).active;
+	
+		if(typeof key != "undefined"){
+	
+		$("#sidebar1").css("display","none");
+		$("#sidebar3").css("display","inline");
+		$("#show").attr("disabled", true);
+		$("#change").attr("disabled", true);
+		$("#delete").attr("disabled", true);
+		$("#edit").attr("disabled", true);
+		$("#changeRelay").attr("disabled", true);
+		$("#rel").attr("disabled", false);
+		
+		JSONObject = localStorage.getItem(key);
+		
+		$("#clientPhoneNumberR").val(JSON.parse(JSONObject).clientPhoneNumber);
+		$("#clientNameR").val(JSON.parse(JSONObject).clientName);
+		$("#clientAddressR").val(JSON.parse(JSONObject).clientAddress);
+		$("#typeOfEmergencyR").val(JSON.parse(JSONObject).typeOfEmergency);
+		$("#outsideHomeR").val(JSON.parse(JSONObject).outsideHome);
+		$("#attendedByR").val(JSON.parse(JSONObject).attendedBy);
+		$("#emergencyDetailsR").val(JSON.parse(JSONObject).emergencyDetails);
+		$("#latitudeR").val(JSON.parse(JSONObject).latitude);
+		$("#longitudeR").val(JSON.parse(JSONObject).longitude);
+		$("#timeStampR").val(JSON.parse(JSONObject).timeStamp);
+		$("#oldAgencyPhoneNumberR").val(JSON.parse(JSONObject).oldAgencyPhoneNumber);
+			
+		}
+	});
 });
 
+$(function(){
+		$("#rel").click(function(){	
+		
+		var key = $("#clientPhoneNumberR").val();
+		localStorage.removeItem(key);
+		var JSONObject = JSON.stringify($("#relay").serializeObject());
+	    localStorage.setItem( key , JSONObject );
+	
+		$("#sidebar1").css("display","inline");
+		$("#sidebar3").css("display","none");
+		$("#show").attr("disabled", false);
+		$("#edit").attr("disabled", false);
+		$("#delete").attr("disabled", false);
+		$("change").attr("disabled", false);
+		$("#changeRelay").attr("disabled", false);
+		$("#relay").trigger("reset");
+		$("#rel").attr("disabled", true);
+		location.reload();
+			
+		});
+	});
 
-<!--Shares the clients information with another agency-->
-function relayInfo()
-{
 
-}
+
+
 
 <!--------------------------------------------TEST FUNCTIONS ONLY------------------------------------------------------------------------>
 $(function(){
@@ -257,16 +355,13 @@ localStorage.clear();
 	</div>
 	<!-- end #header -->
 	<div id="page">
+	
+	<!-----Active and Relayed Emergency Containers---->
 		<div id="content">
 			<div class="post">
 				
 				<div class="entry">
-					<!--Aqui va lo de Active y Relayed Emergencies-->
 					
-
-
-					
-
 					<h1>Relayed Emergencies</h1>
 
 					<div id="relayed"class="container2">
@@ -290,6 +385,7 @@ localStorage.clear();
 					<p>
 					<button id="change" type="button" class="more">Add Emergency</button>
 					<button id="show" type="button" class="more" onclick="" form="main">Show Emergency Information</button>
+					<button id="changeRelay" type="button" class="more" onclick="">Relay Emergency</button>
 					</p>
 
 					<p>
@@ -306,27 +402,32 @@ localStorage.clear();
 				</div>
 			</div>
 		</div>
+		
+		<!--end of Active and Relayed Emergencies containers--->
+		
+		
 		<!-- end #content -->
 		<div id="sidebar1">
 			<ul>
 				<li>
 					<h2>Emergency Information</h2>
 					<ul>
-						<li>Client Phone Number:<h1 id="cpn"></h1> </li>
-						<li>Name:<h1 id="n"></h1></li>
-						<li>Address:<h1 id="a"></h1></li>
-						<li>Type of Emergency:<h1 id="toe"></h1></li>
-						<li>Emergency at Home?:<h1 id="eah"></h1></li>
-						<li>Assigned Agent: <h1 id="aa"></h1></li>
+						<li>Client Phone Number:<h3 id="cpn"></h3> </li>
+						<li>Name:<h3 id="n"></h3></li>
+						<li>Address:<h3 id="a"></h3></li>
+						<li>Type of Emergency:<h3 id="toe"></h3></li>
+						<li>Emergency at Home?:<h3 id="eah"></h3></li>
+						<li>Assigned Agent: <h3 id="aa"></h3></li>
 						<li>Emergency Description:<br><div id="container3"><p id="ed"></p></div></li>
-						<!--<li>Relay Description(If any):<br></li>-->
-						<li>Client Location:<h1 id="cl"></h1></li>
+						<li>Relay Description(If any):<br><div id="container3"><p id="rd"></p></div></li>
+						<li>Date and Time Received(YYYY/MM/DD):<h3 id="ts"></h3>
+						<li>Client Location:<h3 id="cl"></h3></li>
 						
 					</ul>
 				</li>
 			</ul>
 		</div>
-		<form id="add" action="" method="post">
+		
 		<div id="sidebar2">
 			<ul>
 				<li>
@@ -343,16 +444,52 @@ localStorage.clear();
 						<li>Emergency at Home?:<input id="yes" type="radio" name="outsideHome" value="Yes" checked >Yes</input><input id="no" type="radio" name="outsideHome" value="No" >No</input></li>
 						<li>Assigned Agent: <input id="attendedBy" type="text" name="attendedBy" maxlength="40" ></li>
 						<li>Emergency Description:<br><textarea id="emergencyDetails" rows="7" cols="40" name="emergencyDetails" maxlegth="500" placeholder="Short description of the emergency" required></textarea></li>
-						<!--<li>Relay Description(If any):<br><textarea rows="4" cols="30" name="reason" maxlegth="500" placeholder="Short description for the Relay" required></textarea></li>-->
-						<li>Client Location:<input type=hidden name="latitude" ><input type=hidden name="longitude" ></li>
-						<button id="save" type="submit" class="more">Submit</button>
+						<li>Client Location:</li>
+						<input type=hidden id="latitude" name="latitude" >
+						<input type=hidden id="longitude" name="longitude" >
+						<input type=hidden id="timeStamp" name="timeStamp"/>
+						<input type=hidden id="oldAgencyPhoneNumber" name="oldAgencyPhoneNumber" maxlength="10" size="10"/>
+						<input type=hidden id="newAgencyPhoneNumber" name="newAgencyPhoneNumber" maxlength="10" size="10"/>
+						<input type=hidden id="reason" name="reason" maxlength="500"/>
+						
+						<button id="save" type="submit" class="more" disabled>Submit</button>
 						
 						</form>
 					</ul>
 				</li>
 			</ul>
 		</div>
-		</form>
+		
+		
+		<div id="sidebar3">
+			<ul>
+				<li>
+					<h2>Relay Emergency Information</h2>
+					<ul>
+						<form id="relay" action="" method="post">
+						<input id="clientPhoneNumberR" type=hidden name="clientPhoneNumber" maxlength="10" size="10" required/>
+						<input id="clientNameR" type=hidden name="clientName" maxlength="40" size="30"required/>
+						<input id="clientAddressR" type=hidden name="clientAddress" maxlength="100" size="30" required/>
+						<input id="typeOfEmergencyR" type=hidden name="typeOfEmergency" required/>	
+						<input id="outsideHomeR" type=hidden name="outsideHome"/>
+						<input id="attendedByR" type="hidden" name="attendedBy" maxlength="40" />
+						<input id="emergencyDetailsR" type=hidden name="emergencyDetails" maxlength="500" required/>
+						<input type=hidden id="latitudeR" name="latitude"/>
+						<input type=hidden id="longitudeR" name="longitude"/>
+						<input type=hidden id="timeStampR" name="timeStamp"/>
+						<input type=hidden id="oldAgencyPhoneNumberR" name="oldAgencyPhoneNumber" maxlength="10" size="10"/>
+						<li>Destination Phone Number: <input id="newAgencyPhoneNumberR" type="text" name="newAgencyPhoneNumber" maxlength="10" size="10" required/></li>
+						<li>Relay Description:<br><textarea id="reasonR" rows="4" cols="30" name="reason" maxlength="500" placeholder="Short description for the Relay" required></textarea></li>
+						
+						<button id="rel" type="submit" class="more" disabled>Submit</button>
+						
+						</form>
+					</ul>
+				</li>
+			</ul>
+		</div>
+		
+		
 		<!-- end #sidebar -->
 		<div style="clear: both;">&nbsp;</div>
 	</div>
