@@ -69,8 +69,8 @@ $(function() {
 		var month = timestamp.getMonth()+1;
 		var day = timestamp.getDate();
 
-		var time = timestamp.getFullYear() + '/' +
-			((''+month).length<2 ? '0' : '') + month + '/' +
+		var time = timestamp.getFullYear() + '-' +
+			((''+month).length<2 ? '0' : '') + month + '-' +
 			((''+day).length<2 ? '0' : '') + day +" "+ timestamp.getHours()+":"+timestamp.getMinutes()+":"+timestamp.getSeconds();
 		
 		$("#timeStamp").val(time);
@@ -85,7 +85,7 @@ $(function() {
 <!---------------ADDS the Emergency Information to the Active Emergencies container------>    		
 		var texto = JSON.parse(JSONObject).clientName + ", " +JSON.parse(JSONObject).clientPhoneNumber + ", " +JSON.parse(JSONObject).attendedBy;
 		
-		var radioBtn = $('<input id="'+ key +'" type="radio" name="active" value=' + '"'+ key + '"' +'>'+texto+'------------------------Active</input><br>');
+		var radioBtn = $('<input id="'+ key +'" type="radio" name="active" value=' + '"'+ key + '"' +'>'+texto+'</input><br>');
 		$("#active").append(radioBtn);
 		
 		
@@ -129,7 +129,7 @@ $(window).load(function () {
 		
 					
 					
-			var radioBtn = $('<input id="'+ key +'" type="radio" name="active" value=' + '"'+ key + '"' +'>'+texto+'------------------------Active</input><br>');
+			var radioBtn = $('<input id="'+ key +'" type="radio" name="active" value=' + '"'+ key + '"' +'>'+texto+'</input><br>');
 			$('#active').append(radioBtn);
 					
 									

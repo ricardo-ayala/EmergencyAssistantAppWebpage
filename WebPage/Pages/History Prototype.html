@@ -22,7 +22,101 @@ Released   : 20130509
 
 <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
 
+<script>
+<!-----------TRANSFORMS a String Object to a JSON Object--------->
+$.fn.serializeObject = function()
+{
+    var o = {};
+    var a = this.serializeArray();
+    $.each(a, function() {
+        if (o[this.name] !== undefined) {
+            if (!o[this.name].push) {
+                o[this.name] = [o[this.name]];
+            }
+            o[this.name].push(this.value || '');
+        } else {
+            o[this.name] = this.value || '';
+        }
+    });
+    return o;
+};
 
+$(window).load(function () {
+	
+	var date = new Date();
+	var month = date.getMonth()+1;
+	var day = date.getDate();
+
+	var dateFormat = date.getFullYear() + '-' +
+			((''+month).length<2 ? '0' : '') + month + '-' +
+			((''+day).length<2 ? '0' : '') + day;
+	
+	$("#date").attr("max", dateFormat);
+});
+	
+
+
+$(function () {
+$("#go").click(function(){
+	$("#history").empty();
+	var date = new Date();
+	var month = date.getMonth()+1;
+	var day = date.getDate();
+
+	var dateFormat = date.getFullYear() + '-' +
+			((''+month).length<2 ? '0' : '') + month + '-' +
+			((''+day).length<2 ? '0' : '') + day;
+	
+	var JSONHDate = JSON.stringify($("#historyform").serializeObject());
+	if (JSON.parse(JSONHDate).date == ""){
+		alert("Please select a date");
+		$("#historyform").trigger("reset");
+	}
+	else{
+			var storageElements = localStorage.length;
+
+			if (storageElements == 0){
+				alert("There are no records in the DB");
+				return false;
+				
+				}else{
+					var i,key,JSONObject;
+					var localStorageKeys = Object.keys(localStorage);
+					for ( i = 0; i < storageElements; i++){
+					key =  localStorageKeys[i];
+						
+					JSONObject = localStorage.getItem(key);
+					
+					var timeStamp = JSON.parse(JSONObject).timeStamp;
+					
+					var JSONDate = timeStamp.split(" ");
+					
+					
+					if( JSONDate[0] == JSON.parse(JSONHDate).date ){
+					
+					
+					var texto = JSON.parse(JSONObject).clientName + ", " +JSON.parse(JSONObject).clientPhoneNumber + ", " +JSON.parse(JSONObject).attendedBy;
+				
+							
+							
+					var radioBtn = $('<input id="'+ key +'" type="radio" name="active" value=' + '"'+ key + '"' +'>'+texto+'</input><br>');
+					$('#history').append(radioBtn);
+							
+											
+					}
+					
+					
+						
+					}
+				}
+	
+		}
+		
+	return false;
+});
+});
+
+</script>
 
 
 </head>
@@ -53,7 +147,7 @@ Released   : 20130509
 				
 					<h2>History</h2>
 					<form id="main">
-					<div id="active" class="containerHistory">
+					<div id="history" class="containerHistory">
 
  					
 					</div>
@@ -72,8 +166,10 @@ Released   : 20130509
 				<li>
 					<h2>Filters</h2>
 					<ul>
-						<li> Select a day to view past emergency reports: <input type="date" name="date"/> </li>
-						<input type="submit" class="more">
+						<form id="historyform" action="" method="post">
+						<li> Select a day to view past emergency reports: <input type="date" id="date" name="date" /> </li>
+						<button id="go" type="submit" class="more" max="">Submit</button>
+						</form>
 					</ul>
 				</li>
 			</ul>
