@@ -41,6 +41,7 @@ $.fn.serializeObject = function()
     return o;
 };
 
+<!--------------------Sets the maximum value of Date input to todays date--------------->
 $(window).load(function () {
 	
 	var date = new Date();
@@ -55,7 +56,7 @@ $(window).load(function () {
 });
 	
 
-
+<!-----------------Searches for history information--------------------------------------->
 $(function () {
 $("#go").click(function(){
 	$("#history").empty();
@@ -116,6 +117,99 @@ $("#go").click(function(){
 });
 });
 
+<!------------------------------------------Shows Emergency Details----------------------------------------->
+$(function() {
+    $("#details").click(function() {
+			
+			var JSONkey, JSONObject, key, position;
+			JSONkey = JSON.stringify($('#main').serializeObject());
+			key = JSON.parse(JSONkey).active;
+			
+			if ( typeof key != "undefined"){
+			
+			$("#sidebar1").css("display","none");
+			$("#sidebar2").css("display","inline");
+			$("#go").attr("disabled", true);
+			$("#goback").attr("disabled", false);	
+				
+			JSONObject = localStorage.getItem(key);
+			$("#cpn").html(JSON.parse(JSONObject).clientPhoneNumber);
+			$("#n").html(JSON.parse(JSONObject).clientName);
+			$("#a").html(JSON.parse(JSONObject).clientAddress);
+			$("#toe").html(JSON.parse(JSONObject).typeOfEmergency);
+			$("#eah").html(JSON.parse(JSONObject).outsideHome);
+			$("#aa").html(JSON.parse(JSONObject).attendedBy);
+			$("#ed").html(JSON.parse(JSONObject).emergencyDetails);
+			$("#rd").html(JSON.parse(JSONObject).reason);
+			$("#ts").html(JSON.parse(JSONObject).timeStamp);
+			position = JSON.parse(JSONObject).latitude + ', ' + JSON.parse(JSONObject).longitude; 
+			
+				
+			if (navigator.geolocation){
+				navigator.geolocation.getCurrentPosition(showPosition,showError);
+				}
+			  else{
+			  alert("Geolocation is not supported by this browser.");
+			  }
+
+			function showPosition()
+			  {
+			  lat=JSON.parse(JSONObject).latitude;
+			  lon=JSON.parse(JSONObject).longitude;
+			  latlon=new google.maps.LatLng(lat, lon)
+			  mapholder=$("#cl");
+			  mapholder.style.height='250px';
+			  mapholder.style.width='500px';
+
+			  var myOptions={
+			  center:latlon,zoom:14,
+			  mapTypeId:google.maps.MapTypeId.ROADMAP,
+			  mapTypeControl:false,
+			  navigationControlOptions:{style:google.maps.NavigationControlStyle.SMALL}
+			  };
+			  var map=new google.maps.Map($("#cl"),myOptions);
+			  var marker=new google.maps.Marker({position:latlon,map:map,title:"Client is here"});
+			  }
+
+			function showError(error)
+			  {
+			  switch(error.code) 
+				{
+				case error.PERMISSION_DENIED:
+				  alert("User denied the request for Geolocation.");
+				  break;
+				case error.POSITION_UNAVAILABLE:
+				  alert("Location information is unavailable.");
+				  break;
+				case error.TIMEOUT:
+				  alert("The request to get user location timed out.");
+				  break;
+				case error.UNKNOWN_ERROR:
+				  alert("An unknown error occurred.");
+				  break;
+				}
+			  }
+			
+			
+			
+			
+			}else{
+				alert("Choose an Emergency to show Details");
+			}
+			return false;
+	});
+});
+
+$(function() {
+    $("#goback").click(function() {
+		$("#sidebar1").css("display","inline");
+		$("#sidebar2").css("display","none");
+		$("#go").attr("disabled", false);
+		$("#goback").attr("disabled", true);
+		$("#history").empty();
+		$("#historyform").trigger("reset");
+});
+});
 </script>
 
 
@@ -152,7 +246,7 @@ $("#go").click(function(){
  					
 					</div>
 					</form>
-
+					<br><button id="details" type="submit" class="more" form="main">View Details</button>
 					
 					
 					
@@ -170,6 +264,28 @@ $("#go").click(function(){
 						<li> Select a day to view past emergency reports: <input type="date" id="date" name="date" /> </li>
 						<button id="go" type="submit" class="more" max="">Submit</button>
 						</form>
+					</ul>
+				</li>
+			</ul>
+		</div>
+		
+		<div id="sidebar2">
+			<ul>
+				<li>
+					<h2>Emergency Information</h2>
+					<ul>
+						<li>Client Phone Number:<h3 id="cpn"></h3> </li>
+						<li>Name:<h3 id="n"></h3></li>
+						<li>Address:<h3 id="a"></h3></li>
+						<li>Type of Emergency:<h3 id="toe"></h3></li>
+						<li>Emergency at Home?:<h3 id="eah"></h3></li>
+						<li>Assigned Agent: <h3 id="aa"></h3></li>
+						<li>Emergency Description:<br><div id="container3"><p id="ed"></p></div></li>
+						<li>Relay Description(If any):<br><div id="container3"><p id="rd"></p></div></li>
+						<li>Date and Time Received(YYYY/MM/DD):<h3 id="ts"></h3>
+						<li>Client Location:<div id="cl"></div></li><br>
+						<button id="goback" type="button" class="more">Search Again</button>
+						
 					</ul>
 				</li>
 			</ul>
