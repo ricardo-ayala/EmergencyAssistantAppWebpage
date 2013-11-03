@@ -82,10 +82,14 @@ $("#submit").click(function(){
 				<form id="main" action="" method="post">
 				<h3>Name:<input type="text" id="" name="" maxlength="50" size="50"required/></h3><br>
 				<h3>Username:<input type="text" id="" name="username" maxlength="40" size="30"required/></h3><br>
-				<h3>Password:<input type="password" id="" name="password" maxlength="16" size="30"required/></h3><br>
+				<h3>Password:<input type="text" id="" name="password" maxlength="16" size="30"required/></h3><br>
 				<h3>E-mail:<input type="email" id="" name="email" pattern="[^ @]*@[^ @]*" required/></h3><br>
-				<h3>User Type:<input type="text" id="" name="role" required/></h3><br>
-				<h3>Company Phone Number:<input type="text" id="" name="agencyPhoneNumber" required/></h3><br><br>
+				<h3>User Type:<select id="" name="role" size="1" placeholder="Select Type" required>
+							<option value="admin">Admin</option>
+							<option value="employee">Employee</option>
+							</select>
+				</h3><br>
+				<h3>Company Phone Number:<input type="text" id="" name="agencyPhoneNumber" maxlength="10" size="10" required/></h3><br><br>
 				</form>
 					
 					
