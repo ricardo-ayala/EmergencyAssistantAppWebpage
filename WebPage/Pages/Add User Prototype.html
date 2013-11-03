@@ -24,7 +24,32 @@ Released   : 20130509
 
 
 <script>
-
+<!-----------TRANSFORMS a String Object to a JSON Object--------->
+$.fn.serializeObject = function()
+{
+    var o = {};
+    var a = this.serializeArray();
+    $.each(a, function() {
+        if (o[this.name] !== undefined) {
+            if (!o[this.name].push) {
+                o[this.name] = [o[this.name]];
+            }
+            o[this.name].push(this.value || '');
+        } else {
+            o[this.name] = this.value || '';
+        }
+    });
+    return o;
+};
+<!---------------login script-------------------------->
+$(function(){
+$("#submit").click(function(){
+	
+	var JSONObject = JSON.stringify($("#main").serializeObject());
+	alert(JSONObject);
+	
+});
+});
 </script>
 
 </head>
@@ -33,13 +58,13 @@ Released   : 20130509
 	<div id="header-wrapper">
 		<div id="header" class="container">
 			<div id="logo">
-				<h1><a>Emergency Center</a></h1>
+				<h1><a>Admin Home</a></h1>
 			</div>
 			<div id="menu">
 				<ul>
-					<li><a href="C:\Users\Ricardo\Documents\GitHub\EmergencyAssistantAppWebpage\WebPage\Pages\Active Emergencies Prototype.html">Homepage</a></li>
-					<li><a href="C:\Users\Ricardo\Documents\GitHub\EmergencyAssistantAppWebpage\WebPage\Pages\History Prototype.html">History</a></li>
-					<li class="current_page_item"><a>Account Settings</a></li>
+					<li><a href="C:\Users\Ricardo\Documents\GitHub\EmergencyAssistantAppWebpage\WebPage\Pages\Admin Home Prototype.html">Home</a></li>
+					<li class="current_page_item"><a>Add User</a></li>
+					<li><a href="C:\Users\Ricardo\Documents\GitHub\EmergencyAssistantAppWebpage\WebPage\Pages\Add Service Prototype.html">Add Service</a></li>
 					<li><a href="C:\Users\Ricardo\Documents\GitHub\EmergencyAssistantAppWebpage\WebPage\Pages\Login Prototype.html">Log out</a></li>
 					
 				</ul>
@@ -49,35 +74,27 @@ Released   : 20130509
 	<!-- end #header -->
 	<div id="page">
 	
-	<!-----Active and Relayed Emergency Containers---->
+
 		<div id="content1">
 			<div class="post">
-				<h2 id="greeting" class="title">Hi [personName]!</h2>
+				<h2 id="greeting" class="title">New User</h2>
 				<div class="entry1">
-					
+				<form id="main" action="" method="post">
 				<h3>Name:<input type="text" id="" name="" maxlength="50" size="50"required/></h3><br>
-				<h3>Username:<input type="text" id="" name="" maxlength="40" size="30"required/></h3><br>
-				<h3>Password:<input type="password" id="" name="" maxlength="16" size="30"required/></h3><br>
-				<h3>E-mail:<input type="email" id="" name="" pattern="[^ @]*@[^ @]*" ></h3><br>
-				<h3>User Type:[employeeType]</h3><br>
-				<h3>Company Name:[companyName]</h3><br><br>
-					
+				<h3>Username:<input type="text" id="" name="username" maxlength="40" size="30"required/></h3><br>
+				<h3>Password:<input type="password" id="" name="password" maxlength="16" size="30"required/></h3><br>
+				<h3>E-mail:<input type="email" id="" name="email" pattern="[^ @]*@[^ @]*" required/></h3><br>
+				<h3>User Type:<input type="text" id="" name="role" required/></h3><br>
+				<h3>Company Phone Number:<input type="text" id="" name="agencyPhoneNumber" required/></h3><br><br>
+				</form>
 					
 					
 				
 				<p>
-				<button id="change" type="button" class="more">Update</button>
-				<button id="show" type="button" class="more" onclick="" form="main">Cancel</button>
+				<button id="submit" type="submit" class="more" form="main">Add</button>
+				
 				</p>
 
-				
-
-					
-					
-					
-					
-					
-					
 				</div>
 			</div>
 		</div>

@@ -1,0 +1,130 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<!--
+Design by Free CSS Templates
+http://www.freecsstemplates.org
+Released for free under a Creative Commons Attribution 2.5 License
+
+Name       : Breakeven 
+Description: A two-column, fixed-width design with dark color scheme.
+Version    : 1.0
+Released   : 20130509
+
+-->
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="keywords" content="" />
+<meta name="description" content="" />
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<title>Add Service</title>
+<link href="http://fonts.googleapis.com/css?family=Open+Sans:400,300,600" rel="stylesheet" type="text/css" />
+<link href='http://fonts.googleapis.com/css?family=Abel|Satisfy' rel='stylesheet' type='text/css'>
+<link href="style.css" rel="stylesheet" type="text/css" media="screen" />
+
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+
+
+<script>
+var countA, countP;
+
+<!-----------TRANSFORMS a String Object to a JSON Object--------->
+$.fn.serializeObject = function()
+{
+    var o = {};
+    var a = this.serializeArray();
+    $.each(a, function() {
+        if (o[this.name] !== undefined) {
+            if (!o[this.name].push) {
+                o[this.name] = [o[this.name]];
+            }
+            o[this.name].push(this.value || '');
+        } else {
+            o[this.name] = this.value || '';
+        }
+    });
+    return o;
+};
+
+<!-----------------------Adds new field to alternative Areas---------------------------->
+	
+	
+</script>
+
+</head>
+<body>
+<div id="wrapper">
+	<div id="header-wrapper">
+		<div id="header" class="container">
+			<div id="logo">
+				<h1><a>Admin Home</a></h1>
+			</div>
+			<div id="menu">
+				<ul>
+					<li><a href="C:\Users\Ricardo\Documents\GitHub\EmergencyAssistantAppWebpage\WebPage\Pages\Admin Home Prototype.html">Home</a></li>
+					<li><a href="C:\Users\Ricardo\Documents\GitHub\EmergencyAssistantAppWebpage\WebPage\Pages\Add User Prototype.html">Add User</a></li>
+					<li class="current_page_item"><a>Add Service</a></li>
+					<li><a href="C:\Users\Ricardo\Documents\GitHub\EmergencyAssistantAppWebpage\WebPage\Pages\Login Prototype.html">Log out</a></li>
+					
+				</ul>
+			</div>
+		</div>
+	</div>
+	<!-- end #header -->
+	<div id="page">
+	
+	
+		<div id="content1">
+			<div class="post">
+				<h2 id="greeting" class="title">Hi [personName]!</h2>
+				<div class="entry1">
+				<form id="addService" action="" method="post">
+				<h3>Agency Name:<input type="text" id="" name="agencyName" maxlength="50" size="50"required/></h3><br>
+				<h3>Category:<input type="text" id="" name="category" maxlength="40" size="30"required/></h3><br>
+				<h3>Area:<input type="password" id="" name="" maxlength="40" size="30"required/></h3><br>
+				<h3>Alternate Area:<input type="email" id="" name=""/></h3><button type="button" id="moreA">Add Field</button><button type="button" id="lessA" disabled>Add Field</button><br>
+				<h3>Telephone:<input type="email" id="" name="altPhoneNumber" maxlength="10" size="10" required/></h3></h3><button type="button" id="moreP">Add Field</button><button type="button" id="lessP" disabled>Add Field</button><br>
+				<h3 id="altP">Alternate Telephone1:<input type="email" id="" name="altPhoneNumber1" maxlength="10"size="10"/><br>
+				<h3>Alternate Telephone2:<input type="email" id="" name="altPhoneNumber2" maxlength="10"size="10"/></h3>
+				<h3>City:<input type="text" id="" name="city" maxlength="40" size="30"required/></h3><br>
+				<h3>State:<input type="text" id="" name="state" maxlength="2" size="3"required/></h3><br>
+				<h3>Country<input type="text" id="" name="category" maxlength="40" size="30"required/></h3>
+				<input type=hidden <br><br>
+				</form>	
+					
+					
+				
+				<p>
+				<button id="add" type="submit" class="more" form="main">Add</button>
+				</p>
+
+				
+
+					
+					
+					
+					
+					
+					
+				</div>
+			</div>
+		</div>
+		
+		
+		
+		
+		<!-- end #content -->
+		
+		
+		
+		
+		<!-- end #sidebar -->
+		<div style="clear: both;">&nbsp;</div>
+	</div>
+	<!-- end #page --> 
+	
+</div>
+<div id="footer">
+	<p>Copyright (c) 2013 Sitename.com. All rights reserved. Images by <a href="http://fotogrph.com/">Fotogrph</a>. Design by <a href="http://www.freecsstemplates.org/" rel="nofollow">FreeCSSTemplates.org</a>.</p>
+</div>
+<!-- end #footer -->
+</body>
+</html>
