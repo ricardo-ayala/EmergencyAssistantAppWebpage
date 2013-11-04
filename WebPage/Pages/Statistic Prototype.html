@@ -15,7 +15,7 @@ Released   : 20130509
 <meta name="keywords" content="" />
 <meta name="description" content="" />
 <meta http-equiv="content-type" content="text/html; charset=utf-8" />
-<title>Add User</title>
+<title>Add Service</title>
 <link href="http://fonts.googleapis.com/css?family=Open+Sans:400,300,600" rel="stylesheet" type="text/css" />
 <link href='http://fonts.googleapis.com/css?family=Abel|Satisfy' rel='stylesheet' type='text/css'>
 <link href="style.css" rel="stylesheet" type="text/css" media="screen" />
@@ -41,23 +41,25 @@ $.fn.serializeObject = function()
     });
     return o;
 };
-<!---------------login script-------------------------->
+
+<!---------------------------Selects filters for the Statistical Search------------------------------------------------->
 $(function(){
-$("#submit").click(function(){
+$("#searchS").click(function(){
 	
-var JSONObject = JSON.stringify($("#main").serializeObject());
-	if(JSON.parse(JSONObject).name =="" || JSON.parse(JSONObject).username =="" || JSON.parse(JSONObject).password =="" || JSON.parse(JSONObject).email =="" ||JSON.parse(JSONObject).role =="" || JSON.parse(JSONObject).agencyPhoneNumber ==""){
-		alert("Please fill all the fields to add a new user to the system");
+	var JSONObject = JSON.stringify($("#filters").serializeObject());
+	if(JSON.parse(JSONObject).category =="" || JSON.parse(JSONObject).country =="" || JSON.parse(JSONObject).state =="" || JSON.parse(JSONObject).city =="" || JSON.parse(JSONObject).agencyPhoneNumber ==""){
+		alert("Please fill all the fields for statistical search");
 		return false;
 	}
 	else{
-	
-	alert("A new user has been added to the system with information "+JSONObject);
-	$("#main").trigger("reset");
+		alert(JSONObject);
+		$("#tableResults").html("Resulst will be displayed here");
+		$("#filters").trigger("reset");
 	}
 	return false;
 });
 });
+			
 </script>
 
 </head>
@@ -66,13 +68,10 @@ var JSONObject = JSON.stringify($("#main").serializeObject());
 	<div id="header-wrapper">
 		<div id="header" class="container">
 			<div id="logo">
-				<h1><a>Admin Home</a></h1>
+				<h1><a>Statistics</a></h1>
 			</div>
 			<div id="menu">
 				<ul>
-					<li><a href="C:\Users\Ricardo\Documents\GitHub\EmergencyAssistantAppWebpage\WebPage\Pages\Admin Home Prototype.html">Home</a></li>
-					<li class="current_page_item"><a>Add User</a></li>
-					<li><a href="C:\Users\Ricardo\Documents\GitHub\EmergencyAssistantAppWebpage\WebPage\Pages\Add Service Prototype.html">Add Service</a></li>
 					<li><a href="C:\Users\Ricardo\Documents\GitHub\EmergencyAssistantAppWebpage\WebPage\Pages\Login Prototype.html">Log out</a></li>
 					
 				</ul>
@@ -82,40 +81,64 @@ var JSONObject = JSON.stringify($("#main").serializeObject());
 	<!-- end #header -->
 	<div id="page">
 	
-
 		<div id="content1">
 			<div class="post">
-				<h2 id="greeting" class="title">New User</h2>
-				<div class="entry">
-				<form id="main" action="" method="post">
-				<h3>Name:<input type="text" id="" name="name" maxlength="50" size="50"/></h3><br>
-				<h3>Username:<input type="text" id="" name="username" maxlength="40" size="30"/></h3><br>
-				<h3>Password:<input type="text" id="" name="password" maxlength="16" size="30"/></h3><br>
-				<h3>E-mail:<input type="email" id="" name="email" pattern="[^ @]*@[^ @]*" /></h3><br>
-				<h3>User Type:<select id="" name="role" size="1" placeholder="Select Type" >
-							<option value="admin">Admin</option>
-							<option value="employee">Employee</option>
-							</select>
-				</h3><br>
-				<h3>Company Phone Number:<input type="text" id="" name="agencyPhoneNumber" maxlength="10" size="10"/></h3><br><br>
-				</form>
-					
-					
+				<h2 id="greeting" class="title">Statistics Search</h2>
+				<div class="entry1">
 				
-				<p>
-				<button id="submit" type="submit" class="more" form="main">Add</button>
+				<div id="tableResults"></div>
 				
-				</p>
-
+				
 				</div>
 			</div>
 		</div>
-		
-		
-		
-		
 		<!-- end #content -->
-		
+		<div id="sidebar1">
+			<ul>
+				<li>
+					<h2>Search Filters</h2>
+					<ul>
+						<form id="filters" action="" method="post">
+						<li>Category<br><select id="category" name = "category">
+						<option value="">Select Category</option>
+						<option value="police">Police</option>
+						<option value="firefighter">Firefighter</option>
+						<option value="ambulance">Ambulance</option>
+						<option value="hospital">Hospital</option>
+						<option value="tow">Tow</option>
+						</select><br>
+						</li>
+						
+						<li>Country<br><select id="country" name="country"> 
+						<option value="">Select Country</option>
+						<option value="PR">PR</option>
+						</select><br>
+						</li>
+						
+						<li>State<br><select id="state" name="state">
+						<option value="">Select State</option>
+						<option value="PR">PR</option>
+						</select><br>
+						</li>
+						
+						<li>City<br><select id="city" name="city">
+						<option value="">Select City</option>
+						<option value="ponce">Ponce</option>
+						<option value="mayaguez">Mayaguez</option>
+						</select><br></li>
+						
+						<li>Agency<br><select id="agencyPhoneNumber" name="agencyPhoneNumber">
+						<option value="">Select Agency</option>
+						<option value="police">Police</option>
+						</select><br></li>
+						</form>	
+						
+						<button id="searchS" type="submit" class="more" form="filters">Search</button>
+						
+					</ul>
+				</li>
+			</ul>
+		</div>
 		
 		
 		

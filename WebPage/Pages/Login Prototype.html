@@ -44,6 +44,11 @@ $(function(){
 $("#gologin").click(function(){
 		
 	var JSONObject = JSON.stringify($("#login").serializeObject());
+	if(JSON.parse(JSONObject).username =="" || JSON.parse(JSONObject).password == ""){
+		alert("Please fill all the fields to log in");
+		return false;
+	}
+	
 	alert(JSONObject);
 	
 });
@@ -66,6 +71,11 @@ $("#gorecovery").click(function(){
 		$("#usernamerecovery").val("[username]");
 	
 		var JSONObject = JSON.stringify($("#emailform").serializeObject());
+		if(JSON.parse(JSONObject).email == ""){
+			alert("Please fill in all the text fields for password recovery");
+			return false;
+		}
+		
 		alert(JSONObject);
 		
 		$("#sidebar2").css("display", "none");
@@ -126,7 +136,7 @@ $("#gorecovery").click(function(){
 					<h2>Password Recovery</h2>
 					<ul>
 						<form id="emailform" action="" method="post">
-							<li>E-mail Address:<input type="text" id="email" name="email" maxlength="25" required /></li>
+							<li>E-mail Address:<input type="text" id="email" name="email" maxlength="25" required/></li>
 							<li><input type=hidden id="agencyPhoneNumber" name="agencyPhoneNumber"/></li>
 							<li><input type=hidden id="usernamerecovery" name="username"/></li>
 							<button id="gorecovery" type="submit" class="more" disabled>Submit</button>

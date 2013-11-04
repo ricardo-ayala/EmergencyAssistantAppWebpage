@@ -47,11 +47,58 @@ $("#go").click(function(){
 	
 
 	var JSONObject = JSON.stringify($("#main").serializeObject());
-	alert(JSONObject);
-	return false;
+	
+	if(JSON.parse(JSONObject).searchText == ""){
+		alert("Please fill in the search field to do the search. Dont forget to choose a filter for each category to make a better search");
+		return false;
+	}
+	
+	$(".entry").css("display", "none");
+	$(".entry1").css("display", "inline");
+	$("#go").attr("disabled", true);
+	$("#results").html("Search results will appear here(Employees or Services)");
+	$("#main").trigger("reset");
+	alert("These are the search variables and values "+JSONObject);
+
+	
 	
 });
 });
+	
+<!-------------------------Deletes an Employee or Service from DB------------------>
+$(function(){
+$("#delete").click(function(){
+	
+	alert("The selected Service or User will be deleted from the DB");
+	
+	$(".entry").css("display", "inline");
+	$(".entry1").css("display", "none");
+	$("#go").attr("disabled", false);
+});
+});
+<!----------------------------------------------Edits an Employee or Service--------------------------------->
+$(function(){
+$("#edit").click(function(){
+	
+	alert("The selected Service or User can be edited");
+	
+	$(".entry").css("display", "inline");
+	$(".entry1").css("display", "none");
+	$("#go").attr("disabled", false);
+});
+});
+<!-------------------------------------------Takes the page to its original state---------------------------->
+$(function(){
+$("#goBack").click(function(){
+	
+	
+	$(".entry").css("display", "inline");
+	$(".entry1").css("display", "none");
+	$("#go").attr("disabled", false);
+});
+});
+	
+	
 
 </script>
 
@@ -81,11 +128,26 @@ $("#go").click(function(){
 				<h2 id="greeting" class="title">Search</h2>
 				
 				<div class="entry">
-				<form id="main" action="" method="get">
+				<form id="main" action="" method="post">
 				<h3><input type="text" id="busqueda" name="searchText" maxlength="40" size="30" required/></h3><br>
 				
 				<p>
 				<button id="go" type="submit" class="more">Go!</button>
+				</p>		
+				</form>
+				</div>
+				
+				<div class="entry1">
+				<form id="mainResults" action="" method="post">
+				
+				<div id="results">
+				
+				</div><br>
+				
+				<p>
+				<button id="delete" type="submit" class="more">Delete</button>
+				<button id="edit" type="submit" class="more">Edit</button>
+				<button id="goBack" type="submit" class="more">Go back</button>
 				</p>		
 				</form>
 				</div>

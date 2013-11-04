@@ -264,9 +264,7 @@ $(function() {
 			  lat=JSON.parse(JSONObject).latitude;
 			  lon=JSON.parse(JSONObject).longitude;
 			  latlon=new google.maps.LatLng(lat, lon)
-			  mapholder=$("#cl");
-			  mapholder.style.height='250px';
-			  mapholder.style.width='500px';
+			  
 
 			  var myOptions={
 			  center:latlon,zoom:14,
@@ -274,7 +272,7 @@ $(function() {
 			  mapTypeControl:false,
 			  navigationControlOptions:{style:google.maps.NavigationControlStyle.SMALL}
 			  };
-			  var map=new google.maps.Map($("#cl"),myOptions);
+			  var map=new google.maps.Map(document.getElementById("cl"),myOptions);
 			  var marker=new google.maps.Marker({position:latlon,map:map,title:"Client is here"});
 			  }
 
@@ -376,22 +374,7 @@ $(function(){
 
 
 
-<!--------------------------------------------TEST FUNCTIONS ONLY------------------------------------------------------------------------>
-$(function(){
-	$('#formData').submit(function(){
-		
-		var dataKey = $('#keyFetcher').val();
-		
-		var actualStorageSize = JSON.stringify(localStorage).length;
-		$('#result').text("KEY = "+ dataKey + " DATA = " + localStorage.getItem(dataKey) + " SIZE = " + actualStorageSize + " Bytes");
-		return false;
-    })
-})
 
-function storageReset()
-{
-localStorage.clear();
-}
 
 </script>
 
@@ -407,8 +390,7 @@ localStorage.clear();
 				<ul>
 					<li class="current_page_item"><a href="#">Homepage</a></li>
 					<li><a href="C:\Users\Ricardo\Documents\GitHub\EmergencyAssistantAppWebpage\WebPage\Pages\History Prototype.html">History</a></li>
-					<li><a href="C:\Users\Ricardo\Documents\GitHub\EmergencyAssistantAppWebpage\WebPage\Pages\Account Settings Prototype.html">Account Settings</a></li>
-					<li><a href="#">Log out</a></li>
+					<li><a href="C:\Users\Ricardo\Documents\GitHub\EmergencyAssistantAppWebpage\WebPage\Pages\Login Prototype.html">Log out</a></li>
 					
 				</ul>
 			</div>
@@ -479,10 +461,10 @@ localStorage.clear();
 						<li>Type of Emergency:<h3 id="toe"></h3></li>
 						<li>Emergency at Home?:<h3 id="eah"></h3></li>
 						<li>Assigned Agent: <h3 id="aa"></h3></li>
-						<li>Emergency Description:<br><div id="container3"><p id="ed"></p></div></li>
-						<li>Relay Description(If any):<br><div id="container3"><p id="rd"></p></div></li>
-						<li>Date and Time Received(YYYY/MM/DD):<h3 id="ts"></h3>
-						<li>Client Location:<div id="cl"></div></li>
+						<li>Emergency Description:<br><div class="container3"><p id="ed"></p></div></li>
+						<li>Relay Description(If any):<br><div class="container3"><p id="rd"></p></div></li>
+						<li>Date and Time Received(YYYY/MM/DD):<h3 id="ts"></h3></li>
+						<li>Client Location:<div id="cl" style="height:300px; width:350px;"></div></li>
 						
 					</ul>
 				</li>

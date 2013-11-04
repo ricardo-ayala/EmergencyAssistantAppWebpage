@@ -93,13 +93,13 @@ $("#lessA").click(function(){
 $(function() {
 $("#moreP").click(function(){
 		
-		if( countA == 2){
+		if( countP == 2){
 		$("#moreP").attr("disabled", true);
 		$("#lessP").attr("disabled", false);
 		}
-		if( countA < 2){
-		$('#'+str2[countA]).show();
-		countA = countA + 1;
+		if( countP < 2){
+		$('#'+str2[countP]).show();
+		countP = countP + 1;
 		$("#lessP").attr("disabled", false);
 		}
 		
@@ -109,13 +109,13 @@ $("#moreP").click(function(){
 $(function() {
 $("#lessP").click(function(){
 		
-		if( countA == 0){
+		if( countP == 0){
 		$("#lessP").attr("disabled", true);
 		$("#moreP").attr("disabled", false);
 		}
-		if( countA > 0){
-		$('#'+str2[countA-1]).hide();
-		countA = countA - 1;
+		if( countP > 0){
+		$('#'+str2[countP-1]).hide();
+		countP = countP - 1;
 		$("#moreP").attr("disabled", false);
 		}
 		
@@ -126,10 +126,16 @@ $("#lessP").click(function(){
 	
 $(function(){
 $("#add").click(function(){
-	
 	var JSONObject = JSON.stringify($("#addService").serializeObject());
-	alert(JSONObject);
+	
+	if(JSON.parse(JSONObject).agencyName =="" || JSON.parse(JSONObject).category =="" || JSON.parse(JSONObject).altArea0 =="" || JSON.parse(JSONObject).altPhoneNumber0 =="" || JSON.parse(JSONObject).city =="" || JSON.parse(JSONObject).state =="" ||  JSON.parse(JSONObject).country =="" ){
+		alert("Please fill all the fields to add a new service to the system");
+		return false;
+	}
+	else{alert("A new service has been added to the system with information "+JSONObject);
 	$("#addService").trigger("reset");
+	}
+	return false;
 });
 });
 </script>
@@ -160,7 +166,7 @@ $("#add").click(function(){
 		<div id="content1">
 			<div class="post">
 				<h2 id="greeting" class="title">New Service</h2>
-				<div class="entry1">
+				<div class="entry">
 				<form id="addService" action="" method="post">
 				<h3>Agency Name:<input type="text" id="" name="agencyName" maxlength="50" size="50" required/></h3><br>
 				<h3>Category:<input type="text" id="" name="category" maxlength="40" size="30" required/></h3><br>
