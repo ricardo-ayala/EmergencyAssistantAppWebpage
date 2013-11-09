@@ -22,7 +22,7 @@ Released   : 20130509
 
 <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
 <script>
-<!-----------TRANSFORMS a String Object to a JSON Object--------->
+//<!-----------TRANSFORMS a String Object to a JSON Object--------->
 $.fn.serializeObject = function()
 {
     var o = {};
@@ -44,17 +44,43 @@ $(function(){
 $("#gologin").click(function(){
 		
 	var JSONObject = JSON.stringify($("#login").serializeObject());
-	if(JSON.parse(JSONObject).username =="" || JSON.parse(JSONObject).password == ""){
-		alert("Please fill all the fields to log in");
+	if(JSON.parse(JSONObject).username =="" ){
+		alert("Please fill the username field to log in");
 		return false;
 	}
-	
-	alert(JSONObject);
-	
+	if( JSON.parse(JSONObject).username == "employee" && JSON.parse(JSONObject).password == "password"){
+        window.location.replace("http://localhost:63342/Pages/Active Emergencies Prototype.html");
+        alert("User: employee with password: password logged in");
+        return false;
+        }
+    if(JSON.parse(JSONObject).username == "admin" && JSON.parse(JSONObject).password == "admin"){
+        window.location.replace("http://localhost:63342/Pages/Admin Home Prototype.html");
+        alert("User: admin with password: admin logged in");
+        return false;
+    }
+    if(JSON.parse(JSONObject).username == "statistic" ){
+        window.location.replace("http://localhost:63342/Pages/Statistic Prototype.html");
+        alert("User: statistic with password: logged in");
+        return false;
+    }
+	alert("Log in with: "+JSONObject+" is not permitted");
+
+    //$.ajax({
+        //    type: "POST",
+        //    url :
+        //    contentType: "application/json",
+        //    data: {Category: Category, Latitude: latitude, Longitude:longitude, State: State, City:City, Country:Country},
+        //    success : function(data) {
+        //
+        // },
+        //    error: function(data){
+        //        alert(data);
+        //    }
+        // });
 });
 });
 
-<!--------------Password Recovery script--------------->
+//<!--------------Password Recovery script--------------->
 $(function (){
 	
 $("#forgot").click(function(){
@@ -76,7 +102,7 @@ $("#gorecovery").click(function(){
 			return false;
 		}
 		
-		alert(JSONObject);
+		alert("Password sent to email address "+JSON.parse(JSONObject).email);
 		
 		$("#sidebar2").css("display", "none");
 		$("#sidebar1").css("display", "inline");

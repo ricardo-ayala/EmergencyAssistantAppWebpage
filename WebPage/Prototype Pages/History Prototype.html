@@ -24,7 +24,7 @@ Released   : 20130509
 <script src="http://maps.google.com/maps/api/js?sensor=false"></script>
 
 <script>
-<!-----------TRANSFORMS a String Object to a JSON Object--------->
+//<!-----------TRANSFORMS a String Object to a JSON Object--------->
 $.fn.serializeObject = function()
 {
     var o = {};
@@ -42,7 +42,7 @@ $.fn.serializeObject = function()
     return o;
 };
 
-<!--------------------Sets the maximum value of Date input to todays date--------------->
+//<!--------------------Sets the maximum value of Date input to todays date--------------->
 $(window).load(function () {
 	
 	var date = new Date();
@@ -57,7 +57,7 @@ $(window).load(function () {
 });
 	
 
-<!-----------------Searches for history information--------------------------------------->
+//<!-----------------Searches for history information--------------------------------------->
 $(function () {
 $("#go").click(function(){
 	$("#history").empty();
@@ -222,9 +222,9 @@ $(function() {
 			</div>
 			<div id="menu">
 				<ul>
-					<li><a href="C:\Users\Ricardo\Documents\GitHub\EmergencyAssistantAppWebpage\WebPage\Pages\Active Emergencies Prototype.html">Homepage</a></li>
+					<li><a href="http://localhost:63342/Pages/Active Emergencies Prototype.html">Home</a></li>
 					<li class="current_page_item"><a href="#">History</a></li>
-					<li><a href="C:\Users\Ricardo\Documents\GitHub\EmergencyAssistantAppWebpage\WebPage\Pages\Login Prototype.html">Log out</a></li>
+					<li><a href="http://localhost:63342/Pages/Login Prototype.html">Log out</a></li>
 					
 				</ul>
 			</div>

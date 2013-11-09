@@ -24,7 +24,7 @@ Released   : 20130509
 <script src="http://maps.google.com/maps/api/js?sensor=false"></script>
 
 <script>
-<!-----------TRANSFORMS a String Object to a JSON Object--------->
+//<!-----------TRANSFORMS a String Object to a JSON Object--------->
 $.fn.serializeObject = function()
 {
     var o = {};
@@ -57,7 +57,39 @@ $(function(){
   });
 });
 
-<!------------------ADDS a Client with an Emergency to Local Storage--------------->
+//<!-------------------Verifies User in DB-------------------------------->
+$(function() {
+    $("#clientPhoneNumber").keyup(function(){
+       var number = $("#clientPhoneNumber").val();
+
+        if( number.length == 10){
+
+            $.ajax({
+                type: "GET",
+                url : 'http://eaa.ece.uprm.edu/retrieveCoordinate',
+                contentType: "application/json",
+                data: "clientPhoneNumber="+number,
+                success : function(data) {
+                if (typeof data != "undefined"){
+                    $("#c").html("The client with phone number "+number+" is calling from the application, his/her location will be retrieved from his cellphone");
+                    sessionStorage.setItem(number, data);
+                }
+             },
+                error: function(data){
+                    $("#c").html("The client with phone number "+number+" does not have the application");
+                }
+             });
+        }
+            else{
+        $("#c").html("Please enter a 10 digit phone number");
+    }
+    return false;
+    });
+});
+
+
+
+//<!------------------ADDS a Client with an Emergency to Local Storage--------------->
 $(function() {
     $("#add").submit(function() {
 		
@@ -76,13 +108,17 @@ $(function() {
 		$("#timeStamp").val(time);
 		}
 		
-		
+		if ($("#latitude").val() == "" && $("#longitude").vall() == ""){
+            var data = sessionStorage.getItem(key);
+            $("#latitude").val(data[0]);
+            $("#longitude").val(data[1]);
+        }
 		
 		var JSONObject = JSON.stringify($("#add").serializeObject());
 		localStorage.setItem( key , JSONObject );
 		
 		
-<!---------------ADDS the Emergency Information to the Active Emergencies container------>    		
+//<!---------------ADDS the Emergency Information to the Active Emergencies container------>
 		var texto = JSON.parse(JSONObject).clientName + ", " +JSON.parse(JSONObject).clientPhoneNumber + ", " +JSON.parse(JSONObject).attendedBy;
 		
 		var radioBtn = $('<input id="'+ key +'" type="radio" name="active" value=' + '"'+ key + '"' +'>'+texto+'</input><br>');
@@ -144,7 +180,7 @@ $(window).load(function () {
 
 	
 		
-<!--------------------------------------EDITS information of an Emergency---------------------------------------------------->
+//<!--------------------------------------EDITS information of an Emergency---------------------------------------------------->
 $(function(){
   $("#edit").click(function(){
     var JSONkey, JSONObject, key;
@@ -185,11 +221,11 @@ $(function(){
 	
 	
 
-	<!--$(window).on('beforeunload ',function() {
+	//<!--$(window).on('beforeunload ',function() {
 
-	<!--return "If you leave now the information on screen will be lost";
+	//<!--return "If you leave now the information on screen will be lost";
 	
-	<!--});
+	//<!--});
 	
 	
 	
@@ -204,7 +240,7 @@ $(function(){
 
 
 
-<!------------------------REMOVES an Emergency from the Active window and localStorage and sends the information to the DB---------------->
+//<!------------------------REMOVES an Emergency from the Active window and localStorage and sends the information to the DB---------------->
 $(function(){
 	$("#delete").click(function(){
 		var JSONkey, key;
@@ -354,7 +390,7 @@ $(function(){
 		localStorage.removeItem(key);
 		var JSONObject = JSON.stringify($("#relay").serializeObject());
 	    localStorage.setItem( key , JSONObject );
-		alert("The emergency with client phone number="+key+ " has been sento to the agency with phone number="+JSON.parse(JSONObject).newAgencyPhoneNumber);
+		alert("The emergency with client phone number="+key+ " has been sent to the agency with phone number="+JSON.parse(JSONObject).newAgencyPhoneNumber);
 		
 		$("#sidebar1").css("display","inline");
 		$("#sidebar3").css("display","none");
@@ -388,9 +424,9 @@ $(function(){
 			</div>
 			<div id="menu">
 				<ul>
-					<li class="current_page_item"><a href="#">Homepage</a></li>
-					<li><a href="C:\Users\Ricardo\Documents\GitHub\EmergencyAssistantAppWebpage\WebPage\Pages\History Prototype.html">History</a></li>
-					<li><a href="C:\Users\Ricardo\Documents\GitHub\EmergencyAssistantAppWebpage\WebPage\Pages\Login Prototype.html">Log out</a></li>
+					<li class="current_page_item"><a href="#">Home</a></li>
+					<li><a href="http://localhost:63342/Pages/History Prototype.html">History</a></li>
+					<li><a href="http://localhost:63342/Pages/Login Prototype.html">Log out</a></li>
 					
 				</ul>
 			</div>
@@ -487,7 +523,7 @@ $(function(){
 						<li>Emergency at Home?:<input id="yes" type="radio" name="outsideHome" value="Yes" checked >Yes</input><input id="no" type="radio" name="outsideHome" value="No" >No</input></li>
 						<li>Assigned Agent: <input id="attendedBy" type="text" name="attendedBy" maxlength="40" ></li>
 						<li>Emergency Description:<br><textarea id="emergencyDetails" rows="7" cols="40" name="emergencyDetails" maxlegth="500" placeholder="Short description of the emergency" required></textarea></li>
-						<li>Client Location:</li>
+						<li>Client Location:<p id="c"></p></li>
 						<li>Latitude<input type="text" id="latitude" name="latitude" ></li>
 						<li>Longitude<input type="text" id="longitude" name="longitude" ></li>
 						<input type=hidden id="timeStamp" name="timeStamp"/>

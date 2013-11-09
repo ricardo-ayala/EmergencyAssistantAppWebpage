@@ -29,7 +29,7 @@ var countP = 0;
 var str = ["altA1", "altA2", "altA3", "altA4"];
 var str2 = ["altP1", "altP2"];
 
-<!-----------TRANSFORMS a String Object to a JSON Object--------->
+//<!-----------TRANSFORMS a String Object to a JSON Object--------->
 $.fn.serializeObject = function()
 {
     var o = {};
@@ -56,7 +56,7 @@ $(window).load( function() {
 	$("#altP2").hide();
 	
 });
-<!-----------------------Adds new field to alternative Areas---------------------------->
+//<!-----------------------Adds new field to alternative Areas---------------------------->
 $(function() {
 $("#moreA").click(function(){
 		
@@ -89,7 +89,7 @@ $("#lessA").click(function(){
 	});
 });
 
-<!-----------------Adds fields to alternative Phones--------------------------------->
+//<!-----------------Adds fields to alternative Phones--------------------------------->
 $(function() {
 $("#moreP").click(function(){
 		
@@ -105,7 +105,7 @@ $("#moreP").click(function(){
 		
 	});
 });
-<!---------------Reduces fields of alternative Phones------------------->
+//<!---------------Reduces fields of alternative Phones------------------->
 $(function() {
 $("#lessP").click(function(){
 		
@@ -150,10 +150,10 @@ $("#add").click(function(){
 			</div>
 			<div id="menu">
 				<ul>
-					<li><a href="C:\Users\Ricardo\Documents\GitHub\EmergencyAssistantAppWebpage\WebPage\Pages\Admin Home Prototype.html">Home</a></li>
-					<li><a href="C:\Users\Ricardo\Documents\GitHub\EmergencyAssistantAppWebpage\WebPage\Pages\Add User Prototype.html">Add User</a></li>
+					<li><a href="http://localhost:63342/Pages/Admin Home Prototype.html">Home</a></li>
+					<li><a href="http://localhost:63342/Pages/Add User Prototype.html">Add User</a></li>
 					<li class="current_page_item"><a>Add Service</a></li>
-					<li><a href="C:\Users\Ricardo\Documents\GitHub\EmergencyAssistantAppWebpage\WebPage\Pages\Login Prototype.html">Log out</a></li>
+					<li><a href="http://localhost:63342/Pages/Login Prototype.html">Log out</a></li>
 					
 				</ul>
 			</div>
@@ -168,20 +168,20 @@ $("#add").click(function(){
 				<h2 id="greeting" class="title">New Service</h2>
 				<div class="entry">
 				<form id="addService" action="" method="post">
-				<h3>Agency Name:<input type="text" id="" name="agencyName" maxlength="50" size="50" required/></h3><br>
-				<h3>Category:<input type="text" id="" name="category" maxlength="40" size="30" required/></h3><br>
+				<h3>Agency Name:<input type="text"  name="agencyName" maxlength="50" size="50" required/></h3><br>
+				<h3>Category:<input type="text"  name="category" maxlength="40" size="30" required/></h3><br>
 				<h3 id="altA0">Area:<input type="text" name="altArea0" maxlength="40" size="30" required/></h3><button type="button" id="moreA">Add Field</button><button type="button" id="lessA" disabled>Less Fields</button>
 				<h3 id="altA1">Alternate Area:<input type="text"  name="altArea1"/></h3>
 				<h3 id="altA2">Alternate Area:<input type="text"  name="altArea2"/></h3>
 				<h3 id="altA3">Alternate Area:<input type="text"  name="altArea3"/></h3>
 				<h3 id="altA4">Alternate Area:<input type="text"  name="altArea4"/></h3>
-				<h3 id="altP0">Telephone:<input type="email" id="" name="altPhoneNumber0" maxlength="10" size="10" required/></h3></h3><button type="button" id="moreP">Add Field</button><button type="button" id="lessP" disabled>Less Fields</button><br>
-				<h3 id="altP1">Alternate Telephone1:<input type="email" id="" name="altPhoneNumber1" maxlength="10"size="10"/><br>
-				<h3 id="altP2">Alternate Telephone2:<input type="email" id="" name="altPhoneNumber2" maxlength="10"size="10"/></h3>
-				<h3>City:<input type="text" id="" name="city" maxlength="40" size="30" required/></h3><br>
-				<h3>State:<input type="text" id="" name="state" maxlength="2" size="3" required/></h3><br>
-				<h3>Country<input type="text" id="" name="country" maxlength="40" size="30" required/></h3><br><br>
-				</form>	
+				<h3 id="altP0">Telephone:<input type="email"  name="altPhoneNumber0" maxlength="10" size="10" required/></h3></h3><button type="button" id="moreP">Add Field</button><button type="button" id="lessP" disabled>Less Fields</button><br>
+				<h3 id="altP1">Alternate Telephone1:<input type="email"  name="altPhoneNumber1" maxlength="10"size="10"/><br>
+				<h3 id="altP2">Alternate Telephone2:<input type="email"  name="altPhoneNumber2" maxlength="10"size="10"/></h3>
+				<h3>City:<input type="text"  name="city" maxlength="40" size="30" required/></h3><br>
+				<h3>State:<input type="text"  name="state" maxlength="2" size="3" required/></h3><br>
+				<h3>Country<input type="text"  name="country" maxlength="40" size="30" required/></h3><br><br>
+				</form>
 					
 					
 				
