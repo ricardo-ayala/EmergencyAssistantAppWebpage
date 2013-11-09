@@ -26,7 +26,7 @@
       <file leaf-file-name="Login Prototype.html" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Login Prototype.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="65" column="58" selection-start="2628" selection-end="2628" vertical-scroll-proportion="-32.692307" vertical-offset="255" max-vertical-offset="3281">
+            <state line="65" column="58" selection-start="2628" selection-end="2628" vertical-scroll-proportion="0.0" vertical-offset="255" max-vertical-offset="3281">
               <folding />
             </state>
           </provider>
@@ -35,7 +35,7 @@
       <file leaf-file-name="Statistic Prototype.html" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Statistic Prototype.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="17" column="17" selection-start="595" selection-end="595" vertical-scroll-proportion="-11.115385" vertical-offset="0" max-vertical-offset="2754">
+            <state line="17" column="17" selection-start="595" selection-end="595" vertical-scroll-proportion="0.0" vertical-offset="289" max-vertical-offset="2754">
               <folding />
             </state>
           </provider>
@@ -44,7 +44,7 @@
       <file leaf-file-name="Active Emergencies Prototype.html" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Active Emergencies Prototype.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="78" column="56" selection-start="2881" selection-end="2881" vertical-scroll-proportion="0.7192308" vertical-offset="952" max-vertical-offset="10013">
+            <state line="526" column="24" selection-start="16276" selection-end="16276" vertical-scroll-proportion="0.59816515" vertical-offset="8616" max-vertical-offset="10013">
               <folding />
             </state>
           </provider>
@@ -131,14 +131,6 @@
     <property name="FullScreen" value="false" />
   </component>
   <component name="RunManager">
-    <configuration default="true" type="DartUnitRunConfigurationType" factoryName="DartUnit">
-      <option name="VMOptions" />
-      <option name="arguments" />
-      <option name="filePath" />
-      <option name="scope" value="ALL" />
-      <option name="testName" />
-      <method />
-    </configuration>
     <configuration default="true" type="DartCommandLineRunConfigurationType" factoryName="Dart Command Line Application">
       <option name="VMOptions" />
       <option name="arguments" />
@@ -147,6 +139,14 @@
       <option name="saveOutputToFile" value="false" />
       <option name="showConsoleOnStdErr" value="false" />
       <option name="showConsoleOnStdOut" value="false" />
+      <method />
+    </configuration>
+    <configuration default="true" type="DartUnitRunConfigurationType" factoryName="DartUnit">
+      <option name="VMOptions" />
+      <option name="arguments" />
+      <option name="filePath" />
+      <option name="scope" value="ALL" />
+      <option name="testName" />
       <method />
     </configuration>
     <configuration default="true" type="JavaScriptTestRunnerKarma" factoryName="Karma" singleton="true" config-file="">
@@ -172,8 +172,8 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1378" height="744" extended-state="0" />
-    <editor active="false" />
+    <frame x="-8" y="-8" width="1378" height="744" extended-state="1" />
+    <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -208,9 +208,9 @@
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.24963397" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
     </layout-to-restore>
   </component>
   <component name="VcsContentAnnotationSettings">
@@ -310,21 +310,21 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Login Prototype.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="65" column="58" selection-start="2628" selection-end="2628" vertical-scroll-proportion="-32.692307" vertical-offset="255" max-vertical-offset="3281">
+        <state line="65" column="58" selection-start="2628" selection-end="2628" vertical-scroll-proportion="0.0" vertical-offset="255" max-vertical-offset="3281">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Statistic Prototype.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="17" column="17" selection-start="595" selection-end="595" vertical-scroll-proportion="-11.115385" vertical-offset="0" max-vertical-offset="2754">
+        <state line="17" column="17" selection-start="595" selection-end="595" vertical-scroll-proportion="0.0" vertical-offset="289" max-vertical-offset="2754">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Active Emergencies Prototype.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="78" column="56" selection-start="2881" selection-end="2881" vertical-scroll-proportion="0.7192308" vertical-offset="952" max-vertical-offset="10013">
+        <state line="526" column="24" selection-start="16276" selection-end="16276" vertical-scroll-proportion="0.59816515" vertical-offset="8616" max-vertical-offset="10013">
           <folding />
         </state>
       </provider>

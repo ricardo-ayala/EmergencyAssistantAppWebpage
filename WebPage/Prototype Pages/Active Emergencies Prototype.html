@@ -110,8 +110,8 @@ $(function() {
 		
 		if ($("#latitude").val() == "" && $("#longitude").vall() == ""){
             var data = sessionStorage.getItem(key);
-            $("#latitude").val(data[0]);
-            $("#longitude").val(data[1]);
+            $("#latitude").val(data.latitude);
+            $("#longitude").val(data.longitude);
         }
 		
 		var JSONObject = JSON.stringify($("#add").serializeObject());
@@ -524,8 +524,8 @@ $(function(){
 						<li>Assigned Agent: <input id="attendedBy" type="text" name="attendedBy" maxlength="40" ></li>
 						<li>Emergency Description:<br><textarea id="emergencyDetails" rows="7" cols="40" name="emergencyDetails" maxlegth="500" placeholder="Short description of the emergency" required></textarea></li>
 						<li>Client Location:<p id="c"></p></li>
-						<li>Latitude<input type="text" id="latitude" name="latitude" ></li>
-						<li>Longitude<input type="text" id="longitude" name="longitude" ></li>
+						<input type="hidden" id="latitude" name="latitude" >
+						<input type="hidden" id="longitude" name="longitude" >
 						<input type=hidden id="timeStamp" name="timeStamp"/>
 						<input type=hidden id="oldAgencyPhoneNumber" name="oldAgencyPhoneNumber" maxlength="10" size="10"/>
 						<input type=hidden id="newAgencyPhoneNumber" name="newAgencyPhoneNumber" maxlength="10" size="10"/>
