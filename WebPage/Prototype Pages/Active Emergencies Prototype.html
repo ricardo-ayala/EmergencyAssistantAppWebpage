@@ -72,7 +72,8 @@ $(function() {
                 success : function(data) {
                 if (typeof data != "undefined"){
                     $("#c").html("The client with phone number "+number+" is calling from the application, his/her location will be retrieved from his cellphone");
-                    sessionStorage.setItem(number, data);
+
+                    sessionStorage.setItem(number, JSON.stringify(data));
                 }
              },
                 error: function(data){
@@ -108,11 +109,26 @@ $(function() {
 		$("#timeStamp").val(time);
 		}
 		
-		if ($("#latitude").val() == "" && $("#longitude").vall() == ""){
-            var data = sessionStorage.getItem(key);
-            $("#latitude").val(data.latitude);
-            $("#longitude").val(data.longitude);
+
+        var storageLength = sessionStorage.length;
+
+        if(storageLength > 1){
+        var storageKeys = Object.keys(sessionStorage);
+        var i = 0;
+
+        for(i = 0; i < storageLength; i++ ){
+            if(key == storageKeys[i]){
+                var data = sessionStorage.getItem(key);
+                $("#latitude").val(JSON.parse(data.latitude));
+                $("#longitude").val(JSON.parse(data.longitude));
+                sessionStorage.removeItem(key);
+            }
         }
+
+        }
+
+
+
 		
 		var JSONObject = JSON.stringify($("#add").serializeObject());
 		localStorage.setItem( key , JSONObject );
@@ -217,16 +233,7 @@ $(function(){
 	$("#oldAgencyPhoneNumber").val(JSON.parse(JSONObject).oldAgencyPhoneNumber);
 	$("#newAgencyPhoneNumber").val(JSON.parse(JSONObject).newAgencyPhoneNumber);
 	$("#reason").val(JSON.parse(JSONObject).reason);
-	
-	
-	
 
-	//<!--$(window).on('beforeunload ',function() {
-
-	//<!--return "If you leave now the information on screen will be lost";
-	
-	//<!--});
-	
 	
 	
 		}
