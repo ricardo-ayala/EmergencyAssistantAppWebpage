@@ -66,14 +66,35 @@ $(function() {
 
             $.ajax({
                 type: "GET",
-                url : 'http://eaa.ece.uprm.edu/retrieveCoordinate',
+                url : "/retrieveRelay",
                 contentType: "application/json",
                 data: "clientPhoneNumber="+number,
                 success : function(data) {
                 if (typeof data != "undefined"){
+                    if(data.length > 1){
+
+                        $("#clientPhoneNumber").val(JSON.parse(data[0]).clientPhoneNumber);
+                        $("#clientName").val(JSON.parse(data[0]).clientName);
+                        $("#clientAddress").val(JSON.parse(data[0]).clientAddress);
+
+                        if ( JSON.parse(data[0]).outsideHome == "No"){
+                            $("#no").prop("checked", true);
+                            $("#yes").prop("checked", false);
+                        }
+                        $("#attendedBy").val(JSON.parse(data[0]).attendedBy);
+                        $("#emergencyDetails").val(JSON.parse(data[0]).emergencyDetails);
+                        $("#latitude").val(JSON.parse(data[0]).latitude);
+                        $("#longitude").val(JSON.parse(data[0]).longitude);
+                        $("#timeStamp").val(JSON.parse(data[0]).timeStamp);
+                        $("#oldAgencyPhoneNumber").val(JSON.parse(data[1]).oldAgencyPhoneNumber);
+                        $("#newAgencyPhoneNumber").val(JSON.parse(data[1]).newAgencyPhoneNumber);
+                        $("#reason").val(JSON.parse(data[1]).reason);
+                    }
+                    else{
                     $("#c").html("The client with phone number "+number+" is calling from the application, his/her location will be retrieved from his cellphone");
 
                     sessionStorage.setItem(number, JSON.stringify(data));
+                    }
                 }
              },
                 error: function(data){
@@ -92,7 +113,7 @@ $(function() {
 
 //<!------------------ADDS a Client with an Emergency to Local Storage--------------->
 $(function() {
-    $("#add").submit(function() {
+    $("#save").click(function() {
 		
 		var key = $("#clientPhoneNumber").val();
 		localStorage.removeItem(key);
@@ -113,18 +134,11 @@ $(function() {
         var storageLength = sessionStorage.length;
 
         if(storageLength > 1){
-        var storageKeys = Object.keys(sessionStorage);
-        var i = 0;
 
-        for(i = 0; i < storageLength; i++ ){
-            if(key == storageKeys[i]){
                 var data = sessionStorage.getItem(key);
-                $("#latitude").val(JSON.parse(data.latitude));
-                $("#longitude").val(JSON.parse(data.longitude));
+                $("#latitude").val(JSON.parse(data).latitude);
+                $("#longitude").val(JSON.parse(data).longitude);
                 sessionStorage.removeItem(key);
-            }
-        }
-
         }
 
 
@@ -538,7 +552,7 @@ $(function(){
 						<input type=hidden id="newAgencyPhoneNumber" name="newAgencyPhoneNumber" maxlength="10" size="10"/>
 						<input type=hidden id="reason" name="reason" maxlength="500"/>
 						
-						<button id="save" type="submit" class="more" disabled>Submit</button>
+						<button id="save" type="click" class="more" disabled>Submit</button>
 						
 						</form>
 					</ul>
