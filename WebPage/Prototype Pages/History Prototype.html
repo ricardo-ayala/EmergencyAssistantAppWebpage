@@ -61,16 +61,10 @@ $(window).load(function () {
 $(function () {
     $("#go").click(function(){
         $("#history").empty();
-        var date = new Date();
-        var month = date.getMonth()+1;
-        var day = date.getDate();
 
-        var dateFormat = date.getFullYear() + '-' +
-                ((''+month).length<2 ? '0' : '') + month + '-' +
-                ((''+day).length<2 ? '0' : '') + day;
 
         var JSONHDate = JSON.stringify($("#historyform").serializeObject());
-        if (JSON.parse(JSONHDate).date == ""){
+        if (JSON.parse(JSONHDate).time == ""){
             alert("Please select a date");
             $("#historyform").trigger("reset");
         }
@@ -78,7 +72,7 @@ $(function () {
 
             $.ajax({
                 type: "GET",
-                url :"/history",
+                url :"/historyResult",
                 contentType: "application/json",
                 data: "time="+JSONHDate ,
                 success : function(data) {
@@ -238,7 +232,7 @@ $(function() {
 
                         </div>
                     </form>
-                    <br><button id="details" type="submit" class="more" form="main">View Details</button>
+                    <br><button id="details" type="button" class="more" form="main">View Details</button>
 
 
 
@@ -253,8 +247,8 @@ $(function() {
                     <h2>Filters</h2>
                     <ul>
                         <form id="historyform" action="" method="post">
-                            <li> Select a day to view past emergency reports: <input type="date" id="date" name="date" /> </li>
-                            <button id="go" type="submit" class="more" max="">Submit</button>
+                            <li> Select a day to view past emergency reports: <input type="date" id="date" name="time" /> </li>
+                            <button id="go" type="button" class="more" max="">Submit</button>
                         </form>
                     </ul>
                 </li>
