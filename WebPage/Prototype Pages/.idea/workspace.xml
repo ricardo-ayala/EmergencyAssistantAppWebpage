@@ -62,7 +62,7 @@
       <file leaf-file-name="History Prototype.html" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/History Prototype.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="149" column="29" selection-start="5656" selection-end="5656" vertical-scroll-proportion="4.871154" vertical-offset="0" max-vertical-offset="5355">
+            <state line="141" column="65" selection-start="5339" selection-end="5339" vertical-scroll-proportion="0.32692307" vertical-offset="2227" max-vertical-offset="5355">
               <folding>
                 <element signature="n#style#0;n#div#0;n#li#9;n#ul#0;n#li#0;n#ul#0;n#div#2;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#div#3;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
@@ -87,8 +87,8 @@
         <option value="$PROJECT_DIR$/Statistic Prototype.html" />
         <option value="$PROJECT_DIR$/Login Prototype.html" />
         <option value="$PROJECT_DIR$/Active Emergencies Prototype.html" />
-        <option value="$PROJECT_DIR$/History Prototype.html" />
         <option value="$PROJECT_DIR$/style.css" />
+        <option value="$PROJECT_DIR$/History Prototype.html" />
       </list>
     </option>
   </component>
@@ -346,7 +346,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/History Prototype.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="149" column="29" selection-start="5656" selection-end="5656" vertical-scroll-proportion="4.871154" vertical-offset="0" max-vertical-offset="5355">
+        <state line="141" column="65" selection-start="5339" selection-end="5339" vertical-scroll-proportion="0.32692307" vertical-offset="2227" max-vertical-offset="5355">
           <folding>
             <element signature="n#style#0;n#div#0;n#li#9;n#ul#0;n#li#0;n#ul#0;n#div#2;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#div#3;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
