@@ -62,7 +62,7 @@ Released   : 20130509
             $("#go").click(function(){
                 $("#history").empty();
 
-
+                $("#agencyPhoneNumber").val(sessionStorage.getItem("agencyPhoneNumber"));
                 var JSONHDate = JSON.stringify($("#historyform").serializeObject());
 
                 if (JSON.parse(JSONHDate).time == ""){
@@ -75,7 +75,7 @@ Released   : 20130509
                         type: "GET",
                         url :"/historyResult",
                         contentType: "application/json",
-                        data: "time="+JSON.parse(JSONHDate).time ,
+                        data: "time="+JSON.parse(JSONHDate).time+"&agencyPhoneNumber="+JSON.parse(JSONHDate).agencyPhoneNumber ,
                         success : function(data) {
                             if(typeof data != "undefined"){
                                 var limit = data.length;
@@ -250,6 +250,7 @@ Released   : 20130509
                     <ul>
                         <form id="historyform" action="" method="post">
                             <li> Select a day to view past emergency reports: <input type="date" id="date" name="time" /> </li>
+                            <input type=hidden id="agencyPhoneNumber" name="agencyPhoneNumber"/>
                             <button id="go" type="button" class="more" max="">Submit</button>
                         </form>
                     </ul>

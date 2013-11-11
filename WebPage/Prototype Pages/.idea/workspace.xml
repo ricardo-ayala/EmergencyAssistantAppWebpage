@@ -44,7 +44,7 @@
       <file leaf-file-name="Active Emergencies Prototype.html" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Active Emergencies Prototype.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="169" column="20" selection-start="5997" selection-end="6135" vertical-scroll-proportion="-6.3461537" vertical-offset="2708" max-vertical-offset="11101">
+            <state line="647" column="0" selection-start="24032" selection-end="24032" vertical-scroll-proportion="-19.653847" vertical-offset="10488" max-vertical-offset="11101">
               <folding />
             </state>
           </provider>
@@ -62,7 +62,7 @@
       <file leaf-file-name="History Prototype.html" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/History Prototype.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="83" column="59" selection-start="3226" selection-end="3226" vertical-scroll-proportion="0.43669724" vertical-offset="1173" max-vertical-offset="5066">
+            <state line="77" column="126" selection-start="3107" selection-end="3107" vertical-scroll-proportion="0.20183486" vertical-offset="1199" max-vertical-offset="5083">
               <folding>
                 <element signature="n#style#0;n#div#0;n#li#9;n#ul#0;n#li#0;n#ul#0;n#div#2;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#div#3;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
@@ -194,7 +194,7 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1382" height="744" extended-state="7" />
+    <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -339,14 +339,14 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Active Emergencies Prototype.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="169" column="20" selection-start="5997" selection-end="6135" vertical-scroll-proportion="-6.3461537" vertical-offset="2708" max-vertical-offset="11101">
+        <state line="647" column="0" selection-start="24032" selection-end="24032" vertical-scroll-proportion="-19.653847" vertical-offset="10488" max-vertical-offset="11101">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/History Prototype.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="83" column="59" selection-start="3226" selection-end="3226" vertical-scroll-proportion="0.43669724" vertical-offset="1173" max-vertical-offset="5066">
+        <state line="77" column="126" selection-start="3107" selection-end="3107" vertical-scroll-proportion="0.20183486" vertical-offset="1199" max-vertical-offset="5083">
           <folding>
             <element signature="n#style#0;n#div#0;n#li#9;n#ul#0;n#li#0;n#ul#0;n#div#2;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#div#3;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
