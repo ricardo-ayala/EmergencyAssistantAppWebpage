@@ -77,7 +77,7 @@ Released   : 20130509
                         contentType: "application/json",
                         data: "time="+JSON.parse(JSONHDate).time+"&agencyPhoneNumber="+JSON.parse(JSONHDate).agencyPhoneNumber ,
                         success : function(data) {
-                            if(typeof data != "undefined"){
+                            if( data != ""){
                                 var limit = data.length;
                                 var i;
 
@@ -85,11 +85,12 @@ Released   : 20130509
 
                                     var texto = data[i].clientName + ", " +data[i].clientPhoneNumber + ", " +data[i].attendedBy;
 
-                                    var radioBtn = $('<input id="'+ data[i].clientPhoneNumber +'" type="radio" name="active" value=' + '"'+ data[i].time + '"' +'>'+texto+'</input><br>');
+                                    var radioBtn = $('<input type="radio" name="active" value="'+ data[i].time+","+data[i].clientPhoneNumber + '">'+texto+'</input><br>');
                                     $('#history').append(radioBtn);
                                 }
                             }else{
-                                alert("There are no reports for this day" + JSON.parse(JSONHDate).time);
+                                alert("There are no reports for this day " + JSON.parse(JSONHDate).time);
+                                $("#historyform").trigger("reset");
                             }
 
 
@@ -123,61 +124,76 @@ Released   : 20130509
                     $("#go").attr("disabled", true);
                     $("#goback").attr("disabled", false);
 
-                    JSONObject = localStorage.getItem(key);
-                    $("#cpn").html(JSON.parse(JSONObject).clientPhoneNumber);
-                    $("#n").html(JSON.parse(JSONObject).clientName);
-                    $("#a").html(JSON.parse(JSONObject).clientAddress);
-                    $("#toe").html(JSON.parse(JSONObject).typeOfEmergency);
-                    $("#eah").html(JSON.parse(JSONObject).outsideHome);
-                    $("#aa").html(JSON.parse(JSONObject).attendedBy);
-                    $("#ed").html(JSON.parse(JSONObject).emergencyDetails);
-                    $("#rd").html(JSON.parse(JSONObject).reason);
-                    $("#ts").html(JSON.parse(JSONObject).timeStamp);
-                    position = JSON.parse(JSONObject).latitude + ', ' + JSON.parse(JSONObject).longitude;
+                    var sendData = key.split(",");
+
+                    $.ajax({
+                        type: "POST",
+                        url : "/retrieveHistory",
+                        contentType: "application/json",
+                        data: "time="+sendData[0]+"&clientPhoneNumber="+sendData[1],
+                        success : function(data) {
+
+                            $("#cpn").html(data[0].clientPhoneNumber);
+                            $("#n").html(data[0].clientName);
+                            $("#a").html(data[0].clientAddress);
+                            $("#toe").html(data[0].typeOfEmergency);
+                            $("#eah").html(data[0].outsideHome);
+                            $("#aa").html(data[0].attendedBy);
+                            $("#ed").html(data[0].emergencyDetails);
+                            $("#rd").html(data[0].reason);
+                            $("#ts").html(data[0].timeStamp);
 
 
-                    if (navigator.geolocation){
-                        navigator.geolocation.getCurrentPosition(showPosition,showError);
-                    }
-                    else{
-                        alert("Geolocation is not supported by this browser.");
-                    }
+                            if (navigator.geolocation){
+                                navigator.geolocation.getCurrentPosition(showPosition,showError);
+                            }
+                            else{
+                                alert("Geolocation is not supported by this browser.");
+                            }
 
-                    function showPosition()
-                    {
-                        lat=JSON.parse(JSONObject).latitude;
-                        lon=JSON.parse(JSONObject).longitude;
-                        latlon=new google.maps.LatLng(lat, lon)
+                            function showPosition()
+                            {
+                                lat=data[0].latitude;
+                                lon=data[0].longitude;
+                                latlon=new google.maps.LatLng(lat, lon)
 
 
-                        var myOptions={
-                            center:latlon,zoom:14,
-                            mapTypeId:google.maps.MapTypeId.ROADMAP,
-                            mapTypeControl:false,
-                            navigationControlOptions:{style:google.maps.NavigationControlStyle.SMALL}
-                        };
-                        var map=new google.maps.Map(document.getElementById("cl"),myOptions);
-                        var marker=new google.maps.Marker({position:latlon,map:map,title:"Client is here"});
-                    }
+                                var myOptions={
+                                    center:latlon,zoom:14,
+                                    mapTypeId:google.maps.MapTypeId.ROADMAP,
+                                    mapTypeControl:false,
+                                    navigationControlOptions:{style:google.maps.NavigationControlStyle.SMALL}
+                                };
+                                var map=new google.maps.Map(document.getElementById("cl"),myOptions);
+                                var marker=new google.maps.Marker({position:latlon,map:map,title:"Client is here"});
+                            }
 
-                    function showError(error)
-                    {
-                        switch(error.code)
-                        {
-                            case error.PERMISSION_DENIED:
-                                alert("User denied the request for Geolocation.");
-                                break;
-                            case error.POSITION_UNAVAILABLE:
-                                alert("Location information is unavailable.");
-                                break;
-                            case error.TIMEOUT:
-                                alert("The request to get user location timed out.");
-                                break;
-                            case error.UNKNOWN_ERROR:
-                                alert("An unknown error occurred.");
-                                break;
+                            function showError(error)
+                            {
+                                switch(error.code)
+                                {
+                                    case error.PERMISSION_DENIED:
+                                        alert("User denied the request for Geolocation.");
+                                        break;
+                                    case error.POSITION_UNAVAILABLE:
+                                        alert("Location information is unavailable.");
+                                        break;
+                                    case error.TIMEOUT:
+                                        alert("The request to get user location timed out.");
+                                        break;
+                                    case error.UNKNOWN_ERROR:
+                                        alert("An unknown error occurred.");
+                                        break;
+                                }
+                            }
+
+
+                        },
+                        error: function(data){
+                            alert("Error");
                         }
-                    }
+                     });
+
 
 
 

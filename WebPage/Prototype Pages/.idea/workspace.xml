@@ -26,7 +26,7 @@
       <file leaf-file-name="Login Prototype.html" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Login Prototype.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="78" column="14" selection-start="2634" selection-end="2926" vertical-scroll-proportion="0.0" vertical-offset="1071" max-vertical-offset="3281">
+            <state line="71" column="16" selection-start="2634" selection-end="2926" vertical-scroll-proportion="-5.230769" vertical-offset="1071" max-vertical-offset="3281">
               <folding />
             </state>
           </provider>
@@ -44,7 +44,7 @@
       <file leaf-file-name="Active Emergencies Prototype.html" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Active Emergencies Prototype.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="647" column="0" selection-start="24032" selection-end="24032" vertical-scroll-proportion="-19.653847" vertical-offset="10488" max-vertical-offset="11101">
+            <state line="647" column="0" selection-start="24032" selection-end="24032" vertical-scroll-proportion="-67.69231" vertical-offset="9239" max-vertical-offset="11101">
               <folding />
             </state>
           </provider>
@@ -62,7 +62,7 @@
       <file leaf-file-name="History Prototype.html" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/History Prototype.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="77" column="126" selection-start="3107" selection-end="3107" vertical-scroll-proportion="0.20183486" vertical-offset="1199" max-vertical-offset="5083">
+            <state line="192" column="40" selection-start="8229" selection-end="8229" vertical-scroll-proportion="-0.21651377" vertical-offset="3382" max-vertical-offset="5355">
               <folding>
                 <element signature="n#style#0;n#div#0;n#li#9;n#ul#0;n#li#0;n#ul#0;n#div#2;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#div#3;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
@@ -323,13 +323,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Login Prototype.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="78" column="14" selection-start="2634" selection-end="2926" vertical-scroll-proportion="0.0" vertical-offset="1071" max-vertical-offset="3281">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Statistic Prototype.html">
       <provider selected="true" editor-type-id="text-editor">
         <state line="1" column="4" selection-start="114" selection-end="114" vertical-scroll-proportion="0.0" vertical-offset="1240" max-vertical-offset="2754">
@@ -337,16 +330,23 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/Login Prototype.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="71" column="16" selection-start="2634" selection-end="2926" vertical-scroll-proportion="-5.230769" vertical-offset="1071" max-vertical-offset="3281">
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/Active Emergencies Prototype.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="647" column="0" selection-start="24032" selection-end="24032" vertical-scroll-proportion="-19.653847" vertical-offset="10488" max-vertical-offset="11101">
+        <state line="647" column="0" selection-start="24032" selection-end="24032" vertical-scroll-proportion="-67.69231" vertical-offset="9239" max-vertical-offset="11101">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/History Prototype.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="77" column="126" selection-start="3107" selection-end="3107" vertical-scroll-proportion="0.20183486" vertical-offset="1199" max-vertical-offset="5083">
+        <state line="192" column="40" selection-start="8229" selection-end="8229" vertical-scroll-proportion="-0.21651377" vertical-offset="3382" max-vertical-offset="5355">
           <folding>
             <element signature="n#style#0;n#div#0;n#li#9;n#ul#0;n#li#0;n#ul#0;n#div#2;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#div#3;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
