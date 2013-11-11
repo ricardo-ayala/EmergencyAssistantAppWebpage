@@ -54,6 +54,23 @@ $(function(){
 	$("change").attr("disabled", true);
 	$("#changeRelay").attr("disabled", true);
 	$("#save").attr("disabled", false);
+
+      //$.ajax({
+      //    type: "POST",
+      //    url :
+      //    contentType: "application/json",
+      //    data: ,
+      //    success : function(data) {
+      //
+      // },
+      //    error: function(data){
+      //        alert(data);
+      //    }
+      // });
+
+
+
+
   });
 });
 
@@ -71,24 +88,24 @@ $(function() {
                 data: "clientPhoneNumber="+number,
                 success : function(data) {
                 if (typeof data != "undefined"){
-                    if(data.length > 1){
+                    if(typeof data.relay != "undefined"){
 
-                        $("#clientPhoneNumber").val(JSON.parse(data[0]).clientPhoneNumber);
-                        $("#clientName").val(JSON.parse(data[0]).clientName);
-                        $("#clientAddress").val(JSON.parse(data[0]).clientAddress);
+                        sessionStorage.setItem(number, JSON.stringify(data));
+                        $("#clientName").val(data.relay.clientName);
+                        $("#clientAddress").val(data.relay.clientAddress);
 
-                        if ( JSON.parse(data[0]).outsideHome == "No"){
+                        if (data.relay.outsideHome == "No"){
                             $("#no").prop("checked", true);
                             $("#yes").prop("checked", false);
                         }
-                        $("#attendedBy").val(JSON.parse(data[0]).attendedBy);
-                        $("#emergencyDetails").val(JSON.parse(data[0]).emergencyDetails);
-                        $("#latitude").val(JSON.parse(data[0]).latitude);
-                        $("#longitude").val(JSON.parse(data[0]).longitude);
-                        $("#timeStamp").val(JSON.parse(data[0]).timeStamp);
-                        $("#oldAgencyPhoneNumber").val(JSON.parse(data[1]).oldAgencyPhoneNumber);
-                        $("#newAgencyPhoneNumber").val(JSON.parse(data[1]).newAgencyPhoneNumber);
-                        $("#reason").val(JSON.parse(data[1]).reason);
+                        $("#attendedBy").val(data.relay.attendedBy);
+                        $("#emergencyDetails").val(data.relay.emergencyDetails);
+                        $("#latitude").val(data.relay.latitude);
+                        $("#longitude").val(data.relay.longitude);
+                        $("#timeStamp").val(data.relay.timeStamp);
+                        $("#oldAgencyPhoneNumber").val(data.relayDetail.oldAgencyPhoneNumber);
+                        $("#newAgencyPhoneNumber").val(data.relayDetail.newAgencyPhoneNumber);
+                        $("#reason").val(data.relayDetail.reason);
                     }
                     else{
                     $("#c").html("The client with phone number "+number+" is calling from the application, his/her location will be retrieved from his cellphone");
@@ -131,13 +148,14 @@ $(function() {
 		}
 		
 
+
         var storageLength = sessionStorage.length;
 
         if(storageLength > 1){
 
                 var data = sessionStorage.getItem(key);
-                $("#latitude").val(JSON.parse(data).latitude);
-                $("#longitude").val(JSON.parse(data).longitude);
+                $("#latitude").val(JSON.parse(data).relay.latitude);
+                $("#longitude").val(JSON.parse(data).relay.longitude);
                 sessionStorage.removeItem(key);
         }
 
@@ -410,8 +428,24 @@ $(function(){
 		var key = $("#clientPhoneNumberR").val();
 		localStorage.removeItem(key);
 		var JSONObject = JSON.stringify($("#relay").serializeObject());
-	    localStorage.setItem( key , JSONObject );
-		alert("The emergency with client phone number="+key+ " has been sent to the agency with phone number="+JSON.parse(JSONObject).newAgencyPhoneNumber);
+
+            $.ajax({
+                type: "POST",
+                url :"/relayEmergency",
+                contentType: "application/json",
+                data: JSONObject ,
+                success : function(data) {
+
+                    alert(data.result);
+
+             },
+                error: function(data){
+                    alert(data.result);
+                }
+             });
+
+
+
 		
 		$("#sidebar1").css("display","inline");
 		$("#sidebar3").css("display","none");
@@ -552,7 +586,7 @@ $(function(){
 						<input type=hidden id="newAgencyPhoneNumber" name="newAgencyPhoneNumber" maxlength="10" size="10"/>
 						<input type=hidden id="reason" name="reason" maxlength="500"/>
 						
-						<button id="save" type="click" class="more" disabled>Submit</button>
+						<button id="save" type="button" class="more" disabled>Submit</button>
 						
 						</form>
 					</ul>
