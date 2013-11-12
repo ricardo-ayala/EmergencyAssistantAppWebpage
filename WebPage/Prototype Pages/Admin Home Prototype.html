@@ -69,32 +69,44 @@ Released   : 20130509
                     data:"searchText="+JSON.parse(JSONObject).searchText+"&searchType="+JSON.parse(JSONObject).searchType+"&searchCriteria="+JSON.parse(JSONObject).searchCriteria,
                     success : function(data) {
 
-                    if( data != ""){
+                        if( data != ""){
 
-                        $(".entry").css("display", "none");
-                        $(".entry1").css("display", "inline");
-                        $("#go").attr("disabled", true);
-                        $("#results").html("Search results will appear here(Employees or Services)");
-                        $("#main").trigger("reset");
+                            $(".entry").css("display", "none");
+                            $(".entry1").css("display", "inline");
+                            $("#go").attr("disabled", true);
+                            $("#results").html("Search results will appear here(Employees or Services)");
+                            $("#main").trigger("reset");
 
+                            var limit = data.length;
+                            var i;
 
-                        var limit = data.length;
-                        var i;
+                            if(typeof data[0].agencyPhoneNumber != "undefined"){
+                                for(i = 0; i < limit; i++){
 
-                        for(i = 0; i < limit; i++){
+                                    var texto = data[i].agencyPhoneNumber+","+data[i].agencyName+","+data[i].category;
 
-                            var texto = data[0].searchText;
+                                    var radioBtn = $('<input type="radio" name="active" value="'+ data[i].agencyPhoneNumber+","+data[i].clientName+","+data[i].category+'">'+texto+'</input><br>');
+                                    $('#results').append(radioBtn);
+                                }
+                            }else{
+                                for(i = 0; i < limit; i++){
 
-                            var radioBtn = $('<input type="radio" name="active" value="'+ data[0].time+","+data[0].clientPhoneNumber + '">'+texto+'</input><br>');
-                            $('#results').append(radioBtn);
+                                    var texto = data[i].username+","+data[i].name+","+data[i].email;
+
+                                    var radioBtn = $('<input type="radio" name="active" value="'+ data[i].username+","+data[i].name +","+data[i].email+ '">'+texto+'</input><br>');
+                                    $('#results').append(radioBtn);
+                                }
+                            }
+
+                        }else{
+                            alert("There is no information for that search");
                         }
-                    }
 
-                 },
+                    },
                     error: function(data){
-                        alert(data);
+                        alert("error");
                     }
-                 });
+                });
 
 
 
@@ -171,7 +183,7 @@ Released   : 20130509
                         <h3><input type="text" id="busqueda" name="searchText" maxlength="40" size="30" required/></h3><br>
 
                         <p>
-                            <button id="go" type="submit" class="more">Go!</button>
+                            <button id="go" type="button" class="more">Go!</button>
                         </p>
                     </form>
                 </div>
@@ -184,9 +196,9 @@ Released   : 20130509
                         </div><br>
 
                         <p>
-                            <button id="delete" type="submit" class="more">Delete</button>
-                            <button id="edit" type="submit" class="more">Edit</button>
-                            <button id="goBack" type="submit" class="more">Go back</button>
+                            <button id="delete" type="button" class="more">Delete</button>
+                            <button id="edit" type="button" class="more">Edit</button>
+                            <button id="goBack" type="button" class="more">Go back</button>
                         </p>
                     </form>
                 </div>
@@ -201,7 +213,7 @@ Released   : 20130509
                     <ul>
                         <h1>Search for</h1>
                         <li><input id="searchFor1" type="radio" name="searchType" value="service" form="main">Service</input><input id="searchFor2" type="radio" name="searchType" value="employee" form="main">Employee</input> </li>
-                        <h1>Search Criteria</h1>
+                        <h1>Search Using:</h1>
                         <li><input id="searchC1" type="radio" name="searchCriteria" value="agencyName" form="main">Agency Name</input><input id="searchC2" type="radio" name="searchCriteria" value="telephone" form="main">Telephone</input> </li>
                     </ul>
                 </li>

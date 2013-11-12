@@ -35,7 +35,7 @@
       <file leaf-file-name="Admin Home Prototype.html" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Admin Home Prototype.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="75" column="0" selection-start="3117" selection-end="3117" vertical-scroll-proportion="0.4972477" vertical-offset="1004" max-vertical-offset="4063">
+            <state line="37" column="24" selection-start="1532" selection-end="1532" vertical-scroll-proportion="0.03119266" vertical-offset="612" max-vertical-offset="4063">
               <folding>
                 <element signature="n#style#0;n#div#2;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
               </folding>
@@ -46,7 +46,7 @@
       <file leaf-file-name="Active Emergencies Prototype.html" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Active Emergencies Prototype.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="105" column="0" selection-start="3759" selection-end="3759" vertical-scroll-proportion="-68.65385" vertical-offset="0" max-vertical-offset="11237">
+            <state line="105" column="0" selection-start="3759" selection-end="3759" vertical-scroll-proportion="-35.307693" vertical-offset="867" max-vertical-offset="11237">
               <folding />
             </state>
           </provider>
@@ -55,7 +55,7 @@
       <file leaf-file-name="style.css" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/style.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="681" column="1" selection-start="9408" selection-end="9408" vertical-scroll-proportion="0.0" vertical-offset="11577" max-vertical-offset="13107">
+            <state line="329" column="9" selection-start="4634" selection-end="4643" vertical-scroll-proportion="-7.44" vertical-offset="5407" max-vertical-offset="13107">
               <folding />
             </state>
           </provider>
@@ -193,7 +193,7 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
+    <frame x="-8" y="-8" width="1382" height="744" extended-state="7" />
     <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -329,23 +329,23 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/style.css">
+    <entry file="file://$PROJECT_DIR$/Active Emergencies Prototype.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="681" column="1" selection-start="9408" selection-end="9408" vertical-scroll-proportion="0.0" vertical-offset="11315" max-vertical-offset="13107">
+        <state line="105" column="0" selection-start="3759" selection-end="3759" vertical-scroll-proportion="-35.307693" vertical-offset="867" max-vertical-offset="11237">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Active Emergencies Prototype.html">
+    <entry file="file://$PROJECT_DIR$/style.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="105" column="0" selection-start="3759" selection-end="3759" vertical-scroll-proportion="-68.65385" vertical-offset="0" max-vertical-offset="11237">
+        <state line="329" column="9" selection-start="4634" selection-end="4643" vertical-scroll-proportion="-7.44" vertical-offset="5407" max-vertical-offset="13107">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Admin Home Prototype.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="75" column="0" selection-start="3117" selection-end="3117" vertical-scroll-proportion="0.4972477" vertical-offset="1004" max-vertical-offset="4063">
+        <state line="37" column="24" selection-start="1532" selection-end="1532" vertical-scroll-proportion="0.03119266" vertical-offset="612" max-vertical-offset="4063">
           <folding>
             <element signature="n#style#0;n#div#2;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
           </folding>
