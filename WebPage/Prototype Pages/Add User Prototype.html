@@ -54,7 +54,7 @@ Released   : 20130509
 
                     $.ajax({
                         type: "POST",
-                        url :"/newUser",
+                        url :"/addUser",
                         contentType: "application/json",
                         data:JSONObject,
                         success : function(data) {
@@ -82,9 +82,9 @@ Released   : 20130509
             </div>
             <div id="menu">
                 <ul>
-                    <li><a href="http://localhost:63342/Pages/Admin Home Prototype.html">Home</a></li>
+                    <li><a href="/search">Home</a></li>
                     <li class="current_page_item"><a>Add User</a></li>
-                    <li><a href="http://localhost:63342/Pages/Add Service Prototype.html">Add Service</a></li>
+                    <li><a href="/newService">Add Service</a></li>
                     <li><a href="http://localhost:63342/Pages/Login Prototype.html">Log out</a></li>
 
                 </ul>
