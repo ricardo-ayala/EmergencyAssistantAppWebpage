@@ -432,7 +432,7 @@ $(function(){
             $("#latitudeR").val(JSON.parse(JSONObject).latitude);
             $("#longitudeR").val(JSON.parse(JSONObject).longitude);
             $("#timeStampR").val(JSON.parse(JSONObject).timeStamp);
-            $("#oldAgencyPhoneNumberR").val(JSON.parse(JSONObject).oldAgencyPhoneNumber);
+            $("#oldAgencyPhoneNumberR").val(sessionStorage("agencyPhoneNumber"));
 
 
         }
