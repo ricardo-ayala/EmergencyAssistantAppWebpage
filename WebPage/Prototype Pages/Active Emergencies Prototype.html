@@ -109,17 +109,19 @@ $(function() {
                                 $("#newAgencyPhoneNumber").val(data.relayDetail.newAgencyPhoneNumber);
                                 $("#reason").val(data.relayDetail.reason);
                             }
-                            else{
+
                                 $("#c").html("The client with phone number "+number+" is calling from the application, his/her location will be retrieved from his cellphone");
-                                sessionStorage.setItem(number, JSON.stringify(data));
-                            }
+
                         }
+                    }
+                    else{
+                        $("#c").html("The client with phone number "+number+" does not have the application");
                     }
 
 
                 },
                 error: function(data){
-                    $("#c").html("The client with phone number "+number+" does not have the application");
+                   alert("error");
                 }
             });
         }
@@ -432,7 +434,7 @@ $(function(){
             $("#latitudeR").val(JSON.parse(JSONObject).latitude);
             $("#longitudeR").val(JSON.parse(JSONObject).longitude);
             $("#timeStampR").val(JSON.parse(JSONObject).timeStamp);
-            $("#oldAgencyPhoneNumberR").val(sessionStorage("agencyPhoneNumber"));
+            $("#oldAgencyPhoneNumberR").val(sessionStorage.getItem("agencyPhoneNumber"));
 
 
         }
