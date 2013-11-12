@@ -74,7 +74,6 @@ Released   : 20130509
                             $(".entry").css("display", "none");
                             $(".entry1").css("display", "inline");
                             $("#go").attr("disabled", true);
-                            $("#results").html("Search results will appear here(Employees or Services)");
                             $("#main").trigger("reset");
 
                             var limit = data.length;
@@ -85,7 +84,7 @@ Released   : 20130509
 
                                     var texto = data[i].agencyPhoneNumber+","+data[i].agencyName+","+data[i].category;
 
-                                    var radioBtn = $('<input type="radio" name="active" value="'+ data[i].agencyPhoneNumber+","+data[i].clientName+","+data[i].category+'">'+texto+'</input><br>');
+                                    var radioBtn = $('<input type="radio" name="active" value="'+ data[i].agencyPhoneNumber+","+data[i].clientName+","+data[i].category+',agency">'+texto+'</input><br>');
                                     $('#results').append(radioBtn);
                                 }
                             }else{
@@ -93,7 +92,7 @@ Released   : 20130509
 
                                     var texto = data[i].username+","+data[i].name+","+data[i].email;
 
-                                    var radioBtn = $('<input type="radio" name="active" value="'+ data[i].username+","+data[i].name +","+data[i].email+ '">'+texto+'</input><br>');
+                                    var radioBtn = $('<input type="radio" name="active" value="'+ data[i].username+","+data[i].name +","+data[i].email+ ',employee">'+texto+'</input><br>');
                                     $('#results').append(radioBtn);
                                 }
                             }
@@ -131,7 +130,47 @@ Released   : 20130509
         $(function(){
             $("#edit").click(function(){
 
-                alert("The selected Service or User can be edited");
+                var JSONObject = JSON.stringify($("#mainResults").serializeObject());
+
+                if( JSON.parse(JSONObject).active != ""){
+
+                    var sendData = JSON.parse(JSONObject).active.split(",");
+
+                    if(sendData[3] == "agency"){
+                        $.ajax({
+                            type: "GET",
+                            url :"/edit",
+                            contentType: "application/json",
+                            data: "agencyPhoneNumber="+sendData[0]+"&agencyName="+sendData[1]+"&category="+sendData[2],
+                            success : function(data) {
+
+                            },
+                            error: function(data){
+                                alert("error service edit");
+                            }
+                        });
+                    }
+                    else{
+                        $.ajax({
+                            type: "GET",
+                            url :"/editUser",
+                            contentType: "application/json",
+                            data: "username="+sendData[0]+"&name="+sendData[1]+"&email="+sendData[2],
+                            success : function(data) {
+
+                            },
+                            error: function(data){
+                                alert("error user edit");
+                            }
+                        });
+                    }
+
+                }
+                else{
+                    alert("Please select a search result");
+                    return false;
+                }
+
 
                 $(".entry").css("display", "inline");
                 $(".entry1").css("display", "none");
@@ -179,7 +218,7 @@ Released   : 20130509
                 <h2 id="greeting" class="title">Search</h2>
 
                 <div class="entry">
-                    <form id="main" action="" method="post">
+                    <form id="main" action="" method="get">
                         <h3><input type="text" id="busqueda" name="searchText" maxlength="40" size="30" required/></h3><br>
 
                         <p>
@@ -196,9 +235,8 @@ Released   : 20130509
                         </div><br>
 
                         <p>
-                            <button id="delete" type="button" class="more">Delete</button>
-                            <button id="edit" type="button" class="more">Edit</button>
-                            <button id="goBack" type="button" class="more">Go back</button>
+                            <button id="details" type="button" class="more">View Details</button>
+
                         </p>
                     </form>
                 </div>
@@ -215,6 +253,47 @@ Released   : 20130509
                         <li><input id="searchFor1" type="radio" name="searchType" value="service" form="main">Service</input><input id="searchFor2" type="radio" name="searchType" value="employee" form="main">Employee</input> </li>
                         <h1>Search Using:</h1>
                         <li><input id="searchC1" type="radio" name="searchCriteria" value="agencyName" form="main">Agency Name</input><input id="searchC2" type="radio" name="searchCriteria" value="telephone" form="main">Telephone</input> </li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+
+        <div id="sidebar2">
+            <ul>
+                <li>
+                    <h2>User Information</h2>
+                    <ul>
+                        <li>Name:<h3 id="sn"></h3> </li>
+                        <li>Username:<h3 id="u"></h3></li>
+                        <li>Password:<h3 id="p"></h3></li>
+                        <li>E-mail:<h3 id="em"></h3></li>
+                        <li>UserType:<h3 id="ut"></h3></li>
+                        <li>Company Phone Number: <h3 id="ucpn"></h3></li>
+                        <button id="editUser" type="button" class="more">Edit User</button>
+                        <button id="deleteUser" type="button" class="more">Delete User</button>
+
+                    </ul>
+                </li>
+            </ul>
+        </div>
+
+        <div id="sidebar3">
+            <ul>
+                <li>
+                    <h2>Service Information</h2>
+                    <ul>
+                        <li>Agency Name:<h3 id="cpn"></h3> </li>
+                        <li>Category:<h3 id="n"></h3></li>
+                        <li>Area:<h3 id="a"></h3></li>
+                        <div id="altArea"></div>
+                        <li>Telephone:<h3 id="toe"></h3></li>
+                        <div id="altPhone"></div>
+                        <li>City:<h3 id="eah"></h3></li>
+                        <li>State:<br><div class="container3"><p id="ed"></p></div></li>
+                        <li>Country:<h3 id="ts"></h3></li>
+                        <button id="editService" type="button" class="more">Edit Service</button>
+                        <button id="deleteService" type="button" class="more">Delete Service</button>
+
                     </ul>
                 </li>
             </ul>
