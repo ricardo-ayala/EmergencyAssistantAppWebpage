@@ -433,7 +433,7 @@ $(function(){
             $("#longitudeR").val(JSON.parse(JSONObject).longitude);
             $("#timeStampR").val(JSON.parse(JSONObject).timeStamp);
             $("#oldAgencyPhoneNumberR").val(JSON.parse(JSONObject).oldAgencyPhoneNumber);
-            $("#reasonR").val(JSON.parse(JSONObject).reason);
+
 
         }
         else{
@@ -456,11 +456,12 @@ $(function(){
             data: JSONObject ,
             success : function(data) {
 
-                alert("success"+JSON.parse(data.result));
-                localStorage.removeItem(key);
+                alert("success"+ data.result);
+                localStorage.setItem(key);
+                //localStorage.removeItem(key);
             },
             error: function(data){
-                alert("error"+JSON.parse(data).result);
+                alert("error");
             }
         });
 
@@ -629,7 +630,7 @@ $(function(){
                             <li>Destination Phone Number: <input id="newAgencyPhoneNumberR" type="text" name="newAgencyPhoneNumber" maxlength="10" size="10" required/></li>
                             <li>Relay Description:<br><textarea id="reasonR" rows="4" cols="30" name="reason" maxlength="500" placeholder="Short description for the Relay" required></textarea></li>
 
-                            <button id="rel" type="submit" class="more" disabled>Submit</button>
+                            <button id="rel" type="button" class="more" disabled>Submit</button>
 
                         </form>
                     </ul>
