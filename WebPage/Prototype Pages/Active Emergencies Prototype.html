@@ -103,16 +103,20 @@ $(function() {
                             $("#latitude").val(data.relay.latitude);
                             $("#longitude").val(data.relay.longitude);
                             $("#timeStamp").val(data.relay.timeStamp);
-                            $("#oldAgencyPhoneNumber").val(data.relayDetail.oldAgencyPhoneNumber);
-                            $("#newAgencyPhoneNumber").val(data.relayDetail.newAgencyPhoneNumber);
-                            $("#reason").val(data.relayDetail.reason);
-                        }
-                        else{
-                            $("#c").html("The client with phone number "+number+" is calling from the application, his/her location will be retrieved from his cellphone");
 
-                            sessionStorage.setItem(number, JSON.stringify(data));
+                            if(typeof data.relayDetail != "undefined"){
+                                $("#oldAgencyPhoneNumber").val(data.relayDetail.oldAgencyPhoneNumber);
+                                $("#newAgencyPhoneNumber").val(data.relayDetail.newAgencyPhoneNumber);
+                                $("#reason").val(data.relayDetail.reason);
+                            }
+                            else{
+                                $("#c").html("The client with phone number "+number+" is calling from the application, his/her location will be retrieved from his cellphone");
+                                sessionStorage.setItem(number, JSON.stringify(data));
+                            }
                         }
                     }
+
+
                 },
                 error: function(data){
                     $("#c").html("The client with phone number "+number+" does not have the application");
@@ -151,7 +155,7 @@ $(function() {
 
         var storageLength = sessionStorage.length;
 
-        if(storageLength > 1){
+        if(storageLength > 2){
 
             var data = sessionStorage.getItem(key);
             $("#latitude").val(JSON.parse(data).relay.latitude);
@@ -429,6 +433,7 @@ $(function(){
             $("#longitudeR").val(JSON.parse(JSONObject).longitude);
             $("#timeStampR").val(JSON.parse(JSONObject).timeStamp);
             $("#oldAgencyPhoneNumberR").val(JSON.parse(JSONObject).oldAgencyPhoneNumber);
+            $("#reasonR").val(JSON.parse(JSONObject).reason);
 
         }
         else{
