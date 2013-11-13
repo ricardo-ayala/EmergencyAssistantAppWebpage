@@ -44,15 +44,26 @@ Released   : 20130509
 
         //<!---------------------------------------Populates fields with user information------------------------------>
 
+
+
         $(function(){
             $(window).load(function (){
+                var path = window.location.pathname;
+                var sendData = path.split("=");
 
                 $.ajax({
                     type: "GET",
                     url :"/editUser",
                     contentType: "application/json",
-                    data: "username="+sendData[0],
+                    data: "username="+sendData[1],
                     success : function(data) {
+
+                        $("#name").val(data.name);
+                        $("#username").val(data.username);
+                        $("#password").val(data.password);
+                        $("#email").val(data.email);
+                        $("#role").val(data.role);
+                        $("#agencyPhoneNumber").val(data.agencyPhoneNumber);
 
                     },
                     error: function(data){
@@ -76,7 +87,7 @@ Released   : 20130509
 
                     $.ajax({
                         type: "POST",
-                        url :"/newUser",
+                        url :"/updateUser",
                         contentType: "application/json",
                         data:JSONObject,
                         success : function(data) {
