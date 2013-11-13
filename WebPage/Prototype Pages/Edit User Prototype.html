@@ -48,12 +48,13 @@ Released   : 20130509
 
         $(function(){
             $(window).load(function (){
-                var path = window.location.pathname;
+                var path = window.location.search;
+
                 var sendData = path.split("=");
 
                 $.ajax({
                     type: "GET",
-                    url :"/editUser",
+                    url :"/viewDetailUser",
                     contentType: "application/json",
                     data: "username="+sendData[1],
                     success : function(data) {
