@@ -35,7 +35,7 @@
       <file leaf-file-name="Admin Home Prototype.html" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Admin Home Prototype.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="131" column="47" selection-start="4949" selection-end="4949" vertical-scroll-proportion="0.4" vertical-offset="2019" max-vertical-offset="5712">
+            <state line="170" column="61" selection-start="6437" selection-end="6437" vertical-scroll-proportion="0.38076922" vertical-offset="2692" max-vertical-offset="5712">
               <folding>
                 <element signature="n#style#0;n#div#4;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
               </folding>
@@ -46,7 +46,7 @@
       <file leaf-file-name="Edit User Prototype.html" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Edit User Prototype.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="45" column="0" selection-start="1774" selection-end="1774" vertical-scroll-proportion="-4.6153846" vertical-offset="645" max-vertical-offset="2890">
+            <state line="55" column="0" selection-start="2085" selection-end="2085" vertical-scroll-proportion="-5.923077" vertical-offset="781" max-vertical-offset="2890">
               <folding />
             </state>
           </provider>
@@ -362,14 +362,14 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Edit User Prototype.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="45" column="0" selection-start="1774" selection-end="1774" vertical-scroll-proportion="-4.6153846" vertical-offset="645" max-vertical-offset="2890">
+        <state line="55" column="0" selection-start="2085" selection-end="2085" vertical-scroll-proportion="-5.923077" vertical-offset="781" max-vertical-offset="2890">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Admin Home Prototype.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="131" column="47" selection-start="4949" selection-end="4949" vertical-scroll-proportion="0.4" vertical-offset="2019" max-vertical-offset="5712">
+        <state line="170" column="61" selection-start="6437" selection-end="6437" vertical-scroll-proportion="0.38076922" vertical-offset="2692" max-vertical-offset="5712">
           <folding>
             <element signature="n#style#0;n#div#4;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
           </folding>
