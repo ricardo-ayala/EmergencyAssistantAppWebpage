@@ -47,7 +47,18 @@ Released   : 20130509
         $(function(){
             $(window).load(function (){
 
+                $.ajax({
+                    type: "GET",
+                    url :"/viewDetailUser",
+                    contentType: "application/json",
+                    data: "username="+sendData[0],
+                    success : function(data) {
 
+                    },
+                    error: function(data){
+                        alert("error user edit");
+                    }
+                });
 
             });
         });
