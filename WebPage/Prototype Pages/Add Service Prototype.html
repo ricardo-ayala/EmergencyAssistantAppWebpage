@@ -140,8 +140,8 @@ Released   : 20130509
 
         $(function(){
             $("#add").click(function(){
-                $("#countA").val(countA);
-                $("#countB").val(countP);
+                $("#countA").val(countA-1);
+                $("#countB").val(countP-1);
                 var JSONObject = JSON.stringify($("#addService").serializeObject());
 
                 if(JSON.parse(JSONObject).agencyName =="" || JSON.parse(JSONObject).category =="" || JSON.parse(JSONObject).altArea0 =="" || JSON.parse(JSONObject).altPhoneNumber0 =="" || JSON.parse(JSONObject).city =="" || JSON.parse(JSONObject).state =="" ||  JSON.parse(JSONObject).country =="" ){
