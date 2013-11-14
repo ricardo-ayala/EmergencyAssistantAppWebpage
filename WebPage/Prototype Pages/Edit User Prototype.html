@@ -59,6 +59,7 @@ Released   : 20130509
                     data: "username="+sendData[1],
                     success : function(data) {
 
+                        $("#oldUsername").val(data.username);
                         $("#name").val(data.name);
                         $("#username").val(data.username);
                         $("#password").val(data.password);
@@ -92,11 +93,11 @@ Released   : 20130509
                         contentType: "application/json",
                         data:JSONObject,
                         success : function(data) {
-                        alert(data.result);
+                        alert("success");
                         $("#main").trigger("reset");
                      },
                         error: function(data){
-                            alert(data.result);
+                            alert("error");
                         }
                      });
 
@@ -135,6 +136,7 @@ Released   : 20130509
                 <div class="entry">
                     <form id="main" action="" method="post">
                         <h3>Name:<input id="name" type="text"  name="name" maxlength="50" size="50"/></h3><br>
+                        <input id="oldUsername" type=hidden name="currentUsername"/>
                         <h3>Username:<input id="username" type="text"  name="username" maxlength="40" size="30"/></h3><br>
                         <h3>Password:<input id="password" type="text"  name="password" maxlength="16" size="30"/></h3><br>
                         <h3>E-mail:<input id="email" type="email"  name="email" pattern="[^ @]*@[^ @]*" /></h3><br>

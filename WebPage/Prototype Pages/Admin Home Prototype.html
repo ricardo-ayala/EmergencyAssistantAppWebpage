@@ -24,186 +24,217 @@ Released   : 20130509
 
 
 <script>
-    //<!-----------TRANSFORMS a String Object to a JSON Object--------->
-    $.fn.serializeObject = function()
-    {
-        var o = {};
-        var a = this.serializeArray();
-        $.each(a, function() {
-            if (o[this.name] !== undefined) {
-                if (!o[this.name].push) {
-                    o[this.name] = [o[this.name]];
-                }
-                o[this.name].push(this.value || '');
-            } else {
-                o[this.name] = this.value || '';
+//<!-----------TRANSFORMS a String Object to a JSON Object--------->
+$.fn.serializeObject = function()
+{
+    var o = {};
+    var a = this.serializeArray();
+    $.each(a, function() {
+        if (o[this.name] !== undefined) {
+            if (!o[this.name].push) {
+                o[this.name] = [o[this.name]];
             }
-        });
-        return o;
-    };
-    <!-------------------Search for an Employee or Service-------------------------------------->
-    $(function(){
-        $("#go").click(function(){
+            o[this.name].push(this.value || '');
+        } else {
+            o[this.name] = this.value || '';
+        }
+    });
+    return o;
+};
+<!-------------------Search for an Employee or Service-------------------------------------->
+$(function(){
+    $("#go").click(function(){
 
 
-            var JSONObject = JSON.stringify($("#main").serializeObject());
+        var JSONObject = JSON.stringify($("#main").serializeObject());
 
-            if(JSON.parse(JSONObject).searchText == ""){
-                alert("Please fill in the search field to do the search. Don't forget to choose a filter for each category to make a better search");
-                return false;
-            }
-            if(typeof JSON.parse(JSONObject).searchType == "undefined" ){
-                alert("Please select Service or Employee");
-                return false;
-            }
-            if(typeof JSON.parse(JSONObject).searchCriteria == "undefined" ){
-                alert("Please select Agency Name or Telephone");
-                return false
-            }
+        if(JSON.parse(JSONObject).searchText == ""){
+            alert("Please fill in the search field to do the search. Don't forget to choose a filter for each category to make a better search");
+            return false;
+        }
+        if(typeof JSON.parse(JSONObject).searchType == "undefined" ){
+            alert("Please select Service or Employee");
+            return false;
+        }
+        if(typeof JSON.parse(JSONObject).searchCriteria == "undefined" ){
+            alert("Please select Agency Name or Telephone");
+            return false
+        }
 
 
-            $.ajax({
-                type: "GET",
-                url :"/searchResult",
-                contentType: "application/json",
-                data:"searchText="+JSON.parse(JSONObject).searchText+"&searchType="+JSON.parse(JSONObject).searchType+"&searchCriteria="+JSON.parse(JSONObject).searchCriteria,
-                success : function(data) {
+        $.ajax({
+            type: "GET",
+            url :"/searchResult",
+            contentType: "application/json",
+            data:"searchText="+JSON.parse(JSONObject).searchText+"&searchType="+JSON.parse(JSONObject).searchType+"&searchCriteria="+JSON.parse(JSONObject).searchCriteria,
+            success : function(data) {
 
-                    if( data != ""){
+                if( data != ""){
 
-                        $(".entry").css("display", "none");
-                        $(".entry1").css("display", "inline");
-                        $("#go").attr("disabled", true);
-                        $("#main").trigger("reset");
+                    $(".entry").css("display", "none");
+                    $(".entry1").css("display", "inline");
+                    $("#go").attr("disabled", true);
+                    $("#main").trigger("reset");
 
-                        var limit = data.length;
-                        var i;
+                    var limit = data.length;
+                    var i;
 
-                        if(typeof data[0].agencyPhoneNumber != "undefined"){
-                            for(i = 0; i < limit; i++){
+                    if(typeof data[0].agencyPhoneNumber != "undefined"){
+                        for(i = 0; i < limit; i++){
 
-                                var texto = data[i].agencyPhoneNumber+","+data[i].agencyName+","+data[i].category;
+                            var texto = data[i].agencyPhoneNumber+","+data[i].agencyName+","+data[i].category;
 
-                                var radioBtn = $('<input type="radio" name="active" value="'+ data[i].agencyPhoneNumber+","+data[i].clientName+","+data[i].category+',agency">'+texto+'</input><br>');
-                                $('#results').append(radioBtn);
-                            }
-                        }else{
-                            for(i = 0; i < limit; i++){
-
-                                var texto = data[i].username+","+data[i].name+","+data[i].email;
-
-                                var radioBtn = $('<input type="radio" name="active" value="'+ data[i].username+","+data[i].name +","+data[i].email+ ',employee">'+texto+'</input><br>');
-                                $('#results').append(radioBtn);
-                            }
+                            var radioBtn = $('<input type="radio" name="active" value="'+ data[i].agencyPhoneNumber+","+data[i].agencyName+","+data[i].category+',agency">'+texto+'</input><br>');
+                            $('#results').append(radioBtn);
                         }
-
                     }else{
-                        alert("There is no information for that search");
+                        for(i = 0; i < limit; i++){
+
+                            var texto = data[i].username+","+data[i].name+","+data[i].email;
+
+                            var radioBtn = $('<input type="radio" name="active" value="'+ data[i].username+","+data[i].name +","+data[i].email+ ',employee">'+texto+'</input><br>');
+                            $('#results').append(radioBtn);
+                        }
                     }
 
-                },
-                error: function(data){
-                    alert("error");
-                }
-            });
-
-
-
-
-
-
-        });
-    });
-
-    //<!-------------------------View Details of an Employee or Service from DB------------------>
-    $(function(){
-        $("#details").click(function(){
-
-            var JSONObject = JSON.stringify($("#mainResults").serializeObject());
-
-            if(JSON.parse(JSONObject).active != ""){
-
-                var sendData = JSON.parse(JSONObject).active.split(",");
-
-                if(sendData[3] == "employee"){
-
-                    $.ajax({
-                        type: "GET",
-                        url :"/viewDetailUser",
-                        contentType: "application/json",
-                        data: "username="+sendData[0]+"&name="+sendData[1]+"&email="+sendData[2],
-                        success : function(data) {
-                            $("#sidebar1").css("display","none");
-                            $("#sidebar2").css("display","inline");
-
-                            $("#un").html(data.name);
-                            $("#u").html(data.username);
-                            $("#p").html(data.password);
-                            $("#em").html(data.email);
-                            $("#ut").html(data.role);
-                            $("#ucpn").html(data.agencyPhoneNumber);
-
-                        },
-                        error: function(data){
-                            alert("error user edit");
-                        }
-                    });
                 }else{
-
+                    alert("There is no information for that search");
                 }
+
+            },
+            error: function(data){
+                alert("error");
+            }
+        });
+
+
+
+
+
+
+    });
+});
+//<!------------------------------------------Go back---------------------------------------->
+
+$(function(){
+    $("#goBack3").click(function(){
+        $(".entry").css("display", "inline");
+        $(".entry1").css("display", "none");
+        $("#go").attr("disabled", false);
+
+        return false;
+    });
+});
+
+//<!-------------------------View Details of an Employee or Service from DB------------------>
+$(function(){
+    $("#details").click(function(){
+
+        var JSONObject = JSON.stringify($("#mainResults").serializeObject());
+
+        if(JSON.parse(JSONObject).active != ""){
+
+            var sendData = JSON.parse(JSONObject).active.split(",");
+
+            if(sendData[3] == "employee"){
+
+                $.ajax({
+                    type: "GET",
+                    url :"/viewDetailUser",
+                    contentType: "application/json",
+                    data: "username="+sendData[0]+"&name="+sendData[1]+"&email="+sendData[2],
+                    success : function(data) {
+                        $("#sidebar1").css("display","none");
+                        $("#sidebar2").css("display","inline");
+
+                        $("#un").html(data.name);
+                        $("#u").html(data.username);
+                        $("#p").html(data.password);
+                        $("#em").html(data.email);
+                        $("#ut").html(data.role);
+                        $("#ucpn").html(data.agencyPhoneNumber);
+
+                    },
+                    error: function(data){
+                        alert("error user edit");
+                    }
+                });
             }else{
-                alert("Please select a search result");
-                return false;
+                $.ajax({
+                    type: "GET",
+                    url :"/",
+                    contentType: "application/json",
+                    data: "agencyPhoneNumber="+sendData[0]+"&agencyName="+sendData[1]+"&category="+sendData[2],
+                    success : function(data) {
+                        $("#sidebar1").css("display","none");
+                        $("#sidebar3").css("display","inline");
+
+                        $("#cpn").html(data.name);
+                        $("#u").html(data.username);
+                        $("#p").html(data.password);
+                        $("#em").html(data.email);
+                        $("#ut").html(data.role);
+                        $("#ucpn").html(data.agencyPhoneNumber);
+
+                    },
+                    error: function(data){
+                        alert("error user edit");
+                    }
+                });
             }
+        }else{
+            alert("Please select a search result");
+            return false;
+        }
 
-        });
     });
-    //<!----------------------------------------------Edits an Employee--------------------------------->
-    $(function(){
-        $("#editUser").click(function(){
+});
+//<!----------------------------------------------Edits an Employee--------------------------------->
+$(function(){
+    $("#editUser").click(function(){
 
-            var JSONObject = JSON.stringify($("#mainResults").serializeObject());
+        var JSONObject = JSON.stringify($("#mainResults").serializeObject());
 
-            if( JSON.parse(JSONObject).active != ""){
+        if( JSON.parse(JSONObject).active != ""){
 
-                var sendData = JSON.parse(JSONObject).active.split(",");
+            var sendData = JSON.parse(JSONObject).active.split(",");
 
-                window.location.replace("/editUser/username="+sendData[0]);
+            window.location.replace("/editUser/username="+sendData[0]);
 
-            }
-            else{
-                alert("Please select an employee to edit");
-                return false;
-            }
+        }
+        else{
+            alert("Please select an employee to edit");
+            return false;
+        }
 
 
-            $(".entry").css("display", "inline");
-            $(".entry1").css("display", "none");
-            $("#go").attr("disabled", false);
-        });
+        $(".entry").css("display", "inline");
+        $(".entry1").css("display", "none");
+        $("#go").attr("disabled", false);
     });
-    //<!-------------------------------------------Takes the page to its original state---------------------------->
-    $(function(){
-        $("#goBack1").click(function(){
+});
+//<!-------------------------------------------Takes the page to its original state---------------------------->
+$(function(){
+    $("#goBack1").click(function(){
 
-            $("#sidebar1").css("display","inline");
-            $("#sidebar2").css("display","none");
-            $(".entry").css("display", "inline");
-            $(".entry1").css("display", "none");
-            $("#go").attr("disabled", false);
-        });
+        $("#sidebar1").css("display","inline");
+        $("#sidebar2").css("display","none");
+        $(".entry").css("display", "inline");
+        $(".entry1").css("display", "none");
+        $("#go").attr("disabled", false);
     });
+});
 
-    $(function(){
-        $("#goBack2").click(function(){
+$(function(){
+    $("#goBack2").click(function(){
 
-            $("#sidebar1").css("display","inline");
-            $("#sidebar3").css("display","none");
-            $(".entry").css("display", "inline");
-            $(".entry1").css("display", "none");
-            $("#go").attr("disabled", false);
-        });
+        $("#sidebar1").css("display","inline");
+        $("#sidebar3").css("display","none");
+        $(".entry").css("display", "inline");
+        $(".entry1").css("display", "none");
+        $("#go").attr("disabled", false);
     });
+});
 
 
 </script>
@@ -252,6 +283,7 @@ Released   : 20130509
 
                         <p>
                             <button id="details" type="button" class="more">View Details</button>
+                            <button id="goBack3" type="button" class="more">Go Back</button>
 
                         </p>
                     </form>
@@ -299,15 +331,15 @@ Released   : 20130509
                 <li>
                     <h2>Service Information</h2>
                     <ul>
-                        <li>Agency Name:<h3 id="cpn"></h3> </li>
-                        <li>Category:<h3 id="sn"></h3></li>
+                        <li>Agency Name:<h3 id="an"></h3> </li>
+                        <li>Category:<h3 id="c"></h3></li>
                         <li>Area:<h3 id="a"></h3></li>
                         <div id="altArea"></div>
-                        <li>Telephone:<h3 id="toe"></h3></li>
+                        <li>Telephone:<h3 id="t"></h3></li>
                         <div id="altPhone"></div>
-                        <li>City:<h3 id="eah"></h3></li>
-                        <li>State:<br><div class="container3"><p id="ed"></p></div></li>
-                        <li>Country:<h3 id="ts"></h3></li>
+                        <li>City:<h3 id="ci"></h3></li>
+                        <li>State:<h3 id="s"> </h3></li>
+                        <li>Country:<h3 id="co"></h3></li>
                         <button id="editService" type="button" class="more">Edit Service</button>
                         <button id="deleteService" type="button" class="more">Delete Service</button>
                         <button id="goBack2" type="button" class="more">Back to Search</button>
