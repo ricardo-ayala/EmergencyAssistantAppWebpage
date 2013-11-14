@@ -140,6 +140,8 @@ Released   : 20130509
 
         $(function(){
             $("#add").click(function(){
+                $("#countA").val(countA);
+                $("#countB").val(countP);
                 var JSONObject = JSON.stringify($("#addService").serializeObject());
 
                 if(JSON.parse(JSONObject).agencyName =="" || JSON.parse(JSONObject).category =="" || JSON.parse(JSONObject).altArea0 =="" || JSON.parse(JSONObject).altPhoneNumber0 =="" || JSON.parse(JSONObject).city =="" || JSON.parse(JSONObject).state =="" ||  JSON.parse(JSONObject).country =="" ){
@@ -204,7 +206,7 @@ Released   : 20130509
 
 
 
-                        <h3 id="altP0">Telephone:<input type="email"  name="altPhoneNumber0" maxlength="10" size="10" required/></h3><button type="button" id="moreP">Add Field</button><button type="button" id="lessP" disabled>Less Fields</button><br>
+                        <h3 id="altP0">Telephone:<input type="text"  name="altPhoneNumber0" maxlength="10" size="10" required/></h3><button type="button" id="moreP">Add Field</button><button type="button" id="lessP" disabled>Less Fields</button><br>
                         <div id="ALTP"></div>
 
 
@@ -212,6 +214,8 @@ Released   : 20130509
                         <h3>City:<input type="text"  name="city" maxlength="40" size="30" required/></h3><br>
                         <h3>State:<input type="text"  name="state" maxlength="2" size="3" required/></h3><br>
                         <h3>Country<input type="text"  name="country" maxlength="40" size="30" required/></h3><br><br>
+                        <input type="text" id="countA" name="altAreaCount"/>
+                        <input type="text" id="countB" name="altPhoneCount"/>
                     </form>
 
 

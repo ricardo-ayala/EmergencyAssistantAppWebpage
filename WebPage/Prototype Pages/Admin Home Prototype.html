@@ -169,12 +169,12 @@ $(function(){
                         $("#sidebar1").css("display","none");
                         $("#sidebar3").css("display","inline");
 
-                        $("#cpn").html(data.name);
-                        $("#u").html(data.username);
-                        $("#p").html(data.password);
-                        $("#em").html(data.email);
-                        $("#ut").html(data.role);
-                        $("#ucpn").html(data.agencyPhoneNumber);
+                        //$("#cpn").html(data.name);
+                        //$("#u").html(data.username);
+                        //$("#p").html(data.password);
+                        //$("#em").html(data.email);
+                        //$("#ut").html(data.role);
+                        //$("#ucpn").html(data.agencyPhoneNumber);
 
                     },
                     error: function(data){
@@ -199,7 +199,7 @@ $(function(){
 
             var sendData = JSON.parse(JSONObject).active.split(",");
 
-            window.location.replace("/editUser/username="+sendData[0]);
+            window.location.replace("/editUser?username="+sendData[0]);
 
         }
         else{
