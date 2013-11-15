@@ -12,180 +12,180 @@ Released   : 20130509
 -->
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-    <meta name="keywords" content="" />
-    <meta name="description" content="" />
-    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
-    <title>Statistics</title>
-    <link href="http://fonts.googleapis.com/css?family=Open+Sans:400,300,600" rel="stylesheet" type="text/css" />
-    <link href='http://fonts.googleapis.com/css?family=Abel|Satisfy' rel='stylesheet' type='text/css'>
-    <link href="style.css" rel="stylesheet" type="text/css" media="screen" />
+<meta name="keywords" content="" />
+<meta name="description" content="" />
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<title>Statistics</title>
+<link href="http://fonts.googleapis.com/css?family=Open+Sans:400,300,600" rel="stylesheet" type="text/css" />
+<link href='http://fonts.googleapis.com/css?family=Abel|Satisfy' rel='stylesheet' type='text/css'>
+<link href="style.css" rel="stylesheet" type="text/css" media="screen" />
 
-    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
 
 
-    <script>
-        //<!-----------TRANSFORMS a String Object to a JSON Object--------->
-        $.fn.serializeObject = function()
-        {
-            var o = {};
-            var a = this.serializeArray();
-            $.each(a, function() {
-                if (o[this.name] !== undefined) {
-                    if (!o[this.name].push) {
-                        o[this.name] = [o[this.name]];
-                    }
-                    o[this.name].push(this.value || '');
-                } else {
-                    o[this.name] = this.value || '';
+<script>
+    //<!-----------TRANSFORMS a String Object to a JSON Object--------->
+    $.fn.serializeObject = function()
+    {
+        var o = {};
+        var a = this.serializeArray();
+        $.each(a, function() {
+            if (o[this.name] !== undefined) {
+                if (!o[this.name].push) {
+                    o[this.name] = [o[this.name]];
                 }
-            });
-            return o;
-        };
+                o[this.name].push(this.value || '');
+            } else {
+                o[this.name] = this.value || '';
+            }
+        });
+        return o;
+    };
 
 
-        //<!-----------------------------Populates the Category filters on page load-------------------------------------------------------->
+    //<!-----------------------------Populates the Category filters on page load-------------------------------------------------------->
 
-        $(function(){
-            $(window).onload(function(){
+    $(function(){
+
+        $.ajax({
+            type: "GET",
+            url :"/filterCategory",
+            contentType: "application/json",
+            data:"",
+            success : function(data) {
+                $("#category").empty();
+                $("#category").append('<option value="">Select Category</option>');
+                var size = data.length;
+                for(var i = 0; i < size; i++){
+                    $("#category").append('<option value='+ data[i].category+'>"'+ data[i].category+'"</option>');
+                }
+            },
+            error: function(data){
+                alert("Error filterCategory GET");
+            }
+        });
+
+    });
+
+    //<!-----------------------------------Populates Country filters on category change---------------------------->
+    $(function(){
+        $("#category").change(function(){
+
+            if($("#category").val() == ""){
+                $("#country").empty();
+                $("#country").append('<option value="">Select Country</option>');
+            }else{
+                $("#country").empty();
                 $.ajax({
                     type: "GET",
-                    url :"/filterCategory",
+                    url :"/filterCountry",
                     contentType: "application/json",
-                    data:"",
+                    data:"category="+$("#category").val(),
                     success : function(data) {
 
-                        $("#category").append('<option value="">Select Category</option>');
+                        $("#country").append('<option value="">Select Country</option>');
                         var size = data.length;
                         for(var i = 0; i < size; i++){
-                            $("#category").append('<option value="'+ data[i].category+'">"'+ data[i].category+'"</option>');
+                            $("#country").append('<option value="'+ data[i].country+'">"'+ data[i].country+'"</option>');
                         }
                     },
                     error: function(data){
-                        alert("Error filterCategory GET");
+                        alert("Error filterCountry GET");
                     }
                 });
-            }) ;
+            }
         });
+    });
 
-        //<!-----------------------------------Populates Country filters on category change---------------------------->
-        $(function(){
-            $("#category").change(function(){
+    //<!-----------------------------------Populates State filters on country change---------------------------->
+    $(function(){
+        $("#country").change(function(){
 
-                if($("#category").val() == ""){
-                    $("#country").empty();
-                    $("#country").append('<option value="">Select Country</option>');
-                }else{
-                    $("#country").empty();
-                    $.ajax({
-                        type: "GET",
-                        url :"/filterCountry",
-                        contentType: "application/json",
-                        data:"category="+$("#category").val(),
-                        success : function(data) {
+            if($("#country").val() == ""){
+                $("#state").empty();
+                $("#state").append('<option value="">Select State</option>');
+            }else{
+                $("#state").empty();
+                $.ajax({
+                    type: "GET",
+                    url :"/filterState",
+                    contentType: "application/json",
+                    data:"country="+$("#country").val(),
+                    success : function(data) {
 
-                            $("#country").append('<option value="">Select Country</option>');
-                            var size = data.length;
-                            for(var i = 0; i < size; i++){
-                                $("#country").append('<option value="'+ data[i].country+'">"'+ data[i].country+'"</option>');
-                            }
-                        },
-                        error: function(data){
-                            alert("Error filterCountry GET");
+                        $("#state").append('<option value="">Select State</option>');
+                        var size = data.length;
+                        for(var i = 0; i < size; i++){
+                            $("#state").append('<option value="'+ data[i].state+'">"'+ data[i].state+'"</option>');
                         }
-                    });
-                }
-            });
+                    },
+                    error: function(data){
+                        alert("Error filterState GET");
+                    }
+                });
+            }
         });
+    });
 
-        //<!-----------------------------------Populates State filters on country change---------------------------->
-        $(function(){
-            $("#country").change(function(){
+    //<!-----------------------------------Populates City filters on state change---------------------------->
+    $(function(){
+        $("#state").change(function(){
 
-                if($("#country").val() == ""){
-                    $("#state").empty();
-                    $("#state").append('<option value="">Select State</option>');
-                }else{
-                    $("#state").empty();
-                    $.ajax({
-                        type: "GET",
-                        url :"/filterState",
-                        contentType: "application/json",
-                        data:"country="+$("#country").val(),
-                        success : function(data) {
+            if($("#state").val() == ""){
+                $("#city").empty();
+                $("#city").append('<option value="">Select City</option>');
+            }else{
+                $("#city").empty();
+                $.ajax({
+                    type: "GET",
+                    url :"/filterCity",
+                    contentType: "application/json",
+                    data:"state="+$("#state").val(),
+                    success : function(data) {
 
-                            $("#state").append('<option value="">Select State</option>');
-                            var size = data.length;
-                            for(var i = 0; i < size; i++){
-                                $("#state").append('<option value="'+ data[i].state+'">"'+ data[i].state+'"</option>');
-                            }
-                        },
-                        error: function(data){
-                            alert("Error filterState GET");
+                        $("#city").append('<option value="">Select City</option>');
+                        var size = data.length;
+                        for(var i = 0; i < size; i++){
+                            $("#state").append('<option value="'+ data[i].city+'">"'+ data[i].city+'"</option>');
                         }
-                    });
-                }
-            });
+                    },
+                    error: function(data){
+                        alert("Error filterCity GET");
+                    }
+                });
+            }
         });
+    });
 
-        //<!-----------------------------------Populates City filters on state change---------------------------->
-        $(function(){
-            $("#state").change(function(){
+    //<!-----------------------------------Populates Agency filters on city change---------------------------->
+    $(function(){
+        $("#city").change(function(){
 
-                if($("#state").val() == ""){
-                    $("#city").empty();
-                    $("#city").append('<option value="">Select City</option>');
-                }else{
-                    $("#city").empty();
-                    $.ajax({
-                        type: "GET",
-                        url :"/filterCity",
-                        contentType: "application/json",
-                        data:"state="+$("#state").val(),
-                        success : function(data) {
+            if($("#city").val() == ""){
+                $("#agencyPhoneNumber").empty();
+                $("#agencyPhoneNumber").append('<option value="">Select Agency</option>');
+            }else{
+                $("#agencyPhoneNumber").empty();
+                $.ajax({
+                    type: "GET",
+                    url :"/filterAgency",
+                    contentType: "application/json",
+                    data:"city="+$("#city").val(),
+                    success : function(data) {
 
-                            $("#city").append('<option value="">Select City</option>');
-                            var size = data.length;
-                            for(var i = 0; i < size; i++){
-                                $("#state").append('<option value="'+ data[i].city+'">"'+ data[i].city+'"</option>');
-                            }
-                        },
-                        error: function(data){
-                            alert("Error filterCity GET");
+                        $("#agencyPhoneNumber").append('<option value="">Select Agency</option>');
+                        var size = data.length;
+                        for(var i = 0; i < size; i++){
+                            $("#agencyPhoneNumber").append('<option value="'+ data[i].agencyPhoneNumber+'">"'+ data[i].agencyPhoneNumber+'"</option>');
                         }
-                    });
-                }
-            });
+                    },
+                    error: function(data){
+                        alert("Error filterAgency GET");
+                    }
+                });
+            }
         });
-
-        //<!-----------------------------------Populates Agency filters on city change---------------------------->
-        $(function(){
-            $("#city").change(function(){
-
-                if($("#city").val() == ""){
-                    $("#agencyPhoneNumber").empty();
-                    $("#agencyPhoneNumber").append('<option value="">Select Agency</option>');
-                }else{
-                    $("#agencyPhoneNumber").empty();
-                    $.ajax({
-                        type: "GET",
-                        url :"/filterAgency",
-                        contentType: "application/json",
-                        data:"city="+$("#city").val(),
-                        success : function(data) {
-
-                            $("#agencyPhoneNumber").append('<option value="">Select Agency</option>');
-                            var size = data.length;
-                            for(var i = 0; i < size; i++){
-                                $("#agencyPhoneNumber").append('<option value="'+ data[i].agencyPhoneNumber+'">"'+ data[i].agencyPhoneNumber+'"</option>');
-                            }
-                        },
-                        error: function(data){
-                            alert("Error filterAgency GET");
-                        }
-                    });
-                }
-            });
-        });
+    });
 
 
 
@@ -195,25 +195,25 @@ Released   : 20130509
 
 
 
-        //<!---------------------------Selects filters for the Statistical Search---------------------------------------------->
-        $(function(){
-            $("#searchS").click(function(){
+    //<!---------------------------Selects filters for the Statistical Search---------------------------------------------->
+    $(function(){
+        $("#searchS").click(function(){
 
-                var JSONObject = JSON.stringify($("#filters").serializeObject());
-                if(JSON.parse(JSONObject).category =="" || JSON.parse(JSONObject).country =="" || JSON.parse(JSONObject).state =="" || JSON.parse(JSONObject).city =="" || JSON.parse(JSONObject).agencyPhoneNumber ==""){
-                    alert("Please fill all the fields for statistical search");
-                    return false;
-                }
-                else{
-                    alert(JSONObject);
-                    $("#tableResults").html("Resulst will be displayed here");
-                    $("#filters").trigger("reset");
-                }
+            var JSONObject = JSON.stringify($("#filters").serializeObject());
+            if(JSON.parse(JSONObject).category =="" || JSON.parse(JSONObject).country =="" || JSON.parse(JSONObject).state =="" || JSON.parse(JSONObject).city =="" || JSON.parse(JSONObject).agencyPhoneNumber ==""){
+                alert("Please fill all the fields for statistical search");
                 return false;
-            });
+            }
+            else{
+                alert(JSONObject);
+                $("#tableResults").html("Resulst will be displayed here");
+                $("#filters").trigger("reset");
+            }
+            return false;
         });
+    });
 
-    </script>
+</script>
 
 </head>
 <body>
