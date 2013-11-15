@@ -57,7 +57,7 @@ Released   : 20130509
                 $("#category").append('<option value="">Select Category</option>');
                 var size = data.length;
                 for(var i = 0; i < size; i++){
-                    $("#category").append('<option value='+ data[i].category+'>"'+ data[i].category+'"</option>');
+                    $("#category").append('<option value="'+ data[i].category+'">'+ data[i].category+'</option>');
                 }
             },
             error: function(data){
@@ -86,7 +86,7 @@ Released   : 20130509
                         $("#country").append('<option value="">Select Country</option>');
                         var size = data.length;
                         for(var i = 0; i < size; i++){
-                            $("#country").append('<option value="'+ data[i].country+'">"'+ data[i].country+'"</option>');
+                            $("#country").append('<option value="'+ data[i].country+'">'+ data[i].country+'</option>');
                         }
                     },
                     error: function(data){
@@ -116,7 +116,7 @@ Released   : 20130509
                         $("#state").append('<option value="">Select State</option>');
                         var size = data.length;
                         for(var i = 0; i < size; i++){
-                            $("#state").append('<option value="'+ data[i].state+'">"'+ data[i].state+'"</option>');
+                            $("#state").append('<option value="'+ data[i].state+'">'+ data[i].state+'</option>');
                         }
                     },
                     error: function(data){
@@ -146,7 +146,7 @@ Released   : 20130509
                         $("#city").append('<option value="">Select City</option>');
                         var size = data.length;
                         for(var i = 0; i < size; i++){
-                            $("#state").append('<option value="'+ data[i].city+'">"'+ data[i].city+'"</option>');
+                            $("#state").append('<option value="'+ data[i].city+'">'+ data[i].city+'</option>');
                         }
                     },
                     error: function(data){
@@ -176,7 +176,7 @@ Released   : 20130509
                         $("#agencyPhoneNumber").append('<option value="">Select Agency</option>');
                         var size = data.length;
                         for(var i = 0; i < size; i++){
-                            $("#agencyPhoneNumber").append('<option value="'+ data[i].agencyPhoneNumber+'">"'+ data[i].agencyPhoneNumber+'"</option>');
+                            $("#agencyPhoneNumber").append('<option value="'+ data[i].agencyPhoneNumber+'">'+ data[i].agencyPhoneNumber+'</option>');
                         }
                     },
                     error: function(data){
@@ -253,32 +253,27 @@ Released   : 20130509
                     <ul>
                         <form id="filters" action="" method="post">
                             <li>Category<br><select id="category" name = "category">
-                                <option value="">Select Category</option>
+
 
                             </select><br>
                             </li>
 
                             <li>Country<br><select id="country" name="country">
-                                <option value="">Select Country</option>
-                                <option value="PR">PR</option>
+
                             </select><br>
                             </li>
 
                             <li>State<br><select id="state" name="state">
-                                <option value="">Select State</option>
-                                <option value="PR">PR</option>
+
                             </select><br>
                             </li>
 
                             <li>City<br><select id="city" name="city">
-                                <option value="">Select City</option>
-                                <option value="ponce">Ponce</option>
-                                <option value="mayaguez">Mayaguez</option>
+
                             </select><br></li>
 
                             <li>Agency<br><select id="agencyPhoneNumber" name="agencyPhoneNumber">
-                                <option value="">Select Agency</option>
-                                <option value="police">Police</option>
+
                             </select><br></li>
                         </form>
 
