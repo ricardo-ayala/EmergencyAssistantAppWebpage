@@ -176,10 +176,10 @@ $(function(){
                         var count = data.area.length;
                         var i = 1;
                         if(count > 1){
-                           for(i = 1; i < count; i++){
-                               $("#altArea").append('<li>Alternate Area:<h3 id="altA' + i + '"></h3></li>');
-                               $("#altA"+i).html(data.area[i].altArea);
-                           }
+                            for(i = 1; i < count; i++){
+                                $("#altArea").append('<li>Alternate Area:<h3 id="altA' + i + '"></h3></li>');
+                                $("#altA"+i).html(data.area[i].altArea);
+                            }
                         }
                         $("#t").html(data.phone[0].altPhoneNumber);
                         count = data.phone.length;
@@ -236,22 +236,83 @@ $(function(){
 
 //<!-------------------------------------------Edits a Service---------------------------------------->
 $(function(){
-   $("#editService").click(function(){
-       var JSONObject = JSON.stringify($("#mainResults").serializeObject());
+    $("#editService").click(function(){
+        var JSONObject = JSON.stringify($("#mainResults").serializeObject());
 
-       if( JSON.parse(JSONObject).active != ""){
-           var sendData = JSON.parse(JSONObject).active.split(",")
+        if( JSON.parse(JSONObject).active != ""){
+            var sendData = JSON.parse(JSONObject).active.split(",")
 
-           window.location.replace("/edit?agencyPhoneNumber="+sendData[0]);
-       }
-       else{
-           alert("Please select a service to edit");
-           return false;
-       }
-       $(".entry").css("display", "inline");
-       $(".entry1").css("display", "none");
-       $("#go").attr("disabled", false);
-   });
+            window.location.replace("/edit?agencyPhoneNumber="+sendData[0]);
+        }
+        else{
+            alert("Please select a service to edit");
+            return false;
+        }
+        $(".entry").css("display", "inline");
+        $(".entry1").css("display", "none");
+        $("#go").attr("disabled", false);
+    });
+});
+
+//<!-------------------------------------------Deletes a User-------------------------------------------------->
+
+$(function(){
+    $("#deleteUser").click(function(){
+        var JSONObject = JSON.stringify($("#mainResults").serializeObject());
+
+        if(JSON.parse(JSONObject).active != ""){
+
+            var sendData = JSON.parse(JSONObject).active.split(",");
+
+            $.ajax({
+                type: "GET",
+                url :"/deleteUser",
+                contentType: "application/json",
+                data: "username="+sendData[0],
+                success : function(data) {
+                    alert("User successfully deleted");
+
+                },
+                error: function(data){
+                    alert("error user delete");
+                }
+            });
+        }else{
+            alert("Please select a search result");
+            return false;
+        }
+    }) ;
+});
+
+
+//<!-------------------------------------------Deletes a Service-------------------------------------------------->
+
+$(function(){
+    $("#deleteService").click(function(){
+        var JSONObject = JSON.stringify($("#mainResults").serializeObject());
+
+        if(JSON.parse(JSONObject).active != ""){
+
+            var sendData = JSON.parse(JSONObject).active.split(",");
+
+            $.ajax({
+                type: "GET",
+                url :"/delete",
+                contentType: "application/json",
+                data: "agencyPhoneNumber="+sendData[0],
+                success : function(data) {
+                    alert("Service successfully deleted");
+
+                },
+                error: function(data){
+                    alert("error service delete");
+                }
+            });
+        }else{
+            alert("Please select a search result");
+            return false;
+        }
+    }) ;
 });
 
 //<!-------------------------------------------Takes the page to its original state---------------------------->
