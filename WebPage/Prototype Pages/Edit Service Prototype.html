@@ -15,7 +15,7 @@ Released   : 20130509
     <meta name="keywords" content="" />
     <meta name="description" content="" />
     <meta http-equiv="content-type" content="text/html; charset=utf-8" />
-    <title>Add Service</title>
+    <title>Edit Service</title>
     <link href="http://fonts.googleapis.com/css?family=Open+Sans:400,300,600" rel="stylesheet" type="text/css" />
     <link href='http://fonts.googleapis.com/css?family=Abel|Satisfy' rel='stylesheet' type='text/css'>
     <link href="style.css" rel="stylesheet" type="text/css" media="screen" />
@@ -27,7 +27,7 @@ Released   : 20130509
         var countA = 0;
         var countP = 0;
 
-        //<!-----------TRANSFORMS a String Object to a JSON Object--------->
+        //<!-------------------TRANSFORMS a String Object to a JSON Object-------------------->
         $.fn.serializeObject = function()
         {
             var o = {};
@@ -44,7 +44,59 @@ Released   : 20130509
             });
             return o;
         };
+        //<!-----------------------------Populates Fields with service information------------------------------------>
 
+        $(function(){
+            $(window).load(function (){
+                var path = window.location.search;
+
+                var sendData = path.split("=");
+
+                $.ajax({
+                    type: "GET",
+                    url :"/",
+                    contentType: "application/json",
+                    data: "agencyPhoneNumber="+sendData[1],
+                    success : function(data) {
+
+                        $("#agencyName").val(data.details.agencyName);
+                        $("#category").val(data.details.category);
+                        $("#altArea0").val(data.area[0].altArea);
+                        $("#altPhoneNumber0").val(data.phone[0].altPhoneNumber);
+                        $("#city").val(data.details.city);
+                        $("#state").val(data.details.state);
+                        $("#country").val(data.details.country);
+
+                        var count = data.area.length;
+                        var i = 1;
+                        if(count != 0){
+                            for(i = 1; i = count; i++){
+                                $("#ALTA").append('<h3 id="altA'+ i +'">Alternate Area:<input type="text"  name="altArea'+ i +'"/></h3>');
+                                $("#altaA"+i).val(data.area[i].altArea);
+
+                            }
+                            countA = count;
+                        }
+
+                        var count2 = data.phone.length;
+                        var p = 1;
+                        if(count2 != 0){
+                            for(p = 1; p = count2; p++){
+                                $("#ALTP").append('<h3 id="altP'+ p +'">Alternate Telephone:<input type="email"  name="altPhoneNumber'+ p +'" maxlength="10"size="10"/></h3>');
+                                $("#altP"+p).val(data.phone[p].altPhoneNumber);
+                            }
+                            countP = count2;
+                        }
+
+
+                    },
+                    error: function(data){
+                        alert("error user edit");
+                    }
+                });
+
+            });
+        });
 
         //<!-----------------------Adds new field to alternative Areas---------------------------->
         $(function() {
@@ -196,18 +248,18 @@ Released   : 20130509
 
         <div id="content1">
             <div class="post">
-                <h2 id="greeting" class="title">New Service</h2>
+                <h2 id="greeting" class="title">Edit Service</h2>
                 <div class="entry">
                     <form id="addService" action="" method="post">
-                        <h3>Agency Name:<input type="text"  name="agencyName" maxlength="50" size="50" required/></h3><br>
-                        <h3>Category:<input type="text"  name="category" maxlength="40" size="30" required/></h3><br>
-                        <h3>Area:<input type="text" name="altArea0" maxlength="40" size="30" required/></h3><button type="button" id="moreA">Add Field</button><button type="button" id="lessA" disabled>Less Fields</button>
+                        <h3>Agency Name:<input type="text" id="agencyName" name="agencyName" maxlength="50" size="50" required/></h3><br>
+                        <h3>Category:<input type="text" id="category" name="category" maxlength="40" size="30" required/></h3><br>
+                        <h3>Area:<input type="text" id="altArea0" name="altArea0" maxlength="40" size="30" required/></h3><button type="button" id="moreA">Add Field</button><button type="button" id="lessA" disabled>Less Fields</button>
                         <div id="ALTA"></div>
-                        <h3>Telephone:<input type="text"  name="altPhoneNumber0" maxlength="10" size="10" required/></h3><button type="button" id="moreP">Add Field</button><button type="button" id="lessP" disabled>Less Fields</button><br>
+                        <h3>Telephone:<input type="text" id="altPhoneNumber0" name="altPhoneNumber0" maxlength="10" size="10" required/></h3><button type="button" id="moreP">Add Field</button><button type="button" id="lessP" disabled>Less Fields</button><br>
                         <div id="ALTP"></div>
-                        <h3>City:<input type="text"  name="city" maxlength="40" size="30" required/></h3><br>
-                        <h3>State:<input type="text"  name="state" maxlength="2" size="3" required/></h3><br>
-                        <h3>Country<input type="text"  name="country" maxlength="40" size="30" required/></h3><br><br>
+                        <h3>City:<input type="text" id="city" name="city" maxlength="40" size="30" required/></h3><br>
+                        <h3>State:<input type="text" id="state" name="state" maxlength="2" size="3" required/></h3><br>
+                        <h3>Country<input type="text" id="country" name="country" maxlength="40" size="30" required/></h3><br><br>
                         <input type=hidden id="countA" name="altAreaCount"/>
                         <input type=hidden id="countB" name="altPhoneCount"/>
                     </form>
@@ -215,7 +267,7 @@ Released   : 20130509
 
 
                     <p>
-                        <button id="add" type="button" class="more" form="main">Add</button>
+                        <button id="add" type="button" class="more" form="main">Update</button>
                     </p>
 
                 </div>

@@ -142,7 +142,7 @@ $(function(){
                     type: "GET",
                     url :"/viewDetailUser",
                     contentType: "application/json",
-                    data: "username="+sendData[0]+"&name="+sendData[1]+"&email="+sendData[2],
+                    data: "username="+sendData[0],
                     success : function(data) {
                         $("#sidebar1").css("display","none");
                         $("#sidebar2").css("display","inline");
@@ -162,23 +162,42 @@ $(function(){
             }else{
                 $.ajax({
                     type: "GET",
-                    url :"/",
+                    url :"/viewDetail",
                     contentType: "application/json",
-                    data: "agencyPhoneNumber="+sendData[0]+"&agencyName="+sendData[1]+"&category="+sendData[2],
+                    data: "agencyPhoneNumber="+sendData[0],
                     success : function(data) {
                         $("#sidebar1").css("display","none");
                         $("#sidebar3").css("display","inline");
 
-                        //$("#cpn").html(data.name);
-                        //$("#u").html(data.username);
-                        //$("#p").html(data.password);
-                        //$("#em").html(data.email);
-                        //$("#ut").html(data.role);
-                        //$("#ucpn").html(data.agencyPhoneNumber);
+                        $("#an").html(data.details.agencyName);
+                        $("#c").html(data.details.category);
+                        $("#a").html(data.area[0].altArea);
+
+                        var count = data.area.length;
+                        var i = 1;
+                        if(count != 0){
+                           for(i = 1; i = count; i++){
+                               $("#altArea").append('<li>Alternate Area:<h3 id="altA' + i + '"></h3></li>');
+                               $("#altA"+i).html(data.area[i].altArea);
+                           }
+                        }
+                        $("#t").html(data.phone[0].altPhoneNumber);
+                        count = data.phone.length;
+                        var p = 1;
+                        if(count != 0){
+                            for(p = 1; p = count; p++){
+                                $("#altPhone").append('<li>Alternate Area:<h3 id="altP' + p + '"></h3></li>');
+                                $("#altP"+p).html(data.phone[p].altPhoneNumber);
+                            }
+                        }
+                        $("#ci").html(data.details.city);
+                        $("#s").html(data.details.state);
+                        $("#co").html(data.details.country);
+
 
                     },
                     error: function(data){
-                        alert("error user edit");
+                        alert("error service edit");
                     }
                 });
             }
@@ -213,6 +232,28 @@ $(function(){
         $("#go").attr("disabled", false);
     });
 });
+
+
+//<!-------------------------------------------Edits a Service---------------------------------------->
+$(function(){
+   $("#editService").click(function(){
+       var JSONObject = JSON.stringify($("#mainResults").serializeObject());
+
+       if( JSON.parse(JSONObject).active != ""){
+           var sendData = JSON.parse(JSONObject).active.split(",")
+
+           window.location.replace("/edit?agencyPhoneNumber="+sendData[0]);
+       }
+       else{
+           alert("Please select a service to edit");
+           return false;
+       }
+       $(".entry").css("display", "inline");
+       $(".entry1").css("display", "none");
+       $("#go").attr("disabled", false);
+   });
+});
+
 //<!-------------------------------------------Takes the page to its original state---------------------------->
 $(function(){
     $("#goBack1").click(function(){
