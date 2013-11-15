@@ -110,7 +110,7 @@ Released   : 20130509
                     type: "GET",
                     url :"/filterState",
                     contentType: "application/json",
-                    data:"country="+$("#country").val(),
+                    data:"country="+$("#country").val()+"&category="+$("#category").val(),
                     success : function(data) {
 
                         $("#state").append('<option value="">Select State</option>');
@@ -140,7 +140,7 @@ Released   : 20130509
                     type: "GET",
                     url :"/filterCity",
                     contentType: "application/json",
-                    data:"state="+$("#state").val(),
+                    data:"state="+$("#state").val()+"&country="+$("#country").val()+"&category="+$("#category").val(),
                     success : function(data) {
 
                         $("#city").append('<option value="">Select City</option>');
@@ -170,7 +170,7 @@ Released   : 20130509
                     type: "GET",
                     url :"/filterAgency",
                     contentType: "application/json",
-                    data:"city="+$("#city").val(),
+                    data:"city="+$("#city").val()+"&state="+$("#state").val()+"&country="+$("#country").val()+"&category="+$("#category").val(),
                     success : function(data) {
 
                         $("#agencyPhoneNumber").append('<option value="">Select Agency</option>');
