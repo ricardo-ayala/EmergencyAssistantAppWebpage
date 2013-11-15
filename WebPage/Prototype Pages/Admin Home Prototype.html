@@ -262,13 +262,14 @@ $(function(){
 
         if(JSON.parse(JSONObject).active != ""){
 
-            var sendData = JSON.parse(JSONObject).active.split(",");
+            var rawData = JSON.parse(JSONObject).active.split(",");
+            var sendData = JSON.stringify(rawData);
 
             $.ajax({
                 type: "GET",
                 url :"/deleteUser",
                 contentType: "application/json",
-                data: "username="+sendData[0],
+                data: rawData,
                 success : function(data) {
                     alert("User successfully deleted");
 
@@ -293,13 +294,14 @@ $(function(){
 
         if(JSON.parse(JSONObject).active != ""){
 
-            var sendData = JSON.parse(JSONObject).active.split(",");
+            var rawData = JSON.parse(JSONObject).active.split(",");
+            var sendData = JSON.stringify(rawData);
 
             $.ajax({
                 type: "GET",
                 url :"/delete",
                 contentType: "application/json",
-                data: "agencyPhoneNumber="+sendData[0],
+                data: sendData,
                 success : function(data) {
                     alert("Service successfully deleted");
 
