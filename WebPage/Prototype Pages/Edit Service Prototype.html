@@ -70,6 +70,8 @@ Released   : 20130509
                         var count = data.area.length;
                         var i = 1;
                         if(count > 1){
+                            $("#lessA").attr("disabled", false);
+                            $("#lessP").attr("disabled", false);
                             for(i = 1; i < count; i++){
                                 $("#ALTA").append('<h3 id="altA' + i + '">Alternate Area:<input id="altaA' + i + '" type="text"  name="altArea'+ i +'" /></h3>');
                                 $("#altaA"+i).val(data.area[i].altArea);
