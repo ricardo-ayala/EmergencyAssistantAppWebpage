@@ -176,7 +176,7 @@ $(function(){
                         var count = data.area.length;
                         var i = 1;
                         if(count > 1){
-                           for(i = 1; i = count; i++){
+                           for(i = 1; i < count; i++){
                                $("#altArea").append('<li>Alternate Area:<h3 id="altA' + i + '"></h3></li>');
                                $("#altA"+i).html(data.area[i].altArea);
                            }
@@ -185,8 +185,8 @@ $(function(){
                         count = data.phone.length;
                         var p = 1;
                         if(count > 1){
-                            for(p = 1; p = count; p++){
-                                $("#altPhone").append('<li>Alternate Area:<h3 id="altP' + p + '"></h3></li>');
+                            for(p = 1; p < count; p++){
+                                $("#altPhone").append('<li>Alternate Phone:<h3 id="altP' + p + '"></h3></li>');
                                 $("#altP"+p).html(data.phone[p].altPhoneNumber);
                             }
                         }
