@@ -59,13 +59,13 @@ Released   : 20130509
                     data: "agencyPhoneNumber="+sendData[1],
                     success : function(data) {
 
-                        $("#agencyName").val(data.details.agencyName);
-                        $("#category").val(data.details.category);
+                        $("#agencyName").val(data.detail.agencyName);
+                        $("#category").val(data.detail.category);
                         $("#altArea0").val(data.area[0].altArea);
                         $("#altPhoneNumber0").val(data.phone[0].altPhoneNumber);
-                        $("#city").val(data.details.city);
-                        $("#state").val(data.details.state);
-                        $("#country").val(data.details.country);
+                        $("#city").val(data.detail.city);
+                        $("#state").val(data.detail.state);
+                        $("#country").val(data.detail.country);
 
                         var count = data.area.length;
                         var i = 1;
