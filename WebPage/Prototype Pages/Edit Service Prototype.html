@@ -71,7 +71,7 @@ Released   : 20130509
                         var i = 1;
                         if(count > 1){
                             for(i = 1; i < count; i++){
-                                $("#ALTA").append('<h3>Alternate Area:<input id="altA' + i + '" type="text"  name="altArea'+ i +'" /></h3>');
+                                $("#ALTA").append('<h3 id="altA' + i + '">Alternate Area:<input id="altaA' + i + '" type="text"  name="altArea'+ i +'" /></h3>');
                                 $("#altaA"+i).val(data.area[i].altArea);
 
                             }
@@ -82,8 +82,8 @@ Released   : 20130509
                         var p = 1;
                         if(count2 > 1){
                             for(p = 1; p < count2; p++){
-                                $("#ALTP").append('<h3>Alternate Telephone:<input id="altP' + p + '" type="text"  name="altPhoneNumber'+ p +'" maxlength="10"size="10"/></h3>');
-                                $("#altP"+p).val(data.phone[p].altPhoneNumber);
+                                $("#ALTP").append('<h3 id="altP' + p + '" >Alternate Telephone:<input id="altaP' + p + '" type="text"  name="altPhoneNumber'+ p +'" maxlength="10"size="10"/></h3>');
+                                $("#altaP"+p).val(data.phone[p].altPhoneNumber);
                             }
                             countP = count2-1;
                         }
