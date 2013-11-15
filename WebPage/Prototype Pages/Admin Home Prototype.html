@@ -169,8 +169,8 @@ $(function(){
                         $("#sidebar1").css("display","none");
                         $("#sidebar3").css("display","inline");
 
-                        $("#an").html(data.details.agencyName);
-                        $("#c").html(data.details.category);
+                        $("#an").html(data.detail.agencyName);
+                        $("#c").html(data.detail.category);
                         $("#a").html(data.area[0].altArea);
 
                         var count = data.area.length;
@@ -190,9 +190,9 @@ $(function(){
                                 $("#altP"+p).html(data.phone[p].altPhoneNumber);
                             }
                         }
-                        $("#ci").html(data.details.city);
-                        $("#s").html(data.details.state);
-                        $("#co").html(data.details.country);
+                        $("#ci").html(data.detail.city);
+                        $("#s").html(data.detail.state);
+                        $("#co").html(data.detail.country);
 
 
                     },
