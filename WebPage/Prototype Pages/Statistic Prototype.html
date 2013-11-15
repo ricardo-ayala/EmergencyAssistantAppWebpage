@@ -12,144 +12,293 @@ Released   : 20130509
 -->
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-<meta name="keywords" content="" />
-<meta name="description" content="" />
-<meta http-equiv="content-type" content="text/html; charset=utf-8" />
-<title>Statistics</title>
-<link href="http://fonts.googleapis.com/css?family=Open+Sans:400,300,600" rel="stylesheet" type="text/css" />
-<link href='http://fonts.googleapis.com/css?family=Abel|Satisfy' rel='stylesheet' type='text/css'>
-<link href="style.css" rel="stylesheet" type="text/css" media="screen" />
+    <meta name="keywords" content="" />
+    <meta name="description" content="" />
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <title>Statistics</title>
+    <link href="http://fonts.googleapis.com/css?family=Open+Sans:400,300,600" rel="stylesheet" type="text/css" />
+    <link href='http://fonts.googleapis.com/css?family=Abel|Satisfy' rel='stylesheet' type='text/css'>
+    <link href="style.css" rel="stylesheet" type="text/css" media="screen" />
 
-<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
 
 
-<script>
-//<!-----------TRANSFORMS a String Object to a JSON Object--------->
-$.fn.serializeObject = function()
-{
-    var o = {};
-    var a = this.serializeArray();
-    $.each(a, function() {
-        if (o[this.name] !== undefined) {
-            if (!o[this.name].push) {
-                o[this.name] = [o[this.name]];
-            }
-            o[this.name].push(this.value || '');
-        } else {
-            o[this.name] = this.value || '';
-        }
-    });
-    return o;
-};
+    <script>
+        //<!-----------TRANSFORMS a String Object to a JSON Object--------->
+        $.fn.serializeObject = function()
+        {
+            var o = {};
+            var a = this.serializeArray();
+            $.each(a, function() {
+                if (o[this.name] !== undefined) {
+                    if (!o[this.name].push) {
+                        o[this.name] = [o[this.name]];
+                    }
+                    o[this.name].push(this.value || '');
+                } else {
+                    o[this.name] = this.value || '';
+                }
+            });
+            return o;
+        };
 
-//<!---------------------------Selects filters for the Statistical Search------------------------------------------------->
-$(function(){
-$("#searchS").click(function(){
-	
-	var JSONObject = JSON.stringify($("#filters").serializeObject());
-	if(JSON.parse(JSONObject).category =="" || JSON.parse(JSONObject).country =="" || JSON.parse(JSONObject).state =="" || JSON.parse(JSONObject).city =="" || JSON.parse(JSONObject).agencyPhoneNumber ==""){
-		alert("Please fill all the fields for statistical search");
-		return false;
-	}
-	else{
-		alert(JSONObject);
-		$("#tableResults").html("Resulst will be displayed here");
-		$("#filters").trigger("reset");
-	}
-	return false;
-});
-});
-			
-</script>
+
+        //<!-----------------------------Populates the Category filters on page load-------------------------------------------------------->
+
+        $(function(){
+            $(window).onload(function(){
+                $.ajax({
+                    type: "GET",
+                    url :"/filterCategory",
+                    contentType: "application/json",
+                    data:"",
+                    success : function(data) {
+
+                        $("#category").append('<option value="">Select Category</option>');
+                        var size = data.length;
+                        for(var i = 0; i < size; i++){
+                            $("#category").append('<option value="'+ data[i].category+'">"'+ data[i].category+'"</option>');
+                        }
+                    },
+                    error: function(data){
+                        alert("Error filterCategory GET");
+                    }
+                });
+            }) ;
+        });
+
+        //<!-----------------------------------Populates Country filters on category change---------------------------->
+        $(function(){
+            $("#category").change(function(){
+
+                if($("#category").val() == ""){
+                    $("#country").empty();
+                    $("#country").append('<option value="">Select Country</option>');
+                }else{
+                    $("#country").empty();
+                    $.ajax({
+                        type: "GET",
+                        url :"/filterCountry",
+                        contentType: "application/json",
+                        data:"category="+$("#category").val(),
+                        success : function(data) {
+
+                            $("#country").append('<option value="">Select Country</option>');
+                            var size = data.length;
+                            for(var i = 0; i < size; i++){
+                                $("#country").append('<option value="'+ data[i].country+'">"'+ data[i].country+'"</option>');
+                            }
+                        },
+                        error: function(data){
+                            alert("Error filterCountry GET");
+                        }
+                    });
+                }
+            });
+        });
+
+        //<!-----------------------------------Populates State filters on country change---------------------------->
+        $(function(){
+            $("#country").change(function(){
+
+                if($("#country").val() == ""){
+                    $("#state").empty();
+                    $("#state").append('<option value="">Select State</option>');
+                }else{
+                    $("#state").empty();
+                    $.ajax({
+                        type: "GET",
+                        url :"/filterState",
+                        contentType: "application/json",
+                        data:"country="+$("#country").val(),
+                        success : function(data) {
+
+                            $("#state").append('<option value="">Select State</option>');
+                            var size = data.length;
+                            for(var i = 0; i < size; i++){
+                                $("#state").append('<option value="'+ data[i].state+'">"'+ data[i].state+'"</option>');
+                            }
+                        },
+                        error: function(data){
+                            alert("Error filterState GET");
+                        }
+                    });
+                }
+            });
+        });
+
+        //<!-----------------------------------Populates City filters on state change---------------------------->
+        $(function(){
+            $("#state").change(function(){
+
+                if($("#state").val() == ""){
+                    $("#city").empty();
+                    $("#city").append('<option value="">Select City</option>');
+                }else{
+                    $("#city").empty();
+                    $.ajax({
+                        type: "GET",
+                        url :"/filterCity",
+                        contentType: "application/json",
+                        data:"state="+$("#state").val(),
+                        success : function(data) {
+
+                            $("#city").append('<option value="">Select City</option>');
+                            var size = data.length;
+                            for(var i = 0; i < size; i++){
+                                $("#state").append('<option value="'+ data[i].city+'">"'+ data[i].city+'"</option>');
+                            }
+                        },
+                        error: function(data){
+                            alert("Error filterCity GET");
+                        }
+                    });
+                }
+            });
+        });
+
+        //<!-----------------------------------Populates Agency filters on city change---------------------------->
+        $(function(){
+            $("#city").change(function(){
+
+                if($("#city").val() == ""){
+                    $("#agencyPhoneNumber").empty();
+                    $("#agencyPhoneNumber").append('<option value="">Select Agency</option>');
+                }else{
+                    $("#agencyPhoneNumber").empty();
+                    $.ajax({
+                        type: "GET",
+                        url :"/filterAgency",
+                        contentType: "application/json",
+                        data:"city="+$("#city").val(),
+                        success : function(data) {
+
+                            $("#agencyPhoneNumber").append('<option value="">Select Agency</option>');
+                            var size = data.length;
+                            for(var i = 0; i < size; i++){
+                                $("#agencyPhoneNumber").append('<option value="'+ data[i].agencyPhoneNumber+'">"'+ data[i].agencyPhoneNumber+'"</option>');
+                            }
+                        },
+                        error: function(data){
+                            alert("Error filterAgency GET");
+                        }
+                    });
+                }
+            });
+        });
+
+
+
+
+
+
+
+
+
+        //<!---------------------------Selects filters for the Statistical Search---------------------------------------------->
+        $(function(){
+            $("#searchS").click(function(){
+
+                var JSONObject = JSON.stringify($("#filters").serializeObject());
+                if(JSON.parse(JSONObject).category =="" || JSON.parse(JSONObject).country =="" || JSON.parse(JSONObject).state =="" || JSON.parse(JSONObject).city =="" || JSON.parse(JSONObject).agencyPhoneNumber ==""){
+                    alert("Please fill all the fields for statistical search");
+                    return false;
+                }
+                else{
+                    alert(JSONObject);
+                    $("#tableResults").html("Resulst will be displayed here");
+                    $("#filters").trigger("reset");
+                }
+                return false;
+            });
+        });
+
+    </script>
 
 </head>
 <body>
 <div id="wrapper">
-	<div id="header-wrapper">
-		<div id="header" class="container">
-			<div id="logo">
-				<h1><a>Statistics</a></h1>
-			</div>
-			<div id="menu">
-				<ul>
-					<li><a href="http://localhost:63342/Pages/Login Prototype.html">Log out</a></li>
-					
-				</ul>
-			</div>
-		</div>
-	</div>
-	<!-- end #header -->
-	<div id="page">
-	
-		<div id="content1">
-			<div class="post">
-				<h2 id="greeting" class="title">Statistics Search</h2>
-				<div class="entry1">
-				
-				<div id="tableResults"></div>
-				
-				
-				</div>
-			</div>
-		</div>
-		<!-- end #content -->
-		<div id="sidebar1">
-			<ul>
-				<li>
-					<h2>Search Filters</h2>
-					<ul>
-						<form id="filters" action="" method="post">
-						<li>Category<br><select id="category" name = "category">
-						<option value="">Select Category</option>
-						<option value="police">Police</option>
-						<option value="firefighter">Firefighter</option>
-						<option value="ambulance">Ambulance</option>
-						<option value="hospital">Hospital</option>
-						<option value="tow">Tow</option>
-						</select><br>
-						</li>
-						
-						<li>Country<br><select id="country" name="country"> 
-						<option value="">Select Country</option>
-						<option value="PR">PR</option>
-						</select><br>
-						</li>
-						
-						<li>State<br><select id="state" name="state">
-						<option value="">Select State</option>
-						<option value="PR">PR</option>
-						</select><br>
-						</li>
-						
-						<li>City<br><select id="city" name="city">
-						<option value="">Select City</option>
-						<option value="ponce">Ponce</option>
-						<option value="mayaguez">Mayaguez</option>
-						</select><br></li>
-						
-						<li>Agency<br><select id="agencyPhoneNumber" name="agencyPhoneNumber">
-						<option value="">Select Agency</option>
-						<option value="police">Police</option>
-						</select><br></li>
-						</form>	
-						
-						<button id="searchS" type="submit" class="more" form="filters">Search</button>
-						
-					</ul>
-				</li>
-			</ul>
-		</div>
-		
-		
-		
-		<!-- end #sidebar -->
-		<div style="clear: both;">&nbsp;</div>
-	</div>
-	<!-- end #page --> 
-	
+    <div id="header-wrapper">
+        <div id="header" class="container">
+            <div id="logo">
+                <h1><a>Statistics</a></h1>
+            </div>
+            <div id="menu">
+                <ul>
+                    <li><a href="http://localhost:63342/Pages/Login Prototype.html">Log out</a></li>
+
+                </ul>
+            </div>
+        </div>
+    </div>
+    <!-- end #header -->
+    <div id="page">
+
+        <div id="content1">
+            <div class="post">
+                <h2 id="greeting" class="title">Statistics Search</h2>
+                <div class="entry1">
+
+                    <div id="tableResults"></div>
+
+
+                </div>
+            </div>
+        </div>
+        <!-- end #content -->
+        <div id="sidebar1">
+            <ul>
+                <li>
+                    <h2>Search Filters</h2>
+                    <ul>
+                        <form id="filters" action="" method="post">
+                            <li>Category<br><select id="category" name = "category">
+                                <option value="">Select Category</option>
+
+                            </select><br>
+                            </li>
+
+                            <li>Country<br><select id="country" name="country">
+                                <option value="">Select Country</option>
+                                <option value="PR">PR</option>
+                            </select><br>
+                            </li>
+
+                            <li>State<br><select id="state" name="state">
+                                <option value="">Select State</option>
+                                <option value="PR">PR</option>
+                            </select><br>
+                            </li>
+
+                            <li>City<br><select id="city" name="city">
+                                <option value="">Select City</option>
+                                <option value="ponce">Ponce</option>
+                                <option value="mayaguez">Mayaguez</option>
+                            </select><br></li>
+
+                            <li>Agency<br><select id="agencyPhoneNumber" name="agencyPhoneNumber">
+                                <option value="">Select Agency</option>
+                                <option value="police">Police</option>
+                            </select><br></li>
+                        </form>
+
+                        <button id="searchS" type="submit" class="more" form="filters">Search</button>
+
+                    </ul>
+                </li>
+            </ul>
+        </div>
+
+
+
+        <!-- end #sidebar -->
+        <div style="clear: both;">&nbsp;</div>
+    </div>
+    <!-- end #page -->
+
 </div>
 <div id="footer">
-	<p>Copyright (c) 2013 Sitename.com. All rights reserved. Images by <a href="http://fotogrph.com/">Fotogrph</a>. Design by <a href="http://www.freecsstemplates.org/" rel="nofollow">FreeCSSTemplates.org</a>.</p>
+    <p>Copyright (c) 2013 Sitename.com. All rights reserved. Images by <a href="http://fotogrph.com/">Fotogrph</a>. Design by <a href="http://www.freecsstemplates.org/" rel="nofollow">FreeCSSTemplates.org</a>.</p>
 </div>
 <!-- end #footer -->
 </body>
