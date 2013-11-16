@@ -221,6 +221,7 @@ $(function(){
                 success : function(data) {
                     $("#filters").trigger("reset");
                     $("#sidebar1").css("display","none");
+                    $("#content1").css("width", "800px");
 
 
                     var dataColumn = data.emergencyType.length;
@@ -266,7 +267,7 @@ $(function(){
                     $("#employeeList").append('<option value="">Select an Employee</option>');
 
                     for(var i = 0;i < employeeList; i++){
-                        $("#employeeList").append('<option value="'+ data.employee[i].employee +'">'+ data[7].employee[i].employee +'</option>');
+                        $("#employeeList").append('<option value="'+ data.employee[i].employee +'">'+ data.employee[i].employee +'</option>');
                     }
                     $(".CSSTableGenerator").append('<button type="button" id="back" class="more">Go Back</button> ');
                     $("#lista").append('<br><br><button type="button" id="checkEmployee" class="more">Submit</button> ');
@@ -284,6 +285,7 @@ $(function(){
 $(function(){
     $("#back").click(function(){
         $("#sidebar1").css("display","inline");
+        $("#content1").css("width", "550px");
     })
 });
 
