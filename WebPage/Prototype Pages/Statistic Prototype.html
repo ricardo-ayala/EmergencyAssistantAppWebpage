@@ -83,7 +83,7 @@ Released   : 20130509
                     data:"category="+$("#category").val(),
                     success : function(data) {
 
-                        $("#country").append('<option value="">Select Country</option>');
+                        $("#country").append('<option value="country1">Select Country</option>');
                         var size = data.length;
                         for(var i = 0; i < size; i++){
                             $("#country").append('<option value="'+ data[i].country+'">'+ data[i].country+'</option>');
@@ -113,7 +113,7 @@ Released   : 20130509
                     data:"country="+$("#country").val()+"&category="+$("#category").val(),
                     success : function(data) {
 
-                        $("#state").append('<option value="">Select State</option>');
+                        $("#state").append('<option value="state1">Select State</option>');
                         var size = data.length;
                         for(var i = 0; i < size; i++){
                             $("#state").append('<option value="'+ data[i].state+'">'+ data[i].state+'</option>');
@@ -143,10 +143,10 @@ Released   : 20130509
                     data:"state="+$("#state").val()+"&country="+$("#country").val()+"&category="+$("#category").val(),
                     success : function(data) {
 
-                        $("#city").append('<option value="">Select City</option>');
+                        $("#city").append('<option value="city1">Select City</option>');
                         var size = data.length;
                         for(var i = 0; i < size; i++){
-                            $("#state").append('<option value="'+ data[i].city+'">'+ data[i].city+'</option>');
+                            $("#city").append('<option value="'+ data[i].city+'">'+ data[i].city+'</option>');
                         }
                     },
                     error: function(data){
@@ -173,7 +173,7 @@ Released   : 20130509
                     data:"city="+$("#city").val()+"&state="+$("#state").val()+"&country="+$("#country").val()+"&category="+$("#category").val(),
                     success : function(data) {
 
-                        $("#agencyPhoneNumber").append('<option value="">Select Agency</option>');
+                        $("#agencyPhoneNumber").append('<option value="agency1">Select Agency</option>');
                         var size = data.length;
                         for(var i = 0; i < size; i++){
                             $("#agencyPhoneNumber").append('<option value="'+ data[i].agencyPhoneNumber+'">'+ data[i].agencyPhoneNumber+'</option>');
