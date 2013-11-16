@@ -71,7 +71,7 @@ Released   : 20130509
     $(function(){
         $("#category").change(function(){
 
-            if($("#category").val() == ""){
+            if(typeof $("#category").val() == "undefined"){
                 $("#country").empty();
                 $("#country").append('<option id="country1" value="">Select Country</option>');
             }else{
@@ -101,7 +101,7 @@ Released   : 20130509
     $(function(){
         $("#country").change(function(){
 
-            if($("#country").val() == ""){
+            if(typeof $("#country").val() == "undefined"){
                 $("#state").empty();
                 $("#state").append('<option id="state1" value="">Select State</option>');
             }else{
@@ -131,7 +131,7 @@ Released   : 20130509
     $(function(){
         $("#state").change(function(){
 
-            if($("#state").val() == ""){
+            if($(typeof "#state").val() == "undefined"){
                 $("#city").empty();
                 $("#city").append('<option id="city1" value="">Select City</option>');
             }else{
@@ -161,7 +161,7 @@ Released   : 20130509
     $(function(){
         $("#city").change(function(){
 
-            if($("#city").val() == ""){
+            if($(typeof "#city").val() == "undefined"){
                 $("#agencyPhoneNumber").empty();
                 $("#agencyPhoneNumber").append('<option id="agency1" value="">Select Agency</option>');
             }else{
