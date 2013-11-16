@@ -188,7 +188,7 @@ Released   : 20130509
                         $("#agencyPhoneNumber").append('<option value="agency1">Select Agency</option>');
                         var size = data.length;
                         for(var i = 0; i < size; i++){
-                            $("#agencyPhoneNumber").append('<option value="'+ data[i].agencyPhoneNumber+'">'+ data[i].agencyPhoneNumber+'</option>');
+                            $("#agencyPhoneNumber").append('<option value="'+ data[i].agencyPhoneNumber+'">'+ data[i].agencyName+'</option>');
                         }
                     },
                     error: function(data){
@@ -285,7 +285,7 @@ Released   : 20130509
                             </select><br></li>
 
                             <li>Agency<br><select id="agencyPhoneNumber" name="agencyPhoneNumber">
-                                
+
                             </select><br></li>
                         </form>
 
