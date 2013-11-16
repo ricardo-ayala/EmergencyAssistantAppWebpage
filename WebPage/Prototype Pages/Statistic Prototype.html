@@ -200,13 +200,6 @@ $(function(){
 });
 
 
-
-
-
-
-
-
-
 //<!---------------------------Selects filters for the Statistical Search---------------------------------------------->
 $(function(){
     $("#searchS").click(function(){
@@ -229,26 +222,59 @@ $(function(){
                     $("#sidebar1").css("display","none");
 
                     var dataRow = data.length-1;
-                    var dataColumn = data[1].emergencyType;
+                    var dataColumn = data[1].length;
 
-                    for(var i = 0; i < dataRow; i++){
-                        $(".CSSTableGenerator").append('<tr>');
-
-                        for(var o = 0 ; o < dataColumn: o++){
-                            $(".CSSTableGenerator").append('<td></td>');
-                        }
-
-                        $(".CSSTableGenerator").append('<tr/>');
+                    $(".CSSTableGenerator").append('<table><tr>');
+                    $(".CSSTableGenerator").append('<td>" "</td>');
+                    for(var i = 0; i < dataColumn; i++){
+                        $(".CSSTableGenerator").append('<td>'+data[1].emergencyType[i].emergencyType+'</td>');
                     }
+                    for(var i = 0; i < dataColumn; i++){
+                        $(".CSSTableGenerator").append('<td>'+data[2].total[i].total+'</td>');
+                    }
+                    for(var i = 0; i < dataColumn; i++){
+                        $(".CSSTableGenerator").append('<td>'+data[3].averageTime[i].averageTime+'</td>');
+                    }
+                    for(var i = 0; i < dataColumn; i++){
+                        $(".CSSTableGenerator").append('<td>'+data[4].outside[i].outside+'</td>');
+                    }
+                    for(var i = 0; i < dataColumn; i++){
+                        $(".CSSTableGenerator").append('<td>'+data[5].resolved[i].resolved+'</td>');
+                    }
+                    for(var i = 0; i < dataColumn; i++){
+                        $(".CSSTableGenerator").append('<td>'+data[6].hasApplication[i].hasApplication+'</td>');
+                    }
+                    $(".CSSTableGenerator").append('</table></tr>');
+                    $(".CSSTableGenerator").append('<button type="button" id="back" class="more">GoBack</button> ');
 
+                    var employeeList = data[7].length;
+                    for(var i = 0;i < employeeList; i++){
+                        $("#employeeList").apend('<option value="'+ data[7].employee[i].employee +'">'+ data[7].employee[i].employee +'</option>');
+                    }
+                    $("#employeeList").apend('<button type="button" id="checkEmployee" class="more">Go</button> ');
                 },
                 error: function(data){
-                    alert(data);
+                    alert(error);
                 }
             });
         }
         return false;
     });
+});
+
+//<!-------------------------------------------Changes page to the original state-------------------------------------->
+$(function(){
+    $("#back").click(function(){
+        $("#sidebar1").css("display","inline");
+    })
+});
+
+//<!------------------------------------------Generates a list of employees-------------------------------------------->
+
+$(function(){
+    $("#").change(function(){
+
+    }) ;
 });
 
 </script>
@@ -275,11 +301,20 @@ $(function(){
         <div id="content1">
             <div class="post">
                 <h2 id="greeting" class="title">Statistics Search</h2>
-                <div class="CSSTableGenerator" >
-                    <table >
 
-                    </table>
+                <div class="CSSTableGenerator" >
+
                 </div>
+
+                <h1>Employee List</h1>
+                <form>
+                    <select id="employeeList" name = "employee">
+
+
+                    </select>
+
+                </form>
+
 
             </div>
         </div>
