@@ -201,6 +201,7 @@ $(function(){
 
 
 //<!---------------------------Selects filters for the Statistical Search---------------------------------------------->
+//<!---------------------------Generates a table with the search results and a list of employees----------------------->
 $(function(){
     $("#searchS").click(function(){
 
@@ -248,10 +249,13 @@ $(function(){
                     $(".CSSTableGenerator").append('<button type="button" id="back" class="more">GoBack</button> ');
 
                     var employeeList = data[7].length;
+
+                    $("!employeeList").append('<option value="">Select an Employee</option>');
+
                     for(var i = 0;i < employeeList; i++){
-                        $("#employeeList").apend('<option value="'+ data[7].employee[i].employee +'">'+ data[7].employee[i].employee +'</option>');
+                        $("#employeeList").append('<option value="'+ data[7].employee[i].employee +'">'+ data[7].employee[i].employee +'</option>');
                     }
-                    $("#employeeList").apend('<button type="button" id="checkEmployee" class="more">Go</button> ');
+                    $("#employeeList").append('<button type="button" id="checkEmployee" class="more">Go</button> ');
                 },
                 error: function(data){
                     alert(error);
@@ -269,13 +273,6 @@ $(function(){
     })
 });
 
-//<!------------------------------------------Generates a list of employees-------------------------------------------->
-
-$(function(){
-    $("#").change(function(){
-
-    }) ;
-});
 
 </script>
 
