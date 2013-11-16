@@ -46,7 +46,8 @@ $.fn.serializeObject = function()
 //<!-----------------------------Populates the Category filters on page load-------------------------------------------------------->
 
 $(function(){
-
+    $("#hide").hide();
+    $("#employeeList").hide();
     $.ajax({
         type: "GET",
         url :"/filterCategory",
@@ -260,12 +261,14 @@ $(function(){
 
                     var employeeList = data.employee.length;
 
+                    $("#hide").show();
+                    $("#employeeList").show();
                     $("#employeeList").append('<option value="">Select an Employee</option>');
 
                     for(var i = 0;i < employeeList; i++){
                         $("#employeeList").append('<option value="'+ data.employee[i].employee +'">'+ data[7].employee[i].employee +'</option>');
                     }
-                    $("#employeeList").append('<button type="button" id="checkEmployee" class="more">Go</button> ');
+                    $("#employeeList").append('<br><br><button type="button" id="checkEmployee" class="more">Go</button> ');
                 },
                 error: function(data){
                     alert("error");
@@ -313,12 +316,12 @@ $(function(){
 
                 </div>
 
-                <h1>Employee List</h1>
+                <h1 id="hide">Employee List</h1>
                 <form>
                     <select id="employeeList" name = "employee">
 
 
-                    </select>
+                    </select><br><br>
 
                 </form>
 
