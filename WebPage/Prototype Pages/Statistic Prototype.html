@@ -257,7 +257,7 @@ $(function(){
                         $(".CSSTableGenerator").append('<td>'+data.hasApplication[i]+'</td>');
                     }
                     $(".CSSTableGenerator").append('</tr></table>');
-                    $(".CSSTableGenerator").append('<button type="button" id="back" class="more">GoBack</button> ');
+
 
                     var employeeList = data.employee.length;
 
@@ -268,7 +268,8 @@ $(function(){
                     for(var i = 0;i < employeeList; i++){
                         $("#employeeList").append('<option value="'+ data.employee[i].employee +'">'+ data[7].employee[i].employee +'</option>');
                     }
-                    $("#employeeList").append('<br><br><button type="button" id="checkEmployee" class="more">Go</button> ');
+                    $(".CSSTableGenerator").append('<button type="button" id="back" class="more">Go Back</button> ');
+                    $("#lista").append('<br><br><button type="button" id="checkEmployee" class="more">Submit</button> ');
                 },
                 error: function(data){
                     alert("error");
@@ -317,7 +318,7 @@ $(function(){
                 </div>
 
                 <h1 id="hide">Employee List</h1>
-                <form>
+                <form id="lista">
                     <select id="employeeList" name = "employee">
 
 
