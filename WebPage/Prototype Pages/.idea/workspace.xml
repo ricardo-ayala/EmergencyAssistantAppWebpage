@@ -44,7 +44,7 @@
       <file leaf-file-name="Edit User Prototype.html" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Edit User Prototype.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="30" column="42" selection-start="1241" selection-end="1241" vertical-scroll-proportion="0.0" vertical-offset="510" max-vertical-offset="3128">
+            <state line="30" column="42" selection-start="1241" selection-end="1241" vertical-scroll-proportion="-0.0" vertical-offset="510" max-vertical-offset="3128">
               <folding />
             </state>
           </provider>
@@ -71,7 +71,7 @@
       <file leaf-file-name="Edit Service Prototype.html" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Edit Service Prototype.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="73" column="36" selection-start="2961" selection-end="2961" vertical-scroll-proportion="-20.153847" vertical-offset="717" max-vertical-offset="5168">
+            <state line="208" column="37" selection-start="7680" selection-end="7680" vertical-scroll-proportion="-8.384615" vertical-offset="3318" max-vertical-offset="5168">
               <folding />
             </state>
           </provider>
@@ -80,7 +80,7 @@
       <file leaf-file-name="Statistic Prototype.html" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Statistic Prototype.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="287" column="32" selection-start="10846" selection-end="10846" vertical-scroll-proportion="0.769084" vertical-offset="4476" max-vertical-offset="5406">
+            <state line="237" column="64" selection-start="9171" selection-end="9171" vertical-scroll-proportion="0.75763357" vertical-offset="3632" max-vertical-offset="5848">
               <folding>
                 <element signature="n#style#0;n#div#2;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
               </folding>
@@ -91,7 +91,7 @@
       <file leaf-file-name="style.css" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/style.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="329" column="9" selection-start="4634" selection-end="4643" vertical-scroll-proportion="0.0" vertical-offset="4285" max-vertical-offset="13107">
+            <state line="858" column="1" selection-start="15149" selection-end="15149" vertical-scroll-proportion="0.0" vertical-offset="14057" max-vertical-offset="14705">
               <folding />
             </state>
           </provider>
@@ -100,7 +100,7 @@
       <file leaf-file-name="Active Emergencies Prototype.html" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Active Emergencies Prototype.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="225" column="0" selection-start="7790" selection-end="7790" vertical-scroll-proportion="-0.0" vertical-offset="3825" max-vertical-offset="11237">
+            <state line="246" column="51" selection-start="8258" selection-end="8297" vertical-scroll-proportion="-11.769231" vertical-offset="3876" max-vertical-offset="11237">
               <folding />
             </state>
           </provider>
@@ -126,14 +126,14 @@
     <option name="changedFiles">
       <list>
         <option value="$PROJECT_DIR$/Login Prototype.html" />
-        <option value="$PROJECT_DIR$/style.css" />
         <option value="$PROJECT_DIR$/History Prototype.html" />
         <option value="$PROJECT_DIR$/Active Emergencies Prototype.html" />
         <option value="$PROJECT_DIR$/Add User Prototype.html" />
         <option value="$PROJECT_DIR$/Add Service Prototype.html" />
         <option value="$PROJECT_DIR$/Edit User Prototype.html" />
-        <option value="$PROJECT_DIR$/Edit Service Prototype.html" />
         <option value="$PROJECT_DIR$/Admin Home Prototype.html" />
+        <option value="$PROJECT_DIR$/style.css" />
+        <option value="$PROJECT_DIR$/Edit Service Prototype.html" />
         <option value="$PROJECT_DIR$/Statistic Prototype.html" />
       </list>
     </option>
@@ -347,23 +347,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Edit User Prototype.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="30" column="42" selection-start="1241" selection-end="1241" vertical-scroll-proportion="0.0" vertical-offset="510" max-vertical-offset="3128">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/History Prototype.html">
       <provider selected="true" editor-type-id="text-editor">
         <state line="245" column="36" selection-start="0" selection-end="11534" vertical-scroll-proportion="0.0" vertical-offset="1921" max-vertical-offset="5355">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/style.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="329" column="9" selection-start="4634" selection-end="4643" vertical-scroll-proportion="0.0" vertical-offset="4285" max-vertical-offset="13107">
           <folding />
         </state>
       </provider>
@@ -375,6 +361,20 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/Edit User Prototype.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="30" column="42" selection-start="1241" selection-end="1241" vertical-scroll-proportion="0.0" vertical-offset="510" max-vertical-offset="3128">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/style.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="858" column="1" selection-start="15149" selection-end="15149" vertical-scroll-proportion="0.0" vertical-offset="14057" max-vertical-offset="14705">
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/Login Prototype.html">
       <provider selected="true" editor-type-id="text-editor">
         <state line="78" column="14" selection-start="2634" selection-end="2926" vertical-scroll-proportion="-17.038462" vertical-offset="883" max-vertical-offset="3281">
@@ -382,23 +382,23 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Edit Service Prototype.html">
+    <entry file="file://$PROJECT_DIR$/Active Emergencies Prototype.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="73" column="36" selection-start="2961" selection-end="2961" vertical-scroll-proportion="-20.153847" vertical-offset="717" max-vertical-offset="5168">
+        <state line="246" column="51" selection-start="8258" selection-end="8297" vertical-scroll-proportion="-11.769231" vertical-offset="3876" max-vertical-offset="11237">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Active Emergencies Prototype.html">
+    <entry file="file://$PROJECT_DIR$/Edit Service Prototype.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="225" column="0" selection-start="7790" selection-end="7790" vertical-scroll-proportion="0.0" vertical-offset="3550" max-vertical-offset="11237">
+        <state line="208" column="37" selection-start="7680" selection-end="7680" vertical-scroll-proportion="-8.384615" vertical-offset="3318" max-vertical-offset="5168">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Statistic Prototype.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="287" column="32" selection-start="10846" selection-end="10846" vertical-scroll-proportion="0.769084" vertical-offset="4476" max-vertical-offset="5406">
+        <state line="237" column="64" selection-start="9171" selection-end="9171" vertical-scroll-proportion="0.75763357" vertical-offset="3632" max-vertical-offset="5848">
           <folding>
             <element signature="n#style#0;n#div#2;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
           </folding>
