@@ -216,49 +216,53 @@ $(function(){
                 type: "GET",
                 url :"/agencyStat",
                 contentType: "application/json",
-                data:"category="+JSON.parse(JSONObject).category+"&country="+JSON.parse(JSONObject).country
-                        +"&state="+JSON.parse(JSONObject).state+"agencyPhoneNumber="+JSON.parse(JSONObject).agencyPhoneNumber,
+                data: "agencyPhoneNumber="+JSON.parse(JSONObject).agencyPhoneNumber,
                 success : function(data) {
                     $("#filters").trigger("reset");
                     $("#sidebar1").css("display","none");
 
-                    var dataRow = data.length-1;
-                    var dataColumn = data[1].length;
+
+                    var dataColumn = data.emergencyType.length;
 
                     $(".CSSTableGenerator").append('<table><tr>');
                     $(".CSSTableGenerator").append('<td>" "</td>');
                     for(var i = 0; i < dataColumn; i++){
-                        $(".CSSTableGenerator").append('<td>'+data[1].emergencyType[i].emergencyType+'</td>');
+                        $(".CSSTableGenerator").append('<td>'+data.emergencyType[i].emergencyType+'</td>');
                     }
+                    $(".CSSTableGenerator").append('</tr><tr>');
                     for(var i = 0; i < dataColumn; i++){
-                        $(".CSSTableGenerator").append('<td>'+data[2].total[i].total+'</td>');
+                        $(".CSSTableGenerator").append('<td>'+data.total[i].total+'</td>');
                     }
+                    $(".CSSTableGenerator").append('</tr><tr>');
                     for(var i = 0; i < dataColumn; i++){
-                        $(".CSSTableGenerator").append('<td>'+data[3].averageTime[i].averageTime+'</td>');
+                        $(".CSSTableGenerator").append('<td>'+data.averageTime[i]+'</td>');
                     }
+                    $(".CSSTableGenerator").append('</tr><tr>');
                     for(var i = 0; i < dataColumn; i++){
-                        $(".CSSTableGenerator").append('<td>'+data[4].outside[i].outside+'</td>');
+                        $(".CSSTableGenerator").append('<td>'+data.outside[i]+'</td>');
                     }
+                    $(".CSSTableGenerator").append('</tr><tr>');
                     for(var i = 0; i < dataColumn; i++){
-                        $(".CSSTableGenerator").append('<td>'+data[5].resolved[i].resolved+'</td>');
+                        $(".CSSTableGenerator").append('<td>'+data.resolved[i]+'</td>');
                     }
+                    $(".CSSTableGenerator").append('</tr><tr>');
                     for(var i = 0; i < dataColumn; i++){
-                        $(".CSSTableGenerator").append('<td>'+data[6].hasApplication[i].hasApplication+'</td>');
+                        $(".CSSTableGenerator").append('<td>'+data.hasApplication[i]+'</td>');
                     }
                     $(".CSSTableGenerator").append('</table></tr>');
                     $(".CSSTableGenerator").append('<button type="button" id="back" class="more">GoBack</button> ');
 
-                    var employeeList = data[7].length;
+                    var employeeList = data.employee.length;
 
-                    $("!employeeList").append('<option value="">Select an Employee</option>');
+                    $("#employeeList").append('<option value="">Select an Employee</option>');
 
                     for(var i = 0;i < employeeList; i++){
-                        $("#employeeList").append('<option value="'+ data[7].employee[i].employee +'">'+ data[7].employee[i].employee +'</option>');
+                        $("#employeeList").append('<option value="'+ data.employee[i].employee +'">'+ data[7].employee[i].employee +'</option>');
                     }
                     $("#employeeList").append('<button type="button" id="checkEmployee" class="more">Go</button> ');
                 },
                 error: function(data){
-                    alert(error);
+                    alert("error");
                 }
             });
         }
