@@ -74,6 +74,12 @@ Released   : 20130509
             if(typeof $("#category").val() == "undefined"){
                 $("#country").empty();
                 $("#country").append('<option id="country1" value="">Select Country</option>');
+                $("#state").empty();
+                $("#state").append('<option id="state1" value="">Select State</option>');
+                $("#city").empty();
+                $("#city").append('<option id="city1" value="">Select City</option>');
+                $("#agencyPhoneNumber").empty();
+                $("#agencyPhoneNumber").append('<option id="agency1" value="">Select Agency</option>');
             }else{
                 $("#country1").remove();
                 $.ajax({
@@ -104,6 +110,10 @@ Released   : 20130509
             if(typeof $("#country").val() == "undefined"){
                 $("#state").empty();
                 $("#state").append('<option id="state1" value="">Select State</option>');
+                $("#city").empty();
+                $("#city").append('<option id="city1" value="">Select City</option>');
+                $("#agencyPhoneNumber").empty();
+                $("#agencyPhoneNumber").append('<option id="agency1" value="">Select Agency</option>');
             }else{
                 $("#state1").remove();
                 $.ajax({
@@ -131,9 +141,11 @@ Released   : 20130509
     $(function(){
         $("#state").change(function(){
 
-            if($(typeof "#state").val() == "undefined"){
+            if($("#state").val() == "undefined"){
                 $("#city").empty();
                 $("#city").append('<option id="city1" value="">Select City</option>');
+                $("#agencyPhoneNumber").empty();
+                $("#agencyPhoneNumber").append('<option id="agency1" value="">Select Agency</option>');
             }else{
                 $("#city1").remove();
                 $.ajax({
@@ -161,7 +173,7 @@ Released   : 20130509
     $(function(){
         $("#city").change(function(){
 
-            if($(typeof "#city").val() == "undefined"){
+            if($( "#city").val() == "undefined"){
                 $("#agencyPhoneNumber").empty();
                 $("#agencyPhoneNumber").append('<option id="agency1" value="">Select Agency</option>');
             }else{
@@ -259,21 +271,21 @@ Released   : 20130509
                             </li>
 
                             <li>Country<br><select id="country" name="country">
-                                <option id="country1" value="">Select Country</option>
+
                             </select><br>
                             </li>
 
                             <li>State<br><select id="state" name="state">
-                                <option id="state1" value="">Select State</option>
+
                             </select><br>
                             </li>
 
                             <li>City<br><select id="city" name="city">
-                                <option id="city1" value="">Select City</option>
+
                             </select><br></li>
 
                             <li>Agency<br><select id="agencyPhoneNumber" name="agencyPhoneNumber">
-                                <option id="agency1" value="">Select Agency</option>
+                                
                             </select><br></li>
                         </form>
 
