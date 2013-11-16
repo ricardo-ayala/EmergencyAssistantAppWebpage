@@ -295,7 +295,7 @@ $(function(){
         if(JSON.parse(JSONObject).active != ""){
 
             var rawData = JSON.parse(JSONObject).active.split(",");
-            var sendData = JSON.stringify({"agencyPhoneNumber":rawData[0]});
+            var sendData = JSON.stringify({"currentAltPhoneNumber":rawData[0]});
 
             $.ajax({
                 type: "POST",

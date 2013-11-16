@@ -66,6 +66,7 @@ Released   : 20130509
                         $("#city").val(data.detail.city);
                         $("#state").val(data.detail.state);
                         $("#country").val(data.detail.country);
+                        $("#currentAltPhoneNumber").val(data.phone[0].altPhoneNumber);
 
                         var count = data.area.length;
                         var i = 1;
@@ -264,6 +265,7 @@ Released   : 20130509
                         <h3>Country<input type="text" id="country" name="country" maxlength="40" size="30" required/></h3><br><br>
                         <input type=hidden id="countA" name="altAreaCount"/>
                         <input type=hidden id="countB" name="altPhoneCount"/>
+                        <input type=hidden id="currentAltPhoneNumber" name="currentAltPhoneNumber"/>
                     </form>
 
 
