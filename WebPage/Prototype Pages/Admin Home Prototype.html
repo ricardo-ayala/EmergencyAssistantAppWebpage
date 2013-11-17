@@ -118,9 +118,7 @@ $(function(){
 
 $(function(){
     $("#goBack3").click(function(){
-        $(".entry").css("display", "inline");
-        $(".entry1").css("display", "none");
-        $("#go").attr("disabled", false);
+        setInterval(function(){location.reload()}, 100);
 
         return false;
     });

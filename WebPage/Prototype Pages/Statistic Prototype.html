@@ -24,6 +24,9 @@ Released   : 20130509
 
 
 <script>
+
+var agencyNumber;
+
 //<!-----------TRANSFORMS a String Object to a JSON Object--------->
 $.fn.serializeObject = function()
 {
@@ -46,8 +49,9 @@ $.fn.serializeObject = function()
 //<!-----------------------------Populates the Category filters on page load-------------------------------------------------------->
 
 $(function(){
-    $("#hide").hide();
+    $("#employeeTitle").hide();
     $("#employeeList").hide();
+    $("#employeeButton").hide();
     $.ajax({
         type: "GET",
         url :"/filterCategory",
@@ -209,6 +213,7 @@ $(function(){
         var JSONObject = JSON.stringify($("#filters").serializeObject());
         if(JSON.parse(JSONObject).category =="" || JSON.parse(JSONObject).country =="" || JSON.parse(JSONObject).state =="" || JSON.parse(JSONObject).city =="" || JSON.parse(JSONObject).agencyPhoneNumber ==""){
             alert("Please fill all the fields for statistical search");
+            setInterval(function(){location.reload()}, 100);
             return false;
         }
         else{
@@ -222,55 +227,59 @@ $(function(){
                     $("#filters").trigger("reset");
                     $("#sidebar1").css("display","none");
                     $("#content1").css("width", "800px");
-
+                    agencyNumber = data.agencyPhoneNumber;
 
                     var dataColumn = data.emergencyType.length;
 
-                    $(".CSSTableGenerator").append('<table><tr>');
-                    $(".CSSTableGenerator").append('<td> </td>');
+                    $(".CSSTableGenerator").append('<table><tr><td> </td>');
 
                     for(var i = 0; i < dataColumn; i++){
                         $(".CSSTableGenerator").append('<td>'+data.emergencyType[i].emergencyType+'</td>');
                     }
-                    $(".CSSTableGenerator").append('</tr><tr>');
-                    $(".CSSTableGenerator").append('<td><strong>Total</strong></td>');
+
+                    $(".CSSTableGenerator").append('</tr><tr><td><strong>Total</strong></td>');
+
                     for(var i = 0; i < dataColumn; i++){
                         $(".CSSTableGenerator").append('<td>'+data.total[i]+'</td>');
                     }
-                    $(".CSSTableGenerator").append('</tr><tr>');
-                    $(".CSSTableGenerator").append('<td><strong>Average Time</strong></td>');
+
+                    $(".CSSTableGenerator").append('</tr><tr><td><strong>Average Time</strong></td>');
+
                     for(var i = 0; i < dataColumn; i++){
                         $(".CSSTableGenerator").append('<td>'+data.averageTime[i]+'</td>');
                     }
-                    $(".CSSTableGenerator").append('</tr><tr>');
-                    $(".CSSTableGenerator").append('<td><strong>Outside</strong></td>');
+
+                    $(".CSSTableGenerator").append('</tr><tr><td><strong>Outside</strong></td>');
+
                     for(var i = 0; i < dataColumn; i++){
                         $(".CSSTableGenerator").append('<td>'+data.outside[i]+'</td>');
                     }
-                    $(".CSSTableGenerator").append('</tr><tr>');
-                    $(".CSSTableGenerator").append('<td><strong>Resolved</strong></td>');
+                    $(".CSSTableGenerator").append('</tr><tr><td><strong>Resolved</strong></td>');
+
                     for(var i = 0; i < dataColumn; i++){
                         $(".CSSTableGenerator").append('<td>'+data.resolved[i]+'</td>');
                     }
-                    $(".CSSTableGenerator").append('</tr><tr>');
-                    $(".CSSTableGenerator").append('<td><strong>Has Application</strong></td>');
+                    $(".CSSTableGenerator").append('</tr><tr><td><strong>Has Application</strong></td>');
+
                     for(var i = 0; i < dataColumn; i++){
                         $(".CSSTableGenerator").append('<td>'+data.hasApplication[i]+'</td>');
                     }
-                    $(".CSSTableGenerator").append('</tr></table>');
+
+                    $(".CSSTableGenerator").append('</tr></table><br><button type="button" id="back" class="more">Back to Search</button>')
+
 
 
                     var employeeList = data.employee.length;
 
-                    $("#hide").show();
-                    $("#employeeList").show();
-                    $("#employeeList").append('<option value="">Select an Employee</option>');
+                    $("#employeeTitleList").append('<option value="">Select an Employee</option>');
 
                     for(var i = 0;i < employeeList; i++){
-                        $("#employeeList").append('<option value="'+ data.employee[i].employee +'">'+ data.employee[i].employee +'</option>');
+                        $("#empoyeeList").append('<option value="'+ data.employee[i].username +'">'+ data.employee[i].name +'</option>');
                     }
-                    $(".CSSTableGenerator").append('<button type="button" id="back" class="more">Go Back</button> ');
-                    $("#lista").append('<br><br><button type="button" id="checkEmployee" class="more">Submit</button> ');
+
+                    $("#employeeTitle").show();
+                    $("#employeeList").show();
+                    $("#employeeButton").show();
                 },
                 error: function(data){
                     alert("error");
@@ -286,9 +295,81 @@ $(function(){
     $("#back").click(function(){
         $("#sidebar1").css("display","inline");
         $("#content1").css("width", "550px");
+        agencyNumber = "";
     })
 });
 
+//<!------------------------------------------View statistical information based on employee--------------------------->
+$(function (){
+    $("#employeeButton").click(function(){
+        if($("#employeeList").val()== ""){
+            alert("Please Select an Employee");
+        }
+        else{
+            var sendData = $("#employeeList").val();
+            $.ajax({
+                    type: "GET",
+                    url :"/employeeStat",
+                    contentType: "application/json",
+                    data:"username="+sendData+"&agencyPhoneNumber="+agencyNumber,
+                    success : function(data) {
+
+                        var dataColumn = data.emergencyType.length;
+
+                        $(".CSSTableGenerator").append('<table><tr><td> </td>');
+
+                        for(var i = 0; i < dataColumn; i++){
+                            $(".CSSTableGenerator").append('<td>'+data.emergencyType[i].emergencyType+'</td>');
+                        }
+
+                        $(".CSSTableGenerator").append('</tr><tr><td><strong>Total</strong></td>');
+
+                        for(var i = 0; i < dataColumn; i++){
+                            $(".CSSTableGenerator").append('<td>'+data.total[i]+'</td>');
+                        }
+
+                        $(".CSSTableGenerator").append('</tr><tr><td><strong>Average Time</strong></td>');
+
+                        for(var i = 0; i < dataColumn; i++){
+                            $(".CSSTableGenerator").append('<td>'+data.averageTime[i]+'</td>');
+                        }
+
+                        $(".CSSTableGenerator").append('</tr><tr><td><strong>Outside</strong></td>');
+
+                        for(var i = 0; i < dataColumn; i++){
+                            $(".CSSTableGenerator").append('<td>'+data.outside[i]+'</td>');
+                        }
+                        $(".CSSTableGenerator").append('</tr><tr><td><strong>Resolved</strong></td>');
+
+                        for(var i = 0; i < dataColumn; i++){
+                            $(".CSSTableGenerator").append('<td>'+data.resolved[i]+'</td>');
+                        }
+                        $(".CSSTableGenerator").append('</tr><tr><td><strong>Has Application</strong></td>');
+
+                        for(var i = 0; i < dataColumn; i++){
+                            $(".CSSTableGenerator").append('<td>'+data.hasApplication[i]+'</td>');
+                        }
+
+                        $(".CSSTableGenerator").append('</tr></table><br><button type="button" id="back" class="more">Back to Search</button>')
+
+
+
+                        var employeeList = data.employee.length;
+
+                        $("#employeeTitleList").append('<option value="">Select an Employee</option>');
+
+                        for(var i = 0;i < employeeList; i++){
+                            $("#empoyeeList").append('<option value="'+ data.employee[i].username +'">'+ data.employee[i].name +'</option>');
+                        }
+
+                    },
+                    error: function(data){
+                        alert("Error employeeStat GET");
+                    }
+                 });
+            }
+        });
+    });
 
 </script>
 
@@ -319,14 +400,18 @@ $(function(){
 
                 </div>
 
-                <h1 id="hide">Employee List</h1>
-                <form >
-                    <div id="lista">
+                <br><h1 id="employeeTitle">Employee List</h1>
 
-                        <select id="employeeList" name = "employee"></select><br><br>
+                <div>
+                    <form >
 
-                    </div>
-                </form>
+                        <br><select id="employeeList" name = "employee">
+
+                    </select><br><br>
+                        <button id="employeeButton" type="button" class="more">View stats for Employee</button>
+                    </form>
+                </div>
+
 
 
             </div>
