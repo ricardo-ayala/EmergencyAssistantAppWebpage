@@ -80,7 +80,7 @@
       <file leaf-file-name="Statistic Prototype.html" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Statistic Prototype.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="297" column="26" selection-start="11889" selection-end="11889" vertical-scroll-proportion="-0.40881765" vertical-offset="5253" max-vertical-offset="8109">
+            <state line="228" column="57" selection-start="9012" selection-end="9012" vertical-scroll-proportion="-1.3950381" vertical-offset="4607" max-vertical-offset="8143">
               <folding>
                 <element signature="n#style#0;n#div#2;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
               </folding>
@@ -91,7 +91,7 @@
       <file leaf-file-name="style.css" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/style.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="233" column="13" selection-start="3203" selection-end="3203" vertical-scroll-proportion="0.0" vertical-offset="11504" max-vertical-offset="14688">
+            <state line="233" column="13" selection-start="3203" selection-end="3203" vertical-scroll-proportion="0.0" vertical-offset="12728" max-vertical-offset="14688">
               <folding />
             </state>
           </provider>
@@ -133,8 +133,8 @@
         <option value="$PROJECT_DIR$/Edit Service Prototype.html" />
         <option value="$PROJECT_DIR$/Edit User Prototype.html" />
         <option value="$PROJECT_DIR$/Login Prototype.html" />
-        <option value="$PROJECT_DIR$/Statistic Prototype.html" />
         <option value="$PROJECT_DIR$/Admin Home Prototype.html" />
+        <option value="$PROJECT_DIR$/Statistic Prototype.html" />
       </list>
     </option>
   </component>
@@ -240,7 +240,7 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1382" height="744" extended-state="7" />
+    <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -354,13 +354,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/style.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="233" column="13" selection-start="3203" selection-end="3203" vertical-scroll-proportion="0.0" vertical-offset="11504" max-vertical-offset="14688">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Edit User Prototype.html">
       <provider selected="true" editor-type-id="text-editor">
         <state line="132" column="24" selection-start="4875" selection-end="4875" vertical-scroll-proportion="-11.254902" vertical-offset="1670" max-vertical-offset="3128">
@@ -396,9 +389,16 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/style.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="233" column="13" selection-start="3203" selection-end="3203" vertical-scroll-proportion="0.0" vertical-offset="11504" max-vertical-offset="14688">
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/Statistic Prototype.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="297" column="26" selection-start="11889" selection-end="11889" vertical-scroll-proportion="-0.40881765" vertical-offset="5253" max-vertical-offset="8109">
+        <state line="228" column="57" selection-start="9012" selection-end="9012" vertical-scroll-proportion="-1.3950381" vertical-offset="4607" max-vertical-offset="8143">
           <folding>
             <element signature="n#style#0;n#div#2;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
           </folding>
