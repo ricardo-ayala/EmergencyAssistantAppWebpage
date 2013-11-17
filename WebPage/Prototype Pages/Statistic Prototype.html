@@ -335,7 +335,7 @@ $(function (){
                     $("#CSSTableGenerator").append('<td>  </td>');
 
                     for(var i = 0; i < dataColumn; i++){
-                        $("#CSSTableGenerator").append('<td>'+data.emergencyType[i].emergencyType+'</td>');
+                        $("#CSSTableGenerator").append('<td><a href="/emergencyResult?username='+data.username+'&emergencyType='+data.emergencyType[i].emergencyType+'&agencyPhoneNumber='+agencyNumber+'">'+data.emergencyType[i].emergencyType+'</a></td>');
                     }
 
                     $("#CSSTableGenerator").append('</tr><tr>');
