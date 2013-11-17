@@ -77,7 +77,7 @@ $(function(){
 $(function(){
     $("#category").change(function(){
 
-        if(typeof $("#category").val() == "undefined"){
+
             $("#country").empty();
             $("#country").append('<option id="country1" value="">Select Country</option>');
             $("#state").empty();
@@ -86,7 +86,7 @@ $(function(){
             $("#city").append('<option id="city1" value="">Select City</option>');
             $("#agencyPhoneNumber").empty();
             $("#agencyPhoneNumber").append('<option id="agency1" value="">Select Agency</option>');
-        }else{
+
             $("#country1").remove();
             $.ajax({
                 type: "GET",
@@ -105,7 +105,7 @@ $(function(){
                     alert("Error filterCountry GET");
                 }
             });
-        }
+
     });
 });
 
@@ -113,14 +113,14 @@ $(function(){
 $(function(){
     $("#country").change(function(){
 
-        if(typeof $("#country").val() == "undefined"){
+
             $("#state").empty();
             $("#state").append('<option id="state1" value="">Select State</option>');
             $("#city").empty();
             $("#city").append('<option id="city1" value="">Select City</option>');
             $("#agencyPhoneNumber").empty();
             $("#agencyPhoneNumber").append('<option id="agency1" value="">Select Agency</option>');
-        }else{
+
             $("#state1").remove();
             $.ajax({
                 type: "GET",
@@ -139,7 +139,7 @@ $(function(){
                     alert("Error filterState GET");
                 }
             });
-        }
+
     });
 });
 
@@ -147,12 +147,12 @@ $(function(){
 $(function(){
     $("#state").change(function(){
 
-        if($("#state").val() == "undefined"){
+
             $("#city").empty();
             $("#city").append('<option id="city1" value="">Select City</option>');
             $("#agencyPhoneNumber").empty();
             $("#agencyPhoneNumber").append('<option id="agency1" value="">Select Agency</option>');
-        }else{
+
             $("#city1").remove();
             $.ajax({
                 type: "GET",
@@ -171,7 +171,7 @@ $(function(){
                     alert("Error filterCity GET");
                 }
             });
-        }
+
     });
 });
 
@@ -179,10 +179,10 @@ $(function(){
 $(function(){
     $("#city").change(function(){
 
-        if($( "#city").val() == "undefined"){
+
             $("#agencyPhoneNumber").empty();
             $("#agencyPhoneNumber").append('<option id="agency1" value="">Select Agency</option>');
-        }else{
+
             $("#agency1").remove();
             $.ajax({
                 type: "GET",
@@ -201,7 +201,7 @@ $(function(){
                     alert("Error filterAgency GET");
                 }
             });
-        }
+        
     });
 });
 
@@ -307,9 +307,7 @@ $(function(){
 //<!-------------------------------------------Changes page to the original state-------------------------------------->
 $(function(){
     $("#back").click(function(){
-        $("#sidebar1").css("display","inline");
-        $("#content1").css("width", "550px");
-        agencyNumber = "";
+        setInterval(function(){location.reload()}, 100);
     })
 });
 
@@ -327,7 +325,10 @@ $(function (){
                 contentType: "application/json",
                 data:"username="+sendData+"&agencyPhoneNumber="+agencyNumber,
                 success : function(data) {
+
                     $("#CSSTableGenerator").empty();
+                    $("#employeeList").empty();
+
                     var dataColumn = data.emergencyType.length;
 
                     $("#CSSTableGenerator").append('<table><tr>');
@@ -342,7 +343,7 @@ $(function (){
                     $("#CSSTableGenerator").append('<td><strong>Total</strong></td>');
 
                     for(var i = 0; i < dataColumn; i++){
-                        $(".CSSTableGenerator").append('<td>'+data.total[i]+'</td>');
+                        $("#CSSTableGenerator").append('<td>'+data.total[i]+'</td>');
                     }
 
                     $("#CSSTableGenerator").append('</tr><tr>');
