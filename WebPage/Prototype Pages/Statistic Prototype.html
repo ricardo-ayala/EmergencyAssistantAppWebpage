@@ -327,7 +327,7 @@ $(function (){
                 contentType: "application/json",
                 data:"username="+sendData+"&agencyPhoneNumber="+agencyNumber,
                 success : function(data) {
-
+                    $("#CSSTableGenerator").empty();
                     var dataColumn = data.emergencyType.length;
 
                     $("#CSSTableGenerator").append('<table><tr>');
