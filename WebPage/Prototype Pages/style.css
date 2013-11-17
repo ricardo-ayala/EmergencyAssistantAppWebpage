@@ -764,7 +764,7 @@ ul.style1 .first {
 
 .CSSTableGenerator {
     margin:0px;padding:0px;
-    width:0px;
+    width:100%;
     border:1px solid #000000;
 
     -moz-border-radius-bottomleft:5px;
