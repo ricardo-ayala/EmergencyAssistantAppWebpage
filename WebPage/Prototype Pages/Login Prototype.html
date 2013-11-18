@@ -46,14 +46,23 @@ Released   : 20130509
             $("#gologin").click(function(){
 
                 var JSONObject = JSON.stringify($("#login").serializeObject());
-                if(JSON.parse(JSONObject).username =="" ){
+                if(JSON.parse(JSONObject).username == "" ){
                     alert("Please fill the username field to log in");
                     return false;
                 }else{
                     if(JSON.parse(JSONObject).username == "statistic" ){
                         window.location.replace("/stat");
 
-                    }else{
+                    }
+                    if(JSON.parse(JSONObject).username == "mobile" ){
+                        window.location.replace("/mobile");
+
+                    }
+                    if(JSON.parse(JSONObject).username == "admin" ){
+                        window.location.replace("/search");
+
+                    }
+                    else{
                         $.ajax({
                             type: "POST",
                             url :"/login",
