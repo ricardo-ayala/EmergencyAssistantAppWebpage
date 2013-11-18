@@ -42,10 +42,10 @@ Released   : 20130509
             return o;
         };
 
-        function linkCreator(value){
-            var values = value.split(",");
-            var time = values[0];
-            var clientPhoneNumber = values[1];
+        function linkCreator(val){
+            var data = val.value.split(",");
+            var time = data[0];
+            var clientPhoneNumber = data[1];
 
             $.ajax({
                 type: "GET",
@@ -149,7 +149,7 @@ Released   : 20130509
                             $("#CSSTableGenerator").append('<td>'+data.emergencyList[j].outsideHome+'</td>');
                             $("#CSSTableGenerator").append('<td>'+data.emergencyList[j].timeElapsed+'</td>');
                             $("#CSSTableGenerator").append('<td>'+data.emergencyList[j].hasApplication+'</td>');
-                            $("#CSSTableGenerator").append('<td><button type="button" onclick="linkCreator(this)" value="'+ data.emergencyList[j].time +', '+ data.emergencyList[j].clientPhoneNumber +'" class="more">View Details</button> </td>');
+                            $("#CSSTableGenerator").append('<td><button type="button" onclick="linkCreator(this)" value="'+ data.emergencyList[j].time +','+ data.emergencyList[j].clientPhoneNumber +'" class="more">View Details</button> </td>');
                             $("#CSSTableGenerator").append('</tr>');
                         }
                         $("#CSSTableGenerator").append('</table>');
@@ -178,7 +178,7 @@ Released   : 20130509
                             $("#CSSTableGenerator").append('<td>'+data.emergencyList[j].outsideHome+'</td>');
                             $("#CSSTableGenerator").append('<td>'+data.emergencyList[j].timeElapsed+'</td>');
                             $("#CSSTableGenerator").append('<td>'+data.emergencyList[j].hasApplication+'</td>');
-                            $("#CSSTableGenerator").append('<td><button type="button" onclick="linkCreator(this)" value="'+ data.emergencyList[j].time +', '+ data.emergencyList[j].clientPhoneNumber +'" class="more">View Details</button> </td>');
+                            $("#CSSTableGenerator").append('<td><button type="button" onclick="linkCreator(this)" value="'+ data.emergencyList[j].time +','+ data.emergencyList[j].clientPhoneNumber +'" class="more">View Details</button> </td>');
                             $("#CSSTableGenerator").append('</tr>');
 
                         }
