@@ -215,6 +215,12 @@ Released   : 20130509
             $("#historyform").trigger("reset");
         });
     });
+
+    //<!----------------------------------------------------Log out-------------------------------------------------------->
+    function logOut(){
+        sessionStorage.clear();
+        window.location.replace("/");
+    };
 </script>
 
 
@@ -228,9 +234,9 @@ Released   : 20130509
             </div>
             <div id="menu">
                 <ul>
-                    <li><a href="http://localhost:63342/Pages/Active Emergencies Prototype.html">Home</a></li>
+                    <li><a href="/sp">Home</a></li>
                     <li class="current_page_item"><a href="#">History</a></li>
-                    <li><a href="http://localhost:63342/Pages/Login Prototype.html">Log out</a></li>
+                    <li><a href="javascript:void(0)" onclick="logOut()">Log out</a></li>
 
                 </ul>
             </div>

@@ -397,6 +397,11 @@ $(function (){
     });
 });
 
+//<!----------------------------------------------------Log out-------------------------------------------------------->
+function logOut(){
+    sessionStorage.clear();
+    window.location.replace("/");
+};
 </script>
 
 </head>
@@ -409,7 +414,7 @@ $(function (){
             </div>
             <div id="menu">
                 <ul>
-                    <li><a href="http://localhost:63342/Pages/Login Prototype.html">Log out</a></li>
+                    <li><a href="javascript:void(0)" onclick="logOut()">Log out</a></li>
 
                 </ul>
             </div>
