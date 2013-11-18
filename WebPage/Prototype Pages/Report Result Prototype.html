@@ -122,7 +122,7 @@ Released   : 20130509
             var equalData = path.split("=");
             var username = equalData[3];
             var andData1 = equalData[1].split("&");
-            var andData2 = equalData[2].aplit("&");
+            var andData2 = equalData[2].split("&");
             var emergencytype = andData1[0];
             var agencynumber = andData2[0];
 
@@ -142,15 +142,14 @@ Released   : 20130509
                         for(var j = 0; j < dataRows; j++){
                             $("#CSSTableGenerator").append('<tr>');
                             $("#CSSTableGenerator").append('<td>'+j+1+'</td>');
-                            $("#CSSTableGenerator").append('<td>'+data.emergencyList[i].resolved+'</td>');
-                            $("#CSSTableGenerator").append('<td>'+data.emergencyList[i].outsideHome+'</td>');
-                            $("#CSSTableGenerator").append('<td>'+data.emergencyList[i].timeElapsed+'</td>');
-                            $("#CSSTableGenerator").append('<td>'+data.emergencyList[i].hasApplication+'</td>');
-                            $("#CSSTableGenerator").append('<td><button type="button" onclick="'+linkCreator(data.emergercyList.time, data.emergencyList.clientPhoneNumber)+'"" class="more" </td>');
+                            $("#CSSTableGenerator").append('<td>'+data.emergencyList[j].resolved+'</td>');
+                            $("#CSSTableGenerator").append('<td>'+data.emergencyList[j].outsideHome+'</td>');
+                            $("#CSSTableGenerator").append('<td>'+data.emergencyList[j].timeElapsed+'</td>');
+                            $("#CSSTableGenerator").append('<td>'+data.emergencyList[j].hasApplication+'</td>');
+                            $("#CSSTableGenerator").append('<td><button type="button" onclick="'+linkCreator(data.emergercyList[j].time, data.emergencyList[j].clientPhoneNumber)+'" class="more" </td>');
                             $("#CSSTableGenerator").append('</tr>');
-
                         }
-
+                        $("#CSSTableGenerator").append('</table>');
 
                     },
                     error: function(data){
@@ -172,15 +171,15 @@ Released   : 20130509
                         for(var j = 0; j < dataRows; j++){
                             $("#CSSTableGenerator").append('<tr>');
                             $("#CSSTableGenerator").append('<td>'+j+1+'</td>');
-                            $("#CSSTableGenerator").append('<td>'+data.emergencyList[i].resolved+'</td>');
-                            $("#CSSTableGenerator").append('<td>'+data.emergencyList[i].outsideHome+'</td>');
-                            $("#CSSTableGenerator").append('<td>'+data.emergencyList[i].timeElapsed+'</td>');
-                            $("#CSSTableGenerator").append('<td>'+data.emergencyList[i].hasApplication+'</td>');
-                            $("#CSSTableGenerator").append('<td><button type="button" onclick="'+linkCreator(data.emergercyList.time, data.emergencyList.clientPhoneNumber)+'"" class="more" </td>');
+                            $("#CSSTableGenerator").append('<td>'+data.emergencyList[j].resolved+'</td>');
+                            $("#CSSTableGenerator").append('<td>'+data.emergencyList[j].outsideHome+'</td>');
+                            $("#CSSTableGenerator").append('<td>'+data.emergencyList[j].timeElapsed+'</td>');
+                            $("#CSSTableGenerator").append('<td>'+data.emergencyList[j].hasApplication+'</td>');
+                            $("#CSSTableGenerator").append('<td><button type="button" onclick="'+linkCreator(data.emergercyList[j].time, data.emergencyList[j].clientPhoneNumber)+'" class="more" </td>');
                             $("#CSSTableGenerator").append('</tr>');
 
                         }
-
+                        $("#CSSTableGenerator").append('</table>');
                     },
                     error: function(data){
                         alert("error Employee GET");
