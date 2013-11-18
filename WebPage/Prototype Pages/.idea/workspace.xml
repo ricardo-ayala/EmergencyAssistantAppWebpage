@@ -89,7 +89,7 @@
       <file leaf-file-name="Active Emergencies Prototype.html" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Active Emergencies Prototype.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="491" column="2" selection-start="16529" selection-end="16737" vertical-scroll-proportion="0.41603053" vertical-offset="8129" max-vertical-offset="11356">
+            <state line="512" column="34" selection-start="17221" selection-end="17221" vertical-scroll-proportion="0.5133588" vertical-offset="8435" max-vertical-offset="11356">
               <folding />
             </state>
           </provider>
@@ -239,7 +239,7 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
+    <frame x="-8" y="-8" width="1382" height="744" extended-state="7" />
     <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -401,7 +401,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Active Emergencies Prototype.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="491" column="2" selection-start="16529" selection-end="16737" vertical-scroll-proportion="0.41603053" vertical-offset="8129" max-vertical-offset="11356">
+        <state line="512" column="34" selection-start="17221" selection-end="17221" vertical-scroll-proportion="0.5133588" vertical-offset="8435" max-vertical-offset="11356">
           <folding />
         </state>
       </provider>
