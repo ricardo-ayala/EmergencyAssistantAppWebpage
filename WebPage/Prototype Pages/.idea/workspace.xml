@@ -71,7 +71,7 @@
       <file leaf-file-name="Statistic Prototype.html" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Statistic Prototype.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="149" column="0" selection-start="5273" selection-end="5273" vertical-scroll-proportion="-3.8076923" vertical-offset="2434" max-vertical-offset="8568">
+            <state line="149" column="0" selection-start="5273" selection-end="5273" vertical-scroll-proportion="29.538462" vertical-offset="3301" max-vertical-offset="8568">
               <folding>
                 <element signature="n#style#0;n#div#2;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
               </folding>
@@ -82,7 +82,7 @@
       <file leaf-file-name="Report Result Prototype.html" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Report Result Prototype.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="177" column="177" selection-start="8562" selection-end="8562" vertical-scroll-proportion="0.5458015" vertical-offset="2723" max-vertical-offset="4675">
+            <state line="46" column="12" selection-start="1818" selection-end="1818" vertical-scroll-proportion="0.3244275" vertical-offset="612" max-vertical-offset="4726">
               <folding />
             </state>
           </provider>
@@ -241,7 +241,7 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1382" height="744" extended-state="7" />
+    <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -390,7 +390,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Statistic Prototype.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="149" column="0" selection-start="5273" selection-end="5273" vertical-scroll-proportion="-3.8076923" vertical-offset="2434" max-vertical-offset="8568">
+        <state line="149" column="0" selection-start="5273" selection-end="5273" vertical-scroll-proportion="29.538462" vertical-offset="3301" max-vertical-offset="8568">
           <folding>
             <element signature="n#style#0;n#div#2;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
           </folding>
@@ -399,7 +399,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Report Result Prototype.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="177" column="177" selection-start="8562" selection-end="8562" vertical-scroll-proportion="0.5458015" vertical-offset="2723" max-vertical-offset="4675">
+        <state line="46" column="12" selection-start="1818" selection-end="1818" vertical-scroll-proportion="0.3244275" vertical-offset="612" max-vertical-offset="4726">
           <folding />
         </state>
       </provider>
