@@ -71,6 +71,12 @@ $(function(){
                 $("#state").val(data.detail.state);
                 $("#country").val(data.detail.country);
                 $("#currentAltPhoneNumber").val(data.phone[0].altPhoneNumber);
+                if($("#category").val()== "Hospital" || $("#category").val()== "hospital"){
+                    $("#la").val(data.coordinate.latitude);
+                    $("#lo").val(data.coordinate.longitude);
+                    $("#la").show();
+                    $("#lo").show();
+                }
 
                 var count = data.area.length;
                 var i = 1;
