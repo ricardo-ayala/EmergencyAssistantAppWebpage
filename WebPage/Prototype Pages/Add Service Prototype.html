@@ -192,6 +192,35 @@ Released   : 20130509
                }
            });
         });
+
+        //<!-----------------------------------------Checks for Service inside the DB---------------------------------->
+        $(function(){
+            $("#altPhoneNumber0").keyup(function(){
+                  if($("#altPhoneNumber0").val().length == 10){
+                       var phone = $("#altPhoneNumber0").val();
+
+                      $.ajax({
+                          type: "GET",
+                          url :"/verifyAgency",
+                          contentType: "application/json",
+                          data: "agencyPhoneNumber="+ phone,
+                          success : function(data) {
+                            if( data.exist == true){
+                                alert("Service already exist in the Database");
+                                return false;
+                            }else{
+                                alert("Service does not exist in the Database");
+                                return false;
+                            }
+
+                       },
+                          error: function(data){
+                              alert("Error verifying Service");
+                          }
+                       });
+                  }
+            });
+        });
     </script>
 
 </head>
@@ -226,7 +255,7 @@ Released   : 20130509
                         <h3>Category:<input type="text" id="category" name="category" maxlength="40" size="30" required/></h3><br>
                         <h3>Area:<input type="text" name="altArea0" maxlength="40" size="30" required/></h3><button type="button" id="moreA">Add Field</button><button type="button" id="lessA" disabled>Less Fields</button>
                         <div id="ALTA"></div>
-                        <h3>Telephone:<input type="text"  name="altPhoneNumber0" maxlength="10" size="10" required/></h3><button type="button" id="moreP">Add Field</button><button type="button" id="lessP" disabled>Less Fields</button><br>
+                        <h3>Telephone:<input type="text" id="altPhoneNumber0" name="altPhoneNumber0" maxlength="10" size="10" required/></h3><button type="button" id="moreP">Add Field</button><button type="button" id="lessP" disabled>Less Fields</button><br>
                         <div id="ALTP"></div>
                         <h3>City:<input type="text"  name="city" maxlength="40" size="30" required/></h3><br>
                         <h3>State:<input type="text"  name="state" maxlength="2" size="3" required/></h3><br>
