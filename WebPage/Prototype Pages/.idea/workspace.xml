@@ -23,19 +23,19 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="Admin Home Prototype.html" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="Admin Home Prototype.html" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Admin Home Prototype.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="310" column="58" selection-start="10957" selection-end="10957" vertical-scroll-proportion="0.6812977" vertical-offset="4913" max-vertical-offset="8279">
+            <state line="310" column="58" selection-start="10957" selection-end="10957" vertical-scroll-proportion="-158.88461" vertical-offset="1139" max-vertical-offset="8279">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Edit User Prototype.html" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="Edit User Prototype.html" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Edit User Prototype.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="174" column="58" selection-start="6783" selection-end="6783" vertical-scroll-proportion="-63.96154" vertical-offset="1295" max-vertical-offset="3723">
+            <state line="110" column="36" selection-start="4195" selection-end="4195" vertical-scroll-proportion="0.35114503" vertical-offset="1686" max-vertical-offset="4199">
               <folding />
             </state>
           </provider>
@@ -44,14 +44,14 @@
       <file leaf-file-name="Add User Prototype.html" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Add User Prototype.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="67" column="11" selection-start="1659" selection-end="2662" vertical-scroll-proportion="-14.384615" vertical-offset="459" max-vertical-offset="2669">
+            <state line="95" column="11" selection-start="2671" selection-end="3866" vertical-scroll-proportion="-16.884615" vertical-offset="870" max-vertical-offset="3128">
               <folding>
                 <element signature="e#110#381#0" expanded="false" />
                 <element signature="e#1324#1523#0" expanded="false" />
                 <element signature="e#1370#1448#0" expanded="false" />
                 <element signature="e#2178#2320#0" expanded="false" />
-                <element signature="e#3183#3325#0" expanded="false" />
-                <element signature="e#4413#4502#0" expanded="false" />
+                <element signature="e#4386#4528#0" expanded="false" />
+                <element signature="e#5616#5705#0" expanded="false" />
                 <element signature="tag#select#0;tag#h3#4;tag#form#0;tag#div#0;tag#div#0;tag#div#0;tag#div#1;tag#div#0;tag#body#0;tag#html#0" expanded="false" />
                 <element signature="tag#div#1;tag#body#0;tag#html#0" expanded="false" />
               </folding>
@@ -62,7 +62,7 @@
       <file leaf-file-name="Add Service Prototype.html" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Add Service Prototype.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="202" column="21" selection-start="7007" selection-end="7007" vertical-scroll-proportion="-3.0" vertical-offset="3281" max-vertical-offset="5270">
+            <state line="228" column="11" selection-start="6873" selection-end="8095" vertical-scroll-proportion="-7.45098" vertical-offset="3496" max-vertical-offset="5270">
               <folding />
             </state>
           </provider>
@@ -139,10 +139,10 @@
         <option value="$PROJECT_DIR$/Active Emergencies Prototype.html" />
         <option value="$PROJECT_DIR$/History Prototype.html" />
         <option value="$PROJECT_DIR$/Add Service Prototype.html" />
-        <option value="$PROJECT_DIR$/Add User Prototype.html" />
-        <option value="$PROJECT_DIR$/Edit User Prototype.html" />
         <option value="$PROJECT_DIR$/Edit Service Prototype.html" />
         <option value="$PROJECT_DIR$/Admin Home Prototype.html" />
+        <option value="$PROJECT_DIR$/Add User Prototype.html" />
+        <option value="$PROJECT_DIR$/Edit User Prototype.html" />
       </list>
     </option>
   </component>
@@ -248,7 +248,7 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
+    <frame x="-8" y="-8" width="1382" height="744" extended-state="7" />
     <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -375,36 +375,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Add User Prototype.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="67" column="11" selection-start="1659" selection-end="2662" vertical-scroll-proportion="-14.384615" vertical-offset="459" max-vertical-offset="2669">
-          <folding>
-            <element signature="e#110#381#0" expanded="false" />
-            <element signature="e#1324#1523#0" expanded="false" />
-            <element signature="e#1370#1448#0" expanded="false" />
-            <element signature="e#2178#2320#0" expanded="false" />
-            <element signature="e#3183#3325#0" expanded="false" />
-            <element signature="e#4413#4502#0" expanded="false" />
-            <element signature="tag#select#0;tag#h3#4;tag#form#0;tag#div#0;tag#div#0;tag#div#0;tag#div#1;tag#div#0;tag#body#0;tag#html#0" expanded="false" />
-            <element signature="tag#div#1;tag#body#0;tag#html#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Edit User Prototype.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="174" column="58" selection-start="6783" selection-end="6783" vertical-scroll-proportion="-63.96154" vertical-offset="1295" max-vertical-offset="3723">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Add Service Prototype.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="202" column="21" selection-start="7007" selection-end="7007" vertical-scroll-proportion="-3.0" vertical-offset="3281" max-vertical-offset="5270">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Edit Service Prototype.html">
       <provider selected="true" editor-type-id="text-editor">
         <state line="217" column="70" selection-start="6836" selection-end="6836" vertical-scroll-proportion="21.692308" vertical-offset="4253" max-vertical-offset="6341">
@@ -421,7 +391,37 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Admin Home Prototype.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="310" column="58" selection-start="10957" selection-end="10957" vertical-scroll-proportion="0.6812977" vertical-offset="4913" max-vertical-offset="8279">
+        <state line="310" column="58" selection-start="10957" selection-end="10957" vertical-scroll-proportion="-158.88461" vertical-offset="1139" max-vertical-offset="8279">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Add Service Prototype.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="228" column="11" selection-start="6873" selection-end="8095" vertical-scroll-proportion="-7.45098" vertical-offset="3496" max-vertical-offset="5270">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Add User Prototype.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="95" column="11" selection-start="2671" selection-end="3866" vertical-scroll-proportion="-16.884615" vertical-offset="870" max-vertical-offset="3128">
+          <folding>
+            <element signature="e#110#381#0" expanded="false" />
+            <element signature="e#1324#1523#0" expanded="false" />
+            <element signature="e#1370#1448#0" expanded="false" />
+            <element signature="e#2178#2320#0" expanded="false" />
+            <element signature="e#4386#4528#0" expanded="false" />
+            <element signature="e#5616#5705#0" expanded="false" />
+            <element signature="tag#select#0;tag#h3#4;tag#form#0;tag#div#0;tag#div#0;tag#div#0;tag#div#1;tag#div#0;tag#body#0;tag#html#0" expanded="false" />
+            <element signature="tag#div#1;tag#body#0;tag#html#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Edit User Prototype.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="110" column="36" selection-start="4195" selection-end="4195" vertical-scroll-proportion="0.35114503" vertical-offset="1686" max-vertical-offset="4199">
           <folding />
         </state>
       </provider>
