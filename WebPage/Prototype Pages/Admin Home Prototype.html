@@ -271,14 +271,11 @@ $(function(){
                 success : function(data) {
                     alert("User successfully deleted");
 
-                    $("#sidebar1").show();
-                    $("#sidebar2").hide();
-                    $("#entry").show();
-                    $("#entry1").hide();
-                    //$("#sidebar1").css("display","inline");
-                    //$("#sidebar2").css("display","none");
-                    //$(".entry").css("display", "inline");
-                    //$(".entry1").css("display", "none");
+
+                    $("#sidebar1").css("display","inline");
+                    $("#sidebar2").css("display","none");
+                    $(".entry").css("display", "inline");
+                    $(".entry1").css("display", "none");
                     $("#go").attr("disabled", false);
                 },
                 error: function(data){
@@ -312,14 +309,11 @@ $(function(){
                 success : function(data) {
 
                     alert("Service successfully deleted");
-                    $("#sidebar1").show();
-                    $("#sidebar2").hide();
-                    $("#entry").show();
-                    $("#entry1").hide();
-                    //$("#sidebar1").css("display","inline");
-                    //$("#sidebar2").css("display","none");
-                    //$(".entry").css("display", "inline");
-                    //$(".entry1").css("display", "none");
+
+                    $("#sidebar1").css("display","inline");
+                    $("#sidebar3").css("display","none");
+                    $(".entry").css("display", "inline");
+                    $(".entry1").css("display", "none");
                     $("#go").attr("disabled", false);
                 },
                 error: function(data){
