@@ -74,7 +74,7 @@ $(function(){
     });
 });
 
-//<!-------------------Verifies User in DB-------------------------------->
+//<!------------------------------------------Verifies User in DB------------------------------------------------------>
 $(function() {
     $("#clientPhoneNumber").keyup(function(){
         var number = $("#clientPhoneNumber").val();
@@ -87,7 +87,7 @@ $(function() {
                 contentType: "application/json",
                 data: "clientPhoneNumber="+number,
                 success : function(data) {
-                    if (typeof data != "undefined"){
+                   // if (typeof data != "undefined"){
                         if(typeof data.relay != "undefined"){
 
                             sessionStorage.setItem(number, JSON.stringify(data));
@@ -113,8 +113,8 @@ $(function() {
                             $("#c").html("The client with phone number "+number+" is calling from the application, his/her location will be retrieved from his cellphone");
 
                         }
-                    }
-                    else{
+                //   }
+                else{
                         $("#c").html("The client with phone number "+number+" does not have the application");
                     }
 
@@ -304,8 +304,7 @@ $(function(){
                 success : function(data) {
 
                     alert("The information for emergency with Telephone number "+key+" has been resolved and saved to the Data Base");
-                    //$("#"+key).empty();
-                    $("div").remove("#"+key);
+
                     localStorage.removeItem(key);
 
                 },
@@ -314,7 +313,7 @@ $(function(){
                 }
             });
 
-           // setTimeout(function(){location.reload()}, 100);
+            setTimeout(function(){location.reload()}, 100);
         }
         else{
             alert("Choose an emergency to Mark as Resolved");
