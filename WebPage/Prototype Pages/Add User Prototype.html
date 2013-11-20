@@ -41,7 +41,33 @@ Released   : 20130509
             });
             return o;
         };
-        //<!---------------ADD user to the system-------------------------->
+        //<!-----------------------------------------Verifies User un DB----------------------------------------------->
+        $(function(){
+            $("#username").blur(function(){
+                var user = $("#username").val();
+
+                $.ajax({
+                    type: "GET",
+                    url :"/verifyUser",
+                    contentType: "application/json",
+                    data: "username="+user,
+                    success : function(data) {
+                        if(data.exist == true){
+                            alert("User already exist in the Database");
+                            return false;
+                        }else{
+                            alert("User does not exist in the Database");
+                            return false;
+                        }
+                    },
+                    error: function(data){
+                        alert("Error verifying User GET");
+                    }
+                });
+            });
+        });
+
+        //<!------------------------------------------ADD user to the system------------------------------------------->
         $(function(){
             $("#submit").click(function(){
 
@@ -107,7 +133,7 @@ Released   : 20130509
                 <div class="entry">
                     <form id="main" action="" method="post">
                         <h3>Name:<input type="text"  name="name" maxlength="50" size="50"/></h3><br>
-                        <h3>Username:<input type="text"  name="username" maxlength="40" size="30"/></h3><br>
+                        <h3>Username:<input type="text" id="username" name="username" maxlength="40" size="30"/></h3><br>
                         <h3>Password:<input type="text"  name="password" maxlength="16" size="30"/></h3><br>
                         <h3>E-mail:<input type="email"  name="email" pattern="[^ @]*@[^ @]*" /></h3><br>
                         <h3>User Type:<select  name="role" size="1" placeholder="Select Type" >
