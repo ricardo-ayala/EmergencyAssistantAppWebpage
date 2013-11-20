@@ -65,6 +65,7 @@ Released   : 20130509
                     $("#apn").html(data.data.agencyPhoneNumber);
                     $("#te").html(data.data.timeElapsed);
                     $("#tc").html(data.data.timeCompleted);
+                    $("#ha").html(data.data.hasApplication);
 
 
                     if (navigator.geolocation){
@@ -231,10 +232,6 @@ Released   : 20130509
 
                     </div>
 
-
-
-
-
                 </div>
             </div>
         </div>
@@ -249,6 +246,7 @@ Released   : 20130509
                         <li>Address:<h3 id="a"></h3></li>
                         <li>Type of Emergency:<h3 id="toe"></h3></li>
                         <li>Emergency at Home?:<h3 id="eah"></h3></li>
+                        <li>Has Application?:<h3 id="ha"></h3></li>
                         <li>Assigned Agent: <h3 id="aa"></h3></li>
                         <li>Emergency Description:<br><div class="container3"><p id="ed"></p></div></li>
                         <li>Relay Description(If any):<br><div class="container3"><p id="rd"></p></div></li>

@@ -50,18 +50,16 @@ Released   : 20130509
                     alert("Please fill the username field to log in");
                     return false;
                 }else{
-                    if(JSON.parse(JSONObject).username == "statistic" ){
+                    if(JSON.parse(JSONObject).username == "stat" ){
                         window.location.replace("/stat");
+                        return false;
 
                     }
                     if(JSON.parse(JSONObject).username == "mobile" ){
                         window.location.replace("/mobile");
-
+                        return false;
                     }
-                    if(JSON.parse(JSONObject).username == "admin" ){
-                        window.location.replace("/search");
 
-                    }
                     else{
                         $.ajax({
                             type: "POST",
@@ -71,16 +69,19 @@ Released   : 20130509
                             success : function(data) {
 
                                 if(typeof data.username != "undefined"){
-                                    sessionStorage.setItem(data.username, data.role);
-                                    sessionStorage.setItem("agencyPhoneNumber", data.agencyPhoneNumber);
-                                    window.location.replace("/sp");
+                                    if(data.role == "admin"){
+                                        sessionStorage.setItem(data.username, data.role);
+                                        window.location.replace("/search");
+                                    }if(data.role == "employee"){
+                                        sessionStorage.setItem(data.username, data.role);
+                                        sessionStorage.setItem("agencyPhoneNumber", data.agencyPhoneNumber);
+                                        window.location.replace("/sp");
+                                    }
+
                                 }else{
                                     alert("Incorrect Username or Password");
                                     return false;
                                 }
-
-
-
                             },
                             error: function(data){
                                 alert("Error Login POST");
@@ -143,7 +144,7 @@ Released   : 20130509
                             $("#gorecovery").attr("disabled", true);
                         },
                         error: function(data){
-                            alert("Ërror retrieve password POST");
+                            alert("Error retrieve password POST");
                         }
                     });
                 }
@@ -184,7 +185,7 @@ Released   : 20130509
                 <li>
                     <h2>Login</h2>
                     <ul><form id="login" method="post">
-                        <li> Username<br><input type="text" id="username" name="username" maxlength="30" size="20" required/> </li>
+                        <li> Username<br><input type="text" id="username" name="username" maxlength="30" size="20"/> </li>
                         <li> Password<br><input type="password" id="password" name="password" maxlength="16" />
                         <li><div><p id="confirmation"></p></div>
                             <button id="gologin" type="button" class="more" >Submit</button>

@@ -142,7 +142,8 @@ Released   : 20130509
                         $("#ed").html(data.data.emergencyDetail);
                         $("#rd").html(data.details.reason);
                         $("#ts").html(data.data.time);
-
+                        $("#ha").html(data.data.hasApplication);
+                        $("#tc").html(data.data.timeCompleted);
 
                         if (navigator.geolocation){
                             navigator.geolocation.getCurrentPosition(showPosition,showError);
@@ -290,10 +291,12 @@ Released   : 20130509
                         <li>Address:<h3 id="a"></h3></li>
                         <li>Type of Emergency:<h3 id="toe"></h3></li>
                         <li>Emergency at Home?:<h3 id="eah"></h3></li>
+                        <li>Has Application?:<h3 id="ha"></h3></li>
                         <li>Assigned Agent: <h3 id="aa"></h3></li>
                         <li>Emergency Description:<br><div class="container3"><p id="ed"></p></div></li>
                         <li>Relay Description(If any):<br><div class="container3"><p id="rd"></p></div></li>
                         <li>Date and Time Received(YYYY/MM/DD):<h3 id="ts"></h3>
+                        <li>Time Completed:<h3 id="tc"></h3></li>
                         <li>Client Location:<div id="cl" style="height:300px; width:350px;"></div></li><br>
                         <button id="goback" type="button" class="more">Search Again</button>
 

@@ -87,34 +87,35 @@ $(function() {
                 contentType: "application/json",
                 data: "clientPhoneNumber="+number,
                 success : function(data) {
-                   // if (typeof data != "undefined"){
-                        if(typeof data.relay != "undefined"){
 
-                            sessionStorage.setItem(number, JSON.stringify(data));
-                            $("#clientName").val(data.relay.clientName);
-                            $("#clientAddress").val(data.relay.clientAddress);
+                    if(typeof data.relay != "undefined"){
 
-                            if (data.relay.outsideHome == "No"){
-                                $("#no").prop("checked", true);
-                                $("#yes").prop("checked", false);
-                            }
-                            $("#attendedBy").val(data.relay.attendedBy);
-                            $("#emergencyDetails").val(data.relay.emergencyDetails);
-                            $("#latitude").val(data.relay.latitude);
-                            $("#longitude").val(data.relay.longitude);
-                            $("#timeStamp").val(data.relay.timeStamp);
+                        sessionStorage.setItem(number, JSON.stringify(data));
+                        $("#clientName").val(data.relay.clientName);
+                        $("#clientAddress").val(data.relay.clientAddress);
 
-                            if(typeof data.relayDetail != "undefined"){
-                                $("#oldAgencyPhoneNumber").val(data.relayDetail.oldAgencyPhoneNumber);
-                                $("#newAgencyPhoneNumber").val(data.relayDetail.newAgencyPhoneNumber);
-                                $("#reason").val(data.relayDetail.reason);
-                            }
-
-                            $("#c").html("The client with phone number "+number+" is calling from the application, his/her location will be retrieved from his cellphone");
-
+                        if (data.relay.outsideHome == "No"){
+                            $("#no").prop("checked", true);
+                            $("#yes").prop("checked", false);
                         }
-                //   }
-                else{
+                        $("#attendedBy").val(data.relay.attendedBy);
+                        $("#emergencyDetails").val(data.relay.emergencyDetails);
+                        $("#latitude").val(data.relay.latitude);
+                        $("#longitude").val(data.relay.longitude);
+                        $("#timeStamp").val(data.relay.timeStamp);
+                        $("#hasApplication").val(data.relay.hasApplication);
+
+                        if(typeof data.relayDetail != "undefined"){
+                            $("#oldAgencyPhoneNumber").val(data.relayDetail.oldAgencyPhoneNumber);
+                            $("#newAgencyPhoneNumber").val(data.relayDetail.newAgencyPhoneNumber);
+                            $("#reason").val(data.relayDetail.reason);
+                        }
+
+                        $("#c").html("The client with phone number "+number+" is calling from the application, his/her location will be retrieved from his cellphone");
+
+                    }
+
+                    else{
                         $("#c").html("The client with phone number "+number+" does not have the application");
                     }
 
@@ -268,6 +269,7 @@ $(function(){
             $("#latitude").val(JSON.parse(JSONObject).latitude);
             $("#longitude").val(JSON.parse(JSONObject).longitude);
             $("#timeStamp").val(JSON.parse(JSONObject).timeStamp);
+            $("#hasApplication").val(JSON.parse(JSONObject).hasApplication);
             $("#oldAgencyPhoneNumber").val(JSON.parse(JSONObject).oldAgencyPhoneNumber);
             $("#newAgencyPhoneNumber").val(JSON.parse(JSONObject).newAgencyPhoneNumber);
             $("#reason").val(JSON.parse(JSONObject).reason);
@@ -347,6 +349,7 @@ $(function() {
             $("#ed").html(JSON.parse(JSONObject).emergencyDetails);
             $("#rd").html(JSON.parse(JSONObject).reason);
             $("#ts").html(JSON.parse(JSONObject).timeStamp);
+            $("#ha").html(JSON.parse(JSONObject).hasApplication);
 
 
 
@@ -437,6 +440,7 @@ $(function(){
             $("#longitudeR").val(JSON.parse(JSONObject).longitude);
             $("#timeStampR").val(JSON.parse(JSONObject).timeStamp);
             $("#oldAgencyPhoneNumberR").val(sessionStorage.getItem("agencyPhoneNumber"));
+            $("#hasApplicationR").val(JSON.parse(JSONObject).hasApplication);
 
 
         }
@@ -459,10 +463,14 @@ $(function(){
             contentType: "application/json",
             data: JSONObject ,
             success : function(data) {
+                if(data.result == true){
+                    alert("Emergency Report successfully relayed");
+                    localStorage.removeItem(key);
+                }
+                else{
+                    alert("Emergency Report not Relayed");
+                }
 
-                alert("success"+ data.result);
-                localStorage.setItem(key);
-                //localStorage.removeItem(key);
             },
             error: function(data){
                 alert("error");
@@ -577,6 +585,7 @@ function logOut(){
                         <li>Address:<h3 id="a"></h3></li>
                         <li>Type of Emergency:<h3 id="toe"></h3></li>
                         <li>Emergency at Home?:<h3 id="eah"></h3></li>
+                        <li>Has Application?:<h3 id="ha"></h3></li>
                         <li>Assigned Agent: <h3 id="aa"></h3></li>
                         <li>Emergency Description:<br><div class="container3"><p id="ed"></p></div></li>
                         <li>Relay Description(If any):<br><div class="container3"><p id="rd"></p></div></li>
@@ -608,6 +617,8 @@ function logOut(){
                             <input type=hidden id="latitude" name="latitude" >
                             <input type=hidden id="longitude" name="longitude" >
                             <input type=hidden id="timeStamp" name="timeStamp"/>
+                            <input type=hidden id="timeCompleted" name="timeCompleted"/>
+                            <input type=hidden id="hasApplication" name="hasApplication"/>
                             <input type=hidden id="oldAgencyPhoneNumber" name="oldAgencyPhoneNumber" maxlength="10" size="10"/>
                             <input type=hidden id="newAgencyPhoneNumber" name="newAgencyPhoneNumber" maxlength="10" size="10"/>
                             <input type=hidden id="reason" name="reason" maxlength="500"/>
@@ -637,6 +648,8 @@ function logOut(){
                             <input type=hidden id="latitudeR" name="latitude"/>
                             <input type=hidden id="longitudeR" name="longitude"/>
                             <input type=hidden id="timeStampR" name="timeStamp"/>
+                            <input type=hidden id="timeCompletedR" name="timeCompleted"/>
+                            <input type=hidden id="hasApplicationR" name="hasApplication"/>
                             <input type=hidden id="oldAgencyPhoneNumberR" name="oldAgencyPhoneNumber" maxlength="10" size="10"/>
                             <li>Destination Phone Number: <input id="newAgencyPhoneNumberR" type="text" name="newAgencyPhoneNumber" maxlength="10" size="10" required/></li>
                             <li>Relay Description:<br><textarea id="reasonR" rows="4" cols="30" name="reason" maxlength="500" placeholder="Short description for the Relay" required></textarea></li>
