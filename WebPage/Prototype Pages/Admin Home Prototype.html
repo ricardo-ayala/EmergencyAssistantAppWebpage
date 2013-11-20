@@ -270,7 +270,11 @@ $(function(){
                 data: sendData,
                 success : function(data) {
                     alert("User successfully deleted");
-
+                    $("#sidebar1").css("display","inline");
+                    $("#sidebar2").css("display","none");
+                    $(".entry").css("display", "inline");
+                    $(".entry1").css("display", "none");
+                    $("#go").attr("disabled", false);
                 },
                 error: function(data){
                     alert("error user delete");
@@ -301,6 +305,7 @@ $(function(){
                 contentType: "application/json",
                 data: sendData,
                 success : function(data) {
+
                     alert("Service successfully deleted");
                     $("#sidebar1").css("display","inline");
                     $("#sidebar2").css("display","none");
