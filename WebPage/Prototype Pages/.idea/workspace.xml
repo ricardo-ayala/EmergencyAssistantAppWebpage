@@ -32,10 +32,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Edit User Prototype.html" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="Edit User Prototype.html" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Edit User Prototype.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="110" column="36" selection-start="4195" selection-end="4195" vertical-scroll-proportion="0.35114503" vertical-offset="1686" max-vertical-offset="4199">
+            <state line="110" column="36" selection-start="4195" selection-end="4195" vertical-scroll-proportion="-7.076923" vertical-offset="1686" max-vertical-offset="4199">
               <folding />
             </state>
           </provider>
@@ -86,10 +86,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Active Emergencies Prototype.html" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="Active Emergencies Prototype.html" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Active Emergencies Prototype.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="193" column="8" selection-start="6880" selection-end="6927" vertical-scroll-proportion="-3.254902" vertical-offset="3115" max-vertical-offset="11356">
+            <state line="417" column="13" selection-start="14120" selection-end="14120" vertical-scroll-proportion="4.0496182" vertical-offset="4967" max-vertical-offset="11390">
               <folding />
             </state>
           </provider>
@@ -136,13 +136,13 @@
         <option value="$PROJECT_DIR$/Login Prototype.html" />
         <option value="$PROJECT_DIR$/Statistic Prototype.html" />
         <option value="$PROJECT_DIR$/Report Result Prototype.html" />
-        <option value="$PROJECT_DIR$/Active Emergencies Prototype.html" />
         <option value="$PROJECT_DIR$/History Prototype.html" />
         <option value="$PROJECT_DIR$/Add Service Prototype.html" />
         <option value="$PROJECT_DIR$/Edit Service Prototype.html" />
         <option value="$PROJECT_DIR$/Admin Home Prototype.html" />
         <option value="$PROJECT_DIR$/Add User Prototype.html" />
         <option value="$PROJECT_DIR$/Edit User Prototype.html" />
+        <option value="$PROJECT_DIR$/Active Emergencies Prototype.html" />
       </list>
     </option>
   </component>
@@ -248,7 +248,7 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1382" height="744" extended-state="7" />
+    <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -368,13 +368,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Active Emergencies Prototype.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="193" column="8" selection-start="6880" selection-end="6927" vertical-scroll-proportion="-3.254902" vertical-offset="3115" max-vertical-offset="11356">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Edit Service Prototype.html">
       <provider selected="true" editor-type-id="text-editor">
         <state line="217" column="70" selection-start="6836" selection-end="6836" vertical-scroll-proportion="21.692308" vertical-offset="4253" max-vertical-offset="6341">
@@ -421,7 +414,14 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Edit User Prototype.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="110" column="36" selection-start="4195" selection-end="4195" vertical-scroll-proportion="0.35114503" vertical-offset="1686" max-vertical-offset="4199">
+        <state line="110" column="36" selection-start="4195" selection-end="4195" vertical-scroll-proportion="-7.076923" vertical-offset="1686" max-vertical-offset="4199">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Active Emergencies Prototype.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="417" column="13" selection-start="14120" selection-end="14120" vertical-scroll-proportion="4.0496182" vertical-offset="4967" max-vertical-offset="11390">
           <folding />
         </state>
       </provider>

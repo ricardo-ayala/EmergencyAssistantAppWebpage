@@ -304,14 +304,16 @@ $(function(){
                 success : function(data) {
 
                     alert("The information for emergency with Telephone number "+key+" has been resolved and saved to the Data Base");
+                    $("#"+key).remove();
                     localStorage.removeItem(key);
+
                 },
                 error: function(data){
                     alert("error"+JSON.parse(data).result);
                 }
             });
 
-            setTimeout(function(){location.reload()}, 100);
+           // setTimeout(function(){location.reload()}, 100);
         }
         else{
             alert("Choose an emergency to Mark as Resolved");
@@ -487,8 +489,8 @@ $(function(){
 
 //<!----------------------------------------------------Log out-------------------------------------------------------->
 function logOut(){
-  sessionStorage.clear();
-  window.location.replace("/");
+    sessionStorage.clear();
+    window.location.replace("/");
 };
 
 </script>
