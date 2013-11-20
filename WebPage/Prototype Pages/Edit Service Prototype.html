@@ -222,10 +222,16 @@ $(function(){
                 data:JSONObject,
                 success : function(data) {
                     alert(data.result);
-                    $("#addService").trigger("reset");
+                    if(data.result == true){
+                        alert("Service added to the Database");
+                        window.location.replace("/search");
+                    }else{
+                        alert("Error Service not added");
+                        $("#addService").trigger("reset");
+                    }
                 },
                 error: function(data){
-                    alert("error");
+                    alert("Error update POST");
                 }
             });
 

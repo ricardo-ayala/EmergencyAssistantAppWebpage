@@ -48,7 +48,7 @@ Released   : 20130509
 
                 $.ajax({
                     type: "GET",
-                    url :"/verifyUser",
+                    url :"/validateUser",
                     contentType: "application/json",
                     data: "username="+user,
                     success : function(data) {
@@ -84,11 +84,17 @@ Released   : 20130509
                         contentType: "application/json",
                         data:JSONObject,
                         success : function(data) {
-                            alert(data.result);
-                            $("#main").trigger("reset");
+                            if(data.result == true){
+                                alert("User successfully added to the Database");
+                                window.location.replace("/search");
+                            }else{
+                                alert("Error user not added");
+                                $("#main").trigger("reset");
+                            }
+
                         },
                         error: function(data){
-                            alert(data.result);
+                            alert("Error Add User POST");
                         }
                     });
 

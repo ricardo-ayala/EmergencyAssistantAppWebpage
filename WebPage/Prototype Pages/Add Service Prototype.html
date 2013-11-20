@@ -160,11 +160,17 @@ Released   : 20130509
                         contentType: "application/json",
                         data:JSONObject,
                         success : function(data) {
-                            alert(data.result);
-                            $("#addService").trigger("reset");
+                            if(data.result == true){
+                                alert("Service added to the Database");
+                                window.location.replace("/search");
+                            }else{
+                                alert("Error Service not added");
+                                $("#addService").trigger("reset");
+                            }
+
                         },
                         error: function(data){
-                            alert("error");
+                            alert("Error add POST");
                         }
                     });
 
@@ -201,7 +207,7 @@ Released   : 20130509
 
                       $.ajax({
                           type: "GET",
-                          url :"/verifyAgency",
+                          url :"/validateAgency",
                           contentType: "application/json",
                           data: "agencyPhoneNumber="+ phone,
                           success : function(data) {

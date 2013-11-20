@@ -93,11 +93,16 @@ Released   : 20130509
                         contentType: "application/json",
                         data:JSONObject,
                         success : function(data) {
-                            alert("success");
-                            $("#main").trigger("reset");
+                            if(data.result == true){
+                                alert("User successfully added to the Database");
+                                window.location.replace("/search");
+                            }else{
+                                alert("Error user not added");
+                                $("#main").trigger("reset");
+                            }
                         },
                         error: function(data){
-                            alert("error");
+                            alert("Error update user POST");
                         }
                     });
 
