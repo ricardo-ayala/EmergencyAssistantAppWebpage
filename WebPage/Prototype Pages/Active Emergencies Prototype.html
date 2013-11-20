@@ -304,6 +304,7 @@ $(function(){
                 success : function(data) {
 
                     alert("The information for emergency with Telephone number "+key+" has been resolved and saved to the Data Base");
+                    $("#"+key).empty();
                     $("#"+key).remove();
                     localStorage.removeItem(key);
 
