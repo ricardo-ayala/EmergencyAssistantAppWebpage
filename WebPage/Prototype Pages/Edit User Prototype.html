@@ -76,6 +76,31 @@ Released   : 20130509
             });
         });
 
+        //<!-----------------------------------------Verifies User un DB----------------------------------------------->
+        $(function(){
+            $("#username").blur(function(){
+                var user = $("#username").val();
+
+                $.ajax({
+                    type: "GET",
+                    url :"/validateUser",
+                    contentType: "application/json",
+                    data: "username="+user,
+                    success : function(data) {
+                        if(data.exist == true){
+                            alert("User already exist in the Database");
+                            return false;
+                        }else{
+                            alert("User does not exist in the Database");
+                            return false;
+                        }
+                    },
+                    error: function(data){
+                        alert("Error verifying User GET");
+                    }
+                });
+            });
+        });
         //<!---------------------------------------Updates user to the system------------------------------------------>
         $(function(){
             $("#submit").click(function(){

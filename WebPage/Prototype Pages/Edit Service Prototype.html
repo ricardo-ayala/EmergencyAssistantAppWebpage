@@ -201,6 +201,36 @@ $(function() {
     });
 });
 
+
+//<!-----------------------------------------Checks for Service inside the DB---------------------------------->
+$(function(){
+    $("#altPhoneNumber0").keyup(function(){
+        if($("#altPhoneNumber0").val().length == 10){
+            var phone = $("#altPhoneNumber0").val();
+
+            $.ajax({
+                type: "GET",
+                url :"/validateAgency",
+                contentType: "application/json",
+                data: "agencyPhoneNumber="+ phone,
+                success : function(data) {
+                    if( data.exist == true){
+                        alert("Service already exist in the Database");
+                        return false;
+                    }else{
+                        alert("Service does not exist in the Database");
+                        return false;
+                    }
+
+                },
+                error: function(data){
+                    alert("Error verifying Service");
+                }
+            });
+        }
+    });
+});
+
 <!----------------------------Adds a new Service to the system-------------------------->
 
 $(function(){

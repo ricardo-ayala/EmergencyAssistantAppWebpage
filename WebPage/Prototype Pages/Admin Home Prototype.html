@@ -302,7 +302,11 @@ $(function(){
                 data: sendData,
                 success : function(data) {
                     alert("Service successfully deleted");
-                    setTimeout(function(){location.reload()}, 100);
+                    $("#sidebar1").css("display","inline");
+                    $("#sidebar2").css("display","none");
+                    $(".entry").css("display", "inline");
+                    $(".entry1").css("display", "none");
+                    $("#go").attr("disabled", false);
                 },
                 error: function(data){
                     alert("error service delete");
