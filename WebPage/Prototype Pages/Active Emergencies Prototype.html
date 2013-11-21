@@ -24,6 +24,9 @@ Released   : 20130509
 <script src="http://maps.google.com/maps/api/js?sensor=false"></script>
 
 <script>
+
+var oldRelayInfo;
+
 //<!-----------TRANSFORMS a String Object to a JSON Object--------->
 $.fn.serializeObject = function()
 {
@@ -482,6 +485,9 @@ $(function(){
             $("#timeStampR").val(JSON.parse(JSONObject).timeStamp);
             $("#oldAgencyPhoneNumberR").val(sessionStorage.getItem("agencyPhoneNumber"));
             $("#hasApplicationR").val(JSON.parse(JSONObject).hasApplication);
+            if(JSON.parse(JSONObject).reason != ""){
+                oldRelayInfo = "------------OLD RELAY------------"+JSON.parse(JSONObject).reason;
+            }
 
 
         }
@@ -527,6 +533,8 @@ $(function(){
     $("#rel").click(function(){
 
         var key = $("#clientPhoneNumberR").val();
+
+        $("#reasonR").val($("#reasonR").val()+oldRelayInfo);
 
         var JSONObject = JSON.stringify($("#relay").serializeObject());
 
