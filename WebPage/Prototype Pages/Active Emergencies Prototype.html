@@ -163,11 +163,14 @@ $(function() {
             var data = sessionStorage.getItem(key);
             $("#latitude").val(JSON.parse(data).relay.latitude);
             $("#longitude").val(JSON.parse(data).relay.longitude);
+            $("#hasApplication").val("Yes");
             sessionStorage.removeItem(key);
         }
 
-
-
+        if($("#hasApplication").val() == ""){
+            $("#hasApplication").val("No");
+        }
+        $("#oldAgencyPhoneNumber").val(sessionStorage.getItem("agencyPhoneNumber"));
 
         var JSONObject = JSON.stringify($("#add").serializeObject());
         localStorage.setItem( key , JSONObject );
@@ -270,7 +273,7 @@ $(function(){
             $("#longitude").val(JSON.parse(JSONObject).longitude);
             $("#timeStamp").val(JSON.parse(JSONObject).timeStamp);
             $("#hasApplication").val(JSON.parse(JSONObject).hasApplication);
-            $("#oldAgencyPhoneNumber").val(JSON.parse(JSONObject).oldAgencyPhoneNumber);
+            $("#oldAgencyPhoneNumber").val(sessionStorage.getItem("agencyPhoneNumber"));
             $("#newAgencyPhoneNumber").val(JSON.parse(JSONObject).newAgencyPhoneNumber);
             $("#reason").val(JSON.parse(JSONObject).reason);
 
