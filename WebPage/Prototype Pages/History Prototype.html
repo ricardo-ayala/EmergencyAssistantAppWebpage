@@ -139,8 +139,10 @@ Released   : 20130509
                         $("#toe").html(data.data.typeOfEmergency);
                         $("#eah").html(data.data.outsideHome);
                         $("#aa").html(data.data.attendedBy);
-                        $("#ed").html(data.data.emergencyDetail);
-                        $("#rd").html(data.details.reason);
+                        $("#ed").html(data.data.emergencyDetails);
+                        if(typeof data.details.reason != "undefined"){
+                            $("#rd").html(data.detail.reason);
+                        }
                         $("#ts").html(data.data.time);
                         $("#ha").html(data.data.hasApplication);
                         $("#tc").html(data.data.timeCompleted);
