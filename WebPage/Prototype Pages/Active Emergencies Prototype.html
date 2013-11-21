@@ -185,7 +185,7 @@ $(function() {
 
 
 
-        <!--------------CHANGES HTML Doc to initial state----------------------------------->
+        //<!--------------CHANGES HTML Doc to initial state----------------------------------->
         $("#sidebar1").css("display","inline");
         $("#sidebar2").css("display","none");
         $("#show").attr("disabled", false);
@@ -449,7 +449,7 @@ $(function() {
 
 
 
-<!-----------------Relays clients information with another agency----------------->
+//<!-----------------Relays clients information with another agency------------------------------------------------------>
 
 $(function(){
     $("#changeRelay").click(function(){
@@ -487,6 +487,38 @@ $(function(){
         }
         else{
             alert("Choose an Emergency to Relay");
+        }
+    });
+});
+
+//<!-----------------------------------------Checks for Service inside the DB---------------------------------->
+$(function(){
+    $("#newAgencyPhoneNumberR").keyup(function(){
+        if($("#newAgencyPhoneNumberR").val().length == 10){
+            var phone = $("#newAgencyPhoneNumberR").val();
+
+            $.ajax({
+                type: "GET",
+                url :"/validateAgency",
+                contentType: "application/json",
+                data: "agencyPhoneNumber="+ phone,
+                success : function(data) {
+                    if( data.exist == true){
+                        alert("Service already exist in the Database");
+                        $("#rel").attr("disabled", false);
+                        return false;
+                    }else{
+                        alert("Service does not exist in the Database, cannot relay the selected Emergency");
+                        $("#rel").attr("disabled", true);
+                        return false;
+
+                    }
+
+                },
+                error: function(data){
+                    alert("Error verifying Service");
+                }
+            });
         }
     });
 });
