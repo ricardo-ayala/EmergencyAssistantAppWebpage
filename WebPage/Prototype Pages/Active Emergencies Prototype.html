@@ -330,7 +330,9 @@ $(function(){
             $("#newAgencyPhoneNumber").val(JSON.parse(JSONObject).newAgencyPhoneNumber);
             $("#reason").val(JSON.parse(JSONObject).reason);
             $("#timeCompleted").val(time);
-            
+
+
+            JSONObject = JSON.stringify($("#add").serializeObject());
 
             $.ajax({
                 type: "POST",
