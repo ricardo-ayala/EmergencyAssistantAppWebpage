@@ -234,10 +234,10 @@ $(function(){
                     var dataColumn = data.emergencyType.length;
 
                     $("#CSSTableGenerator").append('<table><tr>');
-                    $("#CSSTableGenerator").append('<td>  </td>');
+                    $("#CSSTableGenerator").append('<th>  </th>');
 
                     for(var i = 0; i < dataColumn; i++){
-                        $("#CSSTableGenerator").append('<td><a href="/emergencyResult?emergencyType='+data.emergencyType[i].emergencyType+'&agencyPhoneNumber='+agencyNumber+'">'+data.emergencyType[i].emergencyType+'</a></td>');
+                        $("#CSSTableGenerator").append('<th><a href="/emergencyResult?emergencyType='+data.emergencyType[i].emergencyType+'&agencyPhoneNumber='+agencyNumber+'">'+data.emergencyType[i].emergencyType+'</a></th>');
                     }
 
                     $("#CSSTableGenerator").append('</tr><tr>');
@@ -332,10 +332,10 @@ $(function (){
                     var dataColumn = data.emergencyType.length;
 
                     $("#CSSTableGenerator").append('<table><tr>');
-                    $("#CSSTableGenerator").append('<td>  </td>');
+                    $("#CSSTableGenerator").append('<th>  </th>');
 
                     for(var i = 0; i < dataColumn; i++){
-                        $("#CSSTableGenerator").append('<td><a href="/emergencyResult?emergencyType='+data.emergencyType[i].emergencyType+'&agencyPhoneNumber='+agencyNumber+'&username='+ data.username +'">'+data.emergencyType[i].emergencyType+'</a></td>');
+                        $("#CSSTableGenerator").append('<th><a href="/emergencyResult?emergencyType='+data.emergencyType[i].emergencyType+'&agencyPhoneNumber='+agencyNumber+'&username='+ data.username +'">'+data.emergencyType[i].emergencyType+'</a></th>');
                     }
 
                     $("#CSSTableGenerator").append('</tr><tr>');

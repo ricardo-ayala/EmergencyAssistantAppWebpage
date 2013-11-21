@@ -4,7 +4,7 @@ Design by Free CSS Templates
 http://www.freecsstemplates.org
 Released for free under a Creative Commons Attribution 2.5 License
 
-Name       : Breakeven 
+Name       : Breakeven
 Description: A two-column, fixed-width design with dark color scheme.
 Version    : 1.0
 Released   : 20130509
@@ -170,7 +170,7 @@ Released   : 20130509
 
                         var dataRows = data.emergencyList.length;
 
-                        $("#CSSTableGenerator").append('<table> <tr> <td> </td> <td>Resolved</td><td>Outside Home</td><td>Time Elapsed</td><td>Has Application</td><td>View Details</td></tr>');
+                        $("#CSSTableGenerator").append('<table> <tr> <th> </th> <th>Resolved</th><th>Outside Home</th><td>Time Elapsed</td><td>Has Application</td><td>View Details</td></tr>');
 
                         for(var j = 0; j < dataRows; j++){
                             $("#CSSTableGenerator").append('<tr>');
@@ -192,12 +192,17 @@ Released   : 20130509
             }
         });
 
-        //<!----------------------------------------------------Log out-------------------------------------------------------->
+        //<!----------------------------------------------------Log out------------------------------------------------>
         function logOut(){
             sessionStorage.clear();
             window.location.replace("/");
         };
-
+        //<!-------------------------------------------Back to Statistical Search-------------------------------------->
+        $(function(){
+           $("#backToStat").click(function(){
+              window.location.replace("/stat");
+           });
+        });
     </script>
 
 
@@ -231,7 +236,7 @@ Released   : 20130509
 
 
                     </div>
-
+                    <button type="button" id="backToStat" class="more">Back to Statistical Search</button>
                 </div>
             </div>
         </div>
