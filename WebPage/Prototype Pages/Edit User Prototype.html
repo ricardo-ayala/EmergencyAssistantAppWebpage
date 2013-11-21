@@ -58,18 +58,23 @@ Released   : 20130509
                     contentType: "application/json",
                     data: "username="+sendData[1],
                     success : function(data) {
+                        if(typeof data.username != "undefined"){
 
-                        $("#oldUsername").val(data.username);
-                        $("#name").val(data.name);
-                        $("#username").val(data.username);
-                        $("#password").val(data.password);
-                        $("#email").val(data.email);
-                        $("#role").val(data.role);
-                        $("#agencyPhoneNumber").val(data.agencyPhoneNumber);
+                            $("#oldUsername").val(data.username);
+                            $("#name").val(data.name);
+                            $("#username").val(data.username);
+                            $("#password").val(data.password);
+                            $("#email").val(data.email);
+                            $("#role").val(data.role);
+                            $("#agencyPhoneNumber").val(data.agencyPhoneNumber);
+                        }else{
+                            alert("There is no information for that request");
+                        }
+
 
                     },
                     error: function(data){
-                        alert("error user edit");
+                        alert("Error user edit GET");
                     }
                 });
 

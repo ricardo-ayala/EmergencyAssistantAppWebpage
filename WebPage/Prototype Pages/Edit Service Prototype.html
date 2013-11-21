@@ -62,49 +62,53 @@ $(function(){
             contentType: "application/json",
             data: "agencyPhoneNumber="+sendData[1],
             success : function(data) {
-
-                $("#agencyName").val(data.detail.agencyName);
-                $("#category").val(data.detail.category);
-                $("#altArea0").val(data.area[0].altArea);
-                $("#altPhoneNumber0").val(data.phone[0].altPhoneNumber);
-                $("#city").val(data.detail.city);
-                $("#state").val(data.detail.state);
-                $("#country").val(data.detail.country);
-                $("#currentAltPhoneNumber").val(data.phone[0].altPhoneNumber);
-                if($("#category").val()== "Hospital" || $("#category").val()== "hospital"){
-                    $("#lat").val(data.coordinate.latitude);
-                    $("#lon").val(data.coordinate.longitude);
-                    $("#la").show();
-                    $("#lo").show();
-                }
-
-                var count = data.area.length;
-                var i = 1;
-                if(count > 1){
-                    $("#lessA").attr("disabled", false);
-                    $("#lessP").attr("disabled", false);
-                    for(i = 1; i < count; i++){
-                        $("#ALTA").append('<h3 id="altA' + i + '">Alternate Area:<input id="altaA' + i + '" type="text"  name="altArea'+ i +'" /></h3>');
-                        $("#altaA"+i).val(data.area[i].altArea);
-
+                if(typeof data.detail.agencyName != "undefined"){
+                    $("#agencyName").val(data.detail.agencyName);
+                    $("#category").val(data.detail.category);
+                    $("#altArea0").val(data.area[0].altArea);
+                    $("#altPhoneNumber0").val(data.phone[0].altPhoneNumber);
+                    $("#city").val(data.detail.city);
+                    $("#state").val(data.detail.state);
+                    $("#country").val(data.detail.country);
+                    $("#currentAltPhoneNumber").val(data.phone[0].altPhoneNumber);
+                    if($("#category").val()== "Hospital" || $("#category").val()== "hospital"){
+                        $("#lat").val(data.coordinate.latitude);
+                        $("#lon").val(data.coordinate.longitude);
+                        $("#la").show();
+                        $("#lo").show();
                     }
-                    countA = count-1;
+
+                    var count = data.area.length;
+                    var i = 1;
+                    if(count > 1){
+                        $("#lessA").attr("disabled", false);
+                        $("#lessP").attr("disabled", false);
+                        for(i = 1; i < count; i++){
+                            $("#ALTA").append('<h3 id="altA' + i + '">Alternate Area:<input id="altaA' + i + '" type="text"  name="altArea'+ i +'" /></h3>');
+                            $("#altaA"+i).val(data.area[i].altArea);
+
+                        }
+                        countA = count-1;
+                    }
+
+                    var count2 = data.phone.length;
+                    var p = 1;
+                    if(count2 > 1){
+                        for(p = 1; p < count2; p++){
+                            $("#ALTP").append('<h3 id="altP' + p + '" >Alternate Telephone:<input id="altaP' + p + '" type="text"  name="altPhoneNumber'+ p +'" maxlength="10"size="10"/></h3>');
+                            $("#altaP"+p).val(data.phone[p].altPhoneNumber);
+                        }
+                        countP = count2-1;
+                    }
+                }else{
+                    alert("There is no data for that Request");
                 }
 
-                var count2 = data.phone.length;
-                var p = 1;
-                if(count2 > 1){
-                    for(p = 1; p < count2; p++){
-                        $("#ALTP").append('<h3 id="altP' + p + '" >Alternate Telephone:<input id="altaP' + p + '" type="text"  name="altPhoneNumber'+ p +'" maxlength="10"size="10"/></h3>');
-                        $("#altaP"+p).val(data.phone[p].altPhoneNumber);
-                    }
-                    countP = count2-1;
-                }
 
 
             },
             error: function(data){
-                alert("error user edit");
+                alert("Error Service Edit GET");
             }
         });
 
