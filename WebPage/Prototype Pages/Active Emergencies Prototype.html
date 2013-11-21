@@ -94,7 +94,7 @@ $(function() {
                         $("#clientName").val(data.relay.clientName);
                         $("#clientAddress").val(data.relay.clientAddress);
 
-                        if (data.relay.outsideHome == "No"){
+                        if (data.relay.outsideHome == "no"){
                             $("#no").prop("checked", true);
                             $("#yes").prop("checked", false);
                         }
@@ -163,12 +163,12 @@ $(function() {
             var data = sessionStorage.getItem(key);
             $("#latitude").val(JSON.parse(data).relay.latitude);
             $("#longitude").val(JSON.parse(data).relay.longitude);
-            $("#hasApplication").val("Yes");
+            $("#hasApplication").val("yes");
             sessionStorage.removeItem(key);
         }
 
         if($("#hasApplication").val() == ""){
-            $("#hasApplication").val("No");
+            $("#hasApplication").val("no");
         }
         $("#oldAgencyPhoneNumber").val(sessionStorage.getItem("agencyPhoneNumber"));
 
@@ -263,7 +263,7 @@ $(function(){
             $("#clientName").val(JSON.parse(JSONObject).clientName);
             $("#clientAddress").val(JSON.parse(JSONObject).clientAddress);
 
-            if ( JSON.parse(JSONObject).outsideHome == "No"){
+            if ( JSON.parse(JSONObject).outsideHome == "no"){
                 $("#no").prop("checked", true);
                 $("#yes").prop("checked", false);
             }
@@ -613,7 +613,7 @@ function logOut(){
                                 <option value="Type1">Type 1</option>
                                 <option value="Type2">Type 2</option>
                                 <option value="Type3">Type 3</option></select></li>
-                            <li>Emergency at Home?:<input id="yes" type="radio" name="outsideHome" value="Yes" checked >Yes</input><input id="no" type="radio" name="outsideHome" value="No" >No</input></li>
+                            <li>Emergency at Home?:<input id="yes" type="radio" name="outsideHome" value="yes" checked >Yes</input><input id="no" type="radio" name="outsideHome" value="no" >No</input></li>
                             <li>Assigned Agent: <input id="attendedBy" type="text" name="attendedBy" maxlength="40" ></li>
                             <li>Emergency Description:<br><textarea id="emergencyDetails" rows="7" cols="40" name="emergencyDetails"  placeholder="Short description of the emergency" required></textarea></li>
                             <li>Client Location:<p id="c"></p></li>
