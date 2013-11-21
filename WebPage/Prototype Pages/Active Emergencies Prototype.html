@@ -301,20 +301,53 @@ $(function(){
         if(typeof key != "undefined"){
             JSONObject = localStorage.getItem(key);
 
+            var timestamp = new Date();
+            var month = timestamp.getMonth()+1;
+            var day = timestamp.getDate();
+
+            var time = timestamp.getFullYear() + '-' +
+                    ((''+month).length<2 ? '0' : '') + month + '-' +
+                    ((''+day).length<2 ? '0' : '') + day +" "+ timestamp.getHours()+":"+timestamp.getMinutes()+":"+timestamp.getSeconds();
+
+            $("#clientPhoneNumber").val(JSON.parse(JSONObject).clientPhoneNumber);
+            $("#clientName").val(JSON.parse(JSONObject).clientName);
+            $("#clientAddress").val(JSON.parse(JSONObject).clientAddress);
+
+            if ( JSON.parse(JSONObject).outsideHome == "no"){
+                $("#no").prop("checked", true);
+                $("#yes").prop("checked", false);
+            }
+            $("#attendedBy").val(JSON.parse(JSONObject).attendedBy);
+            $("#emergencyDetails").val(JSON.parse(JSONObject).emergencyDetails);
+            $("#latitude").val(JSON.parse(JSONObject).latitude);
+            $("#longitude").val(JSON.parse(JSONObject).longitude);
+            $("#timeStamp").val(JSON.parse(JSONObject).timeStamp);
+            $("#hasApplication").val(JSON.parse(JSONObject).hasApplication);
+            $("#oldAgencyPhoneNumber").val(sessionStorage.getItem("agencyPhoneNumber"));
+            $("#newAgencyPhoneNumber").val(JSON.parse(JSONObject).newAgencyPhoneNumber);
+            $("#reason").val(JSON.parse(JSONObject).reason);
+            $("#timeCompleted").val(time);
+            
+
             $.ajax({
                 type: "POST",
                 url :"/saveEmergency",
                 contentType: "application/json",
                 data: JSONObject ,
                 success : function(data) {
+                    if(data.result == true){
+                        alert("The information for emergency with Telephone number "+key+" has been resolved and saved to the Data Base");
+                        localStorage.removeItem(key);
+                    }else{
+                        alert("The information was not saved to the DB");
+                    }
 
-                    alert("The information for emergency with Telephone number "+key+" has been resolved and saved to the Data Base");
 
-                    localStorage.removeItem(key);
+
 
                 },
                 error: function(data){
-                    alert("error"+JSON.parse(data).result);
+                    alert("Error save Emergency POST");
                 }
             });
 
