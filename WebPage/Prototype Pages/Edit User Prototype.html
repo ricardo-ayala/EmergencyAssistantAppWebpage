@@ -93,10 +93,12 @@ Released   : 20130509
                     data: "username="+user,
                     success : function(data) {
                         if(data.exist == true){
-                            alert("User already exist in the Database");
+                            alert("User already exist in the Database, choose another Username");
+                            $("#submit").attr("disabled", true);
                             return false;
                         }else{
                             alert("User does not exist in the Database");
+                            $("#submit").attr("disabled", false);
                             return false;
                         }
                     },
@@ -120,9 +122,11 @@ Released   : 20130509
                         success : function(data) {
                             if( data.exist == true){
                                 alert("Service already exist in the Database");
+                                $("#submit").attr("disabled", false);
                                 return false;
                             }else{
-                                alert("Service does not exist in the Database");
+                                alert("Service does not exist in the Database, you may not add an employee of a phantom company");
+                                $("#submit").attr("disabled", true);
                                 return false;
                             }
 

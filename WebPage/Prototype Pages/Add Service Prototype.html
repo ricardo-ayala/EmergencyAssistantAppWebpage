@@ -212,11 +212,14 @@ Released   : 20130509
                           data: "agencyPhoneNumber="+ phone,
                           success : function(data) {
                             if( data.exist == true){
-                                alert("Service already exist in the Database");
+                                alert("Service already exist in the Database, cannot add a service with equal phone number as other company");
+                                $("#add").attr("disabled", true);
                                 return false;
                             }else{
                                 alert("Service does not exist in the Database");
+                                $("#add").attr("disabled", false);
                                 return false;
+
                             }
 
                        },
