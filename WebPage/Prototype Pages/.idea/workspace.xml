@@ -50,10 +50,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Add Service Prototype.html" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="Add Service Prototype.html" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Add Service Prototype.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="219" column="66" selection-start="7856" selection-end="7972" vertical-scroll-proportion="2.303435" vertical-offset="2516" max-vertical-offset="5321">
+            <state line="219" column="66" selection-start="7856" selection-end="7972" vertical-scroll-proportion="-46.423077" vertical-offset="2516" max-vertical-offset="5321">
               <folding />
             </state>
           </provider>
@@ -77,10 +77,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Active Emergencies Prototype.html" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="Active Emergencies Prototype.html" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Active Emergencies Prototype.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="657" column="110" selection-start="24653" selection-end="24653" vertical-scroll-proportion="-7.117647" vertical-offset="10806" max-vertical-offset="11662">
+            <state line="494" column="15" selection-start="17052" selection-end="17059" vertical-scroll-proportion="0.33266532" vertical-offset="8232" max-vertical-offset="11662">
               <folding />
             </state>
           </provider>
@@ -132,11 +132,11 @@
         <option value="$PROJECT_DIR$/Login Prototype.html" />
         <option value="$PROJECT_DIR$/Statistic Prototype.html" />
         <option value="$PROJECT_DIR$/Report Result Prototype.html" />
-        <option value="$PROJECT_DIR$/Active Emergencies Prototype.html" />
         <option value="$PROJECT_DIR$/Add Service Prototype.html" />
         <option value="$PROJECT_DIR$/Add User Prototype.html" />
         <option value="$PROJECT_DIR$/Edit User Prototype.html" />
         <option value="$PROJECT_DIR$/Edit Service Prototype.html" />
+        <option value="$PROJECT_DIR$/Active Emergencies Prototype.html" />
       </list>
     </option>
   </component>
@@ -371,13 +371,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Active Emergencies Prototype.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="657" column="110" selection-start="24653" selection-end="24653" vertical-scroll-proportion="-7.117647" vertical-offset="10806" max-vertical-offset="11662">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Add User Prototype.html">
       <provider selected="true" editor-type-id="text-editor">
         <state line="87" column="127" selection-start="3742" selection-end="3830" vertical-scroll-proportion="-13.730769" vertical-offset="1122" max-vertical-offset="3689">
@@ -401,7 +394,14 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Add Service Prototype.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="219" column="66" selection-start="7856" selection-end="7972" vertical-scroll-proportion="2.303435" vertical-offset="2516" max-vertical-offset="5321">
+        <state line="219" column="66" selection-start="7856" selection-end="7972" vertical-scroll-proportion="-46.423077" vertical-offset="2516" max-vertical-offset="5321">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Active Emergencies Prototype.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="494" column="15" selection-start="17052" selection-end="17059" vertical-scroll-proportion="0.33266532" vertical-offset="8232" max-vertical-offset="11662">
           <folding />
         </state>
       </provider>

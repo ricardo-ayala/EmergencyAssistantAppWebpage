@@ -195,7 +195,7 @@ $(function() {
         $("#changeRelay").attr("disabled", false);
         $("#add").trigger("reset");
         $("#save").attr("disabled", true);
-        setTimeout(function(){location.reload()}, 100);
+        setTimeout(function(){location.reload()}, 1000);
 
         return false;
     });
@@ -318,7 +318,7 @@ $(function(){
                 }
             });
 
-            setTimeout(function(){location.reload()}, 100);
+            setTimeout(function(){location.reload()}, 1000);
         }
         else{
             alert("Choose an emergency to Mark as Resolved");
@@ -492,7 +492,7 @@ $(function(){
         $("#changeRelay").attr("disabled", false);
         $("#relay").trigger("reset");
         $("#rel").attr("disabled", true);
-        setTimeout(function(){location.reload()}, 100);
+        setTimeout(function(){location.reload()}, 1000);
 
     });
 });
