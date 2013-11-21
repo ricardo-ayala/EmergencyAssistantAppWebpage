@@ -32,10 +32,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Edit User Prototype.html" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="Edit User Prototype.html" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Edit User Prototype.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="124" column="67" selection-start="5001" selection-end="5001" vertical-scroll-proportion="-0.4274809" vertical-offset="2332" max-vertical-offset="4352">
+            <state line="124" column="67" selection-start="5001" selection-end="5001" vertical-scroll-proportion="8.615385" vertical-offset="2332" max-vertical-offset="4352">
               <folding />
             </state>
           </provider>
@@ -50,10 +50,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Add Service Prototype.html" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="Add Service Prototype.html" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Add Service Prototype.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="214" column="139" selection-start="7574" selection-end="7674" vertical-scroll-proportion="-9.807693" vertical-offset="3383" max-vertical-offset="5321">
+            <state line="219" column="66" selection-start="7856" selection-end="7972" vertical-scroll-proportion="2.303435" vertical-offset="2516" max-vertical-offset="5321">
               <folding />
             </state>
           </provider>
@@ -62,7 +62,7 @@
       <file leaf-file-name="Edit Service Prototype.html" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Edit Service Prototype.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="60" column="31" selection-start="1925" selection-end="1925" vertical-scroll-proportion="-0.0" vertical-offset="1020" max-vertical-offset="6409">
+            <state line="226" column="58" selection-start="7458" selection-end="7458" vertical-scroll-proportion="11.115385" vertical-offset="4131" max-vertical-offset="6443">
               <folding />
             </state>
           </provider>
@@ -132,11 +132,11 @@
         <option value="$PROJECT_DIR$/Login Prototype.html" />
         <option value="$PROJECT_DIR$/Statistic Prototype.html" />
         <option value="$PROJECT_DIR$/Report Result Prototype.html" />
-        <option value="$PROJECT_DIR$/Edit Service Prototype.html" />
         <option value="$PROJECT_DIR$/Active Emergencies Prototype.html" />
         <option value="$PROJECT_DIR$/Add Service Prototype.html" />
         <option value="$PROJECT_DIR$/Add User Prototype.html" />
         <option value="$PROJECT_DIR$/Edit User Prototype.html" />
+        <option value="$PROJECT_DIR$/Edit Service Prototype.html" />
       </list>
     </option>
   </component>
@@ -364,13 +364,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Edit Service Prototype.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="60" column="31" selection-start="1925" selection-end="1925" vertical-scroll-proportion="0.0" vertical-offset="1020" max-vertical-offset="6409">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Login Prototype.html">
       <provider selected="true" editor-type-id="text-editor">
         <state line="73" column="28" selection-start="3037" selection-end="3037" vertical-scroll-proportion="-10.461538" vertical-offset="969" max-vertical-offset="4012">
@@ -385,13 +378,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Add Service Prototype.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="214" column="139" selection-start="7574" selection-end="7674" vertical-scroll-proportion="-9.807693" vertical-offset="3383" max-vertical-offset="5321">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Add User Prototype.html">
       <provider selected="true" editor-type-id="text-editor">
         <state line="87" column="127" selection-start="3742" selection-end="3830" vertical-scroll-proportion="-13.730769" vertical-offset="1122" max-vertical-offset="3689">
@@ -401,7 +387,21 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Edit User Prototype.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="124" column="67" selection-start="5001" selection-end="5001" vertical-scroll-proportion="-0.4274809" vertical-offset="2332" max-vertical-offset="4352">
+        <state line="124" column="67" selection-start="5001" selection-end="5001" vertical-scroll-proportion="8.615385" vertical-offset="2332" max-vertical-offset="4352">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Edit Service Prototype.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="226" column="58" selection-start="7458" selection-end="7458" vertical-scroll-proportion="11.115385" vertical-offset="4131" max-vertical-offset="6443">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Add Service Prototype.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="219" column="66" selection-start="7856" selection-end="7972" vertical-scroll-proportion="2.303435" vertical-offset="2516" max-vertical-offset="5321">
           <folding />
         </state>
       </provider>
