@@ -265,7 +265,6 @@ $(function(){
                 contentType: "application/json",
                 data:JSONObject,
                 success : function(data) {
-                    alert(data.result);
                     if(data.result == true){
                         alert("Service added to the Database");
                         window.location.replace("/search");
