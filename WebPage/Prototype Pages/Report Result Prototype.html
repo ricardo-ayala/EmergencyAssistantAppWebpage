@@ -167,7 +167,7 @@ Released   : 20130509
                     contentType: "application/json",
                     data: "emergencyType="+emergencytype+"&agencyPhoneNumber="+agencynumber+"&username="+username,
                     success : function(data) {
-
+                        setTimeout(function(data){
                         var dataRows = data.emergencyList.length;
 
                         $(".CSSTableGenerator").append('<table> <tr> <th> </th> <th>Resolved</th><th>Outside Home</th><td>Time Elapsed</td><td>Has Application</td><td>View Details</td></tr>');
@@ -184,6 +184,7 @@ Released   : 20130509
 
                         }
                         $(".CSSTableGenerator").append('</table>');
+                        }, 1000);
                     },
                     error: function(data){
                         alert("error Employee GET");
