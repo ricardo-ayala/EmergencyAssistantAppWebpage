@@ -24,6 +24,7 @@ Released   : 20130509
 
 
     <script>
+        var currentPhoneNumber = "";
         //<!-----------TRANSFORMS a String Object to a JSON Object--------->
         $.fn.serializeObject = function()
         {
@@ -110,7 +111,7 @@ Released   : 20130509
         });
         //<!-----------------------------------------Checks for Service inside the DB---------------------------------->
         $(function(){
-            $("#altPhoneNumber0").keyup(function(){
+            $("#agencyPhoneNumber").keyup(function(){
                 if($("#agencyPhoneNumber").val().length == 10){
                     var phone = $("#agencyPhoneNumber").val();
 

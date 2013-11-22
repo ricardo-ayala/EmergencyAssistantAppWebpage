@@ -26,6 +26,7 @@ Released   : 20130509
 <script>
 var countA = 0;
 var countP = 0;
+var currentPhoneNumber = "";
 $(window).load(function(){
     $("#la").hide();
     $("#lo").hide();
@@ -66,6 +67,7 @@ $(function(){
                     $("#agencyName").val(data.detail.agencyName);
                     $("#category").val(data.detail.category);
                     $("#altArea0").val(data.area[0].altArea);
+                    currentPhoneNumber = data.phone[0].altPhoneNumber;
                     $("#altPhoneNumber0").val(data.phone[0].altPhoneNumber);
                     $("#city").val(data.detail.city);
                     $("#state").val(data.detail.state);
@@ -219,9 +221,15 @@ $(function(){
                 data: "agencyPhoneNumber="+ phone,
                 success : function(data) {
                     if( data.exist == true){
-                        alert("Service already exist in the Database, cannot add a service with equal phone number as other company");
-                        $("#add").attr("disabled", true);
-                        return false;
+                        if(currentPhoneNumber == phone){
+                            alert("This is the current phone number");
+                            return false;
+                        }else{
+                            alert("Service already exist in the Database, cannot add a service with equal phone number as other company");
+                            $("#add").attr("disabled", true);
+                            return false;
+                        }
+
                     }else{
                         alert("Service does not exist in the Database");
                         $("#add").attr("disabled", false);
