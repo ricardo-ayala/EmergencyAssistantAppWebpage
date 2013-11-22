@@ -24,7 +24,7 @@ Released   : 20130509
 
 
     <script>
-        var currentPhoneNumber = "";
+        var currentUsername = "";
         //<!-----------TRANSFORMS a String Object to a JSON Object--------->
         $.fn.serializeObject = function()
         {
@@ -64,6 +64,7 @@ Released   : 20130509
                             $("#oldUsername").val(data.username);
                             $("#name").val(data.name);
                             $("#username").val(data.username);
+                            currentUsername = data.username;
                             $("#password").val(data.password);
                             $("#email").val(data.email);
                             $("#role").val(data.role);
@@ -94,9 +95,15 @@ Released   : 20130509
                     data: "username="+user,
                     success : function(data) {
                         if(data.exist == true){
-                            alert("User already exist in the Database, choose another Username");
-                            $("#submit").attr("disabled", true);
-                            return false;
+                            if(currentUsername == user){
+                                alert("This is the current user");
+                                return false;
+                            }else{
+                                alert("User already exist in the Database, choose another Username");
+                                $("#submit").attr("disabled", true);
+                                return false;
+                            }
+
                         }else{
                             alert("User does not exist in the Database");
                             $("#submit").attr("disabled", false);
