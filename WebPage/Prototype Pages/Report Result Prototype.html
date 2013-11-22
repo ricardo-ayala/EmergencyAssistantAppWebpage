@@ -141,19 +141,19 @@ Released   : 20130509
 
                         var dataRows = data.emergencyList.length;
 
-                        $("#CSSTableGenerator").append('<table> <tr> <th> </th> <th>Resolved</th><th>Outside Home</th><th>Time Elapsed</th><th>Has Application</th><th>View Details</th></tr>');
+                        $(".CSSTableGenerator").append('<table> <tr> <th> </th> <th>Resolved</th><th>Outside Home</th><th>Time Elapsed</th><th>Has Application</th><th>View Details</th></tr>');
 
                         for(var j = 0; j < dataRows; j++){
-                            $("#CSSTableGenerator").append('<tr>');
-                            $("#CSSTableGenerator").append('<td>'+j+1+'</td>');
-                            $("#CSSTableGenerator").append('<td>'+data.emergencyList[j].resolved+'</td>');
-                            $("#CSSTableGenerator").append('<td>'+data.emergencyList[j].outsideHome+'</td>');
-                            $("#CSSTableGenerator").append('<td>'+data.emergencyList[j].timeElapsed+'</td>');
-                            $("#CSSTableGenerator").append('<td>'+data.emergencyList[j].hasApplication+'</td>');
-                            $("#CSSTableGenerator").append('<td><button type="button" onclick="linkCreator(this)" value="'+ data.emergencyList[j].time +','+ data.emergencyList[j].clientPhoneNumber +'" >View Details</button> </td>');
-                            $("#CSSTableGenerator").append('</tr>');
+                            $(".CSSTableGenerator").append('<tr>');
+                            $(".CSSTableGenerator").append('<td>'+j+1+'</td>');
+                            $(".CSSTableGenerator").append('<td>'+data.emergencyList[j].resolved+'</td>');
+                            $(".CSSTableGenerator").append('<td>'+data.emergencyList[j].outsideHome+'</td>');
+                            $(".CSSTableGenerator").append('<td>'+data.emergencyList[j].timeElapsed+'</td>');
+                            $(".CSSTableGenerator").append('<td>'+data.emergencyList[j].hasApplication+'</td>');
+                            $(".CSSTableGenerator").append('<td><button type="button" onclick="linkCreator(this)" value="'+ data.emergencyList[j].time +','+ data.emergencyList[j].clientPhoneNumber +'" >View Details</button> </td>');
+                            $(".CSSTableGenerator").append('</tr>');
                         }
-                        $("#CSSTableGenerator").append('</table>');
+                        $(".CSSTableGenerator").append('</table>');
 
                     },
                     error: function(data){
@@ -167,7 +167,7 @@ Released   : 20130509
                     contentType: "application/json",
                     data: "emergencyType="+emergencytype+"&agencyPhoneNumber="+agencynumber+"&username="+username,
                     success : function(data) {
-                        setTimeout(function(data){
+
                             var dataRows = data.emergencyList.length;
 
                             $(".CSSTableGenerator").append('<table> <tr> <th> </th> <th>Resolved</th><th>Outside Home</th><td>Time Elapsed</td><td>Has Application</td><td>View Details</td></tr>');
@@ -184,7 +184,7 @@ Released   : 20130509
 
                             }
                             $(".CSSTableGenerator").append('</table>');
-                        }, 1000);
+
                     },
                     error: function(data){
                         alert("error Employee GET");
