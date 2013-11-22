@@ -696,10 +696,7 @@ $(window).load(function(){
                             <li>Client Phone Number: <input id="clientPhoneNumber"type="text" name="clientPhoneNumber" maxlength="10" size="10" required/></li>
                             <li>Name:<input id="clientName" type="text" name="clientName" maxlength="40" size="30"required></li>
                             <li>Address:<input id="clientAddress" type="text" name="clientAddress" maxlength="100" size="30" required></li>
-                            <li>Type of Emergency:<select id="typeOfEmergency" name="typeOfEmergency" size="1" placeholder="Select Type" required>
-                                <option value="Type1">Type 1</option>
-                                <option value="Type2">Type 2</option>
-                                <option value="Type3">Type 3</option></select></li>
+                            <li>Type of Emergency:<input id="typeOfEmergency" type="text" name="typeOfEmergency" required/></li>
                             <li>Emergency at Home?:<input id="yes" type="radio" name="outsideHome" value="yes" checked >Yes</input><input id="no" type="radio" name="outsideHome" value="no" >No</input></li>
                             <li>Assigned Agent: <input id="attendedBy" type="text" name="attendedBy" maxlength="40" ></li>
                             <li>Emergency Description:<br><textarea id="emergencyDetails" rows="7" cols="40" name="emergencyDetails"  placeholder="Short description of the emergency" required></textarea></li>
