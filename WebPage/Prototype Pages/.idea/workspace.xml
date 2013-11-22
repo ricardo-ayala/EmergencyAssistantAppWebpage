@@ -95,19 +95,19 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Report Result Prototype.html" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="Report Result Prototype.html" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Report Result Prototype.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="165" column="20" selection-start="7404" selection-end="7404" vertical-scroll-proportion="0.38358778" vertical-offset="2604" max-vertical-offset="4862">
+            <state line="204" column="14" selection-start="9764" selection-end="9764" vertical-scroll-proportion="-9.692307" vertical-offset="3216" max-vertical-offset="4862">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="style.css" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="style.css" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/style.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="859" column="1" selection-start="15140" selection-end="15140" vertical-scroll-proportion="0.0" vertical-offset="12693" max-vertical-offset="14722">
+            <state line="766" column="0" selection-start="10631" selection-end="10631" vertical-scroll-proportion="0.8188277" vertical-offset="12561" max-vertical-offset="13124">
               <folding />
             </state>
           </provider>
@@ -129,11 +129,11 @@
         <option value="$PROJECT_DIR$/Add User Prototype.html" />
         <option value="$PROJECT_DIR$/Edit Service Prototype.html" />
         <option value="$PROJECT_DIR$/Edit User Prototype.html" />
-        <option value="$PROJECT_DIR$/style.css" />
         <option value="$PROJECT_DIR$/Active Emergencies Prototype.html" />
         <option value="$PROJECT_DIR$/History Prototype.html" />
         <option value="$PROJECT_DIR$/Statistic Prototype.html" />
         <option value="$PROJECT_DIR$/Report Result Prototype.html" />
+        <option value="$PROJECT_DIR$/style.css" />
       </list>
     </option>
   </component>
@@ -386,16 +386,16 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/style.css">
+    <entry file="file://$PROJECT_DIR$/Report Result Prototype.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="859" column="1" selection-start="15140" selection-end="15140" vertical-scroll-proportion="0.0" vertical-offset="12693" max-vertical-offset="14722">
+        <state line="204" column="14" selection-start="9764" selection-end="9764" vertical-scroll-proportion="-9.692307" vertical-offset="3216" max-vertical-offset="4862">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Report Result Prototype.html">
+    <entry file="file://$PROJECT_DIR$/style.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="165" column="20" selection-start="7404" selection-end="7404" vertical-scroll-proportion="0.38358778" vertical-offset="2604" max-vertical-offset="4862">
+        <state line="766" column="0" selection-start="10631" selection-end="10631" vertical-scroll-proportion="0.8188277" vertical-offset="12561" max-vertical-offset="13124">
           <folding />
         </state>
       </provider>
