@@ -70,10 +70,12 @@ Released   : 20130509
 
                                 if(typeof data.username != "undefined"){
                                     if(data.role == "admin"){
-                                        sessionStorage.setItem(data.username, data.role);
+                                        sessionStorage.setItem("role", data.role);
+                                        sessionStorage.setItem("username", data.username);
                                         window.location.replace("/search");
                                     }if(data.role == "employee"){
-                                        sessionStorage.setItem(data.username, data.role);
+                                        sessionStorage.setItem("role", data.role);
+                                        sessionStorage.setItem("username", data.username);
                                         sessionStorage.setItem("agencyPhoneNumber", data.agencyPhoneNumber);
                                         window.location.replace("/sp");
                                     }

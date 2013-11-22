@@ -224,6 +224,15 @@ Released   : 20130509
         sessionStorage.clear();
         window.location.replace("/");
     };
+
+    //<!----------------------------------------------Verifies User in Session--------------------------------------------->
+    $(window).load(function(){
+        var user = sessionStorage.getItem("role");
+        if(user == "" || user != "employee"){
+            alert("Invalid User in session");
+            window.location.replace("/");
+        }
+    });
 </script>
 
 

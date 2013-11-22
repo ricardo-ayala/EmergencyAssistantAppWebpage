@@ -185,6 +185,14 @@ Released   : 20130509
             sessionStorage.clear();
             window.location.replace("/");
         };
+        //<!----------------------------------------------Verifies User in Session--------------------------------------------->
+        $(window).load(function(){
+            var user = sessionStorage.getItem("role");
+            if(user == "" || user != "admin"){
+                alert("Invalid User in session");
+                window.location.replace("/");
+            }
+        });
 
         //<!---------------------------------------------------Check if Category is Hospitals-------------------------->
         $(function(){
