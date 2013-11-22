@@ -233,50 +233,50 @@ $(function(){
 
                     var dataColumn = data.emergencyType.length;
 
-                    $("#CSSTableGenerator").append('<table><tr>');
-                    $("#CSSTableGenerator").append('<th>  </th>');
+                    $(".CSSTableGenerator").append('<table><tr>');
+                    $(".CSSTableGenerator").append('<th>  </th>');
 
                     for(var i = 0; i < dataColumn; i++){
-                        $("#CSSTableGenerator").append('<th><a href="/emergencyResult?emergencyType='+data.emergencyType[i].emergencyType+'&agencyPhoneNumber='+agencyNumber+'">'+data.emergencyType[i].emergencyType+'</a></th>');
+                        $(".CSSTableGenerator").append('<th><a href="/emergencyResult?emergencyType='+data.emergencyType[i].emergencyType+'&agencyPhoneNumber='+agencyNumber+'">'+data.emergencyType[i].emergencyType+'</a></th>');
                     }
 
-                    $("#CSSTableGenerator").append('</tr><tr>');
+                    $(".CSSTableGenerator").append('</tr><tr>');
 
-                    $("#CSSTableGenerator").append('<td><strong>Total</strong></td>');
+                    $(".CSSTableGenerator").append('<td><strong>Total</strong></td>');
 
                     for(var i = 0; i < dataColumn; i++){
-                        $("#CSSTableGenerator").append('<td>'+data.total[i]+'</td>');
+                        $(".CSSTableGenerator").append('<td>'+data.total[i]+'</td>');
                     }
 
-                    $("#CSSTableGenerator").append('</tr><tr>');
-                    $("#CSSTableGenerator").append('<td><strong>Average Time</strong></td>');
+                    $(".CSSTableGenerator").append('</tr><tr>');
+                    $(".CSSTableGenerator").append('<td><strong>Average Time</strong></td>');
 
                     for(var i = 0; i < dataColumn; i++){
-                        $("#CSSTableGenerator").append('<td>'+data.averageTime[i]+'</td>');
+                        $(".CSSTableGenerator").append('<td>'+data.averageTime[i]+'</td>');
                     }
 
-                    $("#CSSTableGenerator").append('</tr><tr>');
-                    $("#CSSTableGenerator").append('<td><strong>Outside</strong></td>');
+                    $(".CSSTableGenerator").append('</tr><tr>');
+                    $(".CSSTableGenerator").append('<td><strong>Outside</strong></td>');
 
                     for(var i = 0; i < dataColumn; i++){
-                        $("#CSSTableGenerator").append('<td>'+data.outside[i]+'</td>');
+                        $(".CSSTableGenerator").append('<td>'+data.outside[i]+'</td>');
                     }
 
-                    $("#CSSTableGenerator").append('</tr><tr>');
-                    $("#CSSTableGenerator").append('<td><strong>Resolved</strong></td>');
+                    $(".CSSTableGenerator").append('</tr><tr>');
+                    $(".CSSTableGenerator").append('<td><strong>Resolved</strong></td>');
 
                     for(var i = 0; i < dataColumn; i++){
-                        $("#CSSTableGenerator").append('<td>'+data.resolved[i]+'</td>');
+                        $(".CSSTableGenerator").append('<td>'+data.resolved[i]+'</td>');
                     }
 
-                    $("#CSSTableGenerator").append('</tr><tr>');
-                    $("#CSSTableGenerator").append('<td><strong>Has Application</strong></td>');
+                    $(".CSSTableGenerator").append('</tr><tr>');
+                    $(".CSSTableGenerator").append('<td><strong>Has Application</strong></td>');
 
                     for(var i = 0; i < dataColumn; i++){
-                        $("#CSSTableGenerator").append('<td>'+data.hasApplication[i]+'</td>');
+                        $(".CSSTableGenerator").append('<td>'+data.hasApplication[i]+'</td>');
                     }
 
-                    $("#CSSTableGenerator").append('</tr> </table>')
+                    $(".CSSTableGenerator").append('</tr> </table>')
 
 
 
@@ -326,55 +326,55 @@ $(function (){
                 data:"username="+sendData+"&agencyPhoneNumber="+agencyNumber,
                 success : function(data) {
 
-                    $("#CSSTableGenerator").empty();
-                    $("#employeeList").empty();
+                    $(".CSSTableGenerator").empty();
+                    $(".employeeList").empty();
 
                     var dataColumn = data.emergencyType.length;
 
-                    $("#CSSTableGenerator").append('<table><tr>');
-                    $("#CSSTableGenerator").append('<th>  </th>');
+                    $(".CSSTableGenerator").append('<table><tr>');
+                    $(".CSSTableGenerator").append('<th>  </th>');
 
                     for(var i = 0; i < dataColumn; i++){
-                        $("#CSSTableGenerator").append('<th><a href="/emergencyResult?emergencyType='+data.emergencyType[i].emergencyType+'&agencyPhoneNumber='+agencyNumber+'&username='+ data.username +'">'+data.emergencyType[i].emergencyType+'</a></th>');
+                        $(".CSSTableGenerator").append('<th><a href="/emergencyResult?emergencyType='+data.emergencyType[i].emergencyType+'&agencyPhoneNumber='+agencyNumber+'&username='+ data.username +'">'+data.emergencyType[i].emergencyType+'</a></th>');
                     }
 
-                    $("#CSSTableGenerator").append('</tr><tr>');
+                    $(".CSSTableGenerator").append('</tr><tr>');
 
-                    $("#CSSTableGenerator").append('<td><strong>Total</strong></td>');
+                    $(".CSSTableGenerator").append('<td><strong>Total</strong></td>');
 
                     for(var i = 0; i < dataColumn; i++){
-                        $("#CSSTableGenerator").append('<td>'+data.total[i]+'</td>');
+                        $(".CSSTableGenerator").append('<td>'+data.total[i]+'</td>');
                     }
 
-                    $("#CSSTableGenerator").append('</tr><tr>');
-                    $("#CSSTableGenerator").append('<td><strong>Average Time</strong></td>');
+                    $(".CSSTableGenerator").append('</tr><tr>');
+                    $(".CSSTableGenerator").append('<td><strong>Average Time</strong></td>');
 
                     for(var i = 0; i < dataColumn; i++){
-                        $("#CSSTableGenerator").append('<td>'+data.averageTime[i]+'</td>');
+                        $(".CSSTableGenerator").append('<td>'+data.averageTime[i]+'</td>');
                     }
 
-                    $("#CSSTableGenerator").append('</tr><tr>');
-                    $("#CSSTableGenerator").append('<td><strong>Outside</strong></td>');
+                    $(".CSSTableGenerator").append('</tr><tr>');
+                    $(".CSSTableGenerator").append('<td><strong>Outside</strong></td>');
 
                     for(var i = 0; i < dataColumn; i++){
-                        $("#CSSTableGenerator").append('<td>'+data.outside[i]+'</td>');
+                        $(".CSSTableGenerator").append('<td>'+data.outside[i]+'</td>');
                     }
 
-                    $("#CSSTableGenerator").append('</tr><tr>');
-                    $("#CSSTableGenerator").append('<td><strong>Resolved</strong></td>');
+                    $(".CSSTableGenerator").append('</tr><tr>');
+                    $(".CSSTableGenerator").append('<td><strong>Resolved</strong></td>');
 
                     for(var i = 0; i < dataColumn; i++){
-                        $("#CSSTableGenerator").append('<td>'+data.resolved[i]+'</td>');
+                        $(".CSSTableGenerator").append('<td>'+data.resolved[i]+'</td>');
                     }
 
-                    $("#CSSTableGenerator").append('</tr><tr>');
-                    $("#CSSTableGenerator").append('<td><strong>Has Application</strong></td>');
+                    $(".CSSTableGenerator").append('</tr><tr>');
+                    $(".CSSTableGenerator").append('<td><strong>Has Application</strong></td>');
 
                     for(var i = 0; i < dataColumn; i++){
-                        $("#CSSTableGenerator").append('<td>'+data.hasApplication[i]+'</td>');
+                        $(".CSSTableGenerator").append('<td>'+data.hasApplication[i]+'</td>');
                     }
 
-                    $("#CSSTableGenerator").append('</tr> </table>')
+                    $(".CSSTableGenerator").append('</tr> </table>')
 
 
 
@@ -427,7 +427,7 @@ function logOut(){
             <div class="post">
                 <h2 id="greeting" class="title">Statistics Search</h2>
 
-                <div id="CSSTableGenerator" >
+                <div class="CSSTableGenerator" >
 
                 </div>
 
