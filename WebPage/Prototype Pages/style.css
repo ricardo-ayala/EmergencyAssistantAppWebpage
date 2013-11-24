@@ -764,6 +764,7 @@ ul.style1 .first {
     text-decoration: none;
 }
 
-.CSSTableGenerator table th td{
+.CSSTableGenerator{
     border:1px solid black;
+    width: 100%;
 }

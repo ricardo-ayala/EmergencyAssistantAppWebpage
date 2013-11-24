@@ -201,7 +201,8 @@ Released   : 20130509
         //<!-------------------------------------------Back to Statistical Search-------------------------------------->
         $(function(){
             $("#backToStat").click(function(){
-                window.location.replace("/stat");
+
+                setTimeout(function(){location.reload()}, 1000);
             });
         });
     </script>

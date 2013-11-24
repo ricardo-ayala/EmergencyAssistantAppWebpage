@@ -102,7 +102,7 @@ $(function() {
                             $("#yes").prop("checked", false);
                         }
                         $("#attendedBy").val(data.relay.attendedBy);
-                        $("#typeOfEmergency").val(data.relay.emergencyType);
+                        $("#emergencyType").val(data.relay.emergencyType);
                         $("#emergencyDetails").val(data.relay.emergencyDetails);
                         $("#latitude").val(data.relay.latitude);
                         $("#longitude").val(data.relay.longitude);
@@ -223,7 +223,7 @@ $(window).load(function () {
             JSONObject = localStorage.getItem(key);
 
 
-            var texto = JSON.parse(JSONObject).clientName + ", " +JSON.parse(JSONObject).clientPhoneNumber + ", " +JSON.parse(JSONObject).attendedBy;
+            var texto = "Client Name: "+JSON.parse(JSONObject).clientName + ", Client Phone Number" +JSON.parse(JSONObject).clientPhoneNumber + ", Attended by:" +JSON.parse(JSONObject).attendedBy;
 
 
 
@@ -272,7 +272,7 @@ $(function(){
                 $("#yes").prop("checked", false);
             }
             $("#attendedBy").val(JSON.parse(JSONObject).attendedBy);
-            $("typeOfEmergency").val(JSON.parse(JSONObject).emergencyType);
+            $("#emergencyType").val(JSON.parse(JSONObject).emergencyType);
             $("#emergencyDetails").val(JSON.parse(JSONObject).emergencyDetails);
             $("#latitude").val(JSON.parse(JSONObject).latitude);
             $("#longitude").val(JSON.parse(JSONObject).longitude);
@@ -325,7 +325,7 @@ $(function(){
                 $("#no").prop("checked", true);
                 $("#yes").prop("checked", false);
             }
-            $("typeOfEmergency").val(JSON.parse(JSONObject).emergencyType);
+            $("#emergencyType").val(JSON.parse(JSONObject).emergencyType);
             $("#attendedBy").val(JSON.parse(JSONObject).attendedBy);
             $("#emergencyDetails").val(JSON.parse(JSONObject).emergencyDetails);
             $("#latitude").val(JSON.parse(JSONObject).latitude);
@@ -479,7 +479,7 @@ $(function(){
             $("#clientPhoneNumberR").val(JSON.parse(JSONObject).clientPhoneNumber);
             $("#clientNameR").val(JSON.parse(JSONObject).clientName);
             $("#clientAddressR").val(JSON.parse(JSONObject).clientAddress);
-            $("#typeOfEmergencyR").val(JSON.parse(JSONObject).emergencyType);
+            $("#emergencyTypeR").val(JSON.parse(JSONObject).emergencyType);
             $("#outsideHomeR").val(JSON.parse(JSONObject).outsideHome);
             $("#attendedByR").val(JSON.parse(JSONObject).attendedBy);
             $("#emergencyDetailsR").val(JSON.parse(JSONObject).emergencyDetails);
@@ -489,7 +489,7 @@ $(function(){
             $("#oldAgencyPhoneNumberR").val(sessionStorage.getItem("agencyPhoneNumber"));
             $("#hasApplicationR").val(JSON.parse(JSONObject).hasApplication);
             if(JSON.parse(JSONObject).reason != ""){
-                oldRelayInfo = ">>>>>>>>>>>>>>OLD RELAY>>>>>>>>>>>>>>"+JSON.parse(JSONObject).reason;
+                oldRelayInfo = "  >>>>>>>>>>>>>>Previous Relay Information>>>>>>>>>>>>>>  "+JSON.parse(JSONObject).reason;
             }
 
 
@@ -537,7 +537,7 @@ $(function(){
 
         var key = $("#clientPhoneNumberR").val();
 
-        $("#reasonR").val($("#reasonR").val()+oldRelayInfo);
+        $("#reasonR").val("Relay from: "+ sessionStorage.getItem("agencyPhoneNumber")+ "Reason to Relay: "+$("#reasonR").val()+oldRelayInfo);
 
         var JSONObject = JSON.stringify($("#relay").serializeObject());
 
@@ -699,7 +699,7 @@ $(window).load(function(){
                             <li>Client Phone Number: <input id="clientPhoneNumber"type="text" name="clientPhoneNumber" maxlength="10" size="10" required/></li>
                             <li>Name:<input id="clientName" type="text" name="clientName" maxlength="40" size="30"required></li>
                             <li>Address:<input id="clientAddress" type="text" name="clientAddress" maxlength="100" size="30" required></li>
-                            <li>Type of Emergency:<input id="typeOfEmergency" type="text" name="emergencyType" required/></li>
+                            <li>Type of Emergency:<input id="emergencyType" type="text" name="emergencyType" required/></li>
                             <li>Emergency at Home?:<input id="yes" type="radio" name="outsideHome" value="yes" checked >Yes</input><input id="no" type="radio" name="outsideHome" value="no" >No</input></li>
                             <li>Assigned Agent: <input id="attendedBy" type="text" name="attendedBy" maxlength="40" ></li>
                             <li>Emergency Description:<br><textarea id="emergencyDetails" rows="7" cols="40" name="emergencyDetails"  placeholder="Short description of the emergency" required></textarea></li>
@@ -731,7 +731,7 @@ $(window).load(function(){
                             <input id="clientPhoneNumberR" type=hidden name="clientPhoneNumber" maxlength="10" size="10" required/>
                             <input id="clientNameR" type=hidden name="clientName" maxlength="40" size="30"required/>
                             <input id="clientAddressR" type=hidden name="clientAddress" maxlength="100" size="30" required/>
-                            <input id="typeOfEmergencyR" type=hidden name="emergencyType" required/>
+                            <input id="emergencyTypeR" type=hidden name="emergencyType" required/>
                             <input id="outsideHomeR" type=hidden name="outsideHome"/>
                             <input id="attendedByR" type="hidden" name="attendedBy" maxlength="40" />
                             <input id="emergencyDetailsR" type=hidden name="emergencyDetails" maxlength="500" required/>
