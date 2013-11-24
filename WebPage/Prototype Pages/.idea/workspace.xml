@@ -26,7 +26,7 @@
       <file leaf-file-name="Admin Home Prototype.html" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Admin Home Prototype.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="120" column="40" selection-start="4328" selection-end="4328" vertical-scroll-proportion="-5.5882354" vertical-offset="1755" max-vertical-offset="8432">
+            <state line="120" column="40" selection-start="4328" selection-end="4328" vertical-scroll-proportion="0.0" vertical-offset="1755" max-vertical-offset="8432">
               <folding />
             </state>
           </provider>
@@ -71,7 +71,7 @@
       <file leaf-file-name="Statistic Prototype.html" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Statistic Prototype.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="320" column="52" selection-start="12341" selection-end="12341" vertical-scroll-proportion="51.653847" vertical-offset="6783" max-vertical-offset="8687">
+            <state line="320" column="52" selection-start="12341" selection-end="12341" vertical-scroll-proportion="0.0" vertical-offset="6783" max-vertical-offset="8687">
               <folding />
             </state>
           </provider>
@@ -80,7 +80,7 @@
       <file leaf-file-name="Active Emergencies Prototype.html" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Active Emergencies Prototype.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="491" column="34" selection-start="17955" selection-end="17955" vertical-scroll-proportion="4.745698" vertical-offset="5865" max-vertical-offset="13124">
+            <state line="539" column="89" selection-start="19470" selection-end="19470" vertical-scroll-proportion="6.8910136" vertical-offset="5559" max-vertical-offset="13124">
               <folding />
             </state>
           </provider>
@@ -89,7 +89,7 @@
       <file leaf-file-name="History Prototype.html" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/History Prototype.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="2" column="28" selection-start="143" selection-end="143" vertical-scroll-proportion="0.0" vertical-offset="782" max-vertical-offset="5678">
+            <state line="2" column="28" selection-start="143" selection-end="143" vertical-scroll-proportion="20.423077" vertical-offset="565" max-vertical-offset="5678">
               <folding />
             </state>
           </provider>
@@ -98,7 +98,7 @@
       <file leaf-file-name="Report Result Prototype.html" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Report Result Prototype.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="167" column="56" selection-start="7524" selection-end="7537" vertical-scroll-proportion="-37.2549" vertical-offset="939" max-vertical-offset="4879">
+            <state line="167" column="56" selection-start="7524" selection-end="7537" vertical-scroll-proportion="0.0" vertical-offset="939" max-vertical-offset="4879">
               <folding />
             </state>
           </provider>
@@ -169,7 +169,6 @@
       <sortByType />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -190,6 +189,7 @@
           </PATH>
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -198,6 +198,14 @@
     <property name="FullScreen" value="false" />
   </component>
   <component name="RunManager">
+    <configuration default="true" type="DartUnitRunConfigurationType" factoryName="DartUnit">
+      <option name="VMOptions" />
+      <option name="arguments" />
+      <option name="filePath" />
+      <option name="scope" value="ALL" />
+      <option name="testName" />
+      <method />
+    </configuration>
     <configuration default="true" type="DartCommandLineRunConfigurationType" factoryName="Dart Command Line Application">
       <option name="VMOptions" />
       <option name="arguments" />
@@ -208,12 +216,8 @@
       <option name="showConsoleOnStdOut" value="false" />
       <method />
     </configuration>
-    <configuration default="true" type="DartUnitRunConfigurationType" factoryName="DartUnit">
-      <option name="VMOptions" />
-      <option name="arguments" />
-      <option name="filePath" />
-      <option name="scope" value="ALL" />
-      <option name="testName" />
+    <configuration default="true" type="JavaScriptTestRunnerKarma" factoryName="Karma" singleton="true" config-file="">
+      <envs />
       <method />
     </configuration>
     <configuration default="true" type="JSTestDriver:ConfigurationType" factoryName="JsTestDriver">
@@ -221,10 +225,6 @@
       <setting name="settingsFile" value="" />
       <setting name="serverType" value="INTERNAL" />
       <setting name="preferredDebugBrowser" value="CHROME" />
-      <method />
-    </configuration>
-    <configuration default="true" type="JavaScriptTestRunnerKarma" factoryName="Karma" singleton="true" config-file="">
-      <envs />
       <method />
     </configuration>
     <configuration default="true" type="JavascriptDebugType" factoryName="JavaScript Debug" singleton="true">
@@ -359,16 +359,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/History Prototype.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="2" column="28" selection-start="143" selection-end="143" vertical-scroll-proportion="0.0" vertical-offset="782" max-vertical-offset="5678">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Statistic Prototype.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="320" column="52" selection-start="12341" selection-end="12341" vertical-scroll-proportion="51.653847" vertical-offset="6783" max-vertical-offset="8687">
+        <state line="320" column="52" selection-start="12341" selection-end="12341" vertical-scroll-proportion="0.0" vertical-offset="6783" max-vertical-offset="8687">
           <folding />
         </state>
       </provider>
@@ -382,21 +375,28 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Admin Home Prototype.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="120" column="40" selection-start="4328" selection-end="4328" vertical-scroll-proportion="-5.5882354" vertical-offset="1755" max-vertical-offset="8432">
+        <state line="120" column="40" selection-start="4328" selection-end="4328" vertical-scroll-proportion="0.0" vertical-offset="1755" max-vertical-offset="8432">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Report Result Prototype.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="167" column="56" selection-start="7524" selection-end="7537" vertical-scroll-proportion="-37.2549" vertical-offset="939" max-vertical-offset="4879">
+        <state line="167" column="56" selection-start="7524" selection-end="7537" vertical-scroll-proportion="0.0" vertical-offset="939" max-vertical-offset="4879">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/History Prototype.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="2" column="28" selection-start="143" selection-end="143" vertical-scroll-proportion="20.423077" vertical-offset="565" max-vertical-offset="5678">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Active Emergencies Prototype.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="491" column="34" selection-start="17955" selection-end="17955" vertical-scroll-proportion="4.745698" vertical-offset="5865" max-vertical-offset="13124">
+        <state line="539" column="89" selection-start="19470" selection-end="19470" vertical-scroll-proportion="6.8910136" vertical-offset="5559" max-vertical-offset="13124">
           <folding />
         </state>
       </provider>

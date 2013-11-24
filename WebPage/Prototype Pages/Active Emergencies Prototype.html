@@ -223,7 +223,7 @@ $(window).load(function () {
             JSONObject = localStorage.getItem(key);
 
 
-            var texto = "Client Name: "+JSON.parse(JSONObject).clientName + ", Client Phone Number" +JSON.parse(JSONObject).clientPhoneNumber + ", Attended by:" +JSON.parse(JSONObject).attendedBy;
+            var texto = JSON.parse(JSONObject).clientName + ",  " +JSON.parse(JSONObject).clientPhoneNumber + ",  " +JSON.parse(JSONObject).attendedBy;
 
 
 
@@ -537,7 +537,7 @@ $(function(){
 
         var key = $("#clientPhoneNumberR").val();
 
-        $("#reasonR").val("Relay from: "+ sessionStorage.getItem("agencyPhoneNumber")+ "Reason to Relay: "+$("#reasonR").val()+oldRelayInfo);
+        $("#reasonR").val("Relay from: "+ sessionStorage.getItem("agencyPhoneNumber")+ " Reason to Relay: "+$("#reasonR").val()+oldRelayInfo);
 
         var JSONObject = JSON.stringify($("#relay").serializeObject());
 
