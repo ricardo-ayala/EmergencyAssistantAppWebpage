@@ -124,12 +124,11 @@ Released   : 20130509
 
         $(function(){
             $("#gorecovery").click(function(){
-                $("#agencyPhoneNumber").val("[agencyPhoneNumber]");
-                $("#usernamerecovery").val("[username]");
+
 
                 var JSONObject = JSON.stringify($("#emailform").serializeObject());
                 if(JSON.parse(JSONObject).email == ""){
-                    alert("Please fill in all the text fields for password recovery");
+                    alert("Please fill in the email text field for password recovery");
                     return false;
                 }else{
                     $.ajax({
@@ -138,12 +137,15 @@ Released   : 20130509
                         contentType: "application/json",
                         data: JSONObject,
                         success : function(data) {
+                            if(typeof data.username != "undefined"){
+                                alert("Account Username is: "+ data.username+" and account password is: "+data.password );
+                                $("#sidebar2").css("display", "none");
+                                $("#sidebar1").css("display", "inline");
+                                $("#gorecovery").attr("disabled", true);
+                            }else{
+                                alert("Password or Username does not exist for that e-mail address");
+                            }
 
-                            alert("Account password is: "+data.password);
-
-                            $("#sidebar2").css("display", "none");
-                            $("#sidebar1").css("display", "inline");
-                            $("#gorecovery").attr("disabled", true);
                         },
                         error: function(data){
                             alert("Error retrieve password POST");
@@ -208,8 +210,6 @@ Released   : 20130509
                     <ul>
                         <form id="emailform" action="" method="post">
                             <li>E-mail Address:<input type="text" id="email" name="email" maxlength="25" required/></li>
-                            <li><input type=hidden id="agencyPhoneNumber" name="agencyPhoneNumber"/></li>
-                            <li><input type=hidden id="usernamerecovery" name="username"/></li>
                             <button id="gorecovery" type="" class="more" disabled>Submit</button>
                         </form>
 
