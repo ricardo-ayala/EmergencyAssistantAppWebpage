@@ -24,8 +24,6 @@ Released   : 20130509
 
 
 <script>
-var count;
-
 //<!-----------TRANSFORMS a String Object to a JSON Object--------->
 $.fn.serializeObject = function()
 {
@@ -179,11 +177,11 @@ $(function(){
 
 
 
-                        count = data.area.length;
+                        var count = data.area.length;
                         var i = 1;
                         if(count > 1){
                             for(i = 1; i < count; i++){
-                                $("#altArea").append('<li id="'+count+'">Alternate Area:<h3 id="altA' + i + '"></h3></li>');
+                                $("#altArea").append('<li>Alternate Area:<h3 id="altA' + i + '"></h3></li>');
                                 $("#altA"+i).html(data.area[i].altArea);
                             }
                         }
@@ -192,7 +190,7 @@ $(function(){
                         var p = 1;
                         if(count > 1){
                             for(p = 1; p < count; p++){
-                                $("#altPhone").append('<li id="'+count+'">Alternate Phone:<h3 id="altP' + p + '"></h3></li>');
+                                $("#altPhone").append('<li>Alternate Phone:<h3 id="altP' + p + '"></h3></li>');
                                 $("#altP"+p).html(data.phone[p].altPhoneNumber);
                             }
                         }
