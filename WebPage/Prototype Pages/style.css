@@ -766,7 +766,6 @@ ul.style1 .first {
 
 .CSSTableGenerator{
     border:1px solid black;
-
 }
 
 .CSSTableGenerator td, .CSSTableGenerator th{
@@ -781,7 +780,7 @@ ul.style1 .first {
     text-align:left;
     padding-top:5px;
     padding-bottom:4px;
-    background-color:#B50D0D;
+    background-color: white;
     color:#ffffff;
 }
 
