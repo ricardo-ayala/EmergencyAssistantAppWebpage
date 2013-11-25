@@ -696,7 +696,7 @@ $(window).load(function(){
                     <h2>Emergency Information</h2>
                     <ul>
                         <form id="add" action="" method="post">
-                            <li>Client Phone Number: <input id="clientPhoneNumber"type="text" name="clientPhoneNumber" maxlength="10" size="10" pattern="/^\d{10}$/" title="10 digit telephone numbers only" required/></li>
+                            <li>Client Phone Number: <input id="clientPhoneNumber"type="text" name="clientPhoneNumber" maxlength="10" size="10" pattern="\d{10}" title="Only 10 digit phone numbers(No dashes)" required/></li>
                             <li>Name:<input id="clientName" type="text" name="clientName" maxlength="40" size="30"required></li>
                             <li>Address:<input id="clientAddress" type="text" name="clientAddress" maxlength="100" size="30" required></li>
                             <li>Type of Emergency:<input id="emergencyType" type="text" name="emergencyType" required/></li>
@@ -741,7 +741,7 @@ $(window).load(function(){
                             <input type=hidden id="timeCompletedR" name="timeCompleted"/>
                             <input type=hidden id="hasApplicationR" name="hasApplication"/>
                             <input type=hidden id="oldAgencyPhoneNumberR" name="oldAgencyPhoneNumber" maxlength="10" size="10"/>
-                            <li>Destination Phone Number: <input id="newAgencyPhoneNumberR" type="text" name="newAgencyPhoneNumber" maxlength="10" size="10" pattern="/^\d{10}$/" required/></li>
+                            <li>Destination Phone Number: <input id="newAgencyPhoneNumberR" type="text" name="newAgencyPhoneNumber" maxlength="10" size="10"  required/></li>
                             <li>Relay Description:<br><textarea id="reasonR" rows="4" cols="30" name="reason"  placeholder="Short description for the Relay" required></textarea></li>
 
                             <button id="rel" type="button" class="more" disabled>Submit</button>
