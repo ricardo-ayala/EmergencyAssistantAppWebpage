@@ -696,7 +696,7 @@ $(window).load(function(){
                     <h2>Emergency Information</h2>
                     <ul>
                         <form id="add" action="" method="post">
-                            <li>Client Phone Number: <input id="clientPhoneNumber"type="text" name="clientPhoneNumber" maxlength="10" size="10" pattern="\d{10}" title="Only 10 digit phone numbers(No dashes)" required/></li>
+                            <li>Client Phone Number: <input id="clientPhoneNumber"type="text" name="clientPhoneNumber" maxlength="10" size="10" pattern="[0-9]{10}" title="Only 10 digit phone numbers(No dashes)" required/></li>
                             <li>Name:<input id="clientName" type="text" name="clientName" maxlength="40" size="30"required></li>
                             <li>Address:<input id="clientAddress" type="text" name="clientAddress" maxlength="100" size="30" required></li>
                             <li>Type of Emergency:<input id="emergencyType" type="text" name="emergencyType" required/></li>
