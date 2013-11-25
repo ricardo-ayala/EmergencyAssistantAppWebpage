@@ -77,19 +77,19 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Active Emergencies Prototype.html" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="Active Emergencies Prototype.html" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Active Emergencies Prototype.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="777" column="30" selection-start="29313" selection-end="29313" vertical-scroll-proportion="-4.4615383" vertical-offset="13093" max-vertical-offset="13668">
+            <state line="234" column="45" selection-start="8164" selection-end="8164" vertical-scroll-proportion="0.77290076" vertical-offset="3573" max-vertical-offset="13719">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="History Prototype.html" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="History Prototype.html" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/History Prototype.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="339" column="24" selection-start="12750" selection-end="12750" vertical-scroll-proportion="0.22137405" vertical-offset="5647" max-vertical-offset="6171">
+            <state line="339" column="24" selection-start="12750" selection-end="12750" vertical-scroll-proportion="-4.4615383" vertical-offset="5647" max-vertical-offset="6171">
               <folding />
             </state>
           </provider>
@@ -107,7 +107,7 @@
       <file leaf-file-name="style.css" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/style.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="231" column="8" selection-start="3162" selection-end="3169" vertical-scroll-proportion="-7.16" vertical-offset="3748" max-vertical-offset="13583">
+            <state line="231" column="8" selection-start="3162" selection-end="3169" vertical-scroll-proportion="0.0" vertical-offset="3748" max-vertical-offset="13583">
               <folding />
             </state>
           </provider>
@@ -132,8 +132,8 @@
         <option value="$PROJECT_DIR$/Admin Home Prototype.html" />
         <option value="$PROJECT_DIR$/Report Result Prototype.html" />
         <option value="$PROJECT_DIR$/Login Prototype.html" />
-        <option value="$PROJECT_DIR$/Active Emergencies Prototype.html" />
         <option value="$PROJECT_DIR$/History Prototype.html" />
+        <option value="$PROJECT_DIR$/Active Emergencies Prototype.html" />
       </list>
     </option>
   </component>
@@ -169,7 +169,6 @@
       <sortByType />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -190,6 +189,7 @@
           </PATH>
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -198,6 +198,14 @@
     <property name="FullScreen" value="false" />
   </component>
   <component name="RunManager">
+    <configuration default="true" type="DartUnitRunConfigurationType" factoryName="DartUnit">
+      <option name="VMOptions" />
+      <option name="arguments" />
+      <option name="filePath" />
+      <option name="scope" value="ALL" />
+      <option name="testName" />
+      <method />
+    </configuration>
     <configuration default="true" type="DartCommandLineRunConfigurationType" factoryName="Dart Command Line Application">
       <option name="VMOptions" />
       <option name="arguments" />
@@ -208,12 +216,8 @@
       <option name="showConsoleOnStdOut" value="false" />
       <method />
     </configuration>
-    <configuration default="true" type="DartUnitRunConfigurationType" factoryName="DartUnit">
-      <option name="VMOptions" />
-      <option name="arguments" />
-      <option name="filePath" />
-      <option name="scope" value="ALL" />
-      <option name="testName" />
+    <configuration default="true" type="JavaScriptTestRunnerKarma" factoryName="Karma" singleton="true" config-file="">
+      <envs />
       <method />
     </configuration>
     <configuration default="true" type="JSTestDriver:ConfigurationType" factoryName="JsTestDriver">
@@ -221,10 +225,6 @@
       <setting name="settingsFile" value="" />
       <setting name="serverType" value="INTERNAL" />
       <setting name="preferredDebugBrowser" value="CHROME" />
-      <method />
-    </configuration>
-    <configuration default="true" type="JavaScriptTestRunnerKarma" factoryName="Karma" singleton="true" config-file="">
-      <envs />
       <method />
     </configuration>
     <configuration default="true" type="JavascriptDebugType" factoryName="JavaScript Debug" singleton="true">
@@ -384,21 +384,21 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/style.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="231" column="8" selection-start="3162" selection-end="3169" vertical-scroll-proportion="-7.16" vertical-offset="3748" max-vertical-offset="13583">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Active Emergencies Prototype.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="777" column="30" selection-start="29313" selection-end="29313" vertical-scroll-proportion="-4.4615383" vertical-offset="13093" max-vertical-offset="13668">
+        <state line="231" column="8" selection-start="3162" selection-end="3169" vertical-scroll-proportion="0.0" vertical-offset="3748" max-vertical-offset="13583">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/History Prototype.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="339" column="24" selection-start="12750" selection-end="12750" vertical-scroll-proportion="0.22137405" vertical-offset="5647" max-vertical-offset="6171">
+        <state line="339" column="24" selection-start="12750" selection-end="12750" vertical-scroll-proportion="-4.4615383" vertical-offset="5647" max-vertical-offset="6171">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Active Emergencies Prototype.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="234" column="45" selection-start="8164" selection-end="8164" vertical-scroll-proportion="0.77290076" vertical-offset="3573" max-vertical-offset="13719">
           <folding />
         </state>
       </provider>

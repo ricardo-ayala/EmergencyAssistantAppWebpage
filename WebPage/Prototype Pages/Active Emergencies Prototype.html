@@ -223,15 +223,18 @@ $(window).load(function () {
         for ( i = 0; i < storageElements; i++){
             key =  localStorageKeys[i];
 
-            JSONObject = localStorage.getItem(key);
+           if(key != "emergency-chat"){
+               JSONObject = localStorage.getItem(key);
 
 
-            var texto = JSON.parse(JSONObject).clientName + ",  " +JSON.parse(JSONObject).clientPhoneNumber + ",  " +JSON.parse(JSONObject).attendedBy;
+               var texto = JSON.parse(JSONObject).clientName + ",  " +JSON.parse(JSONObject).clientPhoneNumber + ",  " +JSON.parse(JSONObject).attendedBy;
 
 
 
-            var radioBtn = $('<input id="'+ key +'" type="radio" name="active" value=' + '"'+ key + '"' +'>'+texto+'</input><br>');
-            $('#active').append(radioBtn);
+               var radioBtn = $('<input id="'+ key +'" type="radio" name="active" value=' + '"'+ key + '"' +'>'+texto+'</input><br>');
+               $('#active').append(radioBtn);
+           }
+
 
 
 
