@@ -142,6 +142,7 @@ Released   : 20130509
                                 $("#sidebar2").css("display", "none");
                                 $("#sidebar1").css("display", "inline");
                                 $("#gorecovery").attr("disabled", true);
+                                $("#emailform").trigger("reset");
                             }else{
                                 alert("Password or Username does not exist for that e-mail address");
                             }

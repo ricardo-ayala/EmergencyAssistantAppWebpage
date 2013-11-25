@@ -53,6 +53,7 @@ Released   : 20130509
                 contentType: "application/json",
                 data: "time="+time+"&clientPhoneNumber="+clientPhoneNumber,
                 success : function(data) {
+
                     $("#cpn").html(data.data.clientPhoneNumber);
                     $("#n").html(data.data.clientName);
                     $("#a").html(data.data.clientAddress);
