@@ -780,8 +780,11 @@ ul.style1 .first {
     text-align:left;
     padding-top:5px;
     padding-bottom:4px;
-    background-color: white;
     color:#ffffff;
+}
+
+.CSSTableGenerator tr{
+    width: 100%;
 }
 
 .CSSTableGenerator tr.alt td
