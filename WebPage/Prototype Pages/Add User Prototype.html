@@ -21,8 +21,6 @@ Released   : 20130509
     <link href="style.css" rel="stylesheet" type="text/css" media="screen" />
 
     <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
-	<script type="text/javascript" src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.11.1/jquery.validate.min.js"></script>
-    <script type="text/javascript" src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.11.1/additional-methods.min.js"></script>
 
 
     <script>
@@ -103,14 +101,6 @@ Released   : 20130509
         //<!------------------------------------------ADD user to the system------------------------------------------->
         $(function(){
             $("#submit").click(function(){
-
-				$("#main").validate({
-				rules: {
-					name: 	{
-							required: true
-							}
-						}
-				});
 				
 			
                 var JSONObject = JSON.stringify($("#main").serializeObject());
